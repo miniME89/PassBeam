@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="io.github.minime89.keepasstransfer" >
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:name=".KeePassTransfer"
         android:allowBackup="true"
@@ -27,7 +29,7 @@
             </intent-filter>
         </service>
         <service
-            android:name=".keyboard.SuperuserWriterService"
+            android:name=".keyboard.KeyboardDeviceWriter"
             android:exported="false" >
         </service>
     </application>

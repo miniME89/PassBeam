@@ -11,12 +11,12 @@ import java.util.Collection;
 import io.github.minime89.keepasstransfer.Utils;
 
 /**
- * Service for writing strings as a HID keyboard. The service handles any operations in a background
- * thread. Superuser privileges are only requested for a single command where the encoded string is
- * written to the appropriate output device.
+ * Service for writing strings to the HID keyboard device which outputs them over USB. Superuser
+ * privileges are requested to write to the HID keyboard device file. The service handles any
+ * operations in a background thread.
  */
-public class SuperuserWriterService extends IntentService {
-    private static final String TAG = SuperuserWriterService.class.getSimpleName();
+public class KeyboardDeviceWriter extends IntentService {
+    private static final String TAG = KeyboardDeviceWriter.class.getSimpleName();
     private static final int CHARACTER_TIMEOUT = 20;
 
     /**
@@ -35,16 +35,18 @@ public class SuperuserWriterService extends IntentService {
         }
 
         //start service
-        Intent i = new Intent(context, SuperuserWriterService.class);
+        Intent i = new Intent(context, KeyboardDeviceWriter.class);
         i.putExtra("str", str);
         context.startService(i);
     }
 
-    public SuperuserWriterService() {
-        super("SuperuserWriterService");
+    public KeyboardDeviceWriter() {
+        super("KeyboardDeviceWriter");
     }
 
     private void suWrite(String str) {
+        CharacterConverter characterConverter = CharacterConverter.getInstance();
+
         Process p;
         try {
             // create new process as superuser
@@ -52,8 +54,7 @@ public class SuperuserWriterService extends IntentService {
             DataOutputStream os = new DataOutputStream(p.getOutputStream());
 
             //convert string to keyboard event
-            KeyboardConverter converter = new KeyboardConverter();
-            Collection<byte[]> data = converter.convert(str);
+            Collection<byte[]> data = characterConverter.convert(str);
 
             for (byte[] bytes : data) {
                 // write

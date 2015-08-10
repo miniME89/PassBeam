@@ -4,6 +4,8 @@ package io.github.minime89.keepasstransfer;
  * Some utility functions.
  */
 public class Utils {
+    private static final String TAG = Utils.class.getSimpleName();
+
     final private static char[] hexArray = "0123456789ABCDEF".toCharArray();
 
     /**
