@@ -1,8 +1,0 @@
-<resources>
-
-    <string name="pref_header_general">General</string>
-
-    <string name="settings_notifications_title">Notifications</string>
-    <string name="settings_notifications_summary">Allow notification access</string>
-
-</resources>

@@ -1,0 +1,46 @@
+<resources>
+
+    <!-- character timeout -->
+    <string name="settings_character_timeout_key">settings_character_timeout</string>
+    <string name="settings_character_timeout_title">Character timeout</string>
+    <string name="settings_character_timeout_summary">The timeout between emitting characters</string>
+    <string name="settings_character_timeout_defaultValue">20</string>
+    <string-array name="settings_character_timeout_entries">
+        <item>20ms</item>
+        <item>40ms</item>
+        <item>60ms</item>
+        <item>80ms</item>
+        <item>100ms</item>
+    </string-array>
+    <string-array name="settings_character_timeout_entryValues">
+        <item>20</item>
+        <item>40</item>
+        <item>60</item>
+        <item>80</item>
+        <item>100</item>
+    </string-array>
+
+    <!-- notifications -->
+    <string name="settings_notifications_key">settings_notifications_key</string>
+    <string name="settings_notifications_title">Notifications</string>
+    <string name="settings_notifications_summary">Allow notification access</string>
+
+    <!-- notifications status -->
+    <string name="settings_notifications_status_key">Notifications</string>
+    <string name="settings_notifications_status_title">Notification access is not allowed!</string>
+
+    <!-- preference group: keyboard layout -->
+    <string name="settings_group_keyboard_layout_key">settings_group_keyboard_layout_key</string>
+    <string name="settings_group_keyboard_layout_title">Keyboard layout</string>
+
+    <!-- keyboard layout -->
+    <string name="settings_keyboard_layout_key">settings_keyboard_layout</string>
+    <string name="settings_keyboard_layout_title">Keyboard layout</string>
+    <string name="settings_keyboard_layout_summary">The keyboard layout</string>
+
+    <!-- keyboard layout test -->
+    <string name="settings_keyboard_layout_test_key">settings_keyboard_layout_test_key</string>
+    <string name="settings_keyboard_layout_test_title">Test keyboard layout</string>
+    <string name="settings_keyboard_layout_test_summary">Test the currently selected keyboard layout</string>
+
+</resources>

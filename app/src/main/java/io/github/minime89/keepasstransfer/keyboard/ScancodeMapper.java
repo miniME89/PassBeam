@@ -86,7 +86,7 @@ public class ScancodeMapper {
         //load scancode mappings file
         String data = null;
         try {
-            data = MappingFileManager.getInstance().loadScancodeMapping(id);
+            data = MappingManager.getInstance().loadScancodeMapping(id);
         } catch (IOException e) {
             throw new ScancodeMapperException("couldn't load scancode mappings file", e);
         }

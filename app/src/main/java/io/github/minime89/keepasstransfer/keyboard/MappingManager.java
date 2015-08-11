@@ -13,31 +13,36 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.Arrays;
+import java.util.Collection;
 
 import io.github.minime89.keepasstransfer.KeePassTransfer;
 
-public class MappingFileManager {
-    private static final String TAG = MappingFileManager.class.getSimpleName();
+public class MappingManager {
+    private static final String TAG = MappingManager.class.getSimpleName();
     private static final String INSTALL_DIRECTORY = "app";
-    private static final String CHARACTER_MAPPING_DIRECTORY = "characters";
     private static final String SCANCODE_MAPPING_DIRECTORY = "scancodes";
+    private static final String CHARACTER_MAPPING_DIRECTORY = "characters";
 
-    private static MappingFileManager instance;
+    private static MappingManager instance;
+    private final Context context;
 
-    public static MappingFileManager getInstance() {
+    public static MappingManager getInstance() {
         if (instance == null) {
-            instance = new MappingFileManager();
+            instance = new MappingManager();
         }
 
         return instance;
     }
 
-    private MappingFileManager() {
-
+    private MappingManager() {
+        context = KeePassTransfer.getContext();
     }
 
     /**
      * Checks if external storage is available for read and write
+     *
+     * @return
      */
     public boolean isExternalStorageWritable() {
         String state = Environment.getExternalStorageState();
@@ -50,6 +55,8 @@ public class MappingFileManager {
 
     /**
      * Checks if external storage is available to at least read
+     *
+     * @return
      */
     public boolean isExternalStorageReadable() {
         String state = Environment.getExternalStorageState();
@@ -64,7 +71,6 @@ public class MappingFileManager {
         String targetPath = path.substring(INSTALL_DIRECTORY.length());
 
         //list assets
-        Context context = KeePassTransfer.getContext();
         AssetManager assetManager = context.getAssets();
         String assets[];
         try {
@@ -83,7 +89,7 @@ public class MappingFileManager {
             OutputStream os = null;
             try {
                 //input
-                is = KeePassTransfer.getContext().getAssets().open(path);
+                is = context.getAssets().open(path);
 
                 //output
                 File outputFile = new File(context.getExternalFilesDir(null), targetPath);
@@ -141,7 +147,6 @@ public class MappingFileManager {
             throw new IOException("can't access external storage");
         }
 
-        Context context = KeePassTransfer.getContext();
         InputStream is = null;
         try {
             file = new File(context.getExternalFilesDir(null), file.getPath());
@@ -177,5 +182,19 @@ public class MappingFileManager {
         File file = new File(CHARACTER_MAPPING_DIRECTORY, id);
 
         return readFile(file);
+    }
+
+    public Collection<String> listScancodeMappings() {
+        File directory = new File(context.getExternalFilesDir(null), SCANCODE_MAPPING_DIRECTORY);
+        String[] directoryList = directory.list();
+
+        return Arrays.asList(directoryList);
+    }
+
+    public Collection<String> listCharacterMappings() {
+        File directory = new File(context.getExternalFilesDir(null), CHARACTER_MAPPING_DIRECTORY);
+        String[] directoryList = directory.list();
+
+        return Arrays.asList(directoryList);
     }
 }

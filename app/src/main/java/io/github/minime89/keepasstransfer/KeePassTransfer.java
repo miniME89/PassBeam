@@ -6,7 +6,7 @@ import android.util.Log;
 
 import io.github.minime89.keepasstransfer.keyboard.CharacterConverter;
 import io.github.minime89.keepasstransfer.keyboard.CharacterMapper;
-import io.github.minime89.keepasstransfer.keyboard.MappingFileManager;
+import io.github.minime89.keepasstransfer.keyboard.MappingManager;
 import io.github.minime89.keepasstransfer.keyboard.ScancodeMapper;
 
 public class KeePassTransfer extends Application {
@@ -18,7 +18,7 @@ public class KeePassTransfer extends Application {
         super.onCreate();
         context = getApplicationContext();
 
-        MappingFileManager.getInstance().install();
+        MappingManager.getInstance().install();
 
         CharacterConverter characterConverter = CharacterConverter.getInstance();
         characterConverter.setScancodeMapper(new ScancodeMapper("default"));

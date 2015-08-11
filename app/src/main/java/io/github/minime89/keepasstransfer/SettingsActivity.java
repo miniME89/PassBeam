@@ -1,135 +1,193 @@
 package io.github.minime89.keepasstransfer;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.Configuration;
-import android.os.Build;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
-import android.preference.PreferenceFragment;
-import android.preference.PreferenceManager;
+import android.preference.PreferenceScreen;
+import android.support.annotation.LayoutRes;
+import android.support.v7.app.AppCompatDelegate;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
+import android.util.Log;
+import android.view.KeyEvent;
+import android.view.MenuInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 
-/**
- * A {@link PreferenceActivity} that presents a set of application settings. On
- * handset devices, settings are presented as a single list. On tablets,
- * settings are split by category, with category headers shown to the left of
- * the list of settings.
- * <p/>
- * See <a href="http://developer.android.com/design/patterns/settings.html">
- * Android Design: Settings</a> for design guidelines and the <a
- * href="http://developer.android.com/guide/topics/ui/settings.html">Settings
- * API Guide</a> for more information on developing a Settings UI.
- */
+import java.util.Collection;
+
+import io.github.minime89.keepasstransfer.hooks.NotificationListener;
+import io.github.minime89.keepasstransfer.keyboard.KeyboardDeviceWriter;
+import io.github.minime89.keepasstransfer.keyboard.MappingManager;
+
 public class SettingsActivity extends PreferenceActivity {
-    /**
-     * Determines whether to always show the simplified settings UI, where
-     * settings are presented in a single list. When false, settings are shown
-     * as a master/detail two-pane view on tablets. When true, a single pane is
-     * shown on tablets.
-     */
-    private static final boolean ALWAYS_SIMPLE_PREFS = false;
+    private static final String TAG = SettingsActivity.class.getSimpleName();
+    private AppCompatDelegate appCompatDelegate;
+    private Preference notificationsStatusPreference;
+
+    private NotificationListener.LifecycleListener lifecycleListener = new NotificationListener.LifecycleListener() {
+        @Override
+        public void change(int state) {
+            updateNotificationsStatus();
+        }
+    };
+
+    private void setupNotificationsStatus() {
+        notificationsStatusPreference = findPreference(getString(R.string.settings_notifications_status_key));
+
+        NotificationListener.addLifecycleListener(lifecycleListener);
+
+        updateNotificationsStatus();
+    }
+
+    private void updateNotificationsStatus() {
+        PreferenceScreen preferenceScreen = getPreferenceScreen();
+        if (notificationsStatusPreference != null && preferenceScreen != null) {
+            //notifications access is allowed
+            if (NotificationListener.isNotificationAccessEnabled()) {
+                preferenceScreen.removePreference(notificationsStatusPreference);
+            }
+            //notifications access is disallowed
+            else {
+                Spannable text = new SpannableString(notificationsStatusPreference.getTitle());
+                text.setSpan(new ForegroundColorSpan(Color.RED), 0, text.length(), 0);
+                notificationsStatusPreference.setTitle(text);
+
+                preferenceScreen.addPreference(notificationsStatusPreference);
+            }
+        }
+    }
+
+    private void setupKeyboardLayout() {
+        ListPreference keyboardLayoutPreference = (ListPreference) findPreference(getString(R.string.settings_keyboard_layout_key));
+
+        Collection<String> characterMappings = MappingManager.getInstance().listCharacterMappings();
+        CharSequence[] entries = characterMappings.toArray(new CharSequence[characterMappings.size()]);
+
+        keyboardLayoutPreference.setEntries(entries);
+        keyboardLayoutPreference.setEntryValues(entries);
+    }
+
+    private void setupKeyboardLayoutTest() {
+        Preference keyboardLayoutTestPreference = findPreference(getString(R.string.settings_keyboard_layout_test_key));
+        keyboardLayoutTestPreference.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(Preference preference) {
+                View currentView = SettingsActivity.this.getCurrentFocus();
+
+                if (currentView != null) {
+                    InputMethodManager im = (InputMethodManager) SettingsActivity.this.getSystemService(Context.INPUT_METHOD_SERVICE);
+                    im.showSoftInput(SettingsActivity.this.getCurrentFocus(), InputMethodManager.SHOW_FORCED);
+
+                    currentView.setOnKeyListener(new View.OnKeyListener() {
+                        @Override
+                        public boolean onKey(View view, int i, KeyEvent keyEvent) {
+                            if (keyEvent.getAction() == KeyEvent.ACTION_DOWN) {
+                                String str = String.valueOf((char) keyEvent.getUnicodeChar());
+                                Log.i(TAG, String.format("unicode: %d / char: %c / string: %s / event: %s", keyEvent.getUnicodeChar(), (char) keyEvent.getUnicodeChar(), str, keyEvent.toString()));
+                                KeyboardDeviceWriter.write(str);
+                            }
+
+                            return true;
+                        }
+                    });
+                }
+
+                return true;
+            }
+        });
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        getAppCompatDelegate().installViewFactory();
+        getAppCompatDelegate().onCreate(savedInstanceState);
+        super.onCreate(savedInstanceState);
+
+        // Load the preferences from an XML resource
+        addPreferencesFromResource(R.xml.settings_activity);
+
+        setupNotificationsStatus();
+        setupKeyboardLayout();
+        setupKeyboardLayoutTest();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        getAppCompatDelegate().onDestroy();
+    }
 
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
-
-        setupSimplePreferencesScreen();
+        getAppCompatDelegate().onPostCreate(savedInstanceState);
     }
 
-    /**
-     * Shows the simplified settings UI if the device configuration if the
-     * device configuration dictates that a simplified, single-pane UI should be
-     * shown.
-     */
-    private void setupSimplePreferencesScreen() {
-        if (!isSimplePreferences(this)) {
-            return;
-        }
-
-        // Add 'general' preferences.
-        addPreferencesFromResource(R.xml.settings_general);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
     @Override
-    public boolean onIsMultiPane() {
-        return isXLargeTablet(this) && !isSimplePreferences(this);
+    public MenuInflater getMenuInflater() {
+        return getAppCompatDelegate().getMenuInflater();
     }
 
-    /**
-     * Helper method to determine if the device has an extra-large screen. For
-     * example, 10" tablets are extra-large.
-     */
-    private static boolean isXLargeTablet(Context context) {
-        return (context.getResources().getConfiguration().screenLayout
-                & Configuration.SCREENLAYOUT_SIZE_MASK) >= Configuration.SCREENLAYOUT_SIZE_XLARGE;
+    @Override
+    public void setContentView(@LayoutRes int layoutResID) {
+        getAppCompatDelegate().setContentView(layoutResID);
     }
 
-    /**
-     * Determines whether the simplified settings UI should be shown. This is
-     * true if this is forced via {@link #ALWAYS_SIMPLE_PREFS}, or the device
-     * doesn't have newer APIs like {@link PreferenceFragment}, or the device
-     * doesn't have an extra-large screen. In these cases, a single-pane
-     * "simplified" settings UI should be shown.
-     */
-    private static boolean isSimplePreferences(Context context) {
-        return ALWAYS_SIMPLE_PREFS
-                || Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB
-                || !isXLargeTablet(context);
+    @Override
+    public void setContentView(View view) {
+        getAppCompatDelegate().setContentView(view);
     }
 
-    /**
-     * A preference value change listener that updates the preference's summary
-     * to reflect its new value.
-     */
-    private static Preference.OnPreferenceChangeListener sBindPreferenceSummaryToValueListener = new Preference.OnPreferenceChangeListener() {
-        @Override
-        public boolean onPreferenceChange(Preference preference, Object value) {
-            return true;
+    @Override
+    public void setContentView(View view, ViewGroup.LayoutParams params) {
+        getAppCompatDelegate().setContentView(view, params);
+    }
+
+    @Override
+    public void addContentView(View view, ViewGroup.LayoutParams params) {
+        getAppCompatDelegate().addContentView(view, params);
+    }
+
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
+        getAppCompatDelegate().onPostResume();
+    }
+
+    @Override
+    protected void onTitleChanged(CharSequence title, int color) {
+        super.onTitleChanged(title, color);
+        getAppCompatDelegate().setTitle(title);
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        getAppCompatDelegate().onConfigurationChanged(newConfig);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        getAppCompatDelegate().onStop();
+    }
+
+    public void invalidateOptionsMenu() {
+        getAppCompatDelegate().invalidateOptionsMenu();
+    }
+
+    private AppCompatDelegate getAppCompatDelegate() {
+        if (appCompatDelegate == null) {
+            appCompatDelegate = AppCompatDelegate.create(this, null);
         }
-    };
 
-    /**
-     * Binds a preference's summary to its value. More specifically, when the
-     * preference's value is changed, its summary (line of text below the
-     * preference title) is updated to reflect the value. The summary is also
-     * immediately updated upon calling this method. The exact display format is
-     * dependent on the type of preference.
-     *
-     * @see #sBindPreferenceSummaryToValueListener
-     */
-    private static void bindPreferenceSummaryToValue(Preference preference) {
-        // Set the listener to watch for value changes.
-        preference.setOnPreferenceChangeListener(sBindPreferenceSummaryToValueListener);
-
-        // Trigger the listener immediately with the preference's
-        // current value.
-        sBindPreferenceSummaryToValueListener.onPreferenceChange(preference,
-                PreferenceManager
-                        .getDefaultSharedPreferences(preference.getContext())
-                        .getString(preference.getKey(), ""));
-    }
-
-    /**
-     * This fragment shows general preferences only. It is used when the
-     * activity is showing a two-pane settings UI.
-     */
-    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
-    public static class GeneralPreferenceFragment extends PreferenceFragment {
-        @Override
-        public void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            addPreferencesFromResource(R.xml.settings_general);
-
-            // Bind the summaries of EditText/List/Dialog/Ringtone preferences
-            // to their values. When their values change, their summaries are
-            // updated to reflect the new value, per the Android Design
-            // guidelines.
-            bindPreferenceSummaryToValue(findPreference("example_text"));
-            bindPreferenceSummaryToValue(findPreference("example_list"));
-        }
+        return appCompatDelegate;
     }
 }

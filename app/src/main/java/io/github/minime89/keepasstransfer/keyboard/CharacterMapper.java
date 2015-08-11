@@ -139,14 +139,14 @@ public class CharacterMapper {
         //load character mappings file
         String data = null;
         try {
-            data = MappingFileManager.getInstance().loadCharacterMapping(id);
+            data = MappingManager.getInstance().loadCharacterMapping(id);
         } catch (IOException e) {
             throw new CharacterMapperException("couldn't load character mappings file", e);
         }
 
         //verify that a valid scancode mappings is loaded
         if (scancodeMapper == null || !scancodeMapper.isLoaded()) {
-            throw new CharacterMapperException("no valid scancode mappings is loaded");
+            throw new CharacterMapperException("no valid scancode mappings are loaded");
         }
 
         mappings = new ArrayList<>();

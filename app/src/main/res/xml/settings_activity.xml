@@ -1,0 +1,33 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ListPreference
+        android:key="@string/settings_character_timeout_key"
+        android:summary="@string/settings_character_timeout_summary"
+        android:title="@string/settings_character_timeout_title"
+        android:defaultValue="@string/settings_character_timeout_defaultValue"
+        android:entries="@array/settings_character_timeout_entries"
+        android:entryValues="@array/settings_character_timeout_entryValues" />
+
+    <Preference
+        android:key="@string/settings_notifications_key"
+        android:summary="@string/settings_notifications_summary"
+        android:title="@string/settings_notifications_title">
+        <intent android:action="android.settings.ACTION_NOTIFICATION_LISTENER_SETTINGS" />
+    </Preference>
+
+    <Preference
+        android:key="@string/settings_notifications_status_key"
+        android:title="@string/settings_notifications_status_title"
+        android:selectable="false"/>
+
+    <ListPreference
+        android:key="@string/settings_keyboard_layout_key"
+        android:summary="@string/settings_keyboard_layout_summary"
+        android:title="@string/settings_keyboard_layout_title" />
+
+    <Preference
+        android:key="@string/settings_keyboard_layout_test_key"
+        android:summary="@string/settings_keyboard_layout_test_summary"
+        android:title="@string/settings_keyboard_layout_test_title" />
+
+</PreferenceScreen>
