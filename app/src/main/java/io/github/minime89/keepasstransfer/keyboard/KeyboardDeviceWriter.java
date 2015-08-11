@@ -3,11 +3,21 @@ package io.github.minime89.keepasstransfer.keyboard;
 import android.app.IntentService;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.util.Log;
 
 import java.io.DataOutputStream;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.TimeUnit;
 
+import io.github.minime89.keepasstransfer.KeePassTransfer;
+import io.github.minime89.keepasstransfer.R;
 import io.github.minime89.keepasstransfer.Utils;
 
 /**
@@ -17,7 +27,20 @@ import io.github.minime89.keepasstransfer.Utils;
  */
 public class KeyboardDeviceWriter extends IntentService {
     private static final String TAG = KeyboardDeviceWriter.class.getSimpleName();
-    private static final int CHARACTER_TIMEOUT = 20;
+    /**
+     * The time the service waits for new string write requests before shutting down.
+     */
+    private static final int SERVICE_TIMEOUT = 2;
+
+    /**
+     * The queue which contains the string write requests.
+     */
+    private static BlockingQueue<String> stringQueue = new LinkedBlockingQueue<>();
+
+    /**
+     * The list of requested intents processed by the service.
+     */
+    private final List<Intent> intentsList = new ArrayList<>();
 
     /**
      * Request the service to write the given string as a HID keyboard. The request will start the
@@ -26,45 +49,73 @@ public class KeyboardDeviceWriter extends IntentService {
      * <p/>
      * The method will return immediately and no feedback is returned by the service (for now).
      *
-     * @param context The context.
-     * @param str     The string.
+     * @param str The string.
      */
-    public static void write(Context context, String str) {
-        if (context == null) {
-            return;
-        }
+    public static void write(String str) {
+        stringQueue.add(str);
 
-        //start service
-        Intent i = new Intent(context, KeyboardDeviceWriter.class);
-        i.putExtra("str", str);
-        context.startService(i);
+        Context context = KeePassTransfer.getContext();
+        Intent intent = new Intent(context, KeyboardDeviceWriter.class);
+        context.startService(intent);
     }
 
     public KeyboardDeviceWriter() {
         super("KeyboardDeviceWriter");
     }
 
-    private void suWrite(String str) {
+    /**
+     * Process the string write requests triggered by {@link KeyboardDeviceWriter#write(String)}.
+     * The method will proceed as following:<br><br>
+     * <p/>
+     * 1. Create new process which switches to super user<br>
+     * 2. Process all strings added to {@link KeyboardDeviceWriter#stringQueue}.<br>
+     * &nbsp;&nbsp;2.1 Convert string to encoded keyboard event<br>
+     * &nbsp;&nbsp;2.2 Write each event to the device<br>
+     * 3. End the process<br><br>
+     * <p/>
+     * In step 2 all strings will be processed from {@link KeyboardDeviceWriter#stringQueue} and
+     * some time (determined by {@link KeyboardDeviceWriter#SERVICE_TIMEOUT} will be waited for new
+     * string write requests to arrive. If no new string write requests arrive within this time, the
+     * process will be exited and the service shuts down.
+     */
+    private void suWrite() {
         CharacterConverter characterConverter = CharacterConverter.getInstance();
 
-        Process p;
+        //get preference characterTimeout
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        String characterTimeoutStr = sharedPreferences.getString(getString(R.string.settings_character_timeout_key), "20");
+        int characterTimeout = Integer.parseInt(characterTimeoutStr);
+
+        Process process;
+        int processReturnCode = -1;
         try {
-            // create new process as superuser
-            p = Runtime.getRuntime().exec("su");
-            DataOutputStream os = new DataOutputStream(p.getOutputStream());
+            // create new process which switches to superuser
+            process = Runtime.getRuntime().exec("su");
 
-            //convert string to keyboard event
-            Collection<byte[]> data = characterConverter.convert(str);
+            DataOutputStream os = new DataOutputStream(process.getOutputStream());
 
-            for (byte[] bytes : data) {
-                // write
-                String cmd = "echo -n -e \"" + Utils.bytesToHex(bytes, Utils.HexFormat.UNIX) + "\" > /dev/hidg0\n";
-                Log.i(TAG, cmd);
+            while (true) {
+                String str = stringQueue.poll(SERVICE_TIMEOUT, TimeUnit.SECONDS);
+                if (str == null) {
+                    break;
+                }
 
-                os.writeBytes(cmd);
-                os.flush();
+                try {
+                    Collection<byte[]> encodedCharacters = characterConverter.convert(str);
 
-                Thread.sleep(CHARACTER_TIMEOUT);
+                    for (byte[] encodedCharacter : encodedCharacters) {
+                        String cmd = "";
+                        cmd += "echo -n -e \"" + Utils.bytesToHex(encodedCharacter, Utils.HexFormat.UNIX) + "\" > /dev/hidg0\n";
+                        cmd += "sleep " + (characterTimeout / 1000.0) + "\n";
+
+                        os.writeBytes(cmd);
+                        os.flush();
+
+                        Log.i(TAG, cmd);
+                    }
+                } catch (CharacterConverter.CharacterConverterException e) {
+                    Log.e(TAG, String.format("couldn't convert string '%s'", str));
+                }
             }
 
             // close
@@ -72,24 +123,60 @@ public class KeyboardDeviceWriter extends IntentService {
             os.flush();
 
             // check execution result
-            p.waitFor();
-            if (p.exitValue() != 0) {
+            process.waitFor();
+            processReturnCode = process.exitValue();
+            if (processReturnCode != 0) {
                 throw new RuntimeException();
             }
+        } catch (IOException e) {
+            Log.e(TAG, String.format("couldn't write to device file: %s", e.getMessage()));
+        } catch (InterruptedException e) {
+            Log.e(TAG, "keyboard device writer was interrupted");
+        } catch (RuntimeException e) {
+            Log.e(TAG, String.format("superuser process exited with code %d", processReturnCode));
+        }
+    }
 
-            //Toast.makeText(KeePassTransfer.getContext(), "success", Toast.LENGTH_SHORT).show();
-            Log.i(TAG, "SU success");
-        } catch (Exception e) {
-            //Toast.makeText(KeePassTransfer.getContext(), "failed", Toast.LENGTH_SHORT).show();
-            Log.e(TAG, "SU failed");
-            e.printStackTrace();
+    /**
+     * Stops any requested intents, except for one. This is necessary because {@link KeyboardDeviceWriter#write(String)}
+     * adds the string to {@link KeyboardDeviceWriter#stringQueue} and requests an intent every time
+     * a new string is requested to be written to the device. The service itself however, processes
+     * all elements in {@link KeyboardDeviceWriter#stringQueue} and waits for some time for new
+     * string write requests before shutting down; hence the service does not need to be started for
+     * every string write request separately.
+     *
+     * @see KeyboardDeviceWriter#addIntentQueue(Intent)
+     */
+    private void clearIntentQueue() {
+        synchronized (intentsList) {
+            for (int i = 1; i < intentsList.size(); i++) {
+                stopService(intentsList.get(i));
+            }
+        }
+    }
+
+    /**
+     * Add an intent to {@link KeyboardDeviceWriter#intentsList}. This keeps track of any requested
+     * intents which will be processed automatically one after another.
+     *
+     * @param intent The intent.
+     * @see KeyboardDeviceWriter#clearIntentQueue()
+     */
+    private void addIntentQueue(Intent intent) {
+        synchronized (intentsList) {
+            intentsList.add(intent);
         }
     }
 
     @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        addIntentQueue(intent);
+        return super.onStartCommand(intent, flags, startId);
+    }
+
+    @Override
     protected void onHandleIntent(Intent intent) {
-        Log.i(TAG, "onHandleIntent");
-        String str = intent.getStringExtra("str");
-        suWrite(str);
+        suWrite();
+        clearIntentQueue();
     }
 }

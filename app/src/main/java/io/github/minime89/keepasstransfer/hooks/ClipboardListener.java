@@ -5,16 +5,16 @@ import android.content.ClipboardManager;
 import android.content.Context;
 import android.util.Log;
 
+import io.github.minime89.keepasstransfer.KeePassTransfer;
 import io.github.minime89.keepasstransfer.keyboard.KeyboardDeviceWriter;
 
 public class ClipboardListener implements ClipboardManager.OnPrimaryClipChangedListener {
     private static final String TAG = ClipboardListener.class.getSimpleName();
 
-    private Context context;
     private ClipboardManager clipboardManager;
 
-    public ClipboardListener(Context context) {
-        this.context = context;
+    public ClipboardListener() {
+        Context context = KeePassTransfer.getContext();
         clipboardManager = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
     }
 
@@ -25,6 +25,6 @@ public class ClipboardListener implements ClipboardManager.OnPrimaryClipChangedL
         Log.i(TAG, "**********  onPrimaryClipChanged");
         Log.i(TAG, clipData.toString());
 
-        KeyboardDeviceWriter.write(context, clipData.toString());
+        KeyboardDeviceWriter.write(clipData.toString());
     }
 }
