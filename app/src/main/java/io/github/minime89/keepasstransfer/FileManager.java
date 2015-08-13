@@ -1,4 +1,4 @@
-package io.github.minime89.keepasstransfer.keyboard;
+package io.github.minime89.keepasstransfer;
 
 
 import android.content.Context;
@@ -16,26 +16,25 @@ import java.io.OutputStream;
 import java.util.Arrays;
 import java.util.Collection;
 
-import io.github.minime89.keepasstransfer.KeePassTransfer;
-
-public class MappingManager {
-    private static final String TAG = MappingManager.class.getSimpleName();
+public class FileManager {
+    private static final String TAG = FileManager.class.getSimpleName();
     private static final String INSTALL_DIRECTORY = "app";
-    private static final String SCANCODE_MAPPING_DIRECTORY = "scancodes";
-    private static final String CHARACTER_MAPPING_DIRECTORY = "characters";
+    private static final String SCANCODES_MAPPING_DIRECTORY = "scancodes";
+    private static final String KEYSYMS_MAPPING_DIRECTORY = "keysyms";
+    private static final String KEYCODES_MAPPING_DIRECTORY = "keycodes";
 
-    private static MappingManager instance;
+    private static FileManager instance;
     private final Context context;
 
-    public static MappingManager getInstance() {
+    public static FileManager getInstance() {
         if (instance == null) {
-            instance = new MappingManager();
+            instance = new FileManager();
         }
 
         return instance;
     }
 
-    private MappingManager() {
+    private FileManager() {
         context = KeePassTransfer.getContext();
     }
 
@@ -83,7 +82,7 @@ public class MappingManager {
 
         //install file
         if (assets.length == 0) {
-            Log.i(TAG, "install file: " + path);
+            Log.i(TAG, String.format("install file: %s", path));
 
             InputStream is = null;
             OutputStream os = null;
@@ -123,7 +122,7 @@ public class MappingManager {
         }
         //install directory
         else {
-            Log.i(TAG, "install directory: " + path);
+            Log.i(TAG, String.format("install directory: %s",path));
 
             File outputDir = new File(context.getExternalFilesDir(null), targetPath);
             if (!outputDir.exists()) {
@@ -173,26 +172,39 @@ public class MappingManager {
     }
 
     public String loadScancodeMapping(String id) throws IOException {
-        File file = new File(SCANCODE_MAPPING_DIRECTORY, id);
+        File file = new File(SCANCODES_MAPPING_DIRECTORY, id);
 
         return readFile(file);
     }
 
-    public String loadCharacterMapping(String id) throws IOException {
-        File file = new File(CHARACTER_MAPPING_DIRECTORY, id);
+    public String loadKeysymMapping(String id) throws IOException {
+        File file = new File(KEYSYMS_MAPPING_DIRECTORY, id);
+
+        return readFile(file);
+    }
+
+    public String loadKeycodeMapping(String id) throws IOException {
+        File file = new File(KEYCODES_MAPPING_DIRECTORY, id);
 
         return readFile(file);
     }
 
     public Collection<String> listScancodeMappings() {
-        File directory = new File(context.getExternalFilesDir(null), SCANCODE_MAPPING_DIRECTORY);
+        File directory = new File(context.getExternalFilesDir(null), SCANCODES_MAPPING_DIRECTORY);
         String[] directoryList = directory.list();
 
         return Arrays.asList(directoryList);
     }
 
-    public Collection<String> listCharacterMappings() {
-        File directory = new File(context.getExternalFilesDir(null), CHARACTER_MAPPING_DIRECTORY);
+    public Collection<String> listKeysymMappings() {
+        File directory = new File(context.getExternalFilesDir(null), KEYSYMS_MAPPING_DIRECTORY);
+        String[] directoryList = directory.list();
+
+        return Arrays.asList(directoryList);
+    }
+
+    public Collection<String> listKeycodeMappings() {
+        File directory = new File(context.getExternalFilesDir(null), KEYCODES_MAPPING_DIRECTORY);
         String[] directoryList = directory.list();
 
         return Arrays.asList(directoryList);

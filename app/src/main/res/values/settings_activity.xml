@@ -1,6 +1,6 @@
 <resources>
 
-    <!-- character timeout -->
+    <!-- unicodeValue timeout -->
     <string name="settings_character_timeout_key">settings_character_timeout</string>
     <string name="settings_character_timeout_title">Character timeout</string>
     <string name="settings_character_timeout_summary">The timeout between emitting characters</string>

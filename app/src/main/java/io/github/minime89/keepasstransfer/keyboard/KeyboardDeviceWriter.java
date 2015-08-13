@@ -105,8 +105,8 @@ public class KeyboardDeviceWriter extends IntentService {
 
                     for (byte[] encodedCharacter : encodedCharacters) {
                         String cmd = "";
-                        cmd += "echo -n -e \"" + Utils.bytesToHex(encodedCharacter, Utils.HexFormat.UNIX) + "\" > /dev/hidg0\n";
-                        cmd += "sleep " + (characterTimeout / 1000.0) + "\n";
+                        cmd += String.format("echo -n -e \"%s\" > /dev/hidg0\n", Utils.bytesToHex(encodedCharacter, Utils.HexFormat.UNIX));
+                        cmd += String.format("sleep %f\n", (characterTimeout / 1000.0));
 
                         os.writeBytes(cmd);
                         os.flush();

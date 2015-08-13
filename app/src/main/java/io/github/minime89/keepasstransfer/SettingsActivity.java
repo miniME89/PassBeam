@@ -1,6 +1,6 @@
 package io.github.minime89.keepasstransfer;
 
-import android.content.Context;
+import android.content.ClipboardManager;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -14,17 +14,18 @@ import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
 
 import java.util.Collection;
 
+import io.github.minime89.keepasstransfer.hooks.ClipboardListener;
 import io.github.minime89.keepasstransfer.hooks.NotificationListener;
+import io.github.minime89.keepasstransfer.keyboard.CharacterConverter;
 import io.github.minime89.keepasstransfer.keyboard.KeyboardDeviceWriter;
-import io.github.minime89.keepasstransfer.keyboard.MappingManager;
+import io.github.minime89.keepasstransfer.keyboard.Keycode;
+import io.github.minime89.keepasstransfer.keyboard.Keysym;
 
 public class SettingsActivity extends PreferenceActivity {
     private static final String TAG = SettingsActivity.class.getSimpleName();
@@ -67,7 +68,7 @@ public class SettingsActivity extends PreferenceActivity {
     private void setupKeyboardLayout() {
         ListPreference keyboardLayoutPreference = (ListPreference) findPreference(getString(R.string.settings_keyboard_layout_key));
 
-        Collection<String> characterMappings = MappingManager.getInstance().listCharacterMappings();
+        Collection<String> characterMappings = FileManager.getInstance().listKeycodeMappings();
         CharSequence[] entries = characterMappings.toArray(new CharSequence[characterMappings.size()]);
 
         keyboardLayoutPreference.setEntries(entries);
@@ -79,25 +80,21 @@ public class SettingsActivity extends PreferenceActivity {
         keyboardLayoutTestPreference.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {
-                View currentView = SettingsActivity.this.getCurrentFocus();
+                Collection<Keycode> keycodes = CharacterConverter.getInstance().getKeycodeMapper().all();
 
-                if (currentView != null) {
-                    InputMethodManager im = (InputMethodManager) SettingsActivity.this.getSystemService(Context.INPUT_METHOD_SERVICE);
-                    im.showSoftInput(SettingsActivity.this.getCurrentFocus(), InputMethodManager.SHOW_FORCED);
-
-                    currentView.setOnKeyListener(new View.OnKeyListener() {
-                        @Override
-                        public boolean onKey(View view, int i, KeyEvent keyEvent) {
-                            if (keyEvent.getAction() == KeyEvent.ACTION_DOWN) {
-                                String str = String.valueOf((char) keyEvent.getUnicodeChar());
-                                Log.i(TAG, String.format("unicode: %d / char: %c / string: %s / event: %s", keyEvent.getUnicodeChar(), (char) keyEvent.getUnicodeChar(), str, keyEvent.toString()));
-                                KeyboardDeviceWriter.write(str);
-                            }
-
-                            return true;
+                StringBuilder strBuilder = new StringBuilder();
+                for (Keycode keycode : keycodes) {
+                    Collection<Keysym> keysyms = keycode.getKeysyms();
+                    for (Keysym keysym : keysyms) {
+                        if (keysym.isPrintable()) {
+                            strBuilder.append(keysym.getUnicodeValue());
                         }
-                    });
+                    }
                 }
+
+                String str = strBuilder.toString();
+                Log.i(TAG, String.format("write %d printable unicode characters for the selected keyboard layout: %s", str.length(), str));
+                KeyboardDeviceWriter.write(str);
 
                 return true;
             }
@@ -116,6 +113,9 @@ public class SettingsActivity extends PreferenceActivity {
         setupNotificationsStatus();
         setupKeyboardLayout();
         setupKeyboardLayoutTest();
+
+        ClipboardManager clipboardManager = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+        clipboardManager.addPrimaryClipChangedListener(new ClipboardListener());
     }
 
     @Override

@@ -2,11 +2,10 @@ package io.github.minime89.keepasstransfer;
 
 import android.app.Application;
 import android.content.Context;
-import android.util.Log;
 
 import io.github.minime89.keepasstransfer.keyboard.CharacterConverter;
-import io.github.minime89.keepasstransfer.keyboard.CharacterMapper;
-import io.github.minime89.keepasstransfer.keyboard.MappingManager;
+import io.github.minime89.keepasstransfer.keyboard.KeycodeMapper;
+import io.github.minime89.keepasstransfer.keyboard.KeysymMapper;
 import io.github.minime89.keepasstransfer.keyboard.ScancodeMapper;
 
 public class KeePassTransfer extends Application {
@@ -18,17 +17,22 @@ public class KeePassTransfer extends Application {
         super.onCreate();
         context = getApplicationContext();
 
-        MappingManager.getInstance().install();
+        FileManager.getInstance().install();
 
         CharacterConverter characterConverter = CharacterConverter.getInstance();
-        characterConverter.setScancodeMapper(new ScancodeMapper("default"));
-        characterConverter.setCharacterMapper(new CharacterMapper("de"));
+        KeycodeMapper keycodeMapper = null;
         try {
-            characterConverter.load();
-        } catch (ScancodeMapper.ScancodeMapperException | CharacterMapper.CharacterMapperException e) {
-            Log.e(TAG, e.getMessage());
+            ScancodeMapper scancodeMapper = new ScancodeMapper("default");
+            KeysymMapper keysymMapper = new KeysymMapper("default");
+            keycodeMapper = new KeycodeMapper("de", scancodeMapper, keysymMapper);
+        } catch (ScancodeMapper.ScancodeMapperException e) {
+            e.printStackTrace();
+        } catch (KeysymMapper.KeysymMapperException e) {
+            e.printStackTrace();
+        } catch (KeycodeMapper.KeycodeMapperException e) {
             e.printStackTrace();
         }
+        characterConverter.setKeycodeMapper(keycodeMapper);
     }
 
     public static Context getContext() {

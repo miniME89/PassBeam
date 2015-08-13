@@ -3,15 +3,18 @@ package io.github.minime89.keepasstransfer.keyboard;
 import android.util.Log;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
+
+import io.github.minime89.keepasstransfer.FileManager;
 
 public class ScancodeMapper {
     private static final String TAG = ScancodeMapper.class.getSimpleName();
 
     private String id;
-    private Collection<ScancodeMap> mappings;
+    private Map<Integer, Scancode> mappings;
 
     public class ScancodeMapperException extends Exception {
         ScancodeMapperException() {
@@ -27,103 +30,71 @@ public class ScancodeMapper {
         }
     }
 
-    public class ScancodeMap {
-        private int keycode;
-        private int scancode;
-
-        ScancodeMap(int keycode, int scancode) {
-            this.keycode = keycode;
-            this.scancode = scancode;
-        }
-
-        public int getKeycode() {
-            return keycode;
-        }
-
-        public void setKeycode(int keycode) {
-            this.keycode = keycode;
-        }
-
-        public int getScancode() {
-            return scancode;
-        }
-
-        public void setScancode(int scancode) {
-            this.scancode = scancode;
-        }
-
-        @Override
-        public String toString() {
-            return String.format("{keycode=%d, scancode=%d}", keycode, scancode);
-        }
-    }
-
-    public ScancodeMapper(String id) {
+    public ScancodeMapper(String id) throws ScancodeMapperException {
         this.id = id;
+        load();
     }
 
-    public ScancodeMap find(int keycode) {
+    public Collection<Scancode> all() {
+        return mappings.values();
+    }
+
+    public Scancode find(int keycodeValue) {
         if (!isLoaded()) {
             return null;
         }
 
-        for (ScancodeMap scancodeMap : mappings) {
-            if (scancodeMap.getKeycode() == keycode) {
-                return scancodeMap;
-            }
-        }
-
-        return null;
+        return mappings.get(keycodeValue);
     }
 
     public boolean contains(int keycode) {
         return find(keycode) != null;
     }
 
-    public void load() throws ScancodeMapperException {
-        Log.i(TAG, "load scancode mappings");
+    private void load() throws ScancodeMapperException {
+        Log.i(TAG, "load scancodeValue mappings");
 
-        //load scancode mappings file
-        String data = null;
+        //load scancodeValue mappings file
+        String data;
         try {
-            data = MappingManager.getInstance().loadScancodeMapping(id);
+            data = FileManager.getInstance().loadScancodeMapping(id);
         } catch (IOException e) {
-            throw new ScancodeMapperException("couldn't load scancode mappings file", e);
+            throw new ScancodeMapperException("couldn't load scancodeValue mappings file", e);
         }
 
-        mappings = new ArrayList<>();
+        mappings = new HashMap<>();
 
         //read data line by line
         Scanner scanner = new Scanner(data);
         while (scanner.hasNextLine()) {
             String line = scanner.nextLine();
 
-            //ignore lines which start with # character for comments
-            if (!line.startsWith("#")) {
-                //split line by separator
-                String[] split = line.split(",");
-                if (split.length == 2) {
-                    int keycode = Integer.decode(split[0]);
-                    int scancode = Integer.decode(split[1]);
+            //remove comments
+            int commentStartIndex = line.indexOf('#');
+            if (commentStartIndex >= 0) {
+                line = line.substring(0, commentStartIndex);
+            }
 
-                    //create and add scancode mappings
-                    ScancodeMap scancodeMap = new ScancodeMap(keycode, scancode);
-                    mappings.add(scancodeMap);
+            //split line by separator
+            String[] split = line.split(",");
+            if (split.length == 2) {
+                int keycodeValue = Integer.decode(split[0]);
+                int scancodeValue = Integer.decode(split[1]);
 
-                    Log.i(TAG, "scancode to keycode mapping: " + scancodeMap);
-                }
+                Scancode scancode = new Scancode(keycodeValue, scancodeValue);
+                mappings.put(keycodeValue, scancode);
             }
         }
         scanner.close();
 
-        Log.i(TAG, "loaded " + mappings.size() + " scancode mappings");
+        Log.i(TAG, String.format("loaded %d scancodeValue mappings", mappings.size()));
     }
 
     public boolean isLoaded() {
         return mappings != null;
     }
 
-    public Collection<ScancodeMap> getMappings() {
-        return mappings;
+    public String getId() {
+        return id;
     }
 }
