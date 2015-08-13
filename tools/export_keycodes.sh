@@ -1,3 +1,3 @@
 #!/bin/sh
 
-xmodmap -pk | tr -d ' +' | perl -pe 's/\(.+?\)/ /g' | awk '$1=$1' | sed 's/ /,/g'
+gcc -o export_keycodes export_keycodes.c -lX11
