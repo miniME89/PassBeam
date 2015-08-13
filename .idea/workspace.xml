@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="INFO" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
@@ -24,27 +25,42 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="SettingsActivity.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SettingsActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/SettingsActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5027523">
-              <caret line="93" column="0" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="53" column="9" selection-start-line="53" selection-start-column="9" selection-end-line="53" selection-end-column="9" />
               <folding>
-                <element signature="e#3419#4387#0" expanded="true" />
-                <element signature="e#4386#4387#0" expanded="true" />
+                <element signature="e#2271#2319#0" expanded="true" />
+                <element signature="e#2485#2533#0" expanded="true" />
+                <element signature="method#setupNotificationsStatus#0;class#SettingsActivity#0" expanded="false" />
+                <element signature="e#3050#3103#0" expanded="true" />
+                <element signature="method#updateNotificationsStatus#0;class#SettingsActivity#0" expanded="false" />
+                <element signature="method#setupKeyboardLayout#0;class#SettingsActivity#0" expanded="false" />
+                <element signature="e#4176#4224#0" expanded="true" />
+                <element signature="method#setupKeyboardLayoutTest#0;class#SettingsActivity#0" expanded="false" />
+                <element signature="e#4658#4711#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FileManager.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/FileManager.java">
+      <file leaf-file-name="default" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/assets/app/keysyms/default">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-36.209213">
+              <caret line="347" column="5" selection-start-line="347" selection-start-column="5" selection-end-line="347" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings_activity.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/settings_activity.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="20" column="58" selection-start-line="20" selection-start-column="58" selection-end-line="20" selection-end-column="58" />
-              <folding>
-                <element signature="method#readFile#0;class#FileManager#0" expanded="false" />
-              </folding>
+              <caret line="36" column="18" selection-start-line="36" selection-start-column="18" selection-end-line="36" selection-end-column="18" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -53,7 +69,17 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/KeyboardDeviceWriter.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="26" column="3" selection-start-line="26" selection-start-column="3" selection-end-line="26" selection-end-column="3" />
+              <caret line="35" column="37" selection-start-line="35" selection-start-column="37" selection-end-line="35" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="KeePassTransfer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/KeePassTransfer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -63,15 +89,13 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/KeycodeMapper.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="44" column="31" selection-start-line="44" selection-start-column="31" selection-end-line="44" selection-end-column="31" />
+              <caret line="67" column="8" selection-start-line="67" selection-start-column="8" selection-end-line="67" selection-end-column="68" />
               <folding>
                 <element signature="class#KeycodeMapperException#0;class#KeycodeMapper#0" expanded="false" />
-                <element signature="e#1207#1208#0" expanded="true" />
-                <element signature="e#1247#1248#0" expanded="true" />
-                <element signature="e#5222#5223#0" expanded="true" />
-                <element signature="e#5259#5260#0" expanded="true" />
-                <element signature="e#5521#5522#0" expanded="true" />
-                <element signature="e#5569#5570#0" expanded="true" />
+                <element signature="e#1100#1101#0" expanded="true" />
+                <element signature="e#1140#1141#0" expanded="true" />
+                <element signature="e#5435#5436#0" expanded="true" />
+                <element signature="e#5474#5475#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -81,13 +105,8 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/ScancodeMapper.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="38" column="32" selection-start-line="38" selection-start-column="32" selection-end-line="38" selection-end-column="32" />
-              <folding>
-                <element signature="e#1176#1177#0" expanded="true" />
-                <element signature="e#1220#1221#0" expanded="true" />
-                <element signature="e#2646#2647#0" expanded="true" />
-                <element signature="e#2671#2672#0" expanded="true" />
-              </folding>
+              <caret line="55" column="47" selection-start-line="55" selection-start-column="47" selection-end-line="55" selection-end-column="47" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -96,16 +115,20 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/KeysymMapper.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+              <caret line="55" column="67" selection-start-line="55" selection-start-column="67" selection-end-line="55" selection-end-column="67" />
               <folding>
                 <element signature="class#KeysymMapperException#0;class#KeysymMapper#0" expanded="false" />
-                <element signature="e#914#915#0" expanded="true" />
-                <element signature="e#954#955#0" expanded="true" />
-                <element signature="e#1156#1157#0" expanded="true" />
-                <element signature="e#1204#1205#0" expanded="true" />
-                <element signature="e#2952#2953#0" expanded="true" />
-                <element signature="e#2977#2978#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="KeyboardSymbolConverter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/KeyboardSymbolConverter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="95" column="0" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -1458,27 +1481,34 @@
         <option value="$PROJECT_DIR$/app/src/main/res/xml/settings_activity.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/settings_activity.xml" />
         <option value="$PROJECT_DIR$/app/src/main/assets/app/scancodes/default" />
-        <option value="$PROJECT_DIR$/app/src/main/assets/app/keysyms/default" />
         <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/KeymapMapper.java" />
         <option value="$PROJECT_DIR$/app/src/main/assets/app/keymaps/de" />
-        <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/KeePassTransfer.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/KeycodeEntry.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/Keycode.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/KeysymEntry.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/ScancodeEntry.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/Scancode.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/CharacterConverter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/hooks/NotificationListener.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/KeyboardDeviceWriter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/MappingManager.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/Keysym.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/ScancodeMapper.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/KeysymMapper.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/KeycodeMapper.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/SettingsActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/assets/app/keycodes/de" />
         <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/MappingManager.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/FileManager.java" />
+        <option value="$PROJECT_DIR$/app/src/main/assets/app/keycodes/fr" />
+        <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/Utils.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/KeyState.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/Symbol.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/Keystate.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/Keycode.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/CharacterConverter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/Keysym.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/KeyboardCharacterConverter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/KeePassTransfer.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/KeyboardDeviceWriter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/KeycodeMapper.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/KeyboardSymbolConverter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/ScancodeMapper.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/KeysymMapper.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/SettingsActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/assets/app/keysyms/default" />
       </list>
     </option>
   </component>
@@ -1523,10 +1553,8 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="ProjectPane" />
       <pane id="Scratches" />
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -1696,53 +1724,11 @@
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="keepasstransfer" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="keyboard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KeePassTransfer" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="keepasstransfer" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hooks" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KeePassTransfer" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="ProjectPane" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1962,10 +1948,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="0" width="1922" height="1056" extended-state="7" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32929516" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23898679" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -1975,11 +1961,10 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34251103" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.36784142" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39427313" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18996799" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2497332" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18996799" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32929516" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2497332" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1988,6 +1973,7 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2497332" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -2005,11 +1991,67 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="12" />
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
+      <option name="time" value="23" />
     </breakpoint-manager>
-    <watches-manager />
+    <watches-manager>
+      <configuration name="app">
+        <watch expression="i" />
+        <watch expression="keysym" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/KeePassTransfer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/KeycodeMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="68" column="61" selection-start-line="68" selection-start-column="61" selection-end-line="68" selection-end-column="61" />
+          <folding>
+            <element signature="class#KeycodeMapperException#0;class#KeycodeMapper#0" expanded="false" />
+            <element signature="e#1100#1101#0" expanded="true" />
+            <element signature="e#1140#1141#0" expanded="true" />
+            <element signature="e#5435#5436#0" expanded="true" />
+            <element signature="e#5474#5475#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/ScancodeMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="55" column="23" selection-start-line="55" selection-start-column="23" selection-end-line="55" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/KeysymMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="55" column="21" selection-start-line="55" selection-start-column="21" selection-end-line="55" selection-end-column="21" />
+          <folding>
+            <element signature="class#KeysymMapperException#0;class#KeysymMapper#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/KeyboardSymbolConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="100" column="20" selection-start-line="100" selection-start-column="16" selection-end-line="100" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/xml/settings_activity.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2030,7 +2072,17 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="96" column="40" selection-start-line="96" selection-start-column="40" selection-end-line="96" selection-end-column="40" />
-          <folding />
+          <folding>
+            <element signature="e#2271#2319#0" expanded="true" />
+            <element signature="e#2485#2533#0" expanded="true" />
+            <element signature="method#setupNotificationsStatus#0;class#SettingsActivity#0" expanded="false" />
+            <element signature="e#3050#3103#0" expanded="true" />
+            <element signature="method#updateNotificationsStatus#0;class#SettingsActivity#0" expanded="false" />
+            <element signature="method#setupKeyboardLayout#0;class#SettingsActivity#0" expanded="false" />
+            <element signature="e#4176#4224#0" expanded="true" />
+            <element signature="method#setupKeyboardLayoutTest#0;class#SettingsActivity#0" expanded="false" />
+            <element signature="e#4658#4711#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2038,9 +2090,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2048,9 +2098,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="48" column="4" selection-start-line="48" selection-start-column="4" selection-end-line="48" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2074,7 +2122,17 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="94" column="5" selection-start-line="94" selection-start-column="5" selection-end-line="94" selection-end-column="5" />
-          <folding />
+          <folding>
+            <element signature="e#2271#2319#0" expanded="true" />
+            <element signature="e#2485#2533#0" expanded="true" />
+            <element signature="method#setupNotificationsStatus#0;class#SettingsActivity#0" expanded="false" />
+            <element signature="e#3050#3103#0" expanded="true" />
+            <element signature="method#updateNotificationsStatus#0;class#SettingsActivity#0" expanded="false" />
+            <element signature="method#setupKeyboardLayout#0;class#SettingsActivity#0" expanded="false" />
+            <element signature="e#4176#4224#0" expanded="true" />
+            <element signature="method#setupKeyboardLayoutTest#0;class#SettingsActivity#0" expanded="false" />
+            <element signature="e#4658#4711#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2089,7 +2147,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.09326425">
           <caret line="3" column="51" selection-start-line="3" selection-start-column="51" selection-end-line="3" selection-end-column="70" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2118,7 +2175,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6197183">
           <caret line="31" column="26" selection-start-line="31" selection-start-column="26" selection-end-line="31" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2153,10 +2209,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.34309134">
           <caret line="232" column="23" selection-start-line="232" selection-start-column="23" selection-end-line="232" selection-end-column="23" />
-          <folding>
-            <element signature="e#8227#8228#0" expanded="true" />
-            <element signature="e#8278#8279#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2164,15 +2216,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.061433446">
           <caret line="3" column="2" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/assets/app/keysyms/default">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33272728">
-          <caret line="347" column="5" selection-start-line="347" selection-start-column="5" selection-end-line="347" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2188,10 +2231,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3503055">
           <caret line="27" column="23" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
-          <folding>
-            <element signature="e#593#594#0" expanded="true" />
-            <element signature="e#644#645#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2199,10 +2238,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3503055">
           <caret line="32" column="16" selection-start-line="32" selection-start-column="16" selection-end-line="32" selection-end-column="16" />
-          <folding>
-            <element signature="e#753#754#0" expanded="true" />
-            <element signature="e#804#805#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2210,7 +2245,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2218,7 +2252,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.34774774">
           <caret line="17" column="25" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2226,14 +2259,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.79266053">
           <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/Keycode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20733945">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -2246,78 +2271,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/Keysym.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/KeePassTransfer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.57337886">
-          <caret line="35" column="18" selection-start-line="35" selection-start-column="18" selection-end-line="35" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/ScancodeMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="38" column="32" selection-start-line="38" selection-start-column="32" selection-end-line="38" selection-end-column="32" />
-          <folding>
-            <element signature="e#1176#1177#0" expanded="true" />
-            <element signature="e#1220#1221#0" expanded="true" />
-            <element signature="e#2646#2647#0" expanded="true" />
-            <element signature="e#2671#2672#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/KeysymMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding>
-            <element signature="class#KeysymMapperException#0;class#KeysymMapper#0" expanded="false" />
-            <element signature="e#914#915#0" expanded="true" />
-            <element signature="e#954#955#0" expanded="true" />
-            <element signature="e#1156#1157#0" expanded="true" />
-            <element signature="e#1204#1205#0" expanded="true" />
-            <element signature="e#2952#2953#0" expanded="true" />
-            <element signature="e#2977#2978#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/KeycodeMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="44" column="31" selection-start-line="44" selection-start-column="31" selection-end-line="44" selection-end-column="31" />
-          <folding>
-            <element signature="class#KeycodeMapperException#0;class#KeycodeMapper#0" expanded="false" />
-            <element signature="e#1207#1208#0" expanded="true" />
-            <element signature="e#1247#1248#0" expanded="true" />
-            <element signature="e#5222#5223#0" expanded="true" />
-            <element signature="e#5259#5260#0" expanded="true" />
-            <element signature="e#5521#5522#0" expanded="true" />
-            <element signature="e#5569#5570#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/assets/app/keycodes/de">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.16513762">
           <caret line="5" column="8" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/assets/app/keycodes/us">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="51" column="23" selection-start-line="51" selection-start-column="17" selection-end-line="51" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/assets/app/keycodes/fr">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.76153845">
+          <caret line="91" column="30" selection-start-line="91" selection-start-column="30" selection-end-line="91" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../android-sdk-linux/platforms/android-21/android.jar!/android/util/Pair.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.08430913">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.14334472">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/FileManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.14334472">
           <caret line="20" column="58" selection-start-line="20" selection-start-column="58" selection-end-line="20" selection-end-column="58" />
           <folding>
             <element signature="method#readFile#0;class#FileManager#0" expanded="false" />
@@ -2325,41 +2317,129 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/KeyboardDeviceWriter.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/Keycode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.0038462">
+          <caret line="42" column="68" selection-start-line="42" selection-start-column="61" selection-end-line="42" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/Symbol.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5192308">
+          <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/Keystate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.20769231">
+          <caret line="6" column="42" selection-start-line="6" selection-start-column="42" selection-end-line="6" selection-end-column="42" />
+          <folding>
+            <element signature="e#636#637#0" expanded="false" />
+            <element signature="e#678#679#0" expanded="false" />
+            <element signature="e#711#712#0" expanded="false" />
+            <element signature="e#743#744#0" expanded="false" />
+            <element signature="e#790#791#0" expanded="false" />
+            <element signature="e#832#833#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/Keysym.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.103846155">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/KeePassTransfer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="26" column="3" selection-start-line="26" selection-start-column="3" selection-end-line="26" selection-end-column="3" />
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/CharacterConverter.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/KeyboardSymbolConverter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.080734">
-          <caret line="102" column="16" selection-start-line="102" selection-start-column="16" selection-end-line="102" selection-end-column="16" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="95" column="0" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/KeyboardDeviceWriter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="35" column="37" selection-start-line="35" selection-start-column="37" selection-end-line="35" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/KeycodeMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="67" column="8" selection-start-line="67" selection-start-column="8" selection-end-line="67" selection-end-column="68" />
           <folding>
-            <element signature="e#3414#3415#0" expanded="true" />
-            <element signature="e#3450#3451#0" expanded="true" />
+            <element signature="class#KeycodeMapperException#0;class#KeycodeMapper#0" expanded="false" />
+            <element signature="e#1100#1101#0" expanded="true" />
+            <element signature="e#1140#1141#0" expanded="true" />
+            <element signature="e#5435#5436#0" expanded="true" />
+            <element signature="e#5474#5475#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/ScancodeMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="55" column="47" selection-start-line="55" selection-start-column="47" selection-end-line="55" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/KeysymMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="55" column="67" selection-start-line="55" selection-start-column="67" selection-end-line="55" selection-end-column="67" />
+          <folding>
+            <element signature="class#KeysymMapperException#0;class#KeysymMapper#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/settings_activity.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7211009">
-          <caret line="25" column="56" selection-start-line="25" selection-start-column="56" selection-end-line="25" selection-end-column="56" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="36" column="18" selection-start-line="36" selection-start-column="18" selection-end-line="36" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/SettingsActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5027523">
-          <caret line="93" column="0" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="53" column="9" selection-start-line="53" selection-start-column="9" selection-end-line="53" selection-end-column="9" />
           <folding>
-            <element signature="e#3419#4387#0" expanded="true" />
-            <element signature="e#4386#4387#0" expanded="true" />
+            <element signature="e#2271#2319#0" expanded="true" />
+            <element signature="e#2485#2533#0" expanded="true" />
+            <element signature="method#setupNotificationsStatus#0;class#SettingsActivity#0" expanded="false" />
+            <element signature="e#3050#3103#0" expanded="true" />
+            <element signature="method#updateNotificationsStatus#0;class#SettingsActivity#0" expanded="false" />
+            <element signature="method#setupKeyboardLayout#0;class#SettingsActivity#0" expanded="false" />
+            <element signature="e#4176#4224#0" expanded="true" />
+            <element signature="method#setupKeyboardLayoutTest#0;class#SettingsActivity#0" expanded="false" />
+            <element signature="e#4658#4711#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/assets/app/keysyms/default">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-36.209213">
+          <caret line="347" column="5" selection-start-line="347" selection-start-column="5" selection-end-line="347" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -13,6 +13,8 @@ import io.github.minime89.keepasstransfer.FileManager;
 public class ScancodeMapper {
     private static final String TAG = ScancodeMapper.class.getSimpleName();
 
+    public static final String DEFAULT_ID = "default";
+
     private String id;
     private Map<Integer, Scancode> mappings;
 
@@ -32,7 +34,6 @@ public class ScancodeMapper {
 
     public ScancodeMapper(String id) throws ScancodeMapperException {
         this.id = id;
-        load();
     }
 
     public Collection<Scancode> all() {
@@ -51,15 +52,15 @@ public class ScancodeMapper {
         return find(keycode) != null;
     }
 
-    private void load() throws ScancodeMapperException {
-        Log.i(TAG, "load scancodeValue mappings");
+    public void load() throws ScancodeMapperException {
+        Log.i(TAG, String.format("load scancode mappings '%s'", id));
 
-        //load scancodeValue mappings file
+        //load scancode mappings file
         String data;
         try {
             data = FileManager.getInstance().loadScancodeMapping(id);
         } catch (IOException e) {
-            throw new ScancodeMapperException("couldn't load scancodeValue mappings file", e);
+            throw new ScancodeMapperException("couldn't load scancode mappings file", e);
         }
 
         mappings = new HashMap<>();
@@ -87,7 +88,7 @@ public class ScancodeMapper {
         }
         scanner.close();
 
-        Log.i(TAG, String.format("loaded %d scancodeValue mappings", mappings.size()));
+        Log.i(TAG, String.format("loaded %d scancode mappings", mappings.size()));
     }
 
     public boolean isLoaded() {

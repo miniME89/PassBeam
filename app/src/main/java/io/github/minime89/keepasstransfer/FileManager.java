@@ -122,7 +122,7 @@ public class FileManager {
         }
         //install directory
         else {
-            Log.i(TAG, String.format("install directory: %s",path));
+            Log.i(TAG, String.format("install directory: %s", path));
 
             File outputDir = new File(context.getExternalFilesDir(null), targetPath);
             if (!outputDir.exists()) {

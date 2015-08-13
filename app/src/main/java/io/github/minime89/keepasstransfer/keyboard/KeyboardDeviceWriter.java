@@ -33,6 +33,11 @@ public class KeyboardDeviceWriter extends IntentService {
     private static final int SERVICE_TIMEOUT = 2;
 
     /**
+     * The keyboard symbol converter.
+     */
+    private static KeyboardSymbolConverter keyboardSymbolConverter = new KeyboardSymbolConverter();
+
+    /**
      * The queue which contains the string write requests.
      */
     private static BlockingQueue<String> stringQueue = new LinkedBlockingQueue<>();
@@ -79,8 +84,6 @@ public class KeyboardDeviceWriter extends IntentService {
      * process will be exited and the service shuts down.
      */
     private void suWrite() {
-        CharacterConverter characterConverter = CharacterConverter.getInstance();
-
         //get preference characterTimeout
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         String characterTimeoutStr = sharedPreferences.getString(getString(R.string.settings_character_timeout_key), "20");
@@ -101,7 +104,7 @@ public class KeyboardDeviceWriter extends IntentService {
                 }
 
                 try {
-                    Collection<byte[]> encodedCharacters = characterConverter.convert(str);
+                    Collection<byte[]> encodedCharacters = keyboardSymbolConverter.convert(str);
 
                     for (byte[] encodedCharacter : encodedCharacters) {
                         String cmd = "";
@@ -110,10 +113,8 @@ public class KeyboardDeviceWriter extends IntentService {
 
                         os.writeBytes(cmd);
                         os.flush();
-
-                        Log.i(TAG, cmd);
                     }
-                } catch (CharacterConverter.CharacterConverterException e) {
+                } catch (KeyboardSymbolConverter.CharacterConverterException e) {
                     Log.e(TAG, String.format("couldn't convert string '%s'", str));
                 }
             }
@@ -166,6 +167,10 @@ public class KeyboardDeviceWriter extends IntentService {
         synchronized (intentsList) {
             intentsList.add(intent);
         }
+    }
+
+    public static KeyboardSymbolConverter getKeyboardSymbolConverter() {
+        return keyboardSymbolConverter;
     }
 
     @Override

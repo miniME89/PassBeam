@@ -13,6 +13,8 @@ import io.github.minime89.keepasstransfer.FileManager;
 public class KeysymMapper {
     private static final String TAG = KeysymMapper.class.getSimpleName();
 
+    public static final String DEFAULT_ID = "default";
+
     private String id;
     private Map<Integer, Keysym> mappings;
 
@@ -32,7 +34,6 @@ public class KeysymMapper {
 
     public KeysymMapper(String id) throws KeysymMapperException {
         this.id = id;
-        load();
     }
 
     public Collection<Keysym> all() {
@@ -51,10 +52,10 @@ public class KeysymMapper {
         return find(keysymValue) != null;
     }
 
-    private void load() throws KeysymMapperException {
-        Log.i(TAG, "load keysym mappings");
+    public void load() throws KeysymMapperException {
+        Log.i(TAG, String.format("load keysym mappings '%s'", id));
 
-        //load unicodeValue mappings file
+        //load keysym mappings file
         String data = null;
         try {
             data = FileManager.getInstance().loadKeysymMapping(id);

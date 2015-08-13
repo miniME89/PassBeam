@@ -6,12 +6,12 @@ import java.util.Collection;
 public class Keycode {
     private int keycodeValue;
     private Scancode scancode;
-    private Collection<Keysym> keysyms;
+    private Collection<Symbol> symbols;
 
-    public Keycode(int keycodeValue, Scancode scancode, Collection<Keysym> keysyms) {
+    public Keycode(int keycodeValue, Scancode scancode, Collection<Symbol> symbols) {
         this.keycodeValue = keycodeValue;
         this.scancode = scancode;
-        this.keysyms = keysyms;
+        this.symbols = symbols;
     }
 
     public int getKeycodeValue() {
@@ -22,12 +22,12 @@ public class Keycode {
         this.keycodeValue = keycodeValue;
     }
 
-    public Collection<Keysym> getKeysyms() {
-        return keysyms;
+    public Collection<Symbol> getSymbols() {
+        return symbols;
     }
 
-    public void setKeysyms(Collection<Keysym> keysyms) {
-        this.keysyms = keysyms;
+    public void setSymbols(Collection<Symbol> symbols) {
+        this.symbols = symbols;
     }
 
     public Scancode getScancode() {
@@ -40,6 +40,6 @@ public class Keycode {
 
     @Override
     public String toString() {
-        return String.format("{keycodeValue=%d, scancode=%s, keysyms=%s}", keycodeValue, scancode, Arrays.toString(keysyms.toArray()));
+        return String.format("{keycodeValue=%d, scancode=%s, symbols=%s}", keycodeValue, scancode, Arrays.toString(symbols.toArray()));
     }
 }
