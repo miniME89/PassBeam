@@ -1,8 +1,8 @@
-#<keycodeValue>,<keysym_1>, <keysym_2>, <keysym_3>, <keysym_4>, ...
-#where keysym_1: key
-#      keysym_2: shift + key
-#      keysym_3: altGr + key
-#      keysym_4: shift + altGr + key
+#layoutName=de
+#layoutDescription=German
+#variantName=
+#variantDescription=
+#<keycode>,<keysym_level_1>,<keysym_level_2>,<keysym_level_3>,<keysym_level_4>,...
 8,0xff1b
 9,0xff1b
 10,0x0031,0x0021,0x00b9,0x00a1
@@ -59,7 +59,7 @@
 61,0x002d,0x005f,0x0aaa,0x0aa9
 62,0xffe2
 63,0xffaa,0xffaa,0xffaa,0xffaa,0x1008fe21
-64,0xffe9,0xffe7
+64,0xfe03
 65,0x0020
 66,0xffe5,0xfe08
 67,0xffbe,0xffbe,0xffbe,0xffbe,0x1008fe01
