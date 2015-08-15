@@ -42,7 +42,7 @@ public class SettingsActivity extends PreferenceActivity {
     private NotificationListener.LifecycleListener lifecycleListener = new NotificationListener.LifecycleListener() {
         @Override
         public void change(int state) {
-        updateNotificationsStatus();
+            updateNotificationsStatus();
         }
     };
 
