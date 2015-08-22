@@ -1,4 +1,5 @@
 <resources>
+    <string name="settings_title">SettingsActivity</string>
 
     <!-- unicodeValue timeout -->
     <string name="settings_character_timeout_key">settings_character_timeout</string>
@@ -38,7 +39,7 @@
     <string name="settings_keyboard_layout_title">Keyboard layout</string>
     <string name="settings_keyboard_layout_summary">The keyboard layout</string>
 
-    <!-- keyboard layout test -->
+    <!-- keyboard layout unicode -->
     <string name="settings_keyboard_layout_test_key">settings_keyboard_layout_test_key</string>
     <string name="settings_keyboard_layout_test_title">Test keyboard layout</string>
     <string name="settings_keyboard_layout_test_summary">Test the currently selected keyboard layout</string>

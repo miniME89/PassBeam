@@ -1,11 +1,11 @@
-package io.github.minime89.keepasstransfer;
+package io.github.minime89.keepasstransfer.activities;
 
 import android.content.ClipboardManager;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
@@ -16,21 +16,21 @@ import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.Collection;
 
+import io.github.minime89.keepasstransfer.R;
 import io.github.minime89.keepasstransfer.hooks.ClipboardListener;
 import io.github.minime89.keepasstransfer.hooks.NotificationListener;
-import io.github.minime89.keepasstransfer.keyboard.KeyboardSymbolConverter;
-import io.github.minime89.keepasstransfer.keyboard.KeyboardDeviceWriter;
+import io.github.minime89.keepasstransfer.keyboard.DeviceWriter;
+import io.github.minime89.keepasstransfer.keyboard.Converter;
 import io.github.minime89.keepasstransfer.keyboard.Keycode;
-import io.github.minime89.keepasstransfer.keyboard.KeycodeMapper;
+import io.github.minime89.keepasstransfer.keyboard.Keycodes;
 import io.github.minime89.keepasstransfer.keyboard.Keysym;
-import io.github.minime89.keepasstransfer.keyboard.KeysymMapper;
-import io.github.minime89.keepasstransfer.keyboard.ScancodeMapper;
 import io.github.minime89.keepasstransfer.keyboard.Symbol;
 
 public class SettingsActivity extends PreferenceActivity {
@@ -45,29 +45,6 @@ public class SettingsActivity extends PreferenceActivity {
             updateNotificationsStatus();
         }
     };
-
-    private SharedPreferences.OnSharedPreferenceChangeListener sharedPreferenceChangeListener = new SharedPreferences.OnSharedPreferenceChangeListener() {
-        @Override
-        public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String s) {
-        if (s.equals(getString(R.string.settings_keyboard_layout_key))) {
-            updateKeyboardLayout();
-        }
-        }
-    };
-
-    private void updateKeyboardLayout() {
-        String keycodeId = sharedPreferences.getString(getString(R.string.settings_keyboard_layout_key), KeycodeMapper.DEFAULT_ID);
-
-        try {
-            KeyboardDeviceWriter.getKeyboardSymbolConverter().load(keycodeId);
-        } catch (ScancodeMapper.ScancodeMapperException e) {
-            e.printStackTrace();
-        } catch (KeysymMapper.KeysymMapperException e) {
-            e.printStackTrace();
-        } catch (KeycodeMapper.KeycodeMapperException e) {
-            e.printStackTrace();
-        }
-    }
 
     private void setupNotificationsStatus() {
         notificationsStatusPreference = findPreference(getString(R.string.settings_notifications_status_key));
@@ -96,13 +73,16 @@ public class SettingsActivity extends PreferenceActivity {
     }
 
     private void setupKeyboardLayout() {
-        ListPreference keyboardLayoutPreference = (ListPreference) findPreference(getString(R.string.settings_keyboard_layout_key));
+        Preference keyboardLayoutPreference = findPreference(getString(R.string.settings_keyboard_layout_key));
+        keyboardLayoutPreference.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(Preference preference) {
+                Intent intent = new Intent(SettingsActivity.this, KeyboardLayoutActivity.class);
+                startActivity(intent);
 
-        Collection<String> characterMappings = FileManager.getInstance().listKeycodeMappings();
-        CharSequence[] entries = characterMappings.toArray(new CharSequence[characterMappings.size()]);
-
-        keyboardLayoutPreference.setEntries(entries);
-        keyboardLayoutPreference.setEntryValues(entries);
+                return true;
+            }
+        });
     }
 
     private void setupKeyboardLayoutTest() {
@@ -110,26 +90,28 @@ public class SettingsActivity extends PreferenceActivity {
         keyboardLayoutTestPreference.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {
-                KeyboardSymbolConverter keyboardDeviceWriter = KeyboardDeviceWriter.getKeyboardSymbolConverter();
+                Converter keyboardDeviceWriter = DeviceWriter.getConverter();
                 if (keyboardDeviceWriter != null) {
-                    KeycodeMapper keycodeMapper = keyboardDeviceWriter.getKeycodeMapper();
-                    if (keycodeMapper != null) {
-                        Collection<Keycode> keycodes = keycodeMapper.all();
+                    Keycodes keycodes = keyboardDeviceWriter.getKeycodes();
+                    if (keycodes != null) {
+                        Collection<Keycode> keycodesAll = keycodes.all();
 
                         StringBuilder strBuilder = new StringBuilder();
-                        for (Keycode keycode : keycodes) {
+                        for (Keycode keycode : keycodesAll) {
                             Collection<Symbol> symbols = keycode.getSymbols();
-                            for (Symbol symbol : symbols) {
-                                Keysym keysym = symbol.getKeysym();
-                                if (keysym.isPrintable()) {
-                                    strBuilder.append(keysym.getUnicodeValue());
+                            if (symbols != null) {
+                                for (Symbol symbol : symbols) {
+                                    Keysym keysym = symbol.getKeysym();
+                                    if (keysym.isPrintable()) {
+                                        strBuilder.append(keysym.getUnicode().getCharacter());
+                                    }
                                 }
                             }
                         }
 
                         String str = strBuilder.toString();
                         Log.i(TAG, String.format("write %d printable unicode characters for the selected keyboard layout: %s", str.length(), str));
-                        KeyboardDeviceWriter.write(str);
+                        DeviceWriter.write(str);
                     }
                 }
 
@@ -141,8 +123,6 @@ public class SettingsActivity extends PreferenceActivity {
     @Override
     protected void onResume() {
         super.onResume();
-
-        sharedPreferences.registerOnSharedPreferenceChangeListener(sharedPreferenceChangeListener);
     }
 
     @Override
@@ -151,16 +131,23 @@ public class SettingsActivity extends PreferenceActivity {
         getAppCompatDelegate().onCreate(savedInstanceState);
         super.onCreate(savedInstanceState);
 
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+
+        //first time startup?
+        if (!sharedPreferences.getBoolean("setup", false)) {
+            Intent intent = new Intent(this, SetupActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+
+            return;
+        }
+
         // Load the preferences from an XML resource
         addPreferencesFromResource(R.xml.settings_activity);
-
-        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
         setupNotificationsStatus();
         setupKeyboardLayout();
         setupKeyboardLayoutTest();
-
-        updateKeyboardLayout();
 
         ClipboardManager clipboardManager = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
         clipboardManager.addPrimaryClipChangedListener(new ClipboardListener());
@@ -176,6 +163,12 @@ public class SettingsActivity extends PreferenceActivity {
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         getAppCompatDelegate().onPostCreate(savedInstanceState);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.settings_menu, menu);
+        return true;
     }
 
     @Override

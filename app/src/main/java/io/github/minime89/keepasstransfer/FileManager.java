@@ -5,16 +5,33 @@ import android.content.Context;
 import android.content.res.AssetManager;
 import android.os.Environment;
 import android.util.Log;
+import android.util.Xml;
 
-import java.io.ByteArrayOutputStream;
+import org.simpleframework.xml.Serializer;
+import org.simpleframework.xml.convert.AnnotationStrategy;
+import org.simpleframework.xml.core.Persister;
+import org.simpleframework.xml.strategy.Strategy;
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
+
+import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+
+import io.github.minime89.keepasstransfer.binding.IntegerMatcher;
+import io.github.minime89.keepasstransfer.keyboard.Keycodes;
+import io.github.minime89.keepasstransfer.keyboard.Keysyms;
+import io.github.minime89.keepasstransfer.keyboard.Layout;
+import io.github.minime89.keepasstransfer.keyboard.Scancodes;
 
 public class FileManager {
     private static final String TAG = FileManager.class.getSimpleName();
@@ -25,6 +42,23 @@ public class FileManager {
 
     private static FileManager instance;
     private final Context context;
+
+    /**
+     *
+     */
+    public static class FileManagerException extends Exception {
+        FileManagerException() {
+            super();
+        }
+
+        FileManagerException(String message) {
+            super(message);
+        }
+
+        FileManagerException(String message, Throwable cause) {
+            super(message, cause);
+        }
+    }
 
     public static FileManager getInstance() {
         if (instance == null) {
@@ -66,7 +100,7 @@ public class FileManager {
         return false;
     }
 
-    private void install(String path) {
+    private boolean install(String path) {
         String targetPath = path.substring(INSTALL_DIRECTORY.length());
 
         //list assets
@@ -77,7 +111,7 @@ public class FileManager {
         } catch (IOException e) {
             Log.e(TAG, String.format("error listing assets under path '%s': %s", path, e.getMessage()));
 
-            return;
+            return false;
         }
 
         //install file
@@ -102,6 +136,8 @@ public class FileManager {
                 }
             } catch (IOException e) {
                 Log.e(TAG, String.format("error installing file '%s': %s", path, e.getMessage()));
+
+                return false;
             } finally {
                 if (is != null) {
                     try {
@@ -127,86 +163,162 @@ public class FileManager {
             File outputDir = new File(context.getExternalFilesDir(null), targetPath);
             if (!outputDir.exists()) {
                 if (!outputDir.mkdir()) {
-                    Log.e(TAG, String.format("error installing directory '%s': couldn't create directory", path));
+                    Log.e(TAG, String.format("error installing directory '%s': couldn't load directory", path));
+
+                    return false;
                 }
             }
 
             for (int i = 0; i < assets.length; ++i) {
-                install(path + "/" + assets[i]);
-            }
-        }
-    }
-
-    public void install() {
-        install(INSTALL_DIRECTORY);
-    }
-
-    private String readFile(File file) throws IOException {
-        if (!isExternalStorageReadable()) {
-            throw new IOException("can't access external storage");
-        }
-
-        InputStream is = null;
-        try {
-            file = new File(context.getExternalFilesDir(null), file.getPath());
-            is = new FileInputStream(file);
-
-            //read data
-            ByteArrayOutputStream data = new ByteArrayOutputStream();
-            int read = 0;
-            byte[] bytes = new byte[1024];
-            while ((read = is.read(bytes)) != -1) {
-                data.write(bytes, 0, read);
-            }
-
-            return data.toString();
-        } finally {
-            if (is != null) {
-                try {
-                    is.close();
-                } catch (IOException e) {
-                    Log.w(TAG, String.format("error closing file: %s", e.getMessage()));
+                if (!install(path + "/" + assets[i])) {
+                    return false;
                 }
             }
         }
+
+        return true;
     }
 
-    public String loadScancodeMapping(String id) throws IOException {
-        File file = new File(SCANCODES_MAPPING_DIRECTORY, id);
-
-        return readFile(file);
+    public boolean install() {
+        return install(INSTALL_DIRECTORY);
     }
 
-    public String loadKeysymMapping(String id) throws IOException {
-        File file = new File(KEYSYMS_MAPPING_DIRECTORY, id);
+    private <T> T loadXmlFile(File file, Class<T> c) throws FileManagerException {
+        Strategy strategy = new AnnotationStrategy();
+        Serializer serializer = new Persister(strategy, new IntegerMatcher());
 
-        return readFile(file);
+        T instance;
+        try {
+            instance = serializer.read(c, file);
+        } catch (Exception e) {
+            throw new FileManagerException(String.format("couldn't decode XML of file '%s'", file.getPath()), e);
+        }
+
+        return instance;
     }
 
-    public String loadKeycodeMapping(String id) throws IOException {
-        File file = new File(KEYCODES_MAPPING_DIRECTORY, id);
+    private <T> T storeXmlFile(File file, T instance) throws FileManagerException {
+        Strategy strategy = new AnnotationStrategy();
+        Serializer serializer = new Persister(strategy, new IntegerMatcher());
 
-        return readFile(file);
+        try {
+            serializer.write(instance, file);
+        } catch (Exception e) {
+            throw new FileManagerException(String.format("couldn't encode object into file '%s'", file.getPath()), e);
+        }
+
+        return instance;
     }
 
-    public Collection<String> listScancodeMappings() {
-        File directory = new File(context.getExternalFilesDir(null), SCANCODES_MAPPING_DIRECTORY);
-        String[] directoryList = directory.list();
+    public Collection<File> getKeycodesFiles() {
+        File directory = new File(context.getExternalFilesDir(null), KEYCODES_MAPPING_DIRECTORY);
+        File[] directoryList = directory.listFiles();
 
         return Arrays.asList(directoryList);
     }
 
-    public Collection<String> listKeysymMappings() {
+    public Collection<String> getKeysymsFiles() {
         File directory = new File(context.getExternalFilesDir(null), KEYSYMS_MAPPING_DIRECTORY);
         String[] directoryList = directory.list();
 
         return Arrays.asList(directoryList);
     }
 
-    public Collection<String> listKeycodeMappings() {
-        File directory = new File(context.getExternalFilesDir(null), KEYCODES_MAPPING_DIRECTORY);
+    public Collection<String> getScancodesFiles() {
+        File directory = new File(context.getExternalFilesDir(null), SCANCODES_MAPPING_DIRECTORY);
         String[] directoryList = directory.list();
 
         return Arrays.asList(directoryList);
+    }
+
+    public Keycodes loadKeycodes(String keycodesId) throws FileManagerException {
+        Log.i(TAG, String.format("load keycodes with ID '%s'", keycodesId));
+
+        File file = new File(context.getExternalFilesDir(null), KEYCODES_MAPPING_DIRECTORY + "/" + keycodesId);
+
+        if (!file.exists()) {
+            throw new FileManagerException(String.format("couldn't find keycodes file with ID '%s'", keycodesId));
+        }
+
+        return loadXmlFile(file, Keycodes.class);
+    }
+
+    public Keysyms loadKeysyms(String keysymsId) throws FileManagerException {
+        Log.i(TAG, String.format("load keysyms with ID '%s'", keysymsId));
+
+        File file = new File(context.getExternalFilesDir(null), KEYSYMS_MAPPING_DIRECTORY + "/" + keysymsId);
+
+        if (!file.exists()) {
+            throw new FileManagerException(String.format("couldn't find keysyms file with ID '%s'", keysymsId));
+        }
+
+        return loadXmlFile(file, Keysyms.class);
+    }
+
+    public Scancodes loadScancodes(String scancodesId) throws FileManagerException {
+        Log.i(TAG, String.format("load scancodes with ID '%s'", scancodesId));
+
+        File file = new File(context.getExternalFilesDir(null), SCANCODES_MAPPING_DIRECTORY + "/" + scancodesId);
+
+        if (!file.exists()) {
+            throw new FileManagerException(String.format("couldn't find scancodes file with ID '%s'", scancodesId));
+        }
+
+        return loadXmlFile(file, Scancodes.class);
+    }
+
+    public Collection<Layout> loadLayouts() {
+        Log.i(TAG, "load layouts");
+
+        Collection<Layout> layouts = new ArrayList<>();
+
+        Collection<File> keycodesFiles = FileManager.getInstance().getKeycodesFiles();
+        XmlPullParser parser = Xml.newPullParser();
+        for (File keycodesFile : keycodesFiles) {
+            InputStream is = null;
+            try {
+                is = new BufferedInputStream(new FileInputStream(keycodesFile), 1024);
+                parser.setInput(is, null);
+
+                Map<String, String> elements = new HashMap<>();
+                elements.put("layoutName", "");
+                elements.put("layoutDescription", "");
+                elements.put("variantName", "");
+                elements.put("variantDescription", "");
+
+                int eventType = parser.getEventType();
+                while (eventType != XmlPullParser.END_DOCUMENT) {
+                    if (eventType == XmlPullParser.START_TAG) {
+                        String tag = parser.getName();
+                        for (Map.Entry<String, String> entry : elements.entrySet()) {
+                            if (entry.getKey().equals(tag)) {
+                                String text = parser.nextText();
+                                entry.setValue(text);
+
+                                break;
+                            }
+                        }
+                    } else if (eventType == XmlPullParser.END_TAG && parser.getName().equals("layout")) {
+                        break;
+                    }
+                    eventType = parser.next();
+                }
+
+                Layout layout = new Layout(elements.get("layoutName"), elements.get("layoutDescription"), elements.get("variantName"), elements.get("variantDescription"), keycodesFile.getName());
+                layouts.add(layout);
+            } catch (IOException | XmlPullParserException e) {
+                Log.w(TAG, String.format("couldn't decode keycodes file '%s'", keycodesFile));
+            } finally {
+                if (is != null) {
+                    try {
+                        is.close();
+                    } catch (IOException e) {
+                        Log.w(TAG, String.format("error closing file: %s", e.getMessage()));
+                    }
+                }
+            }
+        }
+
+        return layouts;
     }
 }

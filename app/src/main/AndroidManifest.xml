@@ -9,13 +9,18 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/Application" >
         <activity
-            android:name=".SettingsActivity"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme">
+            android:name=".activities.SetupActivity"
+            android:label="@string/setup_title"
+            android:theme="@style/Setup" >
+        </activity>
+        <activity
+            android:name=".activities.SettingsActivity"
+            android:label="@string/settings_title" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -29,9 +34,18 @@
             </intent-filter>
         </service>
         <service
-            android:name=".keyboard.KeyboardDeviceWriter"
+            android:name=".keyboard.DeviceWriter"
             android:exported="false" >
         </service>
+
+        <activity
+            android:name=".activities.KeyboardLayoutActivity"
+            android:label="@string/keyboard_layout_title"
+            android:parentActivityName=".activities.SettingsActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.SettingsActivity" />
+        </activity>
     </application>
 
 </manifest>

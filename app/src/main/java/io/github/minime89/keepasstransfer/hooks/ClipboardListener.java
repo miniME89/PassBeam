@@ -6,7 +6,7 @@ import android.content.Context;
 import android.util.Log;
 
 import io.github.minime89.keepasstransfer.KeePassTransfer;
-import io.github.minime89.keepasstransfer.keyboard.KeyboardDeviceWriter;
+import io.github.minime89.keepasstransfer.keyboard.DeviceWriter;
 
 public class ClipboardListener implements ClipboardManager.OnPrimaryClipChangedListener {
     private static final String TAG = ClipboardListener.class.getSimpleName();
@@ -25,6 +25,6 @@ public class ClipboardListener implements ClipboardManager.OnPrimaryClipChangedL
         Log.i(TAG, "**********  onPrimaryClipChanged");
         Log.i(TAG, clipData.toString());
 
-        KeyboardDeviceWriter.write(clipData.toString());
+        DeviceWriter.write(clipData.toString());
     }
 }

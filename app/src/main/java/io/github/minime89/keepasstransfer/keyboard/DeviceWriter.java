@@ -25,8 +25,8 @@ import io.github.minime89.keepasstransfer.Utils;
  * privileges are requested to write to the HID keyboard device file. The service handles any
  * operations in a background thread.
  */
-public class KeyboardDeviceWriter extends IntentService {
-    private static final String TAG = KeyboardDeviceWriter.class.getSimpleName();
+public class DeviceWriter extends IntentService {
+    private static final String TAG = DeviceWriter.class.getSimpleName();
     /**
      * The time the service waits for new string write requests before shutting down.
      */
@@ -35,7 +35,7 @@ public class KeyboardDeviceWriter extends IntentService {
     /**
      * The keyboard symbol converter.
      */
-    private static KeyboardSymbolConverter keyboardSymbolConverter = new KeyboardSymbolConverter();
+    private static Converter converter = new Converter();
 
     /**
      * The queue which contains the string write requests.
@@ -51,7 +51,7 @@ public class KeyboardDeviceWriter extends IntentService {
      * Request the service to write the given string as a HID keyboard. The request will start the
      * service, encode the string into the appropriate output format and write the data to the
      * device using superuser privileges.
-     * <p/>
+     * <p>
      * The method will return immediately and no feedback is returned by the service (for now).
      *
      * @param str The string.
@@ -60,26 +60,26 @@ public class KeyboardDeviceWriter extends IntentService {
         stringQueue.add(str);
 
         Context context = KeePassTransfer.getContext();
-        Intent intent = new Intent(context, KeyboardDeviceWriter.class);
+        Intent intent = new Intent(context, DeviceWriter.class);
         context.startService(intent);
     }
 
-    public KeyboardDeviceWriter() {
-        super("KeyboardDeviceWriter");
+    public DeviceWriter() {
+        super("DeviceWriter");
     }
 
     /**
-     * Process the string write requests triggered by {@link KeyboardDeviceWriter#write(String)}.
+     * Process the string write requests triggered by {@link DeviceWriter#write(String)}.
      * The method will proceed as following:<br><br>
-     * <p/>
+     * <p>
      * 1. Create new process which switches to super user<br>
-     * 2. Process all strings added to {@link KeyboardDeviceWriter#stringQueue}.<br>
+     * 2. Process all strings added to {@link DeviceWriter#stringQueue}.<br>
      * &nbsp;&nbsp;2.1 Convert string to encoded keyboard event<br>
      * &nbsp;&nbsp;2.2 Write each event to the device<br>
      * 3. End the process<br><br>
-     * <p/>
-     * In step 2 all strings will be processed from {@link KeyboardDeviceWriter#stringQueue} and
-     * some time (determined by {@link KeyboardDeviceWriter#SERVICE_TIMEOUT} will be waited for new
+     * <p>
+     * In step 2 all strings will be processed from {@link DeviceWriter#stringQueue} and
+     * some time (determined by {@link DeviceWriter#SERVICE_TIMEOUT} will be waited for new
      * string write requests to arrive. If no new string write requests arrive within this time, the
      * process will be exited and the service shuts down.
      */
@@ -92,7 +92,7 @@ public class KeyboardDeviceWriter extends IntentService {
         Process process;
         int processReturnCode = -1;
         try {
-            // create new process which switches to superuser
+            // load new process which switches to superuser
             process = Runtime.getRuntime().exec("su");
 
             DataOutputStream os = new DataOutputStream(process.getOutputStream());
@@ -104,7 +104,7 @@ public class KeyboardDeviceWriter extends IntentService {
                 }
 
                 try {
-                    Collection<byte[]> encodedCharacters = keyboardSymbolConverter.convert(str);
+                    Collection<byte[]> encodedCharacters = converter.convert(str);
 
                     for (byte[] encodedCharacter : encodedCharacters) {
                         String cmd = "";
@@ -114,7 +114,7 @@ public class KeyboardDeviceWriter extends IntentService {
                         os.writeBytes(cmd);
                         os.flush();
                     }
-                } catch (KeyboardSymbolConverter.CharacterConverterException e) {
+                } catch (Converter.CharacterConverterException e) {
                     Log.e(TAG, String.format("couldn't convert string '%s'", str));
                 }
             }
@@ -139,14 +139,14 @@ public class KeyboardDeviceWriter extends IntentService {
     }
 
     /**
-     * Stops any requested intents, except for one. This is necessary because {@link KeyboardDeviceWriter#write(String)}
-     * adds the string to {@link KeyboardDeviceWriter#stringQueue} and requests an intent every time
+     * Stops any requested intents, except for one. This is necessary because {@link DeviceWriter#write(String)}
+     * adds the string to {@link DeviceWriter#stringQueue} and requests an intent every time
      * a new string is requested to be written to the device. The service itself however, processes
-     * all elements in {@link KeyboardDeviceWriter#stringQueue} and waits for some time for new
+     * all elements in {@link DeviceWriter#stringQueue} and waits for some time for new
      * string write requests before shutting down; hence the service does not need to be started for
      * every string write request separately.
      *
-     * @see KeyboardDeviceWriter#addIntentQueue(Intent)
+     * @see DeviceWriter#addIntentQueue(Intent)
      */
     private void clearIntentQueue() {
         synchronized (intentsList) {
@@ -157,11 +157,11 @@ public class KeyboardDeviceWriter extends IntentService {
     }
 
     /**
-     * Add an intent to {@link KeyboardDeviceWriter#intentsList}. This keeps track of any requested
+     * Add an intent to {@link DeviceWriter#intentsList}. This keeps track of any requested
      * intents which will be processed automatically one after another.
      *
      * @param intent The intent.
-     * @see KeyboardDeviceWriter#clearIntentQueue()
+     * @see DeviceWriter#clearIntentQueue()
      */
     private void addIntentQueue(Intent intent) {
         synchronized (intentsList) {
@@ -169,8 +169,8 @@ public class KeyboardDeviceWriter extends IntentService {
         }
     }
 
-    public static KeyboardSymbolConverter getKeyboardSymbolConverter() {
-        return keyboardSymbolConverter;
+    public static Converter getConverter() {
+        return converter;
     }
 
     @Override
