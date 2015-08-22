@@ -1,249 +1,428 @@
-#<keysymValue>,<unicodeValue>
-8,
-9,0x29
-10,0x1E
-11,0x1F
-12,0x20
-13,0x21
-14,0x22
-15,0x23
-16,0x24
-17,0x25
-18,0x26
-19,0x27
-20,0x2D
-21,0x2E
-22,0x2A
-23,0x2B
-24,0x14
-25,0x1A
-26,0x08
-27,0x15
-28,0x17
-29,0x1C
-30,0x18
-31,0x0C
-32,0x12
-33,0x13
-34,0x2F
-35,0x30
-36,0x28
-37,0xE0
-38,0x04
-39,0x16
-40,0x07
-41,0x09
-42,0x0A
-43,0x0B
-44,0x0D
-45,0x0E
-46,0x0F
-47,0x33
-48,0x34
-49,0x35
-50,0xE1
-51,0x31
-52,0x1D
-53,0x1B
-54,0x06
-55,0x19
-56,0x05
-57,0x11
-58,0x10
-59,0x36
-60,0x37
-61,0x38
-62,0xE5
-63,0x55
-64,0xE2
-65,0x2C
-66,0x39
-67,0x3A
-68,0x3B
-69,0x3C
-70,0x3D
-71,0x3E
-72,0x3F
-73,0x40
-74,0x41
-75,0x42
-76,0x43
-77,0x53
-78,0x47
-79,0x5F
-80,0x60
-81,0x61
-82,0x56
-83,0x5C
-84,0x5D
-85,0x5E
-86,0x57
-87,0x59
-88,0x5A
-89,0x5B
-90,0x62
-91,0x63
-92,
-93,
-94,0x64
-95,0x44
-96,0x45
-97,
-98,
-99,
-100,
-101,
-102,
-103,
-104,0x58
-105,0xE4
-106,0x54
-107,0x46
-108,0xE6
-109,
-110,0x4A
-111,0x52
-112,0x4B
-113,0x50
-114,0x4F
-115,0x4D
-116,0x51
-117,0x4E
-118,0x49
-119,0x4C
-120,
-121,
-122,
-123,
-124,
-125,
-126,
-127,0x48
-128,
-129,
-130,
-131,
-132,
-133,0xE3
-134,0xE7
-135,
-136,
-137,
-138,
-139,
-140,
-141,
-142,
-143,
-144,
-145,
-146,
-147,
-148,
-149,
-150,
-151,
-152,
-153,
-154,
-155,
-156,
-157,
-158,
-159,
-160,
-161,
-162,
-163,
-164,
-165,
-166,
-167,
-168,
-169,
-170,
-171,
-172,
-173,
-174,
-175,
-176,
-177,
-178,
-179,
-180,
-181,
-182,
-183,
-184,
-185,
-186,
-187,
-188,
-189,
-190,
-191,
-192,
-193,
-194,
-195,
-196,
-197,
-198,
-199,
-200,
-201,
-202,
-203,
-204,
-205,
-206,
-207,
-208,
-209,
-210,
-211,
-212,
-213,
-214,
-215,
-216,
-217,
-218,
-219,
-220,
-221,
-222,
-223,
-224,
-225,
-226,
-227,
-228,
-229,
-230,
-231,
-232,
-233,
-234,
-235,
-236,
-237,
-238,
-239,
-240,
-241,
-242,
-243,
-244,
-245,
-246,
-247,
-248,
-249,
-250,
-251,
-252,
-253,
-254,
-255
+<scancodes>
+  <scancode value="1" name="Keyboard ErrorRollOver"/>
+  <scancode value="2" name="Keyboard POSTFail"/>
+  <scancode value="3" name="Keyboard ErrorUndefined"/>
+  <scancode value="4" name="Keyboard a and A">
+    <keycode value="38"/>
+  </scancode>
+  <scancode value="5" name="Keyboard b and B">
+    <keycode value="56"/>
+  </scancode>
+  <scancode value="6" name="Keyboard c and C">
+    <keycode value="54"/>
+  </scancode>
+  <scancode value="7" name="Keyboard d and D">
+    <keycode value="40"/>
+  </scancode>
+  <scancode value="8" name="Keyboard e and E">
+    <keycode value="26"/>
+  </scancode>
+  <scancode value="9" name="Keyboard f and F">
+    <keycode value="41"/>
+  </scancode>
+  <scancode value="10" name="Keyboard g and G">
+    <keycode value="42"/>
+  </scancode>
+  <scancode value="11" name="Keyboard h and H">
+    <keycode value="43"/>
+  </scancode>
+  <scancode value="12" name="Keyboard i and I">
+    <keycode value="31"/>
+  </scancode>
+  <scancode value="13" name="Keyboard j and J">
+    <keycode value="44"/>
+  </scancode>
+  <scancode value="14" name="Keyboard k and K">
+    <keycode value="45"/>
+  </scancode>
+  <scancode value="15" name="Keyboard l and L">
+    <keycode value="46"/>
+  </scancode>
+  <scancode value="16" name="Keyboard m and M">
+    <keycode value="58"/>
+  </scancode>
+  <scancode value="17" name="Keyboard n and N">
+    <keycode value="57"/>
+  </scancode>
+  <scancode value="18" name="Keyboard o and O">
+    <keycode value="32"/>
+  </scancode>
+  <scancode value="19" name="Keyboard p and P">
+    <keycode value="33"/>
+  </scancode>
+  <scancode value="20" name="Keyboard q and Q">
+    <keycode value="24"/>
+  </scancode>
+  <scancode value="21" name="Keyboard r and R">
+    <keycode value="27"/>
+  </scancode>
+  <scancode value="22" name="Keyboard s and S">
+    <keycode value="39"/>
+  </scancode>
+  <scancode value="23" name="Keyboard t and T">
+    <keycode value="28"/>
+  </scancode>
+  <scancode value="24" name="Keyboard u and U">
+    <keycode value="30"/>
+  </scancode>
+  <scancode value="25" name="Keyboard v and V">
+    <keycode value="55"/>
+  </scancode>
+  <scancode value="26" name="Keyboard w and W">
+    <keycode value="25"/>
+  </scancode>
+  <scancode value="27" name="Keyboard x and X">
+    <keycode value="53"/>
+  </scancode>
+  <scancode value="28" name="Keyboard y and Y">
+    <keycode value="29"/>
+  </scancode>
+  <scancode value="29" name="Keyboard z and Z">
+    <keycode value="52"/>
+  </scancode>
+  <scancode value="30" name="Keyboard 1 and !">
+    <keycode value="10"/>
+  </scancode>
+  <scancode value="31" name="Keyboard 2 and @">
+    <keycode value="11"/>
+  </scancode>
+  <scancode value="32" name="Keyboard 3 and #">
+    <keycode value="12"/>
+  </scancode>
+  <scancode value="33" name="Keyboard 4 and $">
+    <keycode value="13"/>
+  </scancode>
+  <scancode value="34" name="Keyboard 5 and %">
+    <keycode value="14"/>
+  </scancode>
+  <scancode value="35" name="Keyboard 6 and ^">
+    <keycode value="15"/>
+  </scancode>
+  <scancode value="36" name="Keyboard 7 and &amp;">
+    <keycode value="16"/>
+  </scancode>
+  <scancode value="37" name="Keyboard 8 and *">
+    <keycode value="17"/>
+  </scancode>
+  <scancode value="38" name="Keyboard 9 and (">
+    <keycode value="18"/>
+  </scancode>
+  <scancode value="39" name="Keyboard 0 and )">
+    <keycode value="19"/>
+  </scancode>
+  <scancode value="40" name="Keyboard Return (ENTER)">
+    <keycode value="36"/>
+  </scancode>
+  <scancode value="41" name="Keyboard ESCAPE">
+    <keycode value="9"/>
+  </scancode>
+  <scancode value="42" name="Keyboard DELETE (Backspace)">
+    <keycode value="22"/>
+  </scancode>
+  <scancode value="43" name="Keyboard Tab">
+    <keycode value="23"/>
+  </scancode>
+  <scancode value="44" name="Keyboard Spacebar">
+    <keycode value="65"/>
+  </scancode>
+  <scancode value="45" name="Keyboard - and (underscore)">
+    <keycode value="20"/>
+  </scancode>
+  <scancode value="46" name="Keyboard = and +">
+    <keycode value="21"/>
+  </scancode>
+  <scancode value="47" name="Keyboard [ and {">
+    <keycode value="34"/>
+  </scancode>
+  <scancode value="48" name="Keyboard ] and }">
+    <keycode value="35"/>
+  </scancode>
+  <scancode value="49" name="Keyboard \ and |">
+    <keycode value="51"/>
+  </scancode>
+  <scancode value="50" name="Keyboard Non-US # and ~"/>
+  <scancode value="51" name="Keyboard ; and :">
+    <keycode value="47"/>
+  </scancode>
+  <scancode value="52" name="Keyboard &#8216; and &#8220;">
+    <keycode value="48"/>
+  </scancode>
+  <scancode value="53" name="Keyboard Grave Accent and Tilde">
+    <keycode value="49"/>
+  </scancode>
+  <scancode value="54" name="Keyboard, and &lt;">
+    <keycode value="59"/>
+  </scancode>
+  <scancode value="55" name="Keyboard . And &gt;">
+    <keycode value="60"/>
+  </scancode>
+  <scancode value="56" name="Keyboard / and ?">
+    <keycode value="61"/>
+  </scancode>
+  <scancode value="57" name="Keyboard Caps Lock">
+    <keycode value="66"/>
+  </scancode>
+  <scancode value="58" name="Keyboard F1">
+    <keycode value="67"/>
+  </scancode>
+  <scancode value="59" name="Keyboard F2">
+    <keycode value="68"/>
+  </scancode>
+  <scancode value="60" name="Keyboard F3">
+    <keycode value="69"/>
+  </scancode>
+  <scancode value="61" name="Keyboard F4">
+    <keycode value="70"/>
+  </scancode>
+  <scancode value="62" name="Keyboard F5">
+    <keycode value="71"/>
+  </scancode>
+  <scancode value="63" name="Keyboard F6">
+    <keycode value="72"/>
+  </scancode>
+  <scancode value="64" name="Keyboard F7">
+    <keycode value="73"/>
+  </scancode>
+  <scancode value="65" name="Keyboard F8">
+    <keycode value="74"/>
+  </scancode>
+  <scancode value="66" name="Keyboard F9">
+    <keycode value="75"/>
+  </scancode>
+  <scancode value="67" name="Keyboard F10">
+    <keycode value="76"/>
+  </scancode>
+  <scancode value="68" name="Keyboard F11">
+    <keycode value="95"/>
+  </scancode>
+  <scancode value="69" name="Keyboard F12">
+    <keycode value="96"/>
+  </scancode>
+  <scancode value="70" name="Keyboard PrintScreen">
+    <keycode value="107"/>
+  </scancode>
+  <scancode value="71" name="Keyboard Scroll Lock">
+    <keycode value="78"/>
+  </scancode>
+  <scancode value="72" name="Keyboard Pause">
+    <keycode value="127"/>
+  </scancode>
+  <scancode value="73" name="Keyboard Insert">
+    <keycode value="118"/>
+  </scancode>
+  <scancode value="74" name="Keyboard Home">
+    <keycode value="110"/>
+  </scancode>
+  <scancode value="75" name="Keyboard PageUp">
+    <keycode value="112"/>
+  </scancode>
+  <scancode value="76" name="Keyboard Delete Forward">
+    <keycode value="119"/>
+  </scancode>
+  <scancode value="77" name="Keyboard End">
+    <keycode value="115"/>
+  </scancode>
+  <scancode value="78" name="Keyboard PageDown">
+    <keycode value="117"/>
+  </scancode>
+  <scancode value="79" name="Keyboard RightArrow">
+    <keycode value="114"/>
+  </scancode>
+  <scancode value="80" name="Keyboard LeftArrow">
+    <keycode value="113"/>
+  </scancode>
+  <scancode value="81" name="Keyboard DownArrow">
+    <keycode value="116"/>
+  </scancode>
+  <scancode value="82" name="Keyboard UpArrow">
+    <keycode value="111"/>
+  </scancode>
+  <scancode value="83" name="Keypad Num Lock and Clear">
+    <keycode value="77"/>
+  </scancode>
+  <scancode value="84" name="Keypad /">
+    <keycode value="106"/>
+  </scancode>
+  <scancode value="85" name="Keypad *">
+    <keycode value="63"/>
+  </scancode>
+  <scancode value="86" name="Keypad -">
+    <keycode value="82"/>
+  </scancode>
+  <scancode value="87" name="Keypad +">
+    <keycode value="86"/>
+  </scancode>
+  <scancode value="88" name="Keypad ENTER">
+    <keycode value="104"/>
+  </scancode>
+  <scancode value="89" name="Keypad 1 and End">
+    <keycode value="87"/>
+  </scancode>
+  <scancode value="90" name="Keypad 2 and Down Arrow">
+    <keycode value="88"/>
+  </scancode>
+  <scancode value="91" name="Keypad 3 and PageDn">
+    <keycode value="89"/>
+  </scancode>
+  <scancode value="92" name="Keypad 4 and Left Arrow">
+    <keycode value="83"/>
+  </scancode>
+  <scancode value="93" name="Keypad 5">
+    <keycode value="84"/>
+  </scancode>
+  <scancode value="94" name="Keypad 6 and Right Arrow">
+    <keycode value="85"/>
+  </scancode>
+  <scancode value="95" name="Keypad 7 and Home">
+    <keycode value="79"/>
+  </scancode>
+  <scancode value="96" name="Keypad 8 and Up Arrow">
+    <keycode value="80"/>
+  </scancode>
+  <scancode value="97" name="Keypad 9 and PageUp">
+    <keycode value="81"/>
+  </scancode>
+  <scancode value="98" name="Keypad 0 and Insert">
+    <keycode value="90"/>
+  </scancode>
+  <scancode value="99" name="Keypad . and Delete">
+    <keycode value="91"/>
+  </scancode>
+  <scancode value="100" name="Keyboard Non-US \ and |">
+    <keycode value="94"/>
+  </scancode>
+  <scancode value="101" name="Keyboard Application"/>
+  <scancode value="102" name="Keyboard Power"/>
+  <scancode value="103" name="Keypad ="/>
+  <scancode value="104" name="Keyboard F13"/>
+  <scancode value="105" name="Keyboard F14"/>
+  <scancode value="106" name="Keyboard F15"/>
+  <scancode value="107" name="Keyboard F16"/>
+  <scancode value="108" name="Keyboard F17"/>
+  <scancode value="109" name="Keyboard F18"/>
+  <scancode value="110" name="Keyboard F19"/>
+  <scancode value="111" name="Keyboard F20"/>
+  <scancode value="112" name="Keyboard F21"/>
+  <scancode value="113" name="Keyboard F22"/>
+  <scancode value="114" name="Keyboard F23"/>
+  <scancode value="115" name="Keyboard F24"/>
+  <scancode value="116" name="Keyboard Execute"/>
+  <scancode value="117" name="Keyboard Help"/>
+  <scancode value="118" name="Keyboard Menu"/>
+  <scancode value="119" name="Keyboard Select"/>
+  <scancode value="120" name="Keyboard Stop"/>
+  <scancode value="121" name="Keyboard Again"/>
+  <scancode value="122" name="Keyboard Undo"/>
+  <scancode value="123" name="Keyboard Cut"/>
+  <scancode value="124" name="Keyboard Copy"/>
+  <scancode value="125" name="Keyboard Paste"/>
+  <scancode value="126" name="Keyboard Find"/>
+  <scancode value="127" name="Keyboard Mute"/>
+  <scancode value="128" name="Keyboard Volume Up"/>
+  <scancode value="129" name="Keyboard Volume Down"/>
+  <scancode value="130" name="Keyboard Locking Caps Lock"/>
+  <scancode value="131" name="Keyboard Locking Num Lock "/>
+  <scancode value="132" name="Keyboard Locking Scroll Lock"/>
+  <scancode value="133" name="Keypad Comma"/>
+  <scancode value="134" name="Keypad Equal Sign"/>
+  <scancode value="135" name="Keyboard International1"/>
+  <scancode value="136" name="Keyboard International2"/>
+  <scancode value="137" name="Keyboard International3"/>
+  <scancode value="138" name="Keyboard International4"/>
+  <scancode value="139" name="Keyboard International5"/>
+  <scancode value="140" name="Keyboard International6"/>
+  <scancode value="141" name="Keyboard International7"/>
+  <scancode value="142" name="Keyboard International8"/>
+  <scancode value="143" name="Keyboard International9"/>
+  <scancode value="144" name="Keyboard LANG1"/>
+  <scancode value="145" name="Keyboard LANG2"/>
+  <scancode value="146" name="Keyboard LANG3"/>
+  <scancode value="147" name="Keyboard LANG4"/>
+  <scancode value="148" name="Keyboard LANG5"/>
+  <scancode value="149" name="Keyboard LANG6"/>
+  <scancode value="150" name="Keyboard LANG7"/>
+  <scancode value="151" name="Keyboard LANG8"/>
+  <scancode value="152" name="Keyboard LANG9"/>
+  <scancode value="153" name="Keyboard Alternate Erase"/>
+  <scancode value="154" name="Keyboard SysReq/Attention"/>
+  <scancode value="155" name="Keyboard Cancel"/>
+  <scancode value="156" name="Keyboard Clear"/>
+  <scancode value="157" name="Keyboard Prior"/>
+  <scancode value="158" name="Keyboard Return"/>
+  <scancode value="159" name="Keyboard Separator"/>
+  <scancode value="160" name="Keyboard Out"/>
+  <scancode value="161" name="Keyboard Oper"/>
+  <scancode value="162" name="Keyboard Clear/Again"/>
+  <scancode value="163" name="Keyboard CrSel/Props"/>
+  <scancode value="164" name="Keyboard ExSel"/>
+  <scancode value="176" name="Keypad 00"/>
+  <scancode value="177" name="Keypad 000"/>
+  <scancode value="178" name="Thousands Separator"/>
+  <scancode value="179" name="Decimal Separator"/>
+  <scancode value="180" name="Currency Unit"/>
+  <scancode value="181" name="Currency Sub-unit"/>
+  <scancode value="182" name="Keypad ("/>
+  <scancode value="183" name="Keypad )"/>
+  <scancode value="184" name="Keypad {"/>
+  <scancode value="185" name="Keypad }"/>
+  <scancode value="186" name="Keypad Tab"/>
+  <scancode value="187" name="Keypad Backspace"/>
+  <scancode value="188" name="Keypad A"/>
+  <scancode value="189" name="Keypad B"/>
+  <scancode value="190" name="Keypad C"/>
+  <scancode value="191" name="Keypad D"/>
+  <scancode value="192" name="Keypad E"/>
+  <scancode value="193" name="Keypad F"/>
+  <scancode value="194" name="Keypad XOR"/>
+  <scancode value="195" name="Keypad ^"/>
+  <scancode value="196" name="Keypad %"/>
+  <scancode value="197" name="Keypad &lt;"/>
+  <scancode value="198" name="Keypad &gt;"/>
+  <scancode value="199" name="Keypad &amp;"/>
+  <scancode value="200" name="Keypad &amp;&amp;"/>
+  <scancode value="201" name="Keypad |"/>
+  <scancode value="202" name="Keypad ||"/>
+  <scancode value="203" name="Keypad :"/>
+  <scancode value="204" name="Keypad #"/>
+  <scancode value="205" name="Keypad Space"/>
+  <scancode value="206" name="Keypad @"/>
+  <scancode value="207" name="Keypad !"/>
+  <scancode value="208" name="Keypad Memory Store"/>
+  <scancode value="209" name="Keypad Memory Recall"/>
+  <scancode value="210" name="Keypad Memory Clear"/>
+  <scancode value="211" name="Keypad Memory Add"/>
+  <scancode value="212" name="Keypad Memory Subtract"/>
+  <scancode value="213" name="Keypad Memory Multiply"/>
+  <scancode value="214" name="Keypad Memory Divide"/>
+  <scancode value="215" name="Keypad +/-"/>
+  <scancode value="216" name="Keypad Clear"/>
+  <scancode value="217" name="Keypad Clear Entry"/>
+  <scancode value="218" name="Keypad Binary"/>
+  <scancode value="219" name="Keypad Octal"/>
+  <scancode value="220" name="Keypad Decimal"/>
+  <scancode value="221" name="Keypad Hexadecimal"/>
+  <scancode value="224" name="Keyboard LeftControl">
+    <keycode value="37"/>
+  </scancode>
+  <scancode value="225" name="Keyboard LeftShift">
+    <keycode value="50"/>
+  </scancode>
+  <scancode value="226" name="Keyboard LeftAlt">
+    <keycode value="64"/>
+  </scancode>
+  <scancode value="227" name="Keyboard Left GUI">
+    <keycode value="133"/>
+  </scancode>
+  <scancode value="228" name="Keyboard RightControl">
+    <keycode value="105"/>
+  </scancode>
+  <scancode value="229" name="Keyboard RightShift">
+    <keycode value="62"/>
+  </scancode>
+  <scancode value="230" name="Keyboard RightAlt">
+    <keycode value="108"/>
+  </scancode>
+  <scancode value="231" name="Keyboard Right GUI">
+    <keycode value="134"/>
+  </scancode>
+</scancodes>

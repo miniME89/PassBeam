@@ -1,252 +1,985 @@
-#layoutName=tr
-#layoutDescription=Turkish
-#variantName=ku_alt
-#variantDescription=Kurdish (Turkey, Latin Alt-Q)
-#<keycode>,<keysym_level_1>,<keysym_level_2>,<keysym_level_3>,<keysym_level_4>,...
-8,0xff1b
-9,0xff1b
-10,0x0031,0x0021,0x00b9,0x00a1
-11,0x0032,0x0040,0x00b2,0x0ac3
-12,0x0033,0x0023,0x00b3,0x00a3
-13,0x0034,0x0024,0x00bc,0x0024
-14,0x0035,0x0025,0x00bd,0x0ac4
-15,0x0036,0x005e,0x00be,0x0ac5
-16,0x0037,0x0026,0x09ed,0x09ec
-17,0x0038,0x002a,0x09f4,0x09f7
-18,0x0039,0x0028,0x09f5,0x09f6
-19,0x0030,0x0029,0x09ea,0x09eb
-20,0x002d,0x005f,0x09f1,0x09f8
-21,0x003d,0x002b,0x09ee,0xfe5c
-22,0xff08,0xff08
-23,0xff09,0xfe20
-24,0x0071,0x0051,0x0040,0x07d9
-25,0x0077,0x0057,0x01b3,0x01a3
-26,0x0065,0x0045,0x00ea,0x00ca
-27,0x0072,0x0052,0x00b6,0x00ae
-28,0x0074,0x0054,0x03bc,0x03ac
-29,0x0079,0x0059,0x08fb,0x00a5
-30,0x0075,0x0055,0x00fb,0x00db
-31,0x0069,0x0049,0x00ee,0x00ce
-32,0x006f,0x004f,0x00f6,0x00d6
-33,0x0070,0x0050,0x00fe,0x00de
-34,0x005b,0x007b,0xfe57,0xfe58
-35,0x005d,0x007d,0xfe53,0xfe54
-36,0xff0d
-37,0xffe3
-38,0x0061,0x0041,0x00e2,0x00c2
-39,0x0073,0x0053,0x01ba,0x01aa
-40,0x0064,0x0044,0x00f0,0x00d0
-41,0x0066,0x0046,0x01f0,0x00aa
-42,0x0067,0x0047,0x02bb,0x02ab
-43,0x0068,0x0048,0x02b1,0x02a1
-44,0x006a,0x004a,0xfe61,0xfe62
-45,0x006b,0x004b,0x03a2,0x0026
-46,0x006c,0x004c,0x01b3,0x01a3
-47,0x003b,0x003a,0xfe51,0xfe59
-48,0x0027,0x0022,0xfe52,0xfe5a
-49,0x0060,0x007e,0x00ac,0x00ac
-50,0xffe1
-51,0x005c,0x007c,0xfe50,0xfe55
-52,0x007a,0x005a,0x00ab,0x003c
-53,0x0078,0x0058,0x00bb,0x003e
-54,0x0063,0x0043,0x00e7,0x00c7
-55,0x0076,0x0056,0x0ad2,0x0ad0
-56,0x0062,0x0042,0x0ad3,0x0ad1
-57,0x006e,0x004e,0x006e,0x004e
-58,0x006d,0x004d,0x00b5,0x00ba
-59,0x002c,0x003c,0x08a3,0x00d7
-60,0x002e,0x003e,0x00b7,0x00f7
-61,0x002f,0x003f,0xfe60,0xfe56
-62,0xffe2
-63,0xffaa,0xffaa,0xffaa,0xffaa,0x1008fe21
-64,0xffe9,0xffe7
-65,0x0020
-66,0xffe5,0xfe08
-67,0xffbe,0xffbe,0xffbe,0xffbe,0x1008fe01
-68,0xffbf,0xffbf,0xffbf,0xffbf,0x1008fe02
-69,0xffc0,0xffc0,0xffc0,0xffc0,0x1008fe03
-70,0xffc1,0xffc1,0xffc1,0xffc1,0x1008fe04
-71,0xffc2,0xffc2,0xffc2,0xffc2,0x1008fe05
-72,0xffc3,0xffc3,0xffc3,0xffc3,0x1008fe06
-73,0xffc4,0xffc4,0xffc4,0xffc4,0x1008fe07
-74,0xffc5,0xffc5,0xffc5,0xffc5,0x1008fe08
-75,0xffc6,0xffc6,0xffc6,0xffc6,0x1008fe09
-76,0xffc7,0xffc7,0xffc7,0xffc7,0x1008fe0a
-77,0xff7f
-78,0xff14
-79,0xff95,0xffb7
-80,0xff97,0xffb8
-81,0xff9a,0xffb9
-82,0xffad,0xffad,0xffad,0xffad,0x1008fe23
-83,0xff96,0xffb4
-84,0xff9d,0xffb5
-85,0xff98,0xffb6
-86,0xffab,0xffab,0xffab,0xffab,0x1008fe22
-87,0xff9c,0xffb1
-88,0xff99,0xffb2
-89,0xff9b,0xffb3
-90,0xff9e,0xffb0
-91,0xff9f,0xffae
-92,0xfe03
-93,0x003c
-94,0x003c,0x003e,0x007c,0x00a6
-95,0xffc8,0xffc8,0xffc8,0xffc8,0x1008fe0b
-96,0xffc9,0xffc9,0xffc9,0xffc9,0x1008fe0c
-97,0xff26
-98,0xff26
-99,0xff25
-100,0xff23
-101,0xff27
-102,0xff22
-103,0xff8d
-104,0xff8d
-105,0xffe4
-106,0xffaf,0xffaf,0xffaf,0xffaf,0x1008fe20
-107,0xff61,0xff15
-108,0xfe03
-109,0xff0a
-110,0xff50
-111,0xff52
-112,0xff55
-113,0xff51
-114,0xff53
-115,0xff57
-116,0xff54
-117,0xff56
-118,0xff63
-119,0xffff
-120,0x1008ff12
-121,0x1008ff12
-122,0x1008ff11
-123,0x1008ff13
-124,0x1008ff2a
-125,0xffbd
-126,0x00b1
-127,0xff13,0xff6b
-128,0x1008ff4a
-129,0xffae,0xffae
-130,0xff31
-131,0xff34
-132,0xffeb
-133,0xffeb
-134,0xffec
-135,0xff67
-136,0xff69
-137,0xff66
-138,0x1005ff70
-139,0xff65
-140,0x1005ff71
-141,0x1008ff57
-142,0x1008ff6b
-143,0x1008ff6d
-144,0xff68
-145,0x1008ff58
-146,0xff6a
-147,0x1008ff65
-148,0x1008ff1d
-149,0x1008ff2f
-150,0x1008ff2f
-151,0x1008ff2b
-152,0x1008ff5d
-153,0x1008ff7b
-154,0x1008ff8a
-155,0x1008ff8a
-156,0x1008ff41
-157,0x1008ff42
-158,0x1008ff2e
-159,0x1008ff5a
-160,0x1008ff2d
-161,0x1008ff74
-162,0x1008ff74
-163,0x1008ff19
-164,0x1008ff30
-165,0x1008ff33
-166,0x1008ff26
-167,0x1008ff27
-168,0x1008ff2c
-169,0x1008ff2c
-170,0x1008ff2c,0x1008ff2c
-171,0x1008ff17
-172,0x1008ff14,0x1008ff31
-173,0x1008ff16
-174,0x1008ff15,0x1008ff2c
-175,0x1008ff1c
-176,0x1008ff3e
-177,0x1008ff6e
-178,0x1008ff81
-179,0x1008ff81
-180,0x1008ff18
-181,0x1008ff73
-182,0x1008ff56
-183,0x1008ff78
-184,0x1008ff78
-185,0x1008ff78
-186,0x1008ff79
-187,0x0028
-188,0x0029
-189,0x1008ff68
-190,0xff66
-191,0x1008ff81
-192,0x1008ff45
-193,0x1008ff46
-194,0x1008ff47
-195,0x1008ff48
-196,0x1008ff49
-197,0x1008ffb2
-198,0x1008ffb2
-199,0x1008ffa9
-200,0x1008ffb0
-201,0x1008ffb1
-202,0xff7e
-203,0xff7e
-204,0x0000,0xffe9
-205,0x0000,0xffe7
-206,0x0000,0xffeb
-207,0x0000,0xffed
-208,0x1008ff14
-209,0x1008ff31
-210,0x1008ff43
-211,0x1008ff44
-212,0x1008ff4b
-213,0x1008ffa7
-214,0x1008ff56
-215,0x1008ff14
-216,0x1008ff97
-217,0xff61
-218,0xff61
-219,0x1008ff8f
-220,0x1008ff8f
-221,0x1008ff19
-222,0x1008ff19
-223,0x1008ff19
-224,0x1008ff8e
-225,0x1008ff1b
-226,0x1008ff5f
-227,0x1008ff3c
-228,0x1008ff5e
-229,0x1008ff36
-230,0xff69
-231,0xff69
-232,0x1008ff03
-233,0x1008ff02
-234,0x1008ff32
-235,0x1008ff59
-236,0x1008ff04
-237,0x1008ff06
-238,0x1008ff05
-239,0x1008ff7b
-240,0x1008ff72
-241,0x1008ff90
-242,0x1008ff77
-243,0x1008ff5b
-244,0x1008ff93
-245,0x1008ff94
-246,0x1008ff95
-247,0x0000
-248,0x0000
-249,0x0000
-250,0x0000
-251,0x0000
-252,0x0000
-253,0x0000
-254,0x0000
+<keycodes>
+  <layout>
+    <layoutName>tr</layoutName>
+    <layoutDescription>Turkish</layoutDescription>
+    <variantName>ku_alt</variantName>
+    <variantDescription>Kurdish (Turkey, Latin Alt-Q)</variantDescription>
+  </layout>
+  <keycode value="8">
+    <keysym value="0xff1b"/>
+  </keycode>
+  <keycode value="9">
+    <keysym value="0xff1b"/>
+  </keycode>
+  <keycode value="10">
+    <keysym value="0x31"/>
+    <keysym value="0x21"/>
+    <keysym value="0xb9"/>
+    <keysym value="0xa1"/>
+  </keycode>
+  <keycode value="11">
+    <keysym value="0x32"/>
+    <keysym value="0x40"/>
+    <keysym value="0xb2"/>
+    <keysym value="0xac3"/>
+  </keycode>
+  <keycode value="12">
+    <keysym value="0x33"/>
+    <keysym value="0x23"/>
+    <keysym value="0xb3"/>
+    <keysym value="0xa3"/>
+  </keycode>
+  <keycode value="13">
+    <keysym value="0x34"/>
+    <keysym value="0x24"/>
+    <keysym value="0xbc"/>
+    <keysym value="0x24"/>
+  </keycode>
+  <keycode value="14">
+    <keysym value="0x35"/>
+    <keysym value="0x25"/>
+    <keysym value="0xbd"/>
+    <keysym value="0xac4"/>
+  </keycode>
+  <keycode value="15">
+    <keysym value="0x36"/>
+    <keysym value="0x5e"/>
+    <keysym value="0xbe"/>
+    <keysym value="0xac5"/>
+  </keycode>
+  <keycode value="16">
+    <keysym value="0x37"/>
+    <keysym value="0x26"/>
+    <keysym value="0x9ed"/>
+    <keysym value="0x9ec"/>
+  </keycode>
+  <keycode value="17">
+    <keysym value="0x38"/>
+    <keysym value="0x2a"/>
+    <keysym value="0x9f4"/>
+    <keysym value="0x9f7"/>
+  </keycode>
+  <keycode value="18">
+    <keysym value="0x39"/>
+    <keysym value="0x28"/>
+    <keysym value="0x9f5"/>
+    <keysym value="0x9f6"/>
+  </keycode>
+  <keycode value="19">
+    <keysym value="0x30"/>
+    <keysym value="0x29"/>
+    <keysym value="0x9ea"/>
+    <keysym value="0x9eb"/>
+  </keycode>
+  <keycode value="20">
+    <keysym value="0x2d"/>
+    <keysym value="0x5f"/>
+    <keysym value="0x9f1"/>
+    <keysym value="0x9f8"/>
+  </keycode>
+  <keycode value="21">
+    <keysym value="0x3d"/>
+    <keysym value="0x2b"/>
+    <keysym value="0x9ee"/>
+    <keysym value="0xfe5c"/>
+  </keycode>
+  <keycode value="22">
+    <keysym value="0xff08"/>
+    <keysym value="0xff08"/>
+    <keysym value="0x0"/>
+    <keysym value="0x0"/>
+    <keysym value="0xfed5"/>
+  </keycode>
+  <keycode value="23">
+    <keysym value="0xff09"/>
+    <keysym value="0xfe20"/>
+  </keycode>
+  <keycode value="24">
+    <keysym value="0x71"/>
+    <keysym value="0x51"/>
+    <keysym value="0x40"/>
+    <keysym value="0x7d9"/>
+  </keycode>
+  <keycode value="25">
+    <keysym value="0x77"/>
+    <keysym value="0x57"/>
+    <keysym value="0x1b3"/>
+    <keysym value="0x1a3"/>
+  </keycode>
+  <keycode value="26">
+    <keysym value="0x65"/>
+    <keysym value="0x45"/>
+    <keysym value="0xea"/>
+    <keysym value="0xca"/>
+  </keycode>
+  <keycode value="27">
+    <keysym value="0x72"/>
+    <keysym value="0x52"/>
+    <keysym value="0xb6"/>
+    <keysym value="0xae"/>
+  </keycode>
+  <keycode value="28">
+    <keysym value="0x74"/>
+    <keysym value="0x54"/>
+    <keysym value="0x3bc"/>
+    <keysym value="0x3ac"/>
+  </keycode>
+  <keycode value="29">
+    <keysym value="0x79"/>
+    <keysym value="0x59"/>
+    <keysym value="0x8fb"/>
+    <keysym value="0xa5"/>
+  </keycode>
+  <keycode value="30">
+    <keysym value="0x75"/>
+    <keysym value="0x55"/>
+    <keysym value="0xfb"/>
+    <keysym value="0xdb"/>
+  </keycode>
+  <keycode value="31">
+    <keysym value="0x69"/>
+    <keysym value="0x49"/>
+    <keysym value="0xee"/>
+    <keysym value="0xce"/>
+  </keycode>
+  <keycode value="32">
+    <keysym value="0x6f"/>
+    <keysym value="0x4f"/>
+    <keysym value="0xf6"/>
+    <keysym value="0xd6"/>
+  </keycode>
+  <keycode value="33">
+    <keysym value="0x70"/>
+    <keysym value="0x50"/>
+    <keysym value="0xfe"/>
+    <keysym value="0xde"/>
+  </keycode>
+  <keycode value="34">
+    <keysym value="0x5b"/>
+    <keysym value="0x7b"/>
+    <keysym value="0xfe57"/>
+    <keysym value="0xfe58"/>
+  </keycode>
+  <keycode value="35">
+    <keysym value="0x5d"/>
+    <keysym value="0x7d"/>
+    <keysym value="0xfe53"/>
+    <keysym value="0xfe54"/>
+  </keycode>
+  <keycode value="36">
+    <keysym value="0xff0d"/>
+  </keycode>
+  <keycode value="37">
+    <keysym value="0xffe3"/>
+  </keycode>
+  <keycode value="38">
+    <keysym value="0x61"/>
+    <keysym value="0x41"/>
+    <keysym value="0xe2"/>
+    <keysym value="0xc2"/>
+  </keycode>
+  <keycode value="39">
+    <keysym value="0x73"/>
+    <keysym value="0x53"/>
+    <keysym value="0x1ba"/>
+    <keysym value="0x1aa"/>
+  </keycode>
+  <keycode value="40">
+    <keysym value="0x64"/>
+    <keysym value="0x44"/>
+    <keysym value="0xf0"/>
+    <keysym value="0xd0"/>
+  </keycode>
+  <keycode value="41">
+    <keysym value="0x66"/>
+    <keysym value="0x46"/>
+    <keysym value="0x1f0"/>
+    <keysym value="0xaa"/>
+  </keycode>
+  <keycode value="42">
+    <keysym value="0x67"/>
+    <keysym value="0x47"/>
+    <keysym value="0x2bb"/>
+    <keysym value="0x2ab"/>
+  </keycode>
+  <keycode value="43">
+    <keysym value="0x68"/>
+    <keysym value="0x48"/>
+    <keysym value="0x2b1"/>
+    <keysym value="0x2a1"/>
+  </keycode>
+  <keycode value="44">
+    <keysym value="0x6a"/>
+    <keysym value="0x4a"/>
+    <keysym value="0xfe61"/>
+    <keysym value="0xfe62"/>
+  </keycode>
+  <keycode value="45">
+    <keysym value="0x6b"/>
+    <keysym value="0x4b"/>
+    <keysym value="0x3a2"/>
+    <keysym value="0x26"/>
+  </keycode>
+  <keycode value="46">
+    <keysym value="0x6c"/>
+    <keysym value="0x4c"/>
+    <keysym value="0x1b3"/>
+    <keysym value="0x1a3"/>
+  </keycode>
+  <keycode value="47">
+    <keysym value="0x3b"/>
+    <keysym value="0x3a"/>
+    <keysym value="0xfe51"/>
+    <keysym value="0xfe59"/>
+  </keycode>
+  <keycode value="48">
+    <keysym value="0x27"/>
+    <keysym value="0x22"/>
+    <keysym value="0xfe52"/>
+    <keysym value="0xfe5a"/>
+  </keycode>
+  <keycode value="49">
+    <keysym value="0x60"/>
+    <keysym value="0x7e"/>
+    <keysym value="0xac"/>
+    <keysym value="0xac"/>
+  </keycode>
+  <keycode value="50">
+    <keysym value="0xffe1"/>
+  </keycode>
+  <keycode value="51">
+    <keysym value="0x5c"/>
+    <keysym value="0x7c"/>
+    <keysym value="0xfe50"/>
+    <keysym value="0xfe55"/>
+  </keycode>
+  <keycode value="52">
+    <keysym value="0x7a"/>
+    <keysym value="0x5a"/>
+    <keysym value="0xab"/>
+    <keysym value="0x3c"/>
+  </keycode>
+  <keycode value="53">
+    <keysym value="0x78"/>
+    <keysym value="0x58"/>
+    <keysym value="0xbb"/>
+    <keysym value="0x3e"/>
+  </keycode>
+  <keycode value="54">
+    <keysym value="0x63"/>
+    <keysym value="0x43"/>
+    <keysym value="0xe7"/>
+    <keysym value="0xc7"/>
+  </keycode>
+  <keycode value="55">
+    <keysym value="0x76"/>
+    <keysym value="0x56"/>
+    <keysym value="0xad2"/>
+    <keysym value="0xad0"/>
+  </keycode>
+  <keycode value="56">
+    <keysym value="0x62"/>
+    <keysym value="0x42"/>
+    <keysym value="0xad3"/>
+    <keysym value="0xad1"/>
+  </keycode>
+  <keycode value="57">
+    <keysym value="0x6e"/>
+    <keysym value="0x4e"/>
+    <keysym value="0x6e"/>
+    <keysym value="0x4e"/>
+  </keycode>
+  <keycode value="58">
+    <keysym value="0x6d"/>
+    <keysym value="0x4d"/>
+    <keysym value="0xb5"/>
+    <keysym value="0xba"/>
+  </keycode>
+  <keycode value="59">
+    <keysym value="0x2c"/>
+    <keysym value="0x3c"/>
+    <keysym value="0x8a3"/>
+    <keysym value="0xd7"/>
+  </keycode>
+  <keycode value="60">
+    <keysym value="0x2e"/>
+    <keysym value="0x3e"/>
+    <keysym value="0xb7"/>
+    <keysym value="0xf7"/>
+  </keycode>
+  <keycode value="61">
+    <keysym value="0x2f"/>
+    <keysym value="0x3f"/>
+    <keysym value="0xfe60"/>
+    <keysym value="0xfe56"/>
+  </keycode>
+  <keycode value="62">
+    <keysym value="0xffe2"/>
+  </keycode>
+  <keycode value="63">
+    <keysym value="0xffaa"/>
+    <keysym value="0xffaa"/>
+    <keysym value="0xffaa"/>
+    <keysym value="0xffaa"/>
+    <keysym value="0x1008fe21"/>
+  </keycode>
+  <keycode value="64">
+    <keysym value="0xffe9"/>
+    <keysym value="0xffe7"/>
+  </keycode>
+  <keycode value="65">
+    <keysym value="0x20"/>
+  </keycode>
+  <keycode value="66">
+    <keysym value="0xffe5"/>
+    <keysym value="0xfe08"/>
+  </keycode>
+  <keycode value="67">
+    <keysym value="0xffbe"/>
+    <keysym value="0xffbe"/>
+    <keysym value="0xffbe"/>
+    <keysym value="0xffbe"/>
+    <keysym value="0x1008fe01"/>
+  </keycode>
+  <keycode value="68">
+    <keysym value="0xffbf"/>
+    <keysym value="0xffbf"/>
+    <keysym value="0xffbf"/>
+    <keysym value="0xffbf"/>
+    <keysym value="0x1008fe02"/>
+  </keycode>
+  <keycode value="69">
+    <keysym value="0xffc0"/>
+    <keysym value="0xffc0"/>
+    <keysym value="0xffc0"/>
+    <keysym value="0xffc0"/>
+    <keysym value="0x1008fe03"/>
+  </keycode>
+  <keycode value="70">
+    <keysym value="0xffc1"/>
+    <keysym value="0xffc1"/>
+    <keysym value="0xffc1"/>
+    <keysym value="0xffc1"/>
+    <keysym value="0x1008fe04"/>
+  </keycode>
+  <keycode value="71">
+    <keysym value="0xffc2"/>
+    <keysym value="0xffc2"/>
+    <keysym value="0xffc2"/>
+    <keysym value="0xffc2"/>
+    <keysym value="0x1008fe05"/>
+  </keycode>
+  <keycode value="72">
+    <keysym value="0xffc3"/>
+    <keysym value="0xffc3"/>
+    <keysym value="0xffc3"/>
+    <keysym value="0xffc3"/>
+    <keysym value="0x1008fe06"/>
+  </keycode>
+  <keycode value="73">
+    <keysym value="0xffc4"/>
+    <keysym value="0xffc4"/>
+    <keysym value="0xffc4"/>
+    <keysym value="0xffc4"/>
+    <keysym value="0x1008fe07"/>
+  </keycode>
+  <keycode value="74">
+    <keysym value="0xffc5"/>
+    <keysym value="0xffc5"/>
+    <keysym value="0xffc5"/>
+    <keysym value="0xffc5"/>
+    <keysym value="0x1008fe08"/>
+  </keycode>
+  <keycode value="75">
+    <keysym value="0xffc6"/>
+    <keysym value="0xffc6"/>
+    <keysym value="0xffc6"/>
+    <keysym value="0xffc6"/>
+    <keysym value="0x1008fe09"/>
+  </keycode>
+  <keycode value="76">
+    <keysym value="0xffc7"/>
+    <keysym value="0xffc7"/>
+    <keysym value="0xffc7"/>
+    <keysym value="0xffc7"/>
+    <keysym value="0x1008fe0a"/>
+  </keycode>
+  <keycode value="77">
+    <keysym value="0xff7f"/>
+  </keycode>
+  <keycode value="78">
+    <keysym value="0xff14"/>
+  </keycode>
+  <keycode value="79">
+    <keysym value="0xff95"/>
+    <keysym value="0xffb7"/>
+  </keycode>
+  <keycode value="80">
+    <keysym value="0xff97"/>
+    <keysym value="0xffb8"/>
+  </keycode>
+  <keycode value="81">
+    <keysym value="0xff9a"/>
+    <keysym value="0xffb9"/>
+  </keycode>
+  <keycode value="82">
+    <keysym value="0xffad"/>
+    <keysym value="0xffad"/>
+    <keysym value="0xffad"/>
+    <keysym value="0xffad"/>
+    <keysym value="0x1008fe23"/>
+  </keycode>
+  <keycode value="83">
+    <keysym value="0xff96"/>
+    <keysym value="0xffb4"/>
+  </keycode>
+  <keycode value="84">
+    <keysym value="0xff9d"/>
+    <keysym value="0xffb5"/>
+  </keycode>
+  <keycode value="85">
+    <keysym value="0xff98"/>
+    <keysym value="0xffb6"/>
+  </keycode>
+  <keycode value="86">
+    <keysym value="0xffab"/>
+    <keysym value="0xffab"/>
+    <keysym value="0xffab"/>
+    <keysym value="0xffab"/>
+    <keysym value="0x1008fe22"/>
+  </keycode>
+  <keycode value="87">
+    <keysym value="0xff9c"/>
+    <keysym value="0xffb1"/>
+  </keycode>
+  <keycode value="88">
+    <keysym value="0xff99"/>
+    <keysym value="0xffb2"/>
+  </keycode>
+  <keycode value="89">
+    <keysym value="0xff9b"/>
+    <keysym value="0xffb3"/>
+  </keycode>
+  <keycode value="90">
+    <keysym value="0xff9e"/>
+    <keysym value="0xffb0"/>
+  </keycode>
+  <keycode value="91">
+    <keysym value="0xff9f"/>
+    <keysym value="0xffae"/>
+  </keycode>
+  <keycode value="92">
+    <keysym value="0xfe03"/>
+  </keycode>
+  <keycode value="93">
+    <keysym value="0x3c"/>
+  </keycode>
+  <keycode value="94">
+    <keysym value="0x3c"/>
+    <keysym value="0x3e"/>
+    <keysym value="0x7c"/>
+    <keysym value="0xa6"/>
+  </keycode>
+  <keycode value="95">
+    <keysym value="0xffc8"/>
+    <keysym value="0xffc8"/>
+    <keysym value="0xffc8"/>
+    <keysym value="0xffc8"/>
+    <keysym value="0x1008fe0b"/>
+  </keycode>
+  <keycode value="96">
+    <keysym value="0xffc9"/>
+    <keysym value="0xffc9"/>
+    <keysym value="0xffc9"/>
+    <keysym value="0xffc9"/>
+    <keysym value="0x1008fe0c"/>
+  </keycode>
+  <keycode value="97">
+    <keysym value="0xff26"/>
+  </keycode>
+  <keycode value="98">
+    <keysym value="0xff26"/>
+  </keycode>
+  <keycode value="99">
+    <keysym value="0xff25"/>
+  </keycode>
+  <keycode value="100">
+    <keysym value="0xff23"/>
+  </keycode>
+  <keycode value="101">
+    <keysym value="0xff27"/>
+  </keycode>
+  <keycode value="102">
+    <keysym value="0xff22"/>
+  </keycode>
+  <keycode value="103">
+    <keysym value="0xff8d"/>
+  </keycode>
+  <keycode value="104">
+    <keysym value="0xff8d"/>
+  </keycode>
+  <keycode value="105">
+    <keysym value="0xffe4"/>
+  </keycode>
+  <keycode value="106">
+    <keysym value="0xffaf"/>
+    <keysym value="0xffaf"/>
+    <keysym value="0xffaf"/>
+    <keysym value="0xffaf"/>
+    <keysym value="0x1008fe20"/>
+  </keycode>
+  <keycode value="107">
+    <keysym value="0xff61"/>
+    <keysym value="0xff15"/>
+  </keycode>
+  <keycode value="108">
+    <keysym value="0xfe03"/>
+  </keycode>
+  <keycode value="109">
+    <keysym value="0xff0a"/>
+  </keycode>
+  <keycode value="110">
+    <keysym value="0xff50"/>
+  </keycode>
+  <keycode value="111">
+    <keysym value="0xff52"/>
+  </keycode>
+  <keycode value="112">
+    <keysym value="0xff55"/>
+  </keycode>
+  <keycode value="113">
+    <keysym value="0xff51"/>
+  </keycode>
+  <keycode value="114">
+    <keysym value="0xff53"/>
+  </keycode>
+  <keycode value="115">
+    <keysym value="0xff57"/>
+  </keycode>
+  <keycode value="116">
+    <keysym value="0xff54"/>
+  </keycode>
+  <keycode value="117">
+    <keysym value="0xff56"/>
+  </keycode>
+  <keycode value="118">
+    <keysym value="0xff63"/>
+  </keycode>
+  <keycode value="119">
+    <keysym value="0xffff"/>
+  </keycode>
+  <keycode value="120">
+    <keysym value="0x1008ff12"/>
+  </keycode>
+  <keycode value="121">
+    <keysym value="0x1008ff12"/>
+  </keycode>
+  <keycode value="122">
+    <keysym value="0x1008ff11"/>
+  </keycode>
+  <keycode value="123">
+    <keysym value="0x1008ff13"/>
+  </keycode>
+  <keycode value="124">
+    <keysym value="0x1008ff2a"/>
+  </keycode>
+  <keycode value="125">
+    <keysym value="0xffbd"/>
+  </keycode>
+  <keycode value="126">
+    <keysym value="0xb1"/>
+  </keycode>
+  <keycode value="127">
+    <keysym value="0xff13"/>
+    <keysym value="0xff6b"/>
+  </keycode>
+  <keycode value="128">
+    <keysym value="0x1008ff4a"/>
+  </keycode>
+  <keycode value="129">
+    <keysym value="0xffae"/>
+    <keysym value="0xffae"/>
+  </keycode>
+  <keycode value="130">
+    <keysym value="0xff31"/>
+  </keycode>
+  <keycode value="131">
+    <keysym value="0xff34"/>
+  </keycode>
+  <keycode value="132">
+    <keysym value="0xffeb"/>
+  </keycode>
+  <keycode value="133">
+    <keysym value="0xffeb"/>
+  </keycode>
+  <keycode value="134">
+    <keysym value="0xffec"/>
+  </keycode>
+  <keycode value="135">
+    <keysym value="0xff67"/>
+  </keycode>
+  <keycode value="136">
+    <keysym value="0xff69"/>
+  </keycode>
+  <keycode value="137">
+    <keysym value="0xff66"/>
+  </keycode>
+  <keycode value="138">
+    <keysym value="0x1005ff70"/>
+  </keycode>
+  <keycode value="139">
+    <keysym value="0xff65"/>
+  </keycode>
+  <keycode value="140">
+    <keysym value="0x1005ff71"/>
+  </keycode>
+  <keycode value="141">
+    <keysym value="0x1008ff57"/>
+  </keycode>
+  <keycode value="142">
+    <keysym value="0x1008ff6b"/>
+  </keycode>
+  <keycode value="143">
+    <keysym value="0x1008ff6d"/>
+  </keycode>
+  <keycode value="144">
+    <keysym value="0xff68"/>
+  </keycode>
+  <keycode value="145">
+    <keysym value="0x1008ff58"/>
+  </keycode>
+  <keycode value="146">
+    <keysym value="0xff6a"/>
+  </keycode>
+  <keycode value="147">
+    <keysym value="0x1008ff65"/>
+  </keycode>
+  <keycode value="148">
+    <keysym value="0x1008ff1d"/>
+  </keycode>
+  <keycode value="149">
+    <keysym value="0x1008ff2f"/>
+  </keycode>
+  <keycode value="150">
+    <keysym value="0x1008ff2f"/>
+  </keycode>
+  <keycode value="151">
+    <keysym value="0x1008ff2b"/>
+  </keycode>
+  <keycode value="152">
+    <keysym value="0x1008ff5d"/>
+  </keycode>
+  <keycode value="153">
+    <keysym value="0x1008ff7b"/>
+  </keycode>
+  <keycode value="154">
+    <keysym value="0x1008ff8a"/>
+  </keycode>
+  <keycode value="155">
+    <keysym value="0x1008ff8a"/>
+  </keycode>
+  <keycode value="156">
+    <keysym value="0x1008ff41"/>
+  </keycode>
+  <keycode value="157">
+    <keysym value="0x1008ff42"/>
+  </keycode>
+  <keycode value="158">
+    <keysym value="0x1008ff2e"/>
+  </keycode>
+  <keycode value="159">
+    <keysym value="0x1008ff5a"/>
+  </keycode>
+  <keycode value="160">
+    <keysym value="0x1008ff2d"/>
+  </keycode>
+  <keycode value="161">
+    <keysym value="0x1008ff74"/>
+  </keycode>
+  <keycode value="162">
+    <keysym value="0x1008ff74"/>
+  </keycode>
+  <keycode value="163">
+    <keysym value="0x1008ff19"/>
+  </keycode>
+  <keycode value="164">
+    <keysym value="0x1008ff30"/>
+  </keycode>
+  <keycode value="165">
+    <keysym value="0x1008ff33"/>
+  </keycode>
+  <keycode value="166">
+    <keysym value="0x1008ff26"/>
+  </keycode>
+  <keycode value="167">
+    <keysym value="0x1008ff27"/>
+  </keycode>
+  <keycode value="168">
+    <keysym value="0x1008ff2c"/>
+  </keycode>
+  <keycode value="169">
+    <keysym value="0x1008ff2c"/>
+  </keycode>
+  <keycode value="170">
+    <keysym value="0x1008ff2c"/>
+    <keysym value="0x1008ff2c"/>
+  </keycode>
+  <keycode value="171">
+    <keysym value="0x1008ff17"/>
+  </keycode>
+  <keycode value="172">
+    <keysym value="0x1008ff14"/>
+    <keysym value="0x1008ff31"/>
+  </keycode>
+  <keycode value="173">
+    <keysym value="0x1008ff16"/>
+  </keycode>
+  <keycode value="174">
+    <keysym value="0x1008ff15"/>
+    <keysym value="0x1008ff2c"/>
+  </keycode>
+  <keycode value="175">
+    <keysym value="0x1008ff1c"/>
+  </keycode>
+  <keycode value="176">
+    <keysym value="0x1008ff3e"/>
+  </keycode>
+  <keycode value="177">
+    <keysym value="0x1008ff6e"/>
+  </keycode>
+  <keycode value="178">
+    <keysym value="0x1008ff81"/>
+  </keycode>
+  <keycode value="179">
+    <keysym value="0x1008ff81"/>
+  </keycode>
+  <keycode value="180">
+    <keysym value="0x1008ff18"/>
+  </keycode>
+  <keycode value="181">
+    <keysym value="0x1008ff73"/>
+  </keycode>
+  <keycode value="182">
+    <keysym value="0x1008ff56"/>
+  </keycode>
+  <keycode value="183">
+    <keysym value="0x1008ff78"/>
+  </keycode>
+  <keycode value="184">
+    <keysym value="0x1008ff78"/>
+  </keycode>
+  <keycode value="185">
+    <keysym value="0x1008ff78"/>
+  </keycode>
+  <keycode value="186">
+    <keysym value="0x1008ff79"/>
+  </keycode>
+  <keycode value="187">
+    <keysym value="0x28"/>
+  </keycode>
+  <keycode value="188">
+    <keysym value="0x29"/>
+  </keycode>
+  <keycode value="189">
+    <keysym value="0x1008ff68"/>
+  </keycode>
+  <keycode value="190">
+    <keysym value="0xff66"/>
+  </keycode>
+  <keycode value="191">
+    <keysym value="0x1008ff81"/>
+  </keycode>
+  <keycode value="192">
+    <keysym value="0x1008ff45"/>
+  </keycode>
+  <keycode value="193">
+    <keysym value="0x1008ff46"/>
+  </keycode>
+  <keycode value="194">
+    <keysym value="0x1008ff47"/>
+  </keycode>
+  <keycode value="195">
+    <keysym value="0x1008ff48"/>
+  </keycode>
+  <keycode value="196">
+    <keysym value="0x1008ff49"/>
+  </keycode>
+  <keycode value="197">
+    <keysym value="0x1008ffb2"/>
+  </keycode>
+  <keycode value="198">
+    <keysym value="0x1008ffb2"/>
+  </keycode>
+  <keycode value="199">
+    <keysym value="0x1008ffa9"/>
+  </keycode>
+  <keycode value="200">
+    <keysym value="0x1008ffb0"/>
+  </keycode>
+  <keycode value="201">
+    <keysym value="0x1008ffb1"/>
+  </keycode>
+  <keycode value="202">
+    <keysym value="0xff7e"/>
+  </keycode>
+  <keycode value="203">
+    <keysym value="0xff7e"/>
+  </keycode>
+  <keycode value="204">
+    <keysym value="0x0"/>
+    <keysym value="0xffe9"/>
+  </keycode>
+  <keycode value="205">
+    <keysym value="0x0"/>
+    <keysym value="0xffe7"/>
+  </keycode>
+  <keycode value="206">
+    <keysym value="0x0"/>
+    <keysym value="0xffeb"/>
+  </keycode>
+  <keycode value="207">
+    <keysym value="0x0"/>
+    <keysym value="0xffed"/>
+  </keycode>
+  <keycode value="208">
+    <keysym value="0x1008ff14"/>
+  </keycode>
+  <keycode value="209">
+    <keysym value="0x1008ff31"/>
+  </keycode>
+  <keycode value="210">
+    <keysym value="0x1008ff43"/>
+  </keycode>
+  <keycode value="211">
+    <keysym value="0x1008ff44"/>
+  </keycode>
+  <keycode value="212">
+    <keysym value="0x1008ff4b"/>
+  </keycode>
+  <keycode value="213">
+    <keysym value="0x1008ffa7"/>
+  </keycode>
+  <keycode value="214">
+    <keysym value="0x1008ff56"/>
+  </keycode>
+  <keycode value="215">
+    <keysym value="0x1008ff14"/>
+  </keycode>
+  <keycode value="216">
+    <keysym value="0x1008ff97"/>
+  </keycode>
+  <keycode value="217">
+    <keysym value="0xff61"/>
+  </keycode>
+  <keycode value="218">
+    <keysym value="0xff61"/>
+  </keycode>
+  <keycode value="219">
+    <keysym value="0x1008ff8f"/>
+  </keycode>
+  <keycode value="220">
+    <keysym value="0x1008ff8f"/>
+  </keycode>
+  <keycode value="221">
+    <keysym value="0x1008ff19"/>
+  </keycode>
+  <keycode value="222">
+    <keysym value="0x1008ff19"/>
+  </keycode>
+  <keycode value="223">
+    <keysym value="0x1008ff19"/>
+  </keycode>
+  <keycode value="224">
+    <keysym value="0x1008ff8e"/>
+  </keycode>
+  <keycode value="225">
+    <keysym value="0x1008ff1b"/>
+  </keycode>
+  <keycode value="226">
+    <keysym value="0x1008ff5f"/>
+  </keycode>
+  <keycode value="227">
+    <keysym value="0x1008ff3c"/>
+  </keycode>
+  <keycode value="228">
+    <keysym value="0x1008ff5e"/>
+  </keycode>
+  <keycode value="229">
+    <keysym value="0x1008ff36"/>
+  </keycode>
+  <keycode value="230">
+    <keysym value="0xff69"/>
+  </keycode>
+  <keycode value="231">
+    <keysym value="0xff69"/>
+  </keycode>
+  <keycode value="232">
+    <keysym value="0x1008ff03"/>
+  </keycode>
+  <keycode value="233">
+    <keysym value="0x1008ff02"/>
+  </keycode>
+  <keycode value="234">
+    <keysym value="0x1008ff32"/>
+  </keycode>
+  <keycode value="235">
+    <keysym value="0x1008ff59"/>
+  </keycode>
+  <keycode value="236">
+    <keysym value="0x1008ff04"/>
+  </keycode>
+  <keycode value="237">
+    <keysym value="0x1008ff06"/>
+  </keycode>
+  <keycode value="238">
+    <keysym value="0x1008ff05"/>
+  </keycode>
+  <keycode value="239">
+    <keysym value="0x1008ff7b"/>
+  </keycode>
+  <keycode value="240">
+    <keysym value="0x1008ff72"/>
+  </keycode>
+  <keycode value="241">
+    <keysym value="0x1008ff90"/>
+  </keycode>
+  <keycode value="242">
+    <keysym value="0x1008ff77"/>
+  </keycode>
+  <keycode value="243">
+    <keysym value="0x1008ff5b"/>
+  </keycode>
+  <keycode value="244">
+    <keysym value="0x1008ff93"/>
+  </keycode>
+  <keycode value="245">
+    <keysym value="0x1008ff94"/>
+  </keycode>
+  <keycode value="246">
+    <keysym value="0x1008ff95"/>
+  </keycode>
+  <keycode value="247">
+    <keysym value="0x0"/>
+  </keycode>
+  <keycode value="248">
+    <keysym value="0x0"/>
+  </keycode>
+  <keycode value="249">
+    <keysym value="0x0"/>
+  </keycode>
+  <keycode value="250">
+    <keysym value="0x0"/>
+  </keycode>
+  <keycode value="251">
+    <keysym value="0x0"/>
+  </keycode>
+  <keycode value="252">
+    <keysym value="0x0"/>
+  </keycode>
+  <keycode value="253">
+    <keysym value="0x0"/>
+  </keycode>
+  <keycode value="254">
+    <keysym value="0x0"/>
+  </keycode>
+</keycodes>
