@@ -9,11 +9,28 @@
 #include <sstream>
 #include <vector>
 #include <map>
+#include <regex>
 
 #include <X11/XKBlib.h>
 #include <X11/extensions/XKBrules.h>
 
 using namespace std;
+
+typedef struct Unicode {
+    string name;
+    int value;
+} Unicode;
+
+typedef struct Keysym {
+    string name;
+    int value;
+    Unicode unicode;
+} Keysym;
+
+typedef struct Keycode {
+    int value;
+    vector<Keysym> keysyms;
+} Keycode;
 
 typedef struct Variant {
     string name;
@@ -25,6 +42,11 @@ typedef struct Layout {
     string description;
     vector<Variant> variants;
 } Layout;
+
+typedef struct LayoutInfo {
+    string layout;
+    string variant;
+} LayoutInfo;
 
 typedef enum State {
     NONE,
@@ -43,93 +65,39 @@ bool print = false;
 
 Display* display;
 
-void replaceAll(string& s, const string& search, const string& replace) {
-    for(size_t pos = 0; ; pos += replace.length()) {
-        pos = s.find( search, pos );
-        if( pos == string::npos ) {
-            break;
-        }
+vector<Keycode> getKeycodeList() {
+    vector<Keycode> keycodes;
 
-        s.erase( pos, search.length() );
-        s.insert( pos, replace );
-    }
-}
-
-void printUsage() {
-    cout <<"usage: " <<executableName <<" [options]\n\n";
-    cout <<"options:\n";
-    cout <<"     --list-keycodes         list all keycodes and their keysyms\n";
-    cout <<"     --list-layouts          list all keyboard layouts and their variants\n";
-    cout <<"     --list-keysyms          list all keysyms, their values and unicodes\n";
-    cout <<"     --print                 print current layout\n";
-}
-
-void parseArguments(int argc, char** argv) {
-    static struct option options[] =
-    {
-        {"list-keycodes", no_argument, 0, 'k'},
-        {"list-layouts", no_argument, 0, 'l'},
-        {"list-keysyms", no_argument, 0, 's'},
-        {"print", no_argument, 0, 'p'},
-        {0, 0, 0, 0}
-    };
-
-    executableName = argv[0];
-
-    int opt;
-    while ((opt = getopt_long(argc, argv, "", options, NULL)) != -1) {
-        switch(opt) {
-            case 'k':
-                listKeycodes = true;
-            break;
-            case 'l':
-                listLayouts = true;
-            break;
-            case 's':
-                listKeysyms = true;
-            break;
-            case 'p':
-                print = true;
-            break;
-        }
-    }
-}
-
-bool printKeycodeList() {
-    cout <<"#<keycode>,<keysym_level_1>,<keysym_level_2>,<keysym_level_3>,<keysym_level_4>,...\n";
-
-    //get keyboard map
     XkbDescPtr keyboardMap = XkbGetMap(display, XkbAllClientInfoMask, XkbUseCoreKbd);
-
-    //iterate over possible keycodes
-    for(KeyCode keycode = keyboardMap->min_key_code; keycode < keyboardMap->max_key_code; keycode++) {
-        cout <<dec <<(int)keycode;
+    for(KeyCode k = keyboardMap->min_key_code; k < keyboardMap->max_key_code; k++) {
+        Keycode keycode;
+        keycode.value = k;
 
         //retrieve all keysyms associated with group 0 at all possible shift levels
         unsigned int group = 0;
-        unsigned char keysymShiftLevelMax = XkbKeyGroupWidth(keyboardMap, keycode, group);
+        unsigned char keysymShiftLevelMax = XkbKeyGroupWidth(keyboardMap, k, group);
         int keysymShiftLevel;
         for (keysymShiftLevel = 0; keysymShiftLevel < keysymShiftLevelMax; keysymShiftLevel++) {
-            KeySym keysym = XkbKeySymEntry(keyboardMap, keycode, keysymShiftLevel, group);
-            cout <<",0x" <<setfill('0') <<setw(4) <<hex <<(int)keysym;
+            Keysym keysym;
+            keysym.value = XkbKeySymEntry(keyboardMap, k, keysymShiftLevel, group);
+            keycode.keysyms.push_back(keysym);
         }
 
-        cout <<"\n";
+        keycodes.push_back(keycode);
     }
 
-    return true;
+    return keycodes;
 }
 
-bool printLayoutList() {
+map<string, Layout> getLayoutList() {
     //open file
     string filepath = "/usr/share/X11/xkb/rules/base.lst";
     std::ifstream fs(filepath.c_str());
 
     map<string, Layout> layouts;
 
-    State state = NONE;
-
     //iterate over lines
+    State state = NONE;
     string line;
     while (getline(fs, line)) {
         if (line.empty()) {
@@ -188,43 +156,241 @@ bool printLayoutList() {
 
     fs.close();
 
-    string delemiter = ",";
+    return layouts;
+}
 
-    cout <<"#<layout>" + delemiter + "<layout_description>" + delemiter + "<variant_1>" + delemiter + "<variant_description_1>" + delemiter + "<variant_2>" + delemiter + "<variant_description_2>...\n";
+vector<Keysym> getKeysymList() {
+    //open file
+    string filepath = "/usr/include/X11/keysymdef.h";
+    std::ifstream fs(filepath.c_str());
 
-    for (std::map<string, Layout>::iterator it = layouts.begin(); it != layouts.end(); it++) {
-        Layout& layout = it->second;
-        vector<Variant> variants = layout.variants;
-        replaceAll(layout.name, delemiter, "\\" + delemiter);
-        replaceAll(layout.description, delemiter, "\\" + delemiter);
-        cout <<layout.name <<delemiter <<layout.description;
-        if (!variants.empty()) {
-            cout <<delemiter;
-            for (unsigned int i = 0; i < variants.size(); i++) {
-                Variant variant = variants[i];
-                replaceAll(variant.name, delemiter, "\\" + delemiter);
-                replaceAll(variant.description, delemiter, "\\" + delemiter);
-                cout <<variant.name <<delemiter <<variant.description <<((i < variants.size() - 1) ? delemiter : "");
+    vector<Keysym> keysyms;
+
+    regex regex("#define XK_(\\w+)\\s+(0x[0-9a-fA-F]*)(?:\\s*\\/\\*\\s*U\\+([0-9a-fA-F]{4})\\s+(.+?)\\s*\\*\\/)?");
+
+    //iterate over lines
+    string line;
+    while (getline(fs, line)) {
+        if (line.empty()) {
+            continue;
+        }
+
+        smatch match;
+        if(regex_search(line, match, regex)) {
+            if (match.size() >= 3) {
+                Keysym keysym;
+
+                keysym.name = match[1];
+                sscanf(string(match[2]).c_str(), "%x", &keysym.value);
+
+                if (match.size() == 5) {
+                    keysym.unicode.name = match[4];
+                    sscanf(string(match[3]).c_str(), "%x", &keysym.unicode.value);
+                }
+
+                keysyms.push_back(keysym);
             }
         }
-        cout <<"\n";
     }
 
-    return true;
+    fs.close();
+
+    return keysyms;
 }
 
-bool printKeysymList() {
-    cout <"TODO\n";
-}
-
-bool printLayout() {
+LayoutInfo getLayoutInfo() {
+    LayoutInfo layoutInfo;
     XkbRF_VarDefsRec vd;
     char *tmp;
 
     XkbRF_GetNamesProp(display, &tmp, &vd);
 
-    cout <<"layout: " <<vd.layout <<"\n";
-    cout <<"variant: " <<vd.variant <<"\n";
+    if (vd.layout != NULL) {
+        layoutInfo.layout = vd.layout;
+    }
+
+    if (vd.variant != NULL) {
+        layoutInfo.variant = vd.variant;
+    }
+
+    size_t pos;
+    pos = layoutInfo.layout.find(',');
+    if (pos != string::npos) {
+        layoutInfo.layout.erase(pos);
+    }
+
+    pos = layoutInfo.variant.find(',');
+    if (pos != string::npos) {
+        layoutInfo.variant.erase(pos);
+    }
+
+    return layoutInfo;
+}
+
+void parseArguments(int argc, char** argv) {
+    static struct option options[] =
+    {
+        {"list-keycodes", no_argument, 0, 'k'},
+        {"list-layouts", no_argument, 0, 'l'},
+        {"list-keysyms", no_argument, 0, 's'},
+        {"print", no_argument, 0, 'p'},
+        {0, 0, 0, 0}
+    };
+
+    executableName = argv[0];
+
+    int opt;
+    while ((opt = getopt_long(argc, argv, "", options, NULL)) != -1) {
+        switch(opt) {
+            case 'k':
+                listKeycodes = true;
+            break;
+            case 'l':
+                listLayouts = true;
+            break;
+            case 's':
+                listKeysyms = true;
+            break;
+            case 'p':
+                print = true;
+            break;
+        }
+    }
+}
+
+void printUsage() {
+    cout <<"usage: " <<executableName <<" [options]\n\n";
+    cout <<"options:\n";
+    cout <<"     --list-keycodes         list all keycodes and their keysyms\n";
+    cout <<"     --list-layouts          list all keyboard layouts and their variants\n";
+    cout <<"     --list-keysyms          list all keysyms, their values and unicodes\n";
+    cout <<"     --print                 print current layout\n";
+}
+
+bool printKeycodeList() {
+    map<string, Layout> layouts = getLayoutList();
+    LayoutInfo layoutInfo = getLayoutInfo();
+
+    map<string, Layout>::iterator it = layouts.find(layoutInfo.layout);
+    if (it == layouts.end()) {
+        cout <<"current keyboard layout is unknown\n";
+
+        return false;
+    }
+
+    Layout layout = it->second;
+    Variant variant;
+    if (!layoutInfo.variant.empty()) {
+        vector<Variant>& variants = layout.variants;
+        for(unsigned int i = 0; i < variants.size(); i++) {
+            Variant& v = variants[i];
+            if (layoutInfo.variant == v.name) {
+                variant = v;
+            }
+        }
+
+        if (variant.name.empty()) {
+            cout <<"current keyboard layout variant is unknown\n";
+
+            return false;
+        }
+    }
+
+    vector<Keycode> keycodes = getKeycodeList();
+
+    //keycodes
+    cout <<"<keycodes>\n";
+
+    //layout
+    cout <<string(2, ' ') <<"<layout>\n";
+    cout <<string(4, ' ') <<"<layoutName>" <<layout.name <<"</layoutName>\n";
+    cout <<string(4, ' ') <<"<layoutDescription>" <<layout.description <<"</layoutDescription>\n";
+    cout <<string(4, ' ') <<"<variantName>" <<variant.name <<"</variantName>\n";
+    cout <<string(4, ' ') <<"<variantDescription>" <<variant.description <<"</variantDescription>\n";
+    cout <<string(2, ' ') <<"</layout>\n";
+
+    //iterate over keycodes
+    for(unsigned int i = 0; i < keycodes.size(); i++) {
+        Keycode keycode = keycodes[i];
+
+        cout <<string(2, ' ') <<"<keycode value=\"" <<dec <<(int)keycode.value <<"\">\n";
+
+        //iterate over keysyms
+        vector<Keysym> keysyms = keycode.keysyms;
+        for(unsigned int j = 0; j < keysyms.size(); j++) {
+            Keysym keysym = keysyms[j];
+            cout <<string(4, ' ') <<"<keysym value=\"" <<"0x" <<setfill('0') <<hex <<(int)keysym.value <<"\"/>\n";
+        }
+
+        cout <<string(2, ' ') <<"</keycode>\n";
+    }
+
+    cout <<"</keycodes>\n";
+
+    return true;
+}
+
+bool printLayoutList() {
+    map<string, Layout> layouts = getLayoutList();
+
+    cout <<"<layouts>\n";
+
+    for (std::map<string, Layout>::iterator it = layouts.begin(); it != layouts.end(); it++) {
+        Layout& layout = it->second;
+        vector<Variant> variants = layout.variants;
+
+        //layout
+        cout <<string(2, ' ') <<"<layout>\n";
+        cout <<string(4, ' ') <<"<name>" <<layout.name <<"</name>\n";
+        cout <<string(4, ' ') <<"<description>" <<layout.description <<"</description>\n";
+
+        //variants
+        if (!variants.empty()) {
+            cout <<string(4, ' ') <<"<variants>\n";
+            for (unsigned int i = 0; i < variants.size(); i++) {
+                Variant variant = variants[i];
+                cout <<string(6, ' ') <<"<variant>\n";
+                cout <<string(8, ' ') <<"<name>" <<variant.name <<"</name>\n";
+                cout <<string(8, ' ') <<"<description>" <<variant.description <<"</description>\n";
+                cout <<string(6, ' ') <<"</variant>\n";
+            }
+            cout <<string(4, ' ') <<"</variants>\n";
+        }
+
+        cout <<string(2, ' ') <<"</layout>\n";
+    }
+
+    cout <<"</layouts>\n";
+
+    return true;
+}
+
+bool printKeysymList() {
+    vector<Keysym> keysyms = getKeysymList();
+
+    cout <<"<keysyms>\n";
+
+    for (unsigned int i = 0; i < keysyms.size(); i++) {
+        Keysym keysym = keysyms[i];
+        cout <<string(2, ' ') <<"<keysym value=\"0x" <<hex <<keysym.value <<"\" name=\"" <<keysym.name <<"\">\n";
+
+        if (keysym.unicode.value > 0) {
+            cout <<string(4, ' ') <<"<unicode value=\"0x" <<setfill('0') <<setw(4) <<hex <<keysym.unicode.value <<"\" name=\"" <<keysym.unicode.name <<"\"/>\n";
+        }
+
+        cout <<string(2, ' ') <<"</keysym>\n";
+    }
+
+    cout <<"<keysyms>\n";
+
+    return true;
+}
+
+bool printLayoutInfo() {
+    LayoutInfo layoutInfo = getLayoutInfo();
+
+    cout <<"layout: " <<layoutInfo.layout <<"\n";
+    cout <<"variant: " <<layoutInfo.variant <<"\n";
 
     return true;
 }
@@ -257,7 +423,7 @@ int main(int argc, char** argv)
         }
     }
     else if (print) {
-        if (!printLayout()) {
+        if (!printLayoutInfo()) {
             exit(1);
         }
     }

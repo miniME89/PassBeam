@@ -1,3 +1,3 @@
 #!/bin/sh
 
-g++ -o xkb-exporter xkb-exporter.cpp -lX11 -lxkbfile
+g++ -std=c++11 xkb-exporter.cpp -o xkb-exporter -lX11 -lxkbfile
