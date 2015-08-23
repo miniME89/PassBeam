@@ -15,14 +15,14 @@ public class Unicode {
      */
     private String name;
 
-    public Unicode(@Attribute(name = "value", required = true) String name,
-                   @Attribute(name = "name", required = false) int value) { //TODO should be required!
+    public Unicode(@Attribute(name = "value", required = true) Integer value,
+                   @Attribute(name = "name", required = false) String name) { //TODO should be required!
         this.name = name;
         this.value = value;
     }
 
     @Attribute(name = "value", required = true)
-    public int getValue() {
+    public Integer getValue() {
         return value;
     }
 
