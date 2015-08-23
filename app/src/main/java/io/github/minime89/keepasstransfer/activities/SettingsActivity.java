@@ -4,7 +4,6 @@ import android.content.ClipboardManager;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
@@ -12,9 +11,6 @@ import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 import android.support.annotation.LayoutRes;
 import android.support.v7.app.AppCompatDelegate;
-import android.text.Spannable;
-import android.text.SpannableString;
-import android.text.style.ForegroundColorSpan;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -26,8 +22,8 @@ import java.util.Collection;
 import io.github.minime89.keepasstransfer.R;
 import io.github.minime89.keepasstransfer.hooks.ClipboardListener;
 import io.github.minime89.keepasstransfer.hooks.NotificationListener;
-import io.github.minime89.keepasstransfer.keyboard.DeviceWriter;
 import io.github.minime89.keepasstransfer.keyboard.Converter;
+import io.github.minime89.keepasstransfer.keyboard.DeviceWriter;
 import io.github.minime89.keepasstransfer.keyboard.Keycode;
 import io.github.minime89.keepasstransfer.keyboard.Keycodes;
 import io.github.minime89.keepasstransfer.keyboard.Keysym;
@@ -36,40 +32,38 @@ import io.github.minime89.keepasstransfer.keyboard.Symbol;
 public class SettingsActivity extends PreferenceActivity {
     private static final String TAG = SettingsActivity.class.getSimpleName();
     private AppCompatDelegate appCompatDelegate;
-    private Preference notificationsStatusPreference;
     private SharedPreferences sharedPreferences;
+    private Preference notifications;
 
-    private NotificationListener.LifecycleListener lifecycleListener = new NotificationListener.LifecycleListener() {
+    private NotificationListener.NotificationStateListener notificationStateListener = new NotificationListener.NotificationStateListener() {
         @Override
         public void change(int state) {
             updateNotificationsStatus();
         }
     };
 
-    private void setupNotificationsStatus() {
-        notificationsStatusPreference = findPreference(getString(R.string.settings_notifications_status_key));
-
-        NotificationListener.addLifecycleListener(lifecycleListener);
-
-        updateNotificationsStatus();
-    }
-
     private void updateNotificationsStatus() {
-        PreferenceScreen preferenceScreen = getPreferenceScreen();
-        if (notificationsStatusPreference != null && preferenceScreen != null) {
+        if (notifications != null) {
             //notifications access is allowed
             if (NotificationListener.isNotificationAccessEnabled()) {
-                preferenceScreen.removePreference(notificationsStatusPreference);
+                notifications.setWidgetLayoutResource(0);
             }
             //notifications access is disallowed
             else {
-                Spannable text = new SpannableString(notificationsStatusPreference.getTitle());
-                text.setSpan(new ForegroundColorSpan(Color.RED), 0, text.length(), 0);
-                notificationsStatusPreference.setTitle(text);
-
-                preferenceScreen.addPreference(notificationsStatusPreference);
+                notifications.setWidgetLayoutResource(R.layout.preference_icon);
             }
+
+            //FIXME update UI
+            PreferenceScreen screen = getPreferenceScreen();
+            screen.removePreference(notifications);
+            screen.addPreference(notifications);
         }
+    }
+
+    private void setupNotificationsStatus() {
+        notifications = findPreference(getString(R.string.settings_notifications_key));
+        NotificationListener.addNotificationStateListener(notificationStateListener);
+        updateNotificationsStatus();
     }
 
     private void setupKeyboardLayout() {

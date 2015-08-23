@@ -14,12 +14,12 @@ import io.github.minime89.keepasstransfer.KeePassTransfer;
 
 public class NotificationListener extends NotificationListenerService {
     private static final String TAG = NotificationListener.class.getSimpleName();
-    private static final int LIFECYCLE_CREATED = 1;
-    private static final int LIFECYCLE_DESTROYED = 2;
-    private static int lifecycleState = LIFECYCLE_DESTROYED;
-    private static Collection<LifecycleListener> lifecycleListeners = new ArrayList<>();
+    public static final int STATE_CREATED = 1;
+    public static final int STATE_DESTROYED = 2;
+    private static int state = STATE_DESTROYED;
+    private static Collection<NotificationStateListener> notificationStateListeners = new ArrayList<>();
 
-    public interface LifecycleListener {
+    public interface NotificationStateListener {
         void change(int state);
     }
 
@@ -29,23 +29,23 @@ public class NotificationListener extends NotificationListenerService {
     /**
      * @param listener
      */
-    public static void addLifecycleListener(LifecycleListener listener) {
-        lifecycleListeners.add(listener);
+    public static void addNotificationStateListener(NotificationStateListener listener) {
+        notificationStateListeners.add(listener);
     }
 
     /**
      * @param listener
      */
-    public static void removeLifecycleListener(LifecycleListener listener) {
-        lifecycleListeners.remove(listener);
+    public static void removeNotificationStateListener(NotificationStateListener listener) {
+        notificationStateListeners.remove(listener);
     }
 
     /**
      *
      */
-    private static void notifyLifecycleListeners() {
-        for (LifecycleListener listener : lifecycleListeners) {
-            listener.change(lifecycleState);
+    private static void notifyNotificationStateListeners() {
+        for (NotificationStateListener listener : notificationStateListeners) {
+            listener.change(state);
         }
     }
 
@@ -67,16 +67,16 @@ public class NotificationListener extends NotificationListenerService {
     public void onCreate() {
         super.onCreate();
 
-        lifecycleState = LIFECYCLE_CREATED;
-        notifyLifecycleListeners();
+        state = STATE_CREATED;
+        notifyNotificationStateListeners();
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
 
-        lifecycleState = LIFECYCLE_DESTROYED;
-        notifyLifecycleListeners();
+        state = STATE_DESTROYED;
+        notifyNotificationStateListeners();
     }
 
     @Override

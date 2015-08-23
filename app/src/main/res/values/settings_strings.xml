@@ -26,10 +26,6 @@
     <string name="settings_notifications_title">Notifications</string>
     <string name="settings_notifications_summary">Allow notification access</string>
 
-    <!-- notifications status -->
-    <string name="settings_notifications_status_key">Notifications</string>
-    <string name="settings_notifications_status_title">Notification access is not allowed!</string>
-
     <!-- preference group: keyboard layout -->
     <string name="settings_group_keyboard_layout_key">settings_group_keyboard_layout_key</string>
     <string name="settings_group_keyboard_layout_title">Keyboard layout</string>

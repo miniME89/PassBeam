@@ -114,7 +114,7 @@ public class DeviceWriter extends IntentService {
                         os.writeBytes(cmd);
                         os.flush();
                     }
-                } catch (Converter.CharacterConverterException e) {
+                } catch (Converter.ConverterException e) {
                     Log.e(TAG, String.format("couldn't convert string '%s'", str));
                 }
             }

@@ -25,12 +25,12 @@ public class KeePassTransfer extends Application {
     };
 
     private void updateKeyboardLayout() {
-        String keycodeId = sharedPreferences.getString(getString(R.string.settings_keyboard_layout_key), Keycodes.DEFAULT_ID);
+        String keycodesId = sharedPreferences.getString(getString(R.string.settings_keyboard_layout_key), Keycodes.DEFAULT_ID);
 
-        Log.i(TAG, String.format("load keyboard layout '%s'", keycodeId));
+        Log.i(TAG, String.format("load keyboard layout '%s'", keycodesId));
 
         try {
-            DeviceWriter.getConverter().load(keycodeId);
+            DeviceWriter.getConverter().load(keycodesId);
         } catch (FileManager.FileManagerException e) {
             Log.e(TAG, "couldn't load keyboard layout: " + e.getMessage()); //TODO handle
             e.printStackTrace();

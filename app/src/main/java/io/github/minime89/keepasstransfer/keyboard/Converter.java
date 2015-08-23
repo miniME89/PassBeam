@@ -10,28 +10,64 @@ import java.util.Iterator;
 import io.github.minime89.keepasstransfer.FileManager;
 import io.github.minime89.keepasstransfer.Utils;
 
+/**
+ * The Converter is used for converting characters or strings into keyboard events, when written
+ * to the appropriate device, produce that character or string.
+ * <p/>
+ * In order to encode characters or strings using {@link Converter#convert(char)} or {@link Converter#convert(String)},
+ * the keycode, keysym and scancode tables need to be loaded using {@link Converter#load(String)} or {@link Converter#load(String, String, String)}.
+ */
 public class Converter {
     private static final String TAG = Converter.class.getSimpleName();
 
+    /**
+     * The keycodes used in the encoding process.
+     */
     private Keycodes keycodes;
+
+    /**
+     * The keysyms used in the encoding process.
+     */
     private Keysyms keysyms;
+
+    /**
+     * The scancodes used in the encoding process.
+     */
     private Scancodes scancodes;
 
-    public class CharacterConverterException extends Exception {
-        CharacterConverterException() {
+    /**
+     * Exception for {@link Converter}. Thrown in case of a failed character or string conversion in
+     * {@link Converter#convert(char)} and {@link Converter#convert(String)}.
+     */
+    public class ConverterException extends Exception {
+        ConverterException() {
             super();
         }
 
-        CharacterConverterException(String message) {
+        ConverterException(String message) {
             super(message);
         }
     }
 
+    /**
+     * Constructor.
+     */
     public Converter() {
 
     }
 
-    public Collection<byte[]> convert(String string) throws CharacterConverterException {
+    /**
+     * Encode a string into a collection of byte sequences which represent a series of keyboard
+     * events, when written to the appropriate device, produce that string. Read <a href="https://github.com/pelya/android-keyboard-gadget#how-it-works">android-keyboard-gadget</a>
+     * for more details on the encoding.
+     *
+     * @param string The string to encode.
+     * @return Returns a collection of encoded keyboard events of the input string. Each byte
+     * sequence in the collection represents the keyboard event for the character at that position
+     * in the input string.
+     * @throws ConverterException When parts of the input string couldn't be encoded.
+     */
+    public Collection<byte[]> convert(String string) throws ConverterException {
         Log.d(TAG, String.format("convert string '%s'", string));
 
         Collection<byte[]> collection = new ArrayList<>();
@@ -46,18 +82,25 @@ public class Converter {
         return collection;
     }
 
-    public byte[] convert(char character) throws CharacterConverterException {
-        Log.d(TAG, "===================================================================================================");
+    /**
+     * Encode a character into a byte sequence which represent a keyboard event, when  written to
+     * the appropriate device, produce that character. Read <a href="https://github.com/pelya/android-keyboard-gadget#how-it-works">android-keyboard-gadget</a>
+     * for more details on the encoding.
+     *
+     * @param character The character to encode.
+     * @return Returns an encoded keyboard event of the input character.
+     * @throws ConverterException When parts of the input string couldn't be encoded.
+     */
+    public byte[] convert(char character) throws ConverterException {
         Log.d(TAG, String.format("convert character '%c (\\u%04x)'", character, (int) character));
 
-        //find character mapping
         if (keycodes == null) {
-            throw new CharacterConverterException("no character mapping loaded");
+            throw new ConverterException("no character mapping loaded");
         }
 
         Collection<Symbol> founds = keycodes.find(character);
         if (founds.size() == 0) {
-            throw new CharacterConverterException(String.format("couldn't find symbol mapping for character '%c'", character));
+            throw new ConverterException(String.format("couldn't find symbol mapping for character '%c'", character));
         }
 
         Log.d(TAG, String.format("found %d symbol mappings", founds.size()));
@@ -91,9 +134,28 @@ public class Converter {
         return bytes;
     }
 
+    /**
+     * Load the keycode, keysym and scancode tables used for encoding characters and strings into
+     * keyboard events using {@link Converter#convert(char)} and {@link Converter#convert(String)}.
+     * The keycodes represent the specific keyboard layout and should be chosen according to the
+     * desired target keyboard layout for encoding. The keysym and scancode tables are usually
+     * fixed, but alternatives can be provided and loaded for future extensions.
+     *
+     * @param keycodesId  The keycodes ID which will be used for loading the associated keycodes
+     *                    file. The ID is directly mapped to the keycodes filename in the keycodes
+     *                    directory.
+     * @param keysymsId   The keysyms ID which will be used for loading the associated keysyms
+     *                    file. The ID is directly mapped to the keysyms filename in the keysyms
+     *                    directory.
+     * @param scancodesId The scancodes ID which will be used for loading the associated scancodes
+     *                    file. The ID is directly mapped to the scancodes filename in the scancodes
+     *                    directory.
+     * @throws FileManager.FileManagerException
+     */
     public void load(String keycodesId, String keysymsId, String scancodesId) throws FileManager.FileManagerException {
         Log.i(TAG, String.format("load keyboard symbol converter {keycodeId=%s, keysymId=%s, scancodeId=%s}", keycodesId, keysymsId, scancodesId));
 
+        //TODO better handling of failed loading -> set all instances to null on error
         scancodes = Scancodes.load(scancodesId);
         keysyms = Keysyms.load(scancodesId);
         keycodes = Keycodes.load(keycodesId);
@@ -103,8 +165,20 @@ public class Converter {
         keycodes.build(keysyms, scancodes);
     }
 
-    public void load(String keycodeId) throws FileManager.FileManagerException {
-        load(keycodeId, Keysyms.DEFAULT_ID, Scancodes.DEFAULT_ID);
+    /**
+     * Load the keycode, keysym and scancode tables used for encoding characters and strings into
+     * keyboard events using {@link Converter#convert(char)} and {@link Converter#convert(String)}.
+     * The keycodes represent the specific keyboard layout and should be chosen according to the
+     * desired target keyboard layout for encoding. Default tables for keysym and scancode tables
+     * will be used.
+     *
+     * @param keycodesId The keycodes ID which will be used for loading the associated keycodes
+     *                   file. The ID is directly mapped to the keycodes filename in the keycodes
+     *                   directory.
+     * @throws FileManager.FileManagerException
+     */
+    public void load(String keycodesId) throws FileManager.FileManagerException {
+        load(keycodesId, Keysyms.DEFAULT_ID, Scancodes.DEFAULT_ID);
     }
 
     public Keycodes getKeycodes() {

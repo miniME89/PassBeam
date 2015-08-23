@@ -18,6 +18,7 @@ def exportKeycodes(layoutName, layoutDescription, variantName=None, variantDescr
     xkbExporterProcess.wait()
     returnCode = xkbExporterProcess.returncode
 
+    #check return code of process
     if (returnCode is not 0):
         print('couldn\'t export keycodes')
         return False
@@ -26,14 +27,13 @@ def exportKeycodes(layoutName, layoutDescription, variantName=None, variantDescr
     if (variantName is not None):
         filepath = filepath + '-' + variantName
 
+    #write result to file
     try:
         with open(filepath, 'w') as filePointer:
             filePointer.write(data)
     except IOError:
         print('couldn\'t write to file \'' + filepath + '\'')
         return False
-
-
 
     return True
 

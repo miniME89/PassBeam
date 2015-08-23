@@ -21,7 +21,8 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
+import java.util.Comparator;
 
 import io.github.minime89.keepasstransfer.FileManager;
 import io.github.minime89.keepasstransfer.R;
@@ -30,12 +31,33 @@ import io.github.minime89.keepasstransfer.keyboard.Layouts;
 
 public class KeyboardLayoutActivity extends AppCompatActivity {
     private static final String TAG = KeyboardLayoutActivity.class.getSimpleName();
-    private static Layouts layouts;
+    private ArrayAdapter<LayoutWrapper> keyboardLayoutListAdapter;
     private ListView keyboardLayoutList;
     private EditText keyboardLayoutSearch;
-    private ArrayAdapter<Layout> keyboardLayoutListAdapter;
 
-    private class LoadLayoutsTask extends AsyncTask<Void, Void, Layouts> {
+    private class LayoutWrapper {
+        public Layout layout;
+
+        LayoutWrapper(Layout layout) {
+            this.layout = layout;
+        }
+
+        @Override
+        public String toString() {
+            String string = "???";
+            if (layout.getVariantDescription() != null && !layout.getVariantDescription().isEmpty()) {
+                string = layout.getVariantDescription();
+            } else if (layout.getLayoutDescription() != null && !layout.getLayoutDescription().isEmpty()) {
+                string = layout.getLayoutDescription();
+            } else if (layout.getLayoutName() != null && !layout.getLayoutName().isEmpty() && layout.getVariantName() != null && !layout.getVariantName().isEmpty()) {
+                string = layout.getLayoutName() + "-" + layout.getVariantName();
+            }
+
+            return string;
+        }
+    }
+
+    private class UpdateLayoutsTask extends AsyncTask<Void, Void, Layouts> {
         @Override
         protected Layouts doInBackground(Void... voids) {
             try {
@@ -55,10 +77,26 @@ public class KeyboardLayoutActivity extends AppCompatActivity {
         }
 
         @Override
-        protected void onPostExecute(Layouts result) { //TODO handle error when result=null?
+        protected void onPostExecute(Layouts result) {
             setSupportProgressBarIndeterminateVisibility(false);
-            KeyboardLayoutActivity.layouts = result;
-            KeyboardLayoutActivity.this.updateKeyboardLayoutList();
+
+            if (result != null) {
+                Collection<LayoutWrapper> layouts = new ArrayList<>();
+                for (Layout layout : result.all()) {
+                    layouts.add(new LayoutWrapper(layout));
+                }
+
+                keyboardLayoutListAdapter.clear();
+                keyboardLayoutListAdapter.addAll(layouts);
+                keyboardLayoutListAdapter.sort(new Comparator<LayoutWrapper>() {
+                    @Override
+                    public int compare(LayoutWrapper lhs, LayoutWrapper rhs) {
+                        return lhs.toString().compareTo(rhs.toString());
+                    }
+                });
+            } else {
+                //TODO handle
+            }
         }
     }
 
@@ -69,7 +107,7 @@ public class KeyboardLayoutActivity extends AppCompatActivity {
             progressBar.setVisibility(View.GONE);
             progressBar.setIndeterminate(true);
 
-            ActionBar.LayoutParams layoutParams = new ActionBar.LayoutParams(ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT, Gravity.RIGHT | Gravity.CENTER_VERTICAL);
+            ActionBar.LayoutParams layoutParams = new ActionBar.LayoutParams(ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT, Gravity.END | Gravity.CENTER_VERTICAL);
             progressBar.setLayoutParams(layoutParams);
 
             actionBar.setDisplayShowCustomEnabled(true);
@@ -98,14 +136,17 @@ public class KeyboardLayoutActivity extends AppCompatActivity {
     }
 
     private void setupKeyboardLayoutList() {
+        keyboardLayoutListAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
+
         keyboardLayoutList = (ListView) findViewById(R.id.keyboardLayoutList);
+        keyboardLayoutList.setAdapter(keyboardLayoutListAdapter);
         keyboardLayoutList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 keyboardLayoutList.setOnItemClickListener(null);
 
-                Layout file = keyboardLayoutListAdapter.getItem(position);
-                String layoutId = file.getLayoutName();
+                LayoutWrapper layoutWrapper = keyboardLayoutListAdapter.getItem(position);
+                String layoutId = layoutWrapper.layout.getId();
                 SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(KeyboardLayoutActivity.this);
                 sharedPreferences.edit().putString(getString(R.string.settings_keyboard_layout_key), layoutId).apply();
 
@@ -117,20 +158,12 @@ public class KeyboardLayoutActivity extends AppCompatActivity {
     }
 
     private void updateKeyboardLayoutList() {
-        if (layouts == null) {
-            LoadLayoutsTask loadLayoutsTask = new LoadLayoutsTask();
-            loadLayoutsTask.execute();
-        }
-        else {
-            List<Layout> list = new ArrayList<>(layouts.all());
-            keyboardLayoutListAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, list);
-            keyboardLayoutList.setAdapter(keyboardLayoutListAdapter);
-        }
+        UpdateLayoutsTask updateLayoutsTask = new UpdateLayoutsTask();
+        updateLayoutsTask.execute();
     }
 
     private void selectedMenuRefresh() {
-        LoadLayoutsTask loadLayoutsTask = new LoadLayoutsTask();
-        loadLayoutsTask.execute();
+        updateKeyboardLayoutList();
     }
 
     @Override
@@ -168,5 +201,4 @@ public class KeyboardLayoutActivity extends AppCompatActivity {
             actionBar.getCustomView().setVisibility(visible ? View.VISIBLE : View.GONE);
         }
     }
-
 }

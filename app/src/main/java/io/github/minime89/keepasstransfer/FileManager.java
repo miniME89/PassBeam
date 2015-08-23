@@ -75,31 +75,35 @@ public class FileManager {
     /**
      * Checks if external storage is available for read and write
      *
-     * @return
+     * @return Returns true if the external storage is writable.
      */
     public boolean isExternalStorageWritable() {
         String state = Environment.getExternalStorageState();
-        if (Environment.MEDIA_MOUNTED.equals(state)) {
-            return true;
-        }
 
-        return false;
+        return Environment.MEDIA_MOUNTED.equals(state);
     }
 
     /**
      * Checks if external storage is available to at least read
      *
-     * @return
+     * @return Returns true if the external storage is readable.
      */
     public boolean isExternalStorageReadable() {
         String state = Environment.getExternalStorageState();
-        if (Environment.MEDIA_MOUNTED.equals(state) || Environment.MEDIA_MOUNTED_READ_ONLY.equals(state)) {
-            return true;
-        }
 
-        return false;
+        return Environment.MEDIA_MOUNTED.equals(state) || Environment.MEDIA_MOUNTED_READ_ONLY.equals(state);
     }
 
+    /**
+     * Install the provided asset path into the files folder of the external storage, available to
+     * the application. If the path is a folder, it will recursively try to install the files and
+     * directories in that folder. If the path is a file, the file will be copied to the target
+     * destination.
+     *
+     * @param path The path to install.
+     * @return Returns true if recursive copying of all files and folder was successful. If a single
+     * file or directory operation failed, than false will be returned.
+     */
     private boolean install(String path) {
         String targetPath = path.substring(INSTALL_DIRECTORY.length());
 
@@ -129,7 +133,7 @@ public class FileManager {
                 os = new FileOutputStream(outputFile);
 
                 //write data
-                int read = 0;
+                int read;
                 byte[] bytes = new byte[1024];
                 while ((read = is.read(bytes)) != -1) {
                     os.write(bytes, 0, read);
@@ -169,8 +173,8 @@ public class FileManager {
                 }
             }
 
-            for (int i = 0; i < assets.length; ++i) {
-                if (!install(path + "/" + assets[i])) {
+            for (String asset : assets) {
+                if (!install(path + "/" + asset)) {
                     return false;
                 }
             }
@@ -179,6 +183,12 @@ public class FileManager {
         return true;
     }
 
+    /**
+     * Install all assets into the files folder of the external storage, available to the
+     * application.
+     *
+     * @return Returns true if installation of all files was successful.
+     */
     public boolean install() {
         return install(INSTALL_DIRECTORY);
     }
@@ -304,7 +314,7 @@ public class FileManager {
                     eventType = parser.next();
                 }
 
-                Layout layout = new Layout(elements.get("layoutName"), elements.get("layoutDescription"), elements.get("variantName"), elements.get("variantDescription"), keycodesFile.getName());
+                Layout layout = new Layout(elements.get("layoutName"), elements.get("layoutDescription"), elements.get("variantName"), elements.get("variantDescription"));
                 layouts.add(layout);
             } catch (IOException | XmlPullParserException e) {
                 Log.w(TAG, String.format("couldn't decode keycodes file '%s'", keycodesFile));

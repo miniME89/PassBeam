@@ -16,11 +16,6 @@
     </Preference>
 
     <Preference
-        android:key="@string/settings_notifications_status_key"
-        android:title="@string/settings_notifications_status_title"
-        android:selectable="false"/>
-
-    <Preference
         android:key="@string/settings_keyboard_layout_key"
         android:summary="@string/settings_keyboard_layout_summary"
         android:title="@string/settings_keyboard_layout_title" />
