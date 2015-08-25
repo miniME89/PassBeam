@@ -40,9 +40,6 @@ public class FileManager {
     private static final String KEYSYMS_MAPPING_DIRECTORY = "keysyms";
     private static final String KEYCODES_MAPPING_DIRECTORY = "keycodes";
 
-    private static FileManager instance;
-    private final Context context;
-
     /**
      *
      */
@@ -60,16 +57,11 @@ public class FileManager {
         }
     }
 
-    public static FileManager getInstance() {
-        if (instance == null) {
-            instance = new FileManager();
-        }
+    /**
+     * Constructor.
+     */
+    public FileManager() {
 
-        return instance;
-    }
-
-    private FileManager() {
-        context = KeePassTransfer.getContext();
     }
 
     /**
@@ -105,6 +97,7 @@ public class FileManager {
      * file or directory operation failed, than false will be returned.
      */
     private boolean install(String path) {
+        Context context = KeePassTransfer.getInstance().getContext();
         String targetPath = path.substring(INSTALL_DIRECTORY.length());
 
         //list assets
@@ -120,7 +113,7 @@ public class FileManager {
 
         //install file
         if (assets.length == 0) {
-            Log.i(TAG, String.format("install file: %s", path));
+            Log.v(TAG, String.format("install file: %s", path));
 
             InputStream is = null;
             OutputStream os = null;
@@ -162,7 +155,7 @@ public class FileManager {
         }
         //install directory
         else {
-            Log.i(TAG, String.format("install directory: %s", path));
+            Log.v(TAG, String.format("install directory: %s", path));
 
             File outputDir = new File(context.getExternalFilesDir(null), targetPath);
             if (!outputDir.exists()) {
@@ -221,29 +214,36 @@ public class FileManager {
     }
 
     public Collection<File> getKeycodesFiles() {
+        Context context = KeePassTransfer.getInstance().getContext();
         File directory = new File(context.getExternalFilesDir(null), KEYCODES_MAPPING_DIRECTORY);
+
         File[] directoryList = directory.listFiles();
 
         return Arrays.asList(directoryList);
     }
 
     public Collection<String> getKeysymsFiles() {
+        Context context = KeePassTransfer.getInstance().getContext();
         File directory = new File(context.getExternalFilesDir(null), KEYSYMS_MAPPING_DIRECTORY);
+
         String[] directoryList = directory.list();
 
         return Arrays.asList(directoryList);
     }
 
     public Collection<String> getScancodesFiles() {
+        Context context = KeePassTransfer.getInstance().getContext();
         File directory = new File(context.getExternalFilesDir(null), SCANCODES_MAPPING_DIRECTORY);
+
         String[] directoryList = directory.list();
 
         return Arrays.asList(directoryList);
     }
 
     public Keycodes loadKeycodes(String keycodesId) throws FileManagerException {
-        Log.i(TAG, String.format("load keycodes with ID '%s'", keycodesId));
+        Log.v(TAG, String.format("load keycodes with ID '%s'", keycodesId));
 
+        Context context = KeePassTransfer.getInstance().getContext();
         File file = new File(context.getExternalFilesDir(null), KEYCODES_MAPPING_DIRECTORY + "/" + keycodesId);
 
         if (!file.exists()) {
@@ -254,8 +254,9 @@ public class FileManager {
     }
 
     public Keysyms loadKeysyms(String keysymsId) throws FileManagerException {
-        Log.i(TAG, String.format("load keysyms with ID '%s'", keysymsId));
+        Log.v(TAG, String.format("load keysyms with ID '%s'", keysymsId));
 
+        Context context = KeePassTransfer.getInstance().getContext();
         File file = new File(context.getExternalFilesDir(null), KEYSYMS_MAPPING_DIRECTORY + "/" + keysymsId);
 
         if (!file.exists()) {
@@ -266,8 +267,9 @@ public class FileManager {
     }
 
     public Scancodes loadScancodes(String scancodesId) throws FileManagerException {
-        Log.i(TAG, String.format("load scancodes with ID '%s'", scancodesId));
+        Log.v(TAG, String.format("load scancodes with ID '%s'", scancodesId));
 
+        Context context = KeePassTransfer.getInstance().getContext();
         File file = new File(context.getExternalFilesDir(null), SCANCODES_MAPPING_DIRECTORY + "/" + scancodesId);
 
         if (!file.exists()) {
@@ -278,11 +280,11 @@ public class FileManager {
     }
 
     public Collection<Layout> loadLayouts() {
-        Log.i(TAG, "load layouts");
+        Log.v(TAG, "load layouts");
 
         Collection<Layout> layouts = new ArrayList<>();
 
-        Collection<File> keycodesFiles = FileManager.getInstance().getKeycodesFiles();
+        Collection<File> keycodesFiles = getKeycodesFiles();
         XmlPullParser parser = Xml.newPullParser();
         for (File keycodesFile : keycodesFiles) {
             InputStream is = null;

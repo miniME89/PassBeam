@@ -4,17 +4,11 @@ import android.util.Log;
 
 import org.simpleframework.xml.ElementList;
 import org.simpleframework.xml.Root;
-import org.simpleframework.xml.Serializer;
-import org.simpleframework.xml.convert.AnnotationStrategy;
-import org.simpleframework.xml.core.Persister;
-import org.simpleframework.xml.strategy.Strategy;
 
-import java.io.File;
 import java.util.Arrays;
 import java.util.Collection;
 
 import io.github.minime89.keepasstransfer.FileManager;
-import io.github.minime89.keepasstransfer.binding.IntegerMatcher;
 
 @Root(strict = false)
 public class Keysyms {
@@ -35,7 +29,9 @@ public class Keysyms {
      * @throws FileManager.FileManagerException When keysyms couldn't be loaded.
      */
     public static Keysyms load(String keysymsId) throws FileManager.FileManagerException {
-        return FileManager.getInstance().loadKeysyms(keysymsId);
+        FileManager fileManager = new FileManager();
+
+        return fileManager.loadKeysyms(keysymsId);
     }
 
     private Keysyms() {

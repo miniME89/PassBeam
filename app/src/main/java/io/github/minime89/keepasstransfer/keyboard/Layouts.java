@@ -22,8 +22,7 @@ public class Layouts {
      * @throws FileManager.FileManagerException When layouts couldn't be loaded.
      */
     public static Layouts load() throws FileManager.FileManagerException {
-        FileManager fileManager = FileManager.getInstance();
-
+        FileManager fileManager = new FileManager();
         Collection<Layout> layouts = fileManager.loadLayouts();
 
         Layouts instance = new Layouts();

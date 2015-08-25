@@ -1,9 +1,9 @@
 package io.github.minime89.keepasstransfer.hooks;
 
 import android.content.ClipData;
+import android.content.ClipDescription;
 import android.content.ClipboardManager;
 import android.content.Context;
-import android.util.Log;
 
 import io.github.minime89.keepasstransfer.KeePassTransfer;
 import io.github.minime89.keepasstransfer.keyboard.DeviceWriter;
@@ -14,17 +14,22 @@ public class ClipboardListener implements ClipboardManager.OnPrimaryClipChangedL
     private ClipboardManager clipboardManager;
 
     public ClipboardListener() {
-        Context context = KeePassTransfer.getContext();
+        Context context = KeePassTransfer.getInstance().getContext();
         clipboardManager = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
     }
 
     @Override
     public void onPrimaryClipChanged() {
-        ClipData clipData = clipboardManager.getPrimaryClip();
+        if (NotificationListener.isNotificationPosted()) {
+            ClipData clipData = clipboardManager.getPrimaryClip();
+            ClipDescription clipDescription = clipData.getDescription();
 
-        Log.i(TAG, "**********  onPrimaryClipChanged");
-        Log.i(TAG, clipData.toString());
+            if (clipData.getItemCount() > 0 && clipDescription.hasMimeType(ClipDescription.MIMETYPE_TEXT_PLAIN)) {
+                ClipData.Item item = clipData.getItemAt(0);
+                String data = String.valueOf(item.getText());
 
-        DeviceWriter.write(clipData.toString());
+                DeviceWriter.write(data);
+            }
+        }
     }
 }

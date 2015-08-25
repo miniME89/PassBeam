@@ -26,7 +26,9 @@ public class Scancodes {
      * @throws FileManager.FileManagerException When scancodes couldn't be loaded.
      */
     public static Scancodes load(String scancodesId) throws FileManager.FileManagerException {
-        return FileManager.getInstance().loadScancodes(scancodesId);
+        FileManager fileManager = new FileManager();
+
+        return fileManager.loadScancodes(scancodesId);
     }
 
     private Scancodes() {

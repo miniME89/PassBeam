@@ -3,10 +3,6 @@
     android:id="@+id/rootLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="io.github.minime89.keepasstransfer.activities.SetupActivity">
 
     <ProgressBar
@@ -25,6 +21,5 @@
         android:layout_centerHorizontal="true"
         android:text="@string/setup_progress_label"
         android:textAppearance="?android:attr/textAppearanceLarge" />
-
 
 </RelativeLayout>

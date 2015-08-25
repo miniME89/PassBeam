@@ -4,7 +4,6 @@ import android.app.IntentService;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 import android.util.Log;
 
 import java.io.DataOutputStream;
@@ -33,11 +32,6 @@ public class DeviceWriter extends IntentService {
     private static final int SERVICE_TIMEOUT = 2;
 
     /**
-     * The keyboard symbol converter.
-     */
-    private static Converter converter = new Converter();
-
-    /**
      * The queue which contains the string write requests.
      */
     private static BlockingQueue<String> stringQueue = new LinkedBlockingQueue<>();
@@ -51,19 +45,24 @@ public class DeviceWriter extends IntentService {
      * Request the service to write the given string as a HID keyboard. The request will start the
      * service, encode the string into the appropriate output format and write the data to the
      * device using superuser privileges.
-     * <p>
+     * <p/>
      * The method will return immediately and no feedback is returned by the service (for now).
      *
      * @param str The string.
      */
     public static void write(String str) {
+        Log.v(TAG, String.format("added string to keyboard device writer queue '%s'", str));
+
         stringQueue.add(str);
 
-        Context context = KeePassTransfer.getContext();
+        Context context = KeePassTransfer.getInstance().getContext();
         Intent intent = new Intent(context, DeviceWriter.class);
         context.startService(intent);
     }
 
+    /**
+     * Constructor.
+     */
     public DeviceWriter() {
         super("DeviceWriter");
     }
@@ -71,23 +70,27 @@ public class DeviceWriter extends IntentService {
     /**
      * Process the string write requests triggered by {@link DeviceWriter#write(String)}.
      * The method will proceed as following:<br><br>
-     * <p>
+     * <p/>
      * 1. Create new process which switches to super user<br>
      * 2. Process all strings added to {@link DeviceWriter#stringQueue}.<br>
      * &nbsp;&nbsp;2.1 Convert string to encoded keyboard event<br>
      * &nbsp;&nbsp;2.2 Write each event to the device<br>
      * 3. End the process<br><br>
-     * <p>
+     * <p/>
      * In step 2 all strings will be processed from {@link DeviceWriter#stringQueue} and
      * some time (determined by {@link DeviceWriter#SERVICE_TIMEOUT} will be waited for new
      * string write requests to arrive. If no new string write requests arrive within this time, the
      * process will be exited and the service shuts down.
      */
     private void suWrite() {
+        Log.v(TAG, "starting superuser keyboard device writer");
+
         //get preference characterTimeout
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences sharedPreferences = KeePassTransfer.getInstance().getSharedPreferences();
         String characterTimeoutStr = sharedPreferences.getString(getString(R.string.settings_character_timeout_key), "20");
         int characterTimeout = Integer.parseInt(characterTimeoutStr);
+
+        Converter converter = KeePassTransfer.getInstance().getConverter();
 
         Process process;
         int processReturnCode = -1;
@@ -102,6 +105,8 @@ public class DeviceWriter extends IntentService {
                 if (str == null) {
                     break;
                 }
+
+                Log.v(TAG, String.format("process string from keyboard device writer queue '%s'", str));
 
                 try {
                     Collection<byte[]> encodedCharacters = converter.convert(str);
@@ -169,10 +174,6 @@ public class DeviceWriter extends IntentService {
         }
     }
 
-    public static Converter getConverter() {
-        return converter;
-    }
-
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         addIntentQueue(intent);
@@ -181,7 +182,11 @@ public class DeviceWriter extends IntentService {
 
     @Override
     protected void onHandleIntent(Intent intent) {
+        Log.v(TAG, "started keyboard device writer service");
+
         suWrite();
         clearIntentQueue();
+
+        Log.v(TAG, "stopped keyboard device writer service");
     }
 }

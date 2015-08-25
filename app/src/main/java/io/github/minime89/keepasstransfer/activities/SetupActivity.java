@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -13,6 +12,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import io.github.minime89.keepasstransfer.FileManager;
+import io.github.minime89.keepasstransfer.KeePassTransfer;
 import io.github.minime89.keepasstransfer.R;
 
 public class SetupActivity extends AppCompatActivity {
@@ -25,7 +25,8 @@ public class SetupActivity extends AppCompatActivity {
 
         @Override
         protected Boolean doInBackground(Void... voids) {
-            if (!FileManager.getInstance().install()) {
+            FileManager fileManager = new FileManager();
+            if (!fileManager.install()) {
                 Log.e(TAG, "installation of at least one file failed");
 
                 return false;
@@ -56,15 +57,14 @@ public class SetupActivity extends AppCompatActivity {
             if (result) {
                 progressLabel.setText("finished");
 
-                SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(SetupActivity.this);
+                SharedPreferences sharedPreferences = KeePassTransfer.getInstance().getSharedPreferences();
                 sharedPreferences.edit().putBoolean("setup", true).apply();
 
                 Intent intent = new Intent(SetupActivity.this, SettingsActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
                 overridePendingTransition(R.anim.abc_fade_in, R.anim.abc_fade_out);
-            }
-            else {
+            } else {
                 progressLabel.setText("error");
             }
         }

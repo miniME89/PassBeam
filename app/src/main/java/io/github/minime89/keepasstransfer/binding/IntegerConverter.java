@@ -7,7 +7,7 @@ public class IntegerConverter implements Transform<Integer> {
         return Integer.decode(value);
     }
 
-    public String write(Integer value)  {
+    public String write(Integer value) {
         return String.valueOf(value);
     }
 }

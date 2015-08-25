@@ -37,7 +37,9 @@ public class Keycodes {
      * @throws FileManager.FileManagerException When keycodes couldn't be loaded.
      */
     public static Keycodes load(String keycodesId) throws FileManager.FileManagerException {
-        return FileManager.getInstance().loadKeycodes(keycodesId);
+        FileManager fileManager = new FileManager();
+
+        return fileManager.loadKeycodes(keycodesId);
     }
 
     private Keycodes() {

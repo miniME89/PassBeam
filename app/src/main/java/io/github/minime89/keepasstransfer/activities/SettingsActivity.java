@@ -1,26 +1,24 @@
 package io.github.minime89.keepasstransfer.activities;
 
-import android.content.ClipboardManager;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
-import android.preference.PreferenceManager;
+import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.support.annotation.LayoutRes;
 import android.support.v7.app.AppCompatDelegate;
 import android.util.Log;
-import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.Collection;
 
+import io.github.minime89.keepasstransfer.KeePassTransfer;
 import io.github.minime89.keepasstransfer.R;
-import io.github.minime89.keepasstransfer.hooks.ClipboardListener;
 import io.github.minime89.keepasstransfer.hooks.NotificationListener;
 import io.github.minime89.keepasstransfer.keyboard.Converter;
 import io.github.minime89.keepasstransfer.keyboard.DeviceWriter;
@@ -32,7 +30,6 @@ import io.github.minime89.keepasstransfer.keyboard.Symbol;
 public class SettingsActivity extends PreferenceActivity {
     private static final String TAG = SettingsActivity.class.getSimpleName();
     private AppCompatDelegate appCompatDelegate;
-    private SharedPreferences sharedPreferences;
     private Preference notifications;
 
     private NotificationListener.NotificationStateListener notificationStateListener = new NotificationListener.NotificationStateListener() {
@@ -50,18 +47,19 @@ public class SettingsActivity extends PreferenceActivity {
             }
             //notifications access is disallowed
             else {
-                notifications.setWidgetLayoutResource(R.layout.preference_icon);
+                notifications.setWidgetLayoutResource(R.layout.icon_fragment);
             }
 
             //FIXME update UI
             PreferenceScreen screen = getPreferenceScreen();
-            screen.removePreference(notifications);
-            screen.addPreference(notifications);
+            PreferenceCategory preferenceCategory = (PreferenceCategory) screen.findPreference(getString(R.string.settings_group_notifications_key));
+            preferenceCategory.removePreference(notifications);
+            preferenceCategory.addPreference(notifications);
         }
     }
 
     private void setupNotificationsStatus() {
-        notifications = findPreference(getString(R.string.settings_notifications_key));
+        notifications = findPreference(getString(R.string.settings_notification_access_key));
         NotificationListener.addNotificationStateListener(notificationStateListener);
         updateNotificationsStatus();
     }
@@ -84,7 +82,7 @@ public class SettingsActivity extends PreferenceActivity {
         keyboardLayoutTestPreference.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {
-                Converter keyboardDeviceWriter = DeviceWriter.getConverter();
+                Converter keyboardDeviceWriter = KeePassTransfer.getInstance().getConverter();
                 if (keyboardDeviceWriter != null) {
                     Keycodes keycodes = keyboardDeviceWriter.getKeycodes();
                     if (keycodes != null) {
@@ -104,7 +102,7 @@ public class SettingsActivity extends PreferenceActivity {
                         }
 
                         String str = strBuilder.toString();
-                        Log.i(TAG, String.format("write %d printable unicode characters for the selected keyboard layout: %s", str.length(), str));
+                        Log.v(TAG, String.format("write %d printable unicode characters for the selected keyboard layout: %s", str.length(), str));
                         DeviceWriter.write(str);
                     }
                 }
@@ -125,7 +123,7 @@ public class SettingsActivity extends PreferenceActivity {
         getAppCompatDelegate().onCreate(savedInstanceState);
         super.onCreate(savedInstanceState);
 
-        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences sharedPreferences = KeePassTransfer.getInstance().getSharedPreferences();
 
         //first time startup?
         if (!sharedPreferences.getBoolean("setup", false)) {
@@ -142,9 +140,6 @@ public class SettingsActivity extends PreferenceActivity {
         setupNotificationsStatus();
         setupKeyboardLayout();
         setupKeyboardLayoutTest();
-
-        ClipboardManager clipboardManager = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
-        clipboardManager.addPrimaryClipChangedListener(new ClipboardListener());
     }
 
     @Override
@@ -157,12 +152,6 @@ public class SettingsActivity extends PreferenceActivity {
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         getAppCompatDelegate().onPostCreate(savedInstanceState);
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.settings_menu, menu);
-        return true;
     }
 
     @Override

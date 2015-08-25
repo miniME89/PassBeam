@@ -29,7 +29,6 @@
     </layouts>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_LOG_LEVEL" value="INFO" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
@@ -72,185 +71,17 @@
     <favorites_list name="KeePassTransfer" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="Converter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/Converter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="159" column="44" selection-start-line="159" selection-start-column="44" selection-end-line="159" selection-end-column="44" />
-              <folding>
-                <element signature="class#ConverterException#0;class#Converter#0" expanded="true" />
-                <element signature="method#Converter#0;class#Converter#0" expanded="true" />
-                <element signature="method#convert#0;class#Converter#0" expanded="true" />
-                <element signature="method#convert#1;class#Converter#0" expanded="true" />
-                <element signature="method#load#1;class#Converter#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="settings_activity.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/xml/settings_activity.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="13" column="60" selection-start-line="13" selection-start-column="60" selection-end-line="13" selection-end-column="60" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SettingsActivity.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/activities/SettingsActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5777351">
-              <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1588#1757#0" expanded="true" />
-                <element signature="e#1756#1757#0" expanded="true" />
-                <element signature="method#updateNotificationsStatus#0;class#SettingsActivity#0" expanded="true" />
-                <element signature="method#setupNotificationsStatus#0;class#SettingsActivity#0" expanded="true" />
-                <element signature="e#2490#2536#0" expanded="true" />
-                <element signature="method#setupKeyboardLayout#0;class#SettingsActivity#0" expanded="true" />
-                <element signature="e#2771#2819#0" expanded="true" />
-                <element signature="e#2884#3210#0" expanded="true" />
-                <element signature="e#3209#3210#0" expanded="true" />
-                <element signature="method#setupKeyboardLayoutTest#0;class#SettingsActivity#0" expanded="true" />
-                <element signature="e#3330#3383#0" expanded="true" />
-                <element signature="e#3452#4952#0" expanded="true" />
-                <element signature="e#4951#4952#0" expanded="true" />
-                <element signature="e#5006#5007#0" expanded="true" />
-                <element signature="e#5038#5039#0" expanded="true" />
-                <element signature="method#onCreate#0;class#SettingsActivity#0" expanded="true" />
-                <element signature="method#onDestroy#0;class#SettingsActivity#0" expanded="true" />
-                <element signature="method#onPostCreate#0;class#SettingsActivity#0" expanded="true" />
-                <element signature="method#onCreateOptionsMenu#0;class#SettingsActivity#0" expanded="true" />
-                <element signature="e#6607#6608#0" expanded="true" />
-                <element signature="e#6670#6671#0" expanded="true" />
-                <element signature="method#setContentView#0;class#SettingsActivity#0" expanded="true" />
-                <element signature="e#6871#6872#0" expanded="true" />
-                <element signature="e#6930#6931#0" expanded="true" />
-                <element signature="method#setContentView#2;class#SettingsActivity#0" expanded="true" />
-                <element signature="method#addContentView#0;class#SettingsActivity#0" expanded="true" />
-                <element signature="method#onPostResume#0;class#SettingsActivity#0" expanded="true" />
-                <element signature="method#onTitleChanged#0;class#SettingsActivity#0" expanded="true" />
-                <element signature="method#onConfigurationChanged#0;class#SettingsActivity#0" expanded="true" />
-                <element signature="method#onStop#0;class#SettingsActivity#0" expanded="true" />
-                <element signature="e#7919#7920#0" expanded="true" />
-                <element signature="e#7981#7982#0" expanded="true" />
-                <element signature="method#getAppCompatDelegate#0;class#SettingsActivity#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NotificationListener.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/hooks/NotificationListener.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
-              <folding>
-                <element signature="class#NotificationStateListener#0;class#NotificationListener#0" expanded="true" />
-                <element signature="method#addNotificationStateListener#0;class#NotificationListener#0" expanded="true" />
-                <element signature="method#removeNotificationStateListener#0;class#NotificationListener#0" expanded="true" />
-                <element signature="method#notifyNotificationStateListeners#0;class#NotificationListener#0" expanded="true" />
-                <element signature="method#onCreate#0;class#NotificationListener#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="preference_icon.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/preference_icon.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.0">
-              <caret line="5" column="37" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="settings_strings.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/settings_strings.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="KeyboardLayoutActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/activities/KeyboardLayoutActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="148" column="62" selection-start-line="148" selection-start-column="62" selection-end-line="148" selection-end-column="62" />
-              <folding>
-                <element signature="class#LayoutWrapper#0;class#KeyboardLayoutActivity#0" expanded="true" />
-                <element signature="e#1407#1408#0" expanded="true" />
-                <element signature="e#1451#1452#0" expanded="true" />
-                <element signature="method#toString#0;class#LayoutWrapper#0;class#KeyboardLayoutActivity#0" expanded="true" />
-                <element signature="class#UpdateLayoutsTask#0;class#KeyboardLayoutActivity#0" expanded="true" />
-                <element signature="method#doInBackground#0;class#UpdateLayoutsTask#0;class#KeyboardLayoutActivity#0" expanded="true" />
-                <element signature="method#onPreExecute#0;class#UpdateLayoutsTask#0;class#KeyboardLayoutActivity#0" expanded="true" />
-                <element signature="method#onPostExecute#0;class#UpdateLayoutsTask#0;class#KeyboardLayoutActivity#0" expanded="true" />
-                <element signature="e#3258#3513#0" expanded="true" />
-                <element signature="e#3512#3513#0" expanded="true" />
-                <element signature="method#setupKeyboardLayoutMenu#0;class#KeyboardLayoutActivity#0" expanded="true" />
-                <element signature="method#setupKeyboardLayoutSearch#0;class#KeyboardLayoutActivity#0" expanded="true" />
-                <element signature="method#beforeTextChanged#0;class#4446:4914" expanded="true" />
-                <element signature="method#onTextChanged#0;class#4446:4914" expanded="true" />
-                <element signature="method#afterTextChanged#0;class#4446:4914" expanded="true" />
-                <element signature="e#5264#5994#0" expanded="true" />
-                <element signature="e#5823#5871#0" expanded="true" />
-                <element signature="e#5993#5994#0" expanded="true" />
-                <element signature="method#updateKeyboardLayoutList#0;class#KeyboardLayoutActivity#0" expanded="true" />
-                <element signature="e#6241#6242#0" expanded="true" />
-                <element signature="e#6283#6284#0" expanded="true" />
-                <element signature="method#onCreate#0;class#KeyboardLayoutActivity#0" expanded="true" />
-                <element signature="method#onCreateOptionsMenu#0;class#KeyboardLayoutActivity#0" expanded="true" />
-                <element signature="method#onOptionsItemSelected#0;class#KeyboardLayoutActivity#0" expanded="true" />
-                <element signature="method#setSupportProgressBarIndeterminateVisibility#0;class#KeyboardLayoutActivity#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="KeePassTransfer.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/KeePassTransfer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="32" column="43" selection-start-line="32" selection-start-column="43" selection-end-line="32" selection-end-column="43" />
-              <folding>
-                <element signature="e#1080#1128#0" expanded="true" />
-                <element signature="method#onCreate#0;class#KeePassTransfer#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DeviceWriter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/DeviceWriter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="37" column="24" selection-start-line="37" selection-start-column="24" selection-end-line="37" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="resourceFile" />
-        <option value="Class" />
         <option value="JUnit3 Test Class" />
         <option value="layoutResourceFile" />
+        <option value="Interface" />
+        <option value="Class" />
+        <option value="valueResourceFile" />
       </list>
     </option>
   </component>
@@ -647,10 +478,6 @@
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="preDexRelease" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="preReleaseBuild" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
@@ -730,6 +557,10 @@
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="processReleaseUnitTestJavaRes" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="proguardRelease" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Displays the signing info for each variant." />
@@ -1148,10 +979,6 @@
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
-                <option name="name" value="preDexRelease" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
                 <option name="name" value="preReleaseBuild" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
@@ -1233,6 +1060,10 @@
                 <option name="name" value="processReleaseUnitTestJavaRes" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="proguardRelease" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
                 <option name="description" value="Displays the signing info for each variant." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
                 <option name="name" value="signingReport" />
@@ -1287,7 +1118,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="4318228267069" />
+        <entry key="$PROJECT_DIR$" value="4318447676977" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -1586,20 +1417,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/res/values/keyboard_layout_activity_strings.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/setup_strings.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/KeyboardVariant.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/KeyboardLayout.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/IntegerConverter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/IntegerMatcher.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/KeycodeMapper.java" />
-        <option value="$PROJECT_DIR$/app/src/main/assets/app/keysyms/default" />
-        <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/binding/IntegerConverter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/binding/ExternalConverter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/KeysymMapper.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/KeycodeRef.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/ScancodeRef.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/KeysymRef.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/ScancodeMapper.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/KeyboardDeviceWriter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/SetupActivity.java" />
@@ -1609,34 +1426,48 @@
         <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/KeyboardConverter.java" />
         <option value="$PROJECT_DIR$/app/src/main/assets/app/scancodes/default" />
         <option value="$PROJECT_DIR$/app/src/main/assets/app/keycodes/de" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/Scancode.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/Keycodes.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/Keysyms.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/keyboard_layout_strings.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/app_styles.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/keyboard_layout_activity.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/menu/keyboard_layout_menu.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/SettingsActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/KeyboardLayoutActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/Layouts.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/Keycode.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/Scancodes.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/State.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/Keystate.java" />
         <option value="$PROJECT_DIR$/app/src/test/java/io/github/minime89/keepasstransfer/FileManagerTest.java" />
-        <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/Unicode.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/FileManager.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/activities/KeyboardLayoutActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/KeePassTransfer.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/Layout.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/Converter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/Keycodes.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/Keysyms.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/Scancodes.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/Layouts.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/activities/KeyboardLayoutActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/activities/SetupActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/settings_strings.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/preference_icon.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/xml/settings_activity.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/hooks/NotificationListener.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/NotificationChecker.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/hooks/NotificationChecker.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/checker/NotificationChecker.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/checker/Checker.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/checker/StateChecker.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/checker/StateListener.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/checker/StateListenerRegister.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/checker/Keepass2Android.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/setup_activity.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/keyboard_layout_activity.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/preference_icon.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/app_styles.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/applications.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/config.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/hooks/ClipboardListener.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/FileManager.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/KeePassTransfer.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/activities/SettingsActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/hooks/NotificationListener.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/DeviceWriter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/Converter.java" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
       </list>
     </option>
   </component>
@@ -1657,6 +1488,34 @@
     <option name="x" value="-1" />
     <option name="width" value="1922" />
     <option name="height" value="1056" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>Abstraction issuesJava</id>
+          </State>
+          <State>
+            <id>Android Lint</id>
+          </State>
+          <State>
+            <id>Java</id>
+          </State>
+          <State>
+            <id>Java language level migration aidsJava</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>Android</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -1681,7 +1540,241 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="KeePassTransfer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="KeePassTransfer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="KeePassTransfer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="KeePassTransfer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="KeePassTransfer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="KeePassTransfer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="KeePassTransfer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="KeePassTransfer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="KeePassTransfer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="KeePassTransfer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="KeePassTransfer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="KeePassTransfer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="KeePassTransfer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="keepasstransfer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="KeePassTransfer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="KeePassTransfer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scancodes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="KeePassTransfer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="KeePassTransfer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="keysyms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="KeePassTransfer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="KeePassTransfer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -1846,296 +1939,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KeePassTransfer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KeePassTransfer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KeePassTransfer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KeePassTransfer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KeePassTransfer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KeePassTransfer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KeePassTransfer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KeePassTransfer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KeePassTransfer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KeePassTransfer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KeePassTransfer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="xml" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KeePassTransfer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KeePassTransfer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KeePassTransfer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KeePassTransfer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="layout" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KeePassTransfer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KeePassTransfer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="drawable" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KeePassTransfer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KeePassTransfer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scancodes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KeePassTransfer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KeePassTransfer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="keysyms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KeePassTransfer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KeePassTransfer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2148,7 +1951,7 @@
     <property name="FullScreen" value="false" />
     <property name="OverrideImplement.combined" value="true" />
     <property name="OverrideImplement.overriding.sorted" value="false" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.import" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/test/java/io/github/minime89/keepasstransfer" />
     <property name="ToolWindowDocumentation.ShowToolbar" value="false" />
@@ -2409,7 +2212,7 @@
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="SvnConfiguration">
-    <configuration />
+    <configuration>$USER_HOME$/.subversion</configuration>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -2430,26 +2233,26 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="0" width="1922" height="1056" extended-state="7" />
-    <editor active="true" />
+    <frame x="-1" y="0" width="1922" height="1056" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32929516" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23788546" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15955175" sideWeight="0.50668895" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39427313" sideWeight="0.50213444" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39427313" sideWeight="0.50426894" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Documentation" active="false" anchor="right" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20490928" sideWeight="0.5" order="7" side_tool="false" content_ui="combo" x="878" y="443" width="577" height="281" />
+      <window_info id="Documentation" active="false" anchor="right" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18729989" sideWeight="0.5" order="7" side_tool="false" content_ui="combo" x="878" y="443" width="577" height="281" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14087513" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34140968" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32929516" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39427313" sideWeight="0.49786553" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.36343613" sideWeight="0.49573106" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19477054" sideWeight="0.49331105" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18303095" sideWeight="0.49331105" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27863437" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14461046" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1995731" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -2484,7 +2287,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="78" />
+      <option name="time" value="85" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="app">
@@ -2494,192 +2297,10 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/keyboard_layout_strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13819578">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../android-sdk-linux/extras/android/m2repository/com/android/support/appcompat-v7/22.2.1/appcompat-v7-22.2.1-sources.jar!/android/support/v7/app/ActionBarActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27639157">
-          <caret line="22" column="56" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../android-sdk-linux/extras/android/m2repository/com/android/support/appcompat-v7/22.2.1/appcompat-v7-22.2.1-sources.jar!/android/support/v7/app/AppCompatDelegate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33205375">
-          <caret line="213" column="28" selection-start-line="213" selection-start-column="28" selection-end-line="213" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/app_styles.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.10364683">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../android-sdk-linux/extras/android/m2repository/com/android/support/appcompat-v7/22.2.1/appcompat-v7-22.2.1-sources.jar!/android/support/v7/app/AppCompatActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33205375">
-          <caret line="75" column="20" selection-start-line="75" selection-start-column="11" selection-end-line="75" selection-end-column="20" />
-          <folding>
-            <element signature="e#2878#2879#0" expanded="false" />
-            <element signature="e#2936#2937#0" expanded="false" />
-            <element signature="method#supportRequestWindowFeature#0;class#AppCompatActivity#0" expanded="false" />
-            <element signature="method#setSupportProgressBarIndeterminateVisibility#0;class#AppCompatActivity#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/keyboard_layout_activity.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3401222">
-          <caret line="14" column="46" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../android-sdk-linux/sources/android-21/android/widget/ProgressBar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3666027">
-          <caret line="246" column="28" selection-start-line="246" selection-start-column="28" selection-end-line="246" selection-end-column="28" />
-          <folding>
-            <element signature="e#9891#9892#0" expanded="false" />
-            <element signature="e#9926#9927#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../android-sdk-linux/sources/android-21/android/widget/RelativeLayout.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.77735126">
-          <caret line="1359" column="11" selection-start-line="1359" selection-start-column="11" selection-end-line="1359" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/activities/SetupActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24184261">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="67" selection-end-column="5" />
-          <folding>
-            <element signature="class#SetupTask#0;class#SetupActivity#0" expanded="true" />
-            <element signature="method#doInBackground#0;class#SetupTask#0;class#SetupActivity#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/keyboard_layout_menu.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.17252396">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding>
-            <element signature="e#336#369#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/Keysym.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7927063">
-          <caret line="126" column="119" selection-start-line="126" selection-start-column="8" selection-end-line="126" selection-end-column="119" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/binding/IntegerMatcher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.40344828">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding>
-            <element signature="method#match#0;class#IntegerMatcher#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/Utils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.027586207">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/Keystate.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.34504792">
           <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/Scancodes.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4536741">
-          <caret line="61" column="98" selection-start-line="61" selection-start-column="98" selection-end-line="61" selection-end-column="98" />
-          <folding>
-            <element signature="method#load#0;class#Scancodes#0" expanded="true" />
-            <element signature="method#Scancodes#0;class#Scancodes#0" expanded="true" />
-            <element signature="method#build#0;class#Scancodes#0" expanded="true" />
-            <element signature="method#find#0;class#Scancodes#0" expanded="true" />
-            <element signature="method#toString#0;class#Scancodes#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/Layouts.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7172524">
-          <caret line="31" column="24" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#Layouts#0;class#Layouts#0" expanded="true" />
-            <element signature="e#956#957#0" expanded="true" />
-            <element signature="e#986#987#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4888179">
-          <caret line="17" column="17" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values-w820dp/dimens.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.17252396">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5377856">
-          <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6552901">
-          <caret line="32" column="34" selection-start-line="32" selection-start-column="34" selection-end-line="32" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2687,7 +2308,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4288965">
           <caret line="127" column="0" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2695,7 +2315,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
       <provider editor-type-id="android-designer">
@@ -2706,14 +2325,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.9558541">
           <caret line="393" column="27" selection-start-line="393" selection-start-column="27" selection-end-line="393" selection-end-column="27" />
-          <folding>
-            <element signature="method#ArrayAdapter#0;class#ArrayAdapter#0" expanded="false" />
-            <element signature="method#ArrayAdapter#1;class#ArrayAdapter#0" expanded="false" />
-            <element signature="method#init#0;class#ArrayAdapter#0" expanded="false" />
-            <element signature="method#getView#0;class#ArrayAdapter#0" expanded="false" />
-            <element signature="class#ArrayFilter#0;class#ArrayAdapter#0" expanded="false" />
-            <element signature="method#performFiltering#0;class#ArrayFilter#0;class#ArrayAdapter#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2721,7 +2332,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.72360843">
           <caret line="6297" column="11" selection-start-line="6297" selection-start-column="11" selection-end-line="6297" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2729,124 +2339,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7523992">
           <caret line="34" column="22" selection-start-line="34" selection-start-column="15" selection-end-line="34" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#Unicode#0;class#Unicode#0" expanded="true" />
-            <element signature="method#toString#0;class#Unicode#0" expanded="true" />
-          </folding>
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/Keysyms.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27639157">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding>
-            <element signature="method#load#0;class#Keysyms#0" expanded="true" />
-            <element signature="method#Keysyms#0;class#Keysyms#0" expanded="true" />
-            <element signature="method#build#0;class#Keysyms#0" expanded="true" />
-            <element signature="method#find#0;class#Keysyms#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/FileManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8051118">
-          <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
-          <folding>
-            <element signature="class#FileManagerException#0;class#FileManager#0" expanded="true" />
-            <element signature="method#loadXmlFile#0;class#FileManager#0" expanded="true" />
-            <element signature="method#storeXmlFile#0;class#FileManager#0" expanded="true" />
-            <element signature="method#getKeycodesFiles#0;class#FileManager#0" expanded="true" />
-            <element signature="method#getKeysymsFiles#0;class#FileManager#0" expanded="true" />
-            <element signature="method#getScancodesFiles#0;class#FileManager#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/Keycodes.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="23" column="15" selection-start-line="23" selection-start-column="15" selection-end-line="23" selection-end-column="15" />
-          <folding>
-            <element signature="method#load#0;class#Keycodes#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/captures/Allocations_2015.08.23_16.06.23.alloc">
-      <provider selected="true" editor-type-id="capture-editor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/captures/Allocations_2015.08.23_16.06.36.alloc">
-      <provider selected="true" editor-type-id="capture-editor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/captures/Allocations_2015.08.23_16.07.08.alloc">
-      <provider selected="true" editor-type-id="capture-editor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/captures/Snapshot_2015.08.23_16.07.29.hprof">
-      <provider selected="true" editor-type-id="capture-editor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/captures/Snapshot_2015.08.23_16.07.28.hprof">
-      <provider selected="true" editor-type-id="capture-editor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/captures/Allocations_2015.08.23_16.08.27.alloc">
-      <provider selected="true" editor-type-id="capture-editor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/captures/Snapshot_2015.08.23_16.10.04.hprof">
-      <provider selected="true" editor-type-id="capture-editor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/captures/Allocations_2015.08.23_16.15.12.alloc">
-      <provider selected="true" editor-type-id="capture-editor">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/Layout.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6429942">
           <caret line="59" column="26" selection-start-line="59" selection-start-column="26" selection-end-line="59" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#Layout#0;class#Layout#0" expanded="true" />
-            <element signature="e#2130#2131#0" expanded="true" />
-            <element signature="e#2163#2164#0" expanded="true" />
-            <element signature="e#2266#2267#0" expanded="true" />
-            <element signature="e#2306#2307#0" expanded="true" />
-            <element signature="method#toString#0;class#Layout#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/KeePassTransfer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="32" column="43" selection-start-line="32" selection-start-column="43" selection-end-line="32" selection-end-column="43" />
-          <folding>
-            <element signature="e#1080#1128#0" expanded="true" />
-            <element signature="method#onCreate#0;class#KeePassTransfer#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/DeviceWriter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="37" column="24" selection-start-line="37" selection-start-column="24" selection-end-line="37" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2855,69 +2354,10 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_warning.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/setup_activity.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.54989815">
-          <caret line="15" column="44" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/activities/KeyboardLayoutActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="148" column="62" selection-start-line="148" selection-start-column="62" selection-end-line="148" selection-end-column="62" />
-          <folding>
-            <element signature="class#LayoutWrapper#0;class#KeyboardLayoutActivity#0" expanded="true" />
-            <element signature="e#1407#1408#0" expanded="true" />
-            <element signature="e#1451#1452#0" expanded="true" />
-            <element signature="method#toString#0;class#LayoutWrapper#0;class#KeyboardLayoutActivity#0" expanded="true" />
-            <element signature="class#UpdateLayoutsTask#0;class#KeyboardLayoutActivity#0" expanded="true" />
-            <element signature="method#doInBackground#0;class#UpdateLayoutsTask#0;class#KeyboardLayoutActivity#0" expanded="true" />
-            <element signature="method#onPreExecute#0;class#UpdateLayoutsTask#0;class#KeyboardLayoutActivity#0" expanded="true" />
-            <element signature="method#onPostExecute#0;class#UpdateLayoutsTask#0;class#KeyboardLayoutActivity#0" expanded="true" />
-            <element signature="e#3258#3513#0" expanded="true" />
-            <element signature="e#3512#3513#0" expanded="true" />
-            <element signature="method#setupKeyboardLayoutMenu#0;class#KeyboardLayoutActivity#0" expanded="true" />
-            <element signature="method#setupKeyboardLayoutSearch#0;class#KeyboardLayoutActivity#0" expanded="true" />
-            <element signature="method#beforeTextChanged#0;class#4446:4914" expanded="true" />
-            <element signature="method#onTextChanged#0;class#4446:4914" expanded="true" />
-            <element signature="method#afterTextChanged#0;class#4446:4914" expanded="true" />
-            <element signature="e#5264#5994#0" expanded="true" />
-            <element signature="e#5823#5871#0" expanded="true" />
-            <element signature="e#5993#5994#0" expanded="true" />
-            <element signature="method#updateKeyboardLayoutList#0;class#KeyboardLayoutActivity#0" expanded="true" />
-            <element signature="e#6241#6242#0" expanded="true" />
-            <element signature="e#6283#6284#0" expanded="true" />
-            <element signature="method#onCreate#0;class#KeyboardLayoutActivity#0" expanded="true" />
-            <element signature="method#onCreateOptionsMenu#0;class#KeyboardLayoutActivity#0" expanded="true" />
-            <element signature="method#onOptionsItemSelected#0;class#KeyboardLayoutActivity#0" expanded="true" />
-            <element signature="method#setSupportProgressBarIndeterminateVisibility#0;class#KeyboardLayoutActivity#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/../android-sdk-linux/platforms/android-21/android.jar!/android/R.class">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="2.3225152">
           <caret line="946" column="32" selection-start-line="946" selection-start-column="32" selection-end-line="946" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/settings_strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2925,23 +2365,113 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.73896354">
           <caret line="1567" column="45" selection-start-line="1567" selection-start-column="45" selection-end-line="1567" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.gradle/wrapper/dists/gradle-2.2.1-all/c64ydeuardnfqctvr1gm30w53/gradle-2.2.1/src/base-services/org/gradle/api/JavaVersion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.46153846">
+          <caret line="34" column="6" selection-start-line="34" selection-start-column="6" selection-end-line="34" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/Keysyms.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="33" column="26" selection-start-line="33" selection-start-column="26" selection-end-line="33" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/Layouts.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="52" selection-start-line="24" selection-start-column="52" selection-end-line="24" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/Keycodes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.82341653">
+          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/Scancodes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6506718">
+          <caret line="30" column="26" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../android-sdk-linux/sources/android-22/android/content/Context.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33205375">
+          <caret line="375" column="24" selection-start-line="375" selection-start-column="24" selection-end-line="375" selection-end-column="24" />
           <folding>
-            <element signature="method#Preference#0;class#Preference#0" expanded="true" />
-            <element signature="method#setLayoutResource#0;class#Preference#0" expanded="true" />
-            <element signature="e#17134#17135#0" expanded="true" />
-            <element signature="e#17169#17170#0" expanded="true" />
-            <element signature="method#setWidgetLayoutResource#0;class#Preference#0" expanded="true" />
-            <element signature="method#getView#0;class#Preference#0" expanded="true" />
-            <element signature="method#compareTo#0;class#Preference#0" expanded="true" />
-            <element signature="method#notifyChanged#0;class#Preference#0" expanded="true" />
+            <element signature="e#16525#16526#0" expanded="false" />
+            <element signature="e#16579#16580#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/preference_icon.xml">
+    <entry file="file://$PROJECT_DIR$/../android-sdk-linux/sources/android-22/java/lang/Object.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.0">
-          <caret line="5" column="37" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
+        <state vertical-scroll-proportion="0.39609236">
+          <caret line="205" column="5" selection-start-line="205" selection-start-column="5" selection-end-line="205" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../android-sdk-linux/sources/android-22/android/service/notification/StatusBarNotification.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5843694">
+          <caret line="78" column="9" selection-start-line="78" selection-start-column="9" selection-end-line="78" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../android-sdk-linux/sources/android-22/java/util/Iterator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3321492">
+          <caret line="34" column="17" selection-start-line="34" selection-start-column="17" selection-end-line="34" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.reflections/reflections/0.9.9-RC1/654dcaafdb84f03858bb69bbe031f0325bb49065/reflections-0.9.9-RC1-sources.jar!/org/reflections/Reflections.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3321492">
+          <caret line="335" column="37" selection-start-line="335" selection-start-column="15" selection-end-line="335" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/activities/SetupActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.29662523">
+          <caret line="59" column="107" selection-start-line="59" selection-start-column="107" selection-end-line="59" selection-end-column="107" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/xml/settings_activity.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.42451155">
+          <caret line="28" column="65" selection-start-line="28" selection-start-column="65" selection-end-line="28" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../android-sdk-linux/sources/android-22/android/content/ClipboardManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33226836">
+          <caret line="174" column="16" selection-start-line="174" selection-start-column="16" selection-end-line="174" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_action.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/keyboard_layout_activity.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.50549453">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -2949,81 +2479,275 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/Converter.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/setup_activity.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="159" column="44" selection-start-line="159" selection-start-column="44" selection-end-line="159" selection-end-column="44" />
-          <folding>
-            <element signature="class#ConverterException#0;class#Converter#0" expanded="true" />
-            <element signature="method#Converter#0;class#Converter#0" expanded="true" />
-            <element signature="method#convert#0;class#Converter#0" expanded="true" />
-            <element signature="method#convert#1;class#Converter#0" expanded="true" />
-            <element signature="method#load#1;class#Converter#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.7032967">
+          <caret line="22" column="69" selection-start-line="22" selection-start-column="69" selection-end-line="22" selection-end-column="69" />
+          <folding />
         </state>
       </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/xml/settings_activity.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/app_styles.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="60" selection-start-line="13" selection-start-column="60" selection-end-line="13" selection-end-column="60" />
+        <state vertical-scroll-proportion="0.15625">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/hooks/NotificationListener.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/app_strings.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
+        <state vertical-scroll-proportion="0.09375">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../android-sdk-linux/sources/android-22/java/util/Collection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="136" column="19" selection-start-line="136" selection-start-column="19" selection-end-line="136" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../android-sdk-linux/sources/android-22/java/util/ArrayList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3989071">
+          <caret line="335" column="21" selection-start-line="335" selection-start-column="21" selection-end-line="335" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/settings_strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.55737704">
+          <caret line="17" column="35" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build/generated/source/r/debug/io/github/minime89/keepasstransfer/R.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.54994124">
+          <caret line="6008" column="0" selection-start-line="6008" selection-start-column="0" selection-end-line="6008" selection-end-column="0" />
           <folding>
-            <element signature="class#NotificationStateListener#0;class#NotificationListener#0" expanded="true" />
-            <element signature="method#addNotificationStateListener#0;class#NotificationListener#0" expanded="true" />
-            <element signature="method#removeNotificationStateListener#0;class#NotificationListener#0" expanded="true" />
-            <element signature="method#notifyNotificationStateListeners#0;class#NotificationListener#0" expanded="true" />
-            <element signature="method#onCreate#0;class#NotificationListener#0" expanded="true" />
+            <element signature="class#array#0;class#R#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/icon_fragment.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.20809248">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/keyboard_layout_menu.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.22950819">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16393442">
+          <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../android-sdk-linux/sources/android-22/android/content/ClipDescription.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.45901638">
+          <caret line="134" column="0" selection-start-line="134" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../android-sdk-linux/sources/android-22/android/content/ClipData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="760" column="17" selection-start-line="760" selection-start-column="17" selection-end-line="760" selection-end-column="17" />
+          <folding>
+            <element signature="e#31132#31133#0" expanded="true" />
+            <element signature="e#31171#31172#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../android-sdk-linux/sources/android-22/android/util/Log.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3989071">
+          <caret line="32" column="7" selection-start-line="32" selection-start-column="7" selection-end-line="32" selection-end-column="7" />
+          <folding>
+            <element signature="e#1858#1859#0" expanded="true" />
+            <element signature="e#1920#1921#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/settings.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.028753994">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.37380192">
+          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/proguard-rules.pro">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.46153846">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.36065573">
+          <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/DeviceWriter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.8306011">
+          <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+          <folding>
+            <element signature="method#suWrite#0;class#DeviceWriter#0" expanded="true" />
+            <element signature="method#onStartCommand#0;class#DeviceWriter#0" expanded="true" />
+            <element signature="method#onHandleIntent#0;class#DeviceWriter#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/hooks/ClipboardListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.44262296">
+          <caret line="24" column="38" selection-start-line="24" selection-start-column="38" selection-end-line="24" selection-end-column="38" />
+          <folding>
+            <element signature="method#ClipboardListener#0;class#ClipboardListener#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/activities/KeyboardLayoutActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.7704918">
+          <caret line="205" column="0" selection-start-line="205" selection-start-column="0" selection-end-line="205" selection-end-column="0" />
+          <folding>
+            <element signature="method#setupKeyboardLayoutList#0;class#KeyboardLayoutActivity#0" expanded="true" />
+            <element signature="e#5816#5864#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/activities/SettingsActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5777351">
-          <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.70673954">
+          <caret line="102" column="0" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1588#1757#0" expanded="true" />
-            <element signature="e#1756#1757#0" expanded="true" />
             <element signature="method#updateNotificationsStatus#0;class#SettingsActivity#0" expanded="true" />
             <element signature="method#setupNotificationsStatus#0;class#SettingsActivity#0" expanded="true" />
-            <element signature="e#2490#2536#0" expanded="true" />
             <element signature="method#setupKeyboardLayout#0;class#SettingsActivity#0" expanded="true" />
-            <element signature="e#2771#2819#0" expanded="true" />
-            <element signature="e#2884#3210#0" expanded="true" />
-            <element signature="e#3209#3210#0" expanded="true" />
-            <element signature="method#setupKeyboardLayoutTest#0;class#SettingsActivity#0" expanded="true" />
-            <element signature="e#3330#3383#0" expanded="true" />
-            <element signature="e#3452#4952#0" expanded="true" />
-            <element signature="e#4951#4952#0" expanded="true" />
-            <element signature="e#5006#5007#0" expanded="true" />
-            <element signature="e#5038#5039#0" expanded="true" />
             <element signature="method#onCreate#0;class#SettingsActivity#0" expanded="true" />
             <element signature="method#onDestroy#0;class#SettingsActivity#0" expanded="true" />
             <element signature="method#onPostCreate#0;class#SettingsActivity#0" expanded="true" />
-            <element signature="method#onCreateOptionsMenu#0;class#SettingsActivity#0" expanded="true" />
-            <element signature="e#6607#6608#0" expanded="true" />
-            <element signature="e#6670#6671#0" expanded="true" />
             <element signature="method#setContentView#0;class#SettingsActivity#0" expanded="true" />
-            <element signature="e#6871#6872#0" expanded="true" />
-            <element signature="e#6930#6931#0" expanded="true" />
             <element signature="method#setContentView#2;class#SettingsActivity#0" expanded="true" />
             <element signature="method#addContentView#0;class#SettingsActivity#0" expanded="true" />
             <element signature="method#onPostResume#0;class#SettingsActivity#0" expanded="true" />
             <element signature="method#onTitleChanged#0;class#SettingsActivity#0" expanded="true" />
             <element signature="method#onConfigurationChanged#0;class#SettingsActivity#0" expanded="true" />
             <element signature="method#onStop#0;class#SettingsActivity#0" expanded="true" />
-            <element signature="e#7919#7920#0" expanded="true" />
-            <element signature="e#7981#7982#0" expanded="true" />
             <element signature="method#getAppCompatDelegate#0;class#SettingsActivity#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/FileManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.41165757">
+          <caret line="270" column="0" selection-start-line="270" selection-start-column="0" selection-end-line="270" selection-end-column="0" />
+          <folding>
+            <element signature="method#install#0;class#FileManager#0" expanded="true" />
+            <element signature="method#loadKeycodes#0;class#FileManager#0" expanded="true" />
+            <element signature="method#loadKeysyms#0;class#FileManager#0" expanded="true" />
+            <element signature="method#loadLayouts#0;class#FileManager#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/keyboard/Converter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3460838">
+          <caret line="130" column="0" selection-start-line="130" selection-start-column="0" selection-end-line="130" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/hooks/NotificationListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.37887067">
+          <caret line="118" column="66" selection-start-line="118" selection-start-column="66" selection-end-line="118" selection-end-column="66" />
+          <folding>
+            <element signature="class#NotificationStateListener#0;class#NotificationListener#0" expanded="true" />
+            <element signature="method#NotificationListener#0;class#NotificationListener#0" expanded="true" />
+            <element signature="method#addNotificationStateListener#0;class#NotificationListener#0" expanded="true" />
+            <element signature="method#onCreate#0;class#NotificationListener#0" expanded="true" />
+            <element signature="method#onDestroy#0;class#NotificationListener#0" expanded="true" />
+            <element signature="method#onNotificationPosted#0;class#NotificationListener#0" expanded="true" />
+            <element signature="method#isNotificationPosted#0;class#NotificationListener#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/github/minime89/keepasstransfer/KeePassTransfer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3460838">
+          <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1272#1591#0" expanded="true" />
+            <element signature="e#1590#1591#0" expanded="true" />
+            <element signature="e#1774#1775#0" expanded="true" />
+            <element signature="e#1805#1806#0" expanded="true" />
+            <element signature="method#onCreate#0;class#KeePassTransfer#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.59016395">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding>
+            <element signature="e#398#416#0" expanded="true" />
+            <element signature="e#587#608#0" expanded="true" />
+            <element signature="e#753#777#0" expanded="true" />
+            <element signature="e#1110#1141#0" expanded="true" />
+            <element signature="e#1508#1526#0" expanded="true" />
           </folding>
         </state>
       </provider>

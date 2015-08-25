@@ -68,7 +68,7 @@ public class Converter {
      * @throws ConverterException When parts of the input string couldn't be encoded.
      */
     public Collection<byte[]> convert(String string) throws ConverterException {
-        Log.d(TAG, String.format("convert string '%s'", string));
+        Log.v(TAG, String.format("convert string '%s'", string));
 
         Collection<byte[]> collection = new ArrayList<>();
 
@@ -92,20 +92,20 @@ public class Converter {
      * @throws ConverterException When parts of the input string couldn't be encoded.
      */
     public byte[] convert(char character) throws ConverterException {
-        Log.d(TAG, String.format("convert character '%c (\\u%04x)'", character, (int) character));
+        Log.v(TAG, String.format("convert character '%c (\\u%04x)'", character, (int) character));
 
         if (keycodes == null) {
-            throw new ConverterException("no character mapping loaded");
+            throw new ConverterException("no keycodes loaded");
         }
 
         Collection<Symbol> founds = keycodes.find(character);
         if (founds.size() == 0) {
-            throw new ConverterException(String.format("couldn't find symbol mapping for character '%c'", character));
+            throw new ConverterException(String.format("couldn't find symbols for character '%c'", character));
         }
 
-        Log.d(TAG, String.format("found %d symbol mappings", founds.size()));
+        Log.v(TAG, String.format("found %d symbols", founds.size()));
 
-        //select one character mapping: select one with the least modifier keys
+        //select one symbol: select one with the least modifier keys
         Iterator<Symbol> iterator = founds.iterator();
         Symbol selected = founds.iterator().next();
         while (iterator.hasNext()) {
@@ -114,7 +114,7 @@ public class Converter {
             Keysym keysym = symbol.getKeysym();
             Keystate keystate = symbol.getKeystate();
 
-            Log.d(TAG, String.format("symbol: %s", symbol));
+            Log.v(TAG, String.format("symbol: %s", symbol));
 
             Keystate selectedKeystate = selected.getKeystate();
             int selectedOneBitCount = Integer.bitCount(selectedKeystate.getModifiers());
@@ -129,7 +129,7 @@ public class Converter {
         bytes[0] = (byte) selected.getKeystate().getModifiers();
         bytes[2] = selected.getKeycode().getScancode().getValue().byteValue();
 
-        Log.d(TAG, String.format("converted character '%c' into keyboard data '%s'", character, Utils.bytesToHex(bytes, Utils.HexFormat.SPACING)));
+        Log.v(TAG, String.format("converted character '%c' into keyboard data '%s'", character, Utils.bytesToHex(bytes, Utils.HexFormat.SPACING)));
 
         return bytes;
     }
@@ -153,7 +153,7 @@ public class Converter {
      * @throws FileManager.FileManagerException
      */
     public void load(String keycodesId, String keysymsId, String scancodesId) throws FileManager.FileManagerException {
-        Log.i(TAG, String.format("load keyboard symbol converter {keycodeId=%s, keysymId=%s, scancodeId=%s}", keycodesId, keysymsId, scancodesId));
+        Log.v(TAG, String.format("load keyboard converter {keycodeId=%s, keysymId=%s, scancodeId=%s}", keycodesId, keysymsId, scancodesId));
 
         //TODO better handling of failed loading -> set all instances to null on error
         scancodes = Scancodes.load(scancodesId);

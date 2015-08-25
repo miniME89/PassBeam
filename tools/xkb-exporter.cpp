@@ -299,15 +299,7 @@ bool printKeycodeList() {
     vector<Keycode> keycodes = getKeycodeList();
 
     //keycodes
-    cout <<"<keycodes>\n";
-
-    //layout
-    cout <<string(2, ' ') <<"<layout>\n";
-    cout <<string(4, ' ') <<"<layoutName>" <<layout.name <<"</layoutName>\n";
-    cout <<string(4, ' ') <<"<layoutDescription>" <<layout.description <<"</layoutDescription>\n";
-    cout <<string(4, ' ') <<"<variantName>" <<variant.name <<"</variantName>\n";
-    cout <<string(4, ' ') <<"<variantDescription>" <<variant.description <<"</variantDescription>\n";
-    cout <<string(2, ' ') <<"</layout>\n";
+    cout <<"<keycodes layoutName=\"" + layout.name + "\" layoutDescription=\"" + layout.description + "\" variantName=\"" + variant.name + "\" variantDescription=\"" + variant.description + "\">\n";
 
     //iterate over keycodes
     for(unsigned int i = 0; i < keycodes.size(); i++) {
