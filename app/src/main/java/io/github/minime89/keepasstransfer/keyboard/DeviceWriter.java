@@ -15,7 +15,7 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
 
-import io.github.minime89.keepasstransfer.KeePassTransfer;
+import io.github.minime89.keepasstransfer.KeePassTransferApplication;
 import io.github.minime89.keepasstransfer.R;
 import io.github.minime89.keepasstransfer.Utils;
 
@@ -32,6 +32,11 @@ public class DeviceWriter extends IntentService {
     private static final int SERVICE_TIMEOUT = 2;
 
     /**
+     * The keyboard symbol converter.
+     */
+    private static Converter converter = new Converter();
+
+    /**
      * The queue which contains the string write requests.
      */
     private static BlockingQueue<String> stringQueue = new LinkedBlockingQueue<>();
@@ -39,26 +44,7 @@ public class DeviceWriter extends IntentService {
     /**
      * The list of requested intents processed by the service.
      */
-    private final List<Intent> intentsList = new ArrayList<>();
-
-    /**
-     * Request the service to write the given string as a HID keyboard. The request will start the
-     * service, encode the string into the appropriate output format and write the data to the
-     * device using superuser privileges.
-     * <p/>
-     * The method will return immediately and no feedback is returned by the service (for now).
-     *
-     * @param str The string.
-     */
-    public static void write(String str) {
-        Log.v(TAG, String.format("added string to keyboard device writer queue '%s'", str));
-
-        stringQueue.add(str);
-
-        Context context = KeePassTransfer.getInstance().getContext();
-        Intent intent = new Intent(context, DeviceWriter.class);
-        context.startService(intent);
-    }
+    private static List<Intent> intentsList = new ArrayList<>();
 
     /**
      * Constructor.
@@ -86,11 +72,9 @@ public class DeviceWriter extends IntentService {
         Log.v(TAG, "starting superuser keyboard device writer");
 
         //get preference characterTimeout
-        SharedPreferences sharedPreferences = KeePassTransfer.getInstance().getSharedPreferences();
+        SharedPreferences sharedPreferences = KeePassTransferApplication.getInstance().getSharedPreferences();
         String characterTimeoutStr = sharedPreferences.getString(getString(R.string.settings_character_timeout_key), "20");
         int characterTimeout = Integer.parseInt(characterTimeoutStr);
-
-        Converter converter = KeePassTransfer.getInstance().getConverter();
 
         Process process;
         int processReturnCode = -1;
@@ -172,6 +156,34 @@ public class DeviceWriter extends IntentService {
         synchronized (intentsList) {
             intentsList.add(intent);
         }
+    }
+
+    /**
+     * Request the service to write the given string as a HID keyboard. The request will start the
+     * service, encode the string into the appropriate output format and write the data to the
+     * device using superuser privileges.
+     * <p/>
+     * The method will return immediately and no feedback is returned by the service (for now).
+     *
+     * @param str The string.
+     */
+    public static void write(String str) {
+        Log.v(TAG, String.format("added string to keyboard device writer queue '%s'", str));
+
+        stringQueue.add(str);
+
+        Context context = KeePassTransferApplication.getInstance().getContext();
+        Intent intent = new Intent(context, DeviceWriter.class);
+        context.startService(intent);
+    }
+
+    /**
+     * Get the converter.
+     *
+     * @return Returns the converter.
+     */
+    public static Converter getConverter() {
+        return converter;
     }
 
     @Override

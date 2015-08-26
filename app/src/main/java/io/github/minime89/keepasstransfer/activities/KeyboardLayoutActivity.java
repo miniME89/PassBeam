@@ -24,7 +24,7 @@ import java.util.Collection;
 import java.util.Comparator;
 
 import io.github.minime89.keepasstransfer.FileManager;
-import io.github.minime89.keepasstransfer.KeePassTransfer;
+import io.github.minime89.keepasstransfer.KeePassTransferApplication;
 import io.github.minime89.keepasstransfer.R;
 import io.github.minime89.keepasstransfer.keyboard.Layout;
 import io.github.minime89.keepasstransfer.keyboard.Layouts;
@@ -148,7 +148,7 @@ public class KeyboardLayoutActivity extends AppCompatActivity {
                 LayoutWrapper layoutWrapper = keyboardLayoutListAdapter.getItem(position);
                 String layoutId = layoutWrapper.layout.getId();
 
-                SharedPreferences sharedPreferences = KeePassTransfer.getInstance().getSharedPreferences();
+                SharedPreferences sharedPreferences = KeePassTransferApplication.getInstance().getSharedPreferences();
                 sharedPreferences.edit().putString(getString(R.string.settings_keyboard_layout_key), layoutId).apply();
 
                 NavUtils.navigateUpFromSameTask(KeyboardLayoutActivity.this);

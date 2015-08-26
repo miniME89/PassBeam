@@ -1,10 +1,6 @@
 <resources>
     <string name="settings_title">SettingsActivity</string>
 
-    <!-- preference group: keyboard -->
-    <string name="settings_group_keyboard_key">settings_group_keyboard_key</string>
-    <string name="settings_group_keyboard_title">Keyboard layout</string>
-
     <!-- keyboard layout -->
     <string name="settings_keyboard_layout_key">settings_keyboard_layout</string>
     <string name="settings_keyboard_layout_title">Keyboard layout</string>
@@ -34,14 +30,5 @@
     <string name="settings_keyboard_layout_test_key">settings_keyboard_layout_test_key</string>
     <string name="settings_keyboard_layout_test_title">Test keyboard layout</string>
     <string name="settings_keyboard_layout_test_summary">Test the currently selected keyboard layout</string>
-
-    <!-- preference group: notifications -->
-    <string name="settings_group_notifications_key">settings_group_notifications_key</string>
-    <string name="settings_group_notifications_title">Notifications</string>
-
-    <!-- notification access -->
-    <string name="settings_notification_access_key">settings_notification_access_key</string>
-    <string name="settings_notification_access_title">Notification access</string>
-    <string name="settings_notification_access_summary">Allow notification access</string>
 
 </resources>

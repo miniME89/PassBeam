@@ -15,7 +15,7 @@ import io.github.minime89.keepasstransfer.FileManager;
 @Root(strict = false)
 public class Keycodes {
     private static final String TAG = Keycodes.class.getSimpleName();
-    public static final String DEFAULT_ID = "de";
+    public static final String DEFAULT_ID = "us";
 
     /**
      *

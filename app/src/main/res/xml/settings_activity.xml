@@ -1,40 +1,21 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <PreferenceCategory
-        android:key="@string/settings_group_keyboard_key"
-        android:title="@string/settings_group_keyboard_title">
+    <Preference
+        android:key="@string/settings_keyboard_layout_key"
+        android:summary="@string/settings_keyboard_layout_summary"
+        android:title="@string/settings_keyboard_layout_title" />
 
-        <Preference
-            android:key="@string/settings_keyboard_layout_key"
-            android:summary="@string/settings_keyboard_layout_summary"
-            android:title="@string/settings_keyboard_layout_title" />
+    <ListPreference
+        android:defaultValue="@string/settings_character_timeout_defaultValue"
+        android:entries="@array/settings_character_timeout_entries"
+        android:entryValues="@array/settings_character_timeout_entryValues"
+        android:key="@string/settings_character_timeout_key"
+        android:summary="@string/settings_character_timeout_summary"
+        android:title="@string/settings_character_timeout_title" />
 
-        <ListPreference
-            android:defaultValue="@string/settings_character_timeout_defaultValue"
-            android:entries="@array/settings_character_timeout_entries"
-            android:entryValues="@array/settings_character_timeout_entryValues"
-            android:key="@string/settings_character_timeout_key"
-            android:summary="@string/settings_character_timeout_summary"
-            android:title="@string/settings_character_timeout_title" />
-
-        <Preference
-            android:key="@string/settings_keyboard_layout_test_key"
-            android:summary="@string/settings_keyboard_layout_test_summary"
-            android:title="@string/settings_keyboard_layout_test_title" />
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="@string/settings_group_notifications_key"
-        android:title="@string/settings_group_notifications_title">
-
-        <Preference
-            android:key="@string/settings_notification_access_key"
-            android:summary="@string/settings_notification_access_summary"
-            android:title="@string/settings_notification_access_title">
-            <intent android:action="android.settings.ACTION_NOTIFICATION_LISTENER_SETTINGS" />
-        </Preference>
-
-    </PreferenceCategory>
+    <Preference
+        android:key="@string/settings_keyboard_layout_test_key"
+        android:summary="@string/settings_keyboard_layout_test_summary"
+        android:title="@string/settings_keyboard_layout_test_title" />
 
 </PreferenceScreen>

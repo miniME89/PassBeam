@@ -3,9 +3,10 @@
     package="io.github.minime89.keepasstransfer">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
-        android:name=".KeePassTransfer"
+        android:name=".KeePassTransferApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -15,8 +16,7 @@
         <activity
             android:name=".activities.SetupActivity"
             android:label="@string/setup_title"
-            android:theme="@style/Setup"/>
-
+            android:theme="@style/Setup" />
         <activity
             android:name=".activities.SettingsActivity"
             android:label="@string/settings_title">
@@ -26,7 +26,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".activities.KeyboardLayoutActivity"
             android:label="@string/keyboard_layout_title"
@@ -38,17 +37,19 @@
 
         <!-- services -->
         <service
-            android:name=".hooks.NotificationListener"
-            android:label="@string/app_name"
-            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
-            <intent-filter>
-                <action android:name="android.service.notification.NotificationListenerService" />
-            </intent-filter>
+            android:name=".keyboard.DeviceWriter"
+            android:exported="false" />
+        <service
+            android:name=".KeePassTransferService"
+            android:exported="false">
         </service>
 
-        <service
-            android:name=".keyboard.DeviceWriter"
-            android:exported="false"/>
+        <!-- receiver -->
+        <receiver android:name=".hooks.BootListener">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
 
     </application>
 

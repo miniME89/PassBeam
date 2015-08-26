@@ -6,8 +6,6 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
-import android.preference.PreferenceCategory;
-import android.preference.PreferenceScreen;
 import android.support.annotation.LayoutRes;
 import android.support.v7.app.AppCompatDelegate;
 import android.util.Log;
@@ -17,9 +15,8 @@ import android.view.ViewGroup;
 
 import java.util.Collection;
 
-import io.github.minime89.keepasstransfer.KeePassTransfer;
+import io.github.minime89.keepasstransfer.KeePassTransferApplication;
 import io.github.minime89.keepasstransfer.R;
-import io.github.minime89.keepasstransfer.hooks.NotificationListener;
 import io.github.minime89.keepasstransfer.keyboard.Converter;
 import io.github.minime89.keepasstransfer.keyboard.DeviceWriter;
 import io.github.minime89.keepasstransfer.keyboard.Keycode;
@@ -30,39 +27,6 @@ import io.github.minime89.keepasstransfer.keyboard.Symbol;
 public class SettingsActivity extends PreferenceActivity {
     private static final String TAG = SettingsActivity.class.getSimpleName();
     private AppCompatDelegate appCompatDelegate;
-    private Preference notifications;
-
-    private NotificationListener.NotificationStateListener notificationStateListener = new NotificationListener.NotificationStateListener() {
-        @Override
-        public void change(int state) {
-            updateNotificationsStatus();
-        }
-    };
-
-    private void updateNotificationsStatus() {
-        if (notifications != null) {
-            //notifications access is allowed
-            if (NotificationListener.isNotificationAccessEnabled()) {
-                notifications.setWidgetLayoutResource(0);
-            }
-            //notifications access is disallowed
-            else {
-                notifications.setWidgetLayoutResource(R.layout.icon_fragment);
-            }
-
-            //FIXME update UI
-            PreferenceScreen screen = getPreferenceScreen();
-            PreferenceCategory preferenceCategory = (PreferenceCategory) screen.findPreference(getString(R.string.settings_group_notifications_key));
-            preferenceCategory.removePreference(notifications);
-            preferenceCategory.addPreference(notifications);
-        }
-    }
-
-    private void setupNotificationsStatus() {
-        notifications = findPreference(getString(R.string.settings_notification_access_key));
-        NotificationListener.addNotificationStateListener(notificationStateListener);
-        updateNotificationsStatus();
-    }
 
     private void setupKeyboardLayout() {
         Preference keyboardLayoutPreference = findPreference(getString(R.string.settings_keyboard_layout_key));
@@ -82,9 +46,9 @@ public class SettingsActivity extends PreferenceActivity {
         keyboardLayoutTestPreference.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {
-                Converter keyboardDeviceWriter = KeePassTransfer.getInstance().getConverter();
-                if (keyboardDeviceWriter != null) {
-                    Keycodes keycodes = keyboardDeviceWriter.getKeycodes();
+                Converter converter = DeviceWriter.getConverter();
+                if (converter != null) {
+                    Keycodes keycodes = converter.getKeycodes();
                     if (keycodes != null) {
                         Collection<Keycode> keycodesAll = keycodes.all();
 
@@ -123,7 +87,7 @@ public class SettingsActivity extends PreferenceActivity {
         getAppCompatDelegate().onCreate(savedInstanceState);
         super.onCreate(savedInstanceState);
 
-        SharedPreferences sharedPreferences = KeePassTransfer.getInstance().getSharedPreferences();
+        SharedPreferences sharedPreferences = KeePassTransferApplication.getInstance().getSharedPreferences();
 
         //first time startup?
         if (!sharedPreferences.getBoolean("setup", false)) {
@@ -137,7 +101,6 @@ public class SettingsActivity extends PreferenceActivity {
         // Load the preferences from an XML resource
         addPreferencesFromResource(R.xml.settings_activity);
 
-        setupNotificationsStatus();
         setupKeyboardLayout();
         setupKeyboardLayoutTest();
     }

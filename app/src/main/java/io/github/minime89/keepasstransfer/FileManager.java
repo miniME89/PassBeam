@@ -97,7 +97,7 @@ public class FileManager {
      * file or directory operation failed, than false will be returned.
      */
     private boolean install(String path) {
-        Context context = KeePassTransfer.getInstance().getContext();
+        Context context = KeePassTransferApplication.getInstance().getContext();
         String targetPath = path.substring(INSTALL_DIRECTORY.length());
 
         //list assets
@@ -214,7 +214,7 @@ public class FileManager {
     }
 
     public Collection<File> getKeycodesFiles() {
-        Context context = KeePassTransfer.getInstance().getContext();
+        Context context = KeePassTransferApplication.getInstance().getContext();
         File directory = new File(context.getExternalFilesDir(null), KEYCODES_MAPPING_DIRECTORY);
 
         File[] directoryList = directory.listFiles();
@@ -223,7 +223,7 @@ public class FileManager {
     }
 
     public Collection<String> getKeysymsFiles() {
-        Context context = KeePassTransfer.getInstance().getContext();
+        Context context = KeePassTransferApplication.getInstance().getContext();
         File directory = new File(context.getExternalFilesDir(null), KEYSYMS_MAPPING_DIRECTORY);
 
         String[] directoryList = directory.list();
@@ -232,7 +232,7 @@ public class FileManager {
     }
 
     public Collection<String> getScancodesFiles() {
-        Context context = KeePassTransfer.getInstance().getContext();
+        Context context = KeePassTransferApplication.getInstance().getContext();
         File directory = new File(context.getExternalFilesDir(null), SCANCODES_MAPPING_DIRECTORY);
 
         String[] directoryList = directory.list();
@@ -243,7 +243,7 @@ public class FileManager {
     public Keycodes loadKeycodes(String keycodesId) throws FileManagerException {
         Log.v(TAG, String.format("load keycodes with ID '%s'", keycodesId));
 
-        Context context = KeePassTransfer.getInstance().getContext();
+        Context context = KeePassTransferApplication.getInstance().getContext();
         File file = new File(context.getExternalFilesDir(null), KEYCODES_MAPPING_DIRECTORY + "/" + keycodesId);
 
         if (!file.exists()) {
@@ -256,7 +256,7 @@ public class FileManager {
     public Keysyms loadKeysyms(String keysymsId) throws FileManagerException {
         Log.v(TAG, String.format("load keysyms with ID '%s'", keysymsId));
 
-        Context context = KeePassTransfer.getInstance().getContext();
+        Context context = KeePassTransferApplication.getInstance().getContext();
         File file = new File(context.getExternalFilesDir(null), KEYSYMS_MAPPING_DIRECTORY + "/" + keysymsId);
 
         if (!file.exists()) {
@@ -269,7 +269,7 @@ public class FileManager {
     public Scancodes loadScancodes(String scancodesId) throws FileManagerException {
         Log.v(TAG, String.format("load scancodes with ID '%s'", scancodesId));
 
-        Context context = KeePassTransfer.getInstance().getContext();
+        Context context = KeePassTransferApplication.getInstance().getContext();
         File file = new File(context.getExternalFilesDir(null), SCANCODES_MAPPING_DIRECTORY + "/" + scancodesId);
 
         if (!file.exists()) {

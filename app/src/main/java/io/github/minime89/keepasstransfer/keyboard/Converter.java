@@ -91,7 +91,7 @@ public class Converter {
      * @return Returns an encoded keyboard event of the input character.
      * @throws ConverterException When parts of the input string couldn't be encoded.
      */
-    public byte[] convert(char character) throws ConverterException {
+    public synchronized byte[] convert(char character) throws ConverterException {
         Log.v(TAG, String.format("convert character '%c (\\u%04x)'", character, (int) character));
 
         if (keycodes == null) {
@@ -152,7 +152,7 @@ public class Converter {
      *                    directory.
      * @throws FileManager.FileManagerException
      */
-    public void load(String keycodesId, String keysymsId, String scancodesId) throws FileManager.FileManagerException {
+    public synchronized void load(String keycodesId, String keysymsId, String scancodesId) throws FileManager.FileManagerException {
         Log.v(TAG, String.format("load keyboard converter {keycodeId=%s, keysymId=%s, scancodeId=%s}", keycodesId, keysymsId, scancodesId));
 
         //TODO better handling of failed loading -> set all instances to null on error
@@ -181,15 +181,15 @@ public class Converter {
         load(keycodesId, Keysyms.DEFAULT_ID, Scancodes.DEFAULT_ID);
     }
 
-    public Keycodes getKeycodes() {
+    public synchronized Keycodes getKeycodes() {
         return keycodes;
     }
 
-    public Keysyms getKeysyms() {
+    public synchronized Keysyms getKeysyms() {
         return keysyms;
     }
 
-    public Scancodes getScancodes() {
+    public synchronized Scancodes getScancodes() {
         return scancodes;
     }
 }
