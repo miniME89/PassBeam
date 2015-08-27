@@ -1,1041 +1,695 @@
-<keysymRefs>
+<keysyms>
   <keysym value="0xffffff" name="VoidSymbol">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff08" name="BackSpace">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff09" name="Tab">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff0a" name="Linefeed">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff0b" name="Clear">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff0d" name="Return">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff13" name="Pause">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff14" name="Scroll_Lock">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff15" name="Sys_Req">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff1b" name="Escape">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffff" name="Delete">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff20" name="Multi_key">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff37" name="Codeinput">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff3c" name="SingleCandidate">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff3d" name="MultipleCandidate">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff3e" name="PreviousCandidate">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff21" name="Kanji">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff22" name="Muhenkan">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff23" name="Henkan_Mode">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff23" name="Henkan">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff24" name="Romaji">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff25" name="Hiragana">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff26" name="Katakana">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff27" name="Hiragana_Katakana">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff28" name="Zenkaku">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff29" name="Hankaku">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff2a" name="Zenkaku_Hankaku">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff2b" name="Touroku">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff2c" name="Massyo">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff2d" name="Kana_Lock">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff2e" name="Kana_Shift">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff2f" name="Eisu_Shift">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff30" name="Eisu_toggle">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff37" name="Kanji_Bangou">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff3d" name="Zen_Koho">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff3e" name="Mae_Koho">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff50" name="Home">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff51" name="Left">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff52" name="Up">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff53" name="Right">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff54" name="Down">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff55" name="Prior">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff55" name="Page_Up">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff56" name="Next">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff56" name="Page_Down">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff57" name="End">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff58" name="Begin">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff60" name="Select">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff61" name="Print">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff62" name="Execute">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff63" name="Insert">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff65" name="Undo">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff66" name="Redo">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff67" name="Menu">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff68" name="Find">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff69" name="Cancel">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff6a" name="Help">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff6b" name="Break">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff7e" name="Mode_switch">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff7e" name="script_switch">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff7f" name="Num_Lock">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff80" name="KP_Space">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff89" name="KP_Tab">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff8d" name="KP_Enter">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff91" name="KP_F1">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff92" name="KP_F2">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff93" name="KP_F3">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff94" name="KP_F4">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff95" name="KP_Home">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff96" name="KP_Left">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff97" name="KP_Up">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff98" name="KP_Right">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff99" name="KP_Down">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff9a" name="KP_Prior">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff9a" name="KP_Page_Up">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff9b" name="KP_Next">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff9b" name="KP_Page_Down">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff9c" name="KP_End">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff9d" name="KP_Begin">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff9e" name="KP_Insert">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff9f" name="KP_Delete">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffbd" name="KP_Equal">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffaa" name="KP_Multiply">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffab" name="KP_Add">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffac" name="KP_Separator">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffad" name="KP_Subtract">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffae" name="KP_Decimal">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffaf" name="KP_Divide">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffb0" name="KP_0">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffb1" name="KP_1">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffb2" name="KP_2">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffb3" name="KP_3">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffb4" name="KP_4">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffb5" name="KP_5">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffb6" name="KP_6">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffb7" name="KP_7">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffb8" name="KP_8">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffb9" name="KP_9">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffbe" name="F1">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffbf" name="F2">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffc0" name="F3">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffc1" name="F4">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffc2" name="F5">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffc3" name="F6">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffc4" name="F7">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffc5" name="F8">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffc6" name="F9">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffc7" name="F10">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffc8" name="F11">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffc8" name="L1">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffc9" name="F12">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffc9" name="L2">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffca" name="F13">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffca" name="L3">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffcb" name="F14">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffcb" name="L4">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffcc" name="F15">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffcc" name="L5">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffcd" name="F16">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffcd" name="L6">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffce" name="F17">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffce" name="L7">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffcf" name="F18">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffcf" name="L8">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffd0" name="F19">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffd0" name="L9">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffd1" name="F20">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffd1" name="L10">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffd2" name="F21">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffd2" name="R1">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffd3" name="F22">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffd3" name="R2">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffd4" name="F23">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffd4" name="R3">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffd5" name="F24">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffd5" name="R4">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffd6" name="F25">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffd6" name="R5">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffd7" name="F26">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffd7" name="R6">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffd8" name="F27">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffd8" name="R7">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffd9" name="F28">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffd9" name="R8">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffda" name="F29">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffda" name="R9">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffdb" name="F30">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffdb" name="R10">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffdc" name="F31">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffdc" name="R11">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffdd" name="F32">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffdd" name="R12">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffde" name="F33">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffde" name="R13">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffdf" name="F34">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffdf" name="R14">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffe0" name="F35">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffe0" name="R15">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffe1" name="Shift_L">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffe2" name="Shift_R">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffe3" name="Control_L">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffe4" name="Control_R">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffe5" name="Caps_Lock">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffe6" name="Shift_Lock">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffe7" name="Meta_L">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffe8" name="Meta_R">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffe9" name="Alt_L">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffea" name="Alt_R">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffeb" name="Super_L">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffec" name="Super_R">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffed" name="Hyper_L">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xffee" name="Hyper_R">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe01" name="ISO_Lock">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe02" name="ISO_Level2_Latch">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe03" name="ISO_Level3_Shift">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe04" name="ISO_Level3_Latch">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe05" name="ISO_Level3_Lock">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe11" name="ISO_Level5_Shift">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe12" name="ISO_Level5_Latch">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe13" name="ISO_Level5_Lock">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xff7e" name="ISO_Group_Shift">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe06" name="ISO_Group_Latch">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe07" name="ISO_Group_Lock">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe08" name="ISO_Next_Group">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe09" name="ISO_Next_Group_Lock">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe0a" name="ISO_Prev_Group">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe0b" name="ISO_Prev_Group_Lock">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe0c" name="ISO_First_Group">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe0d" name="ISO_First_Group_Lock">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe0e" name="ISO_Last_Group">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe0f" name="ISO_Last_Group_Lock">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe20" name="ISO_Left_Tab">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe21" name="ISO_Move_Line_Up">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe22" name="ISO_Move_Line_Down">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe23" name="ISO_Partial_Line_Up">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe24" name="ISO_Partial_Line_Down">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe25" name="ISO_Partial_Space_Left">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe26" name="ISO_Partial_Space_Right">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe27" name="ISO_Set_Margin_Left">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe28" name="ISO_Set_Margin_Right">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe29" name="ISO_Release_Margin_Left">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe2a" name="ISO_Release_Margin_Right">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe2b" name="ISO_Release_Both_Margins">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe2c" name="ISO_Fast_Cursor_Left">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe2d" name="ISO_Fast_Cursor_Right">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe2e" name="ISO_Fast_Cursor_Up">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe2f" name="ISO_Fast_Cursor_Down">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe30" name="ISO_Continuous_Underline">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe31" name="ISO_Discontinuous_Underline">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe32" name="ISO_Emphasize">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe33" name="ISO_Center_Object">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe34" name="ISO_Enter">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe50" name="dead_grave">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe51" name="dead_acute">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe52" name="dead_circumflex">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe53" name="dead_tilde">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe53" name="dead_perispomeni">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe54" name="dead_macron">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe55" name="dead_breve">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe56" name="dead_abovedot">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe57" name="dead_diaeresis">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe58" name="dead_abovering">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe59" name="dead_doubleacute">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe5a" name="dead_caron">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe5b" name="dead_cedilla">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe5c" name="dead_ogonek">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe5d" name="dead_iota">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe5e" name="dead_voiced_sound">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe5f" name="dead_semivoiced_sound">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe60" name="dead_belowdot">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe61" name="dead_hook">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe62" name="dead_horn">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe63" name="dead_stroke">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe64" name="dead_abovecomma">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe64" name="dead_psili">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe65" name="dead_abovereversedcomma">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe65" name="dead_dasia">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe66" name="dead_doublegrave">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe67" name="dead_belowring">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe68" name="dead_belowmacron">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe69" name="dead_belowcircumflex">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe6a" name="dead_belowtilde">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe6b" name="dead_belowbreve">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe6c" name="dead_belowdiaeresis">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe6d" name="dead_invertedbreve">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe6e" name="dead_belowcomma">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe6f" name="dead_currency">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe90" name="dead_lowline">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe91" name="dead_aboveverticalline">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe92" name="dead_belowverticalline">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe93" name="dead_longsolidusoverlay">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe80" name="dead_a">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe81" name="dead_A">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe82" name="dead_e">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe83" name="dead_E">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe84" name="dead_i">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe85" name="dead_I">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe86" name="dead_o">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe87" name="dead_O">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe88" name="dead_u">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe89" name="dead_U">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe8a" name="dead_small_schwa">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe8b" name="dead_capital_schwa">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe8c" name="dead_greek">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfed0" name="First_Virtual_Screen">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfed1" name="Prev_Virtual_Screen">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfed2" name="Next_Virtual_Screen">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfed4" name="Last_Virtual_Screen">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfed5" name="Terminate_Server">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe70" name="AccessX_Enable">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe71" name="AccessX_Feedback_Enable">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe72" name="RepeatKeys_Enable">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe73" name="SlowKeys_Enable">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe74" name="BounceKeys_Enable">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe75" name="StickyKeys_Enable">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe76" name="MouseKeys_Enable">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe77" name="MouseKeys_Accel_Enable">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe78" name="Overlay1_Enable">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe79" name="Overlay2_Enable">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfe7a" name="AudibleBell_Enable">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfee0" name="Pointer_Left">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfee1" name="Pointer_Right">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfee2" name="Pointer_Up">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfee3" name="Pointer_Down">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfee4" name="Pointer_UpLeft">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfee5" name="Pointer_UpRight">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfee6" name="Pointer_DownLeft">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfee7" name="Pointer_DownRight">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfee8" name="Pointer_Button_Dflt">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfee9" name="Pointer_Button1">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfeea" name="Pointer_Button2">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfeeb" name="Pointer_Button3">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfeec" name="Pointer_Button4">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfeed" name="Pointer_Button5">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfeee" name="Pointer_DblClick_Dflt">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfeef" name="Pointer_DblClick1">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfef0" name="Pointer_DblClick2">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfef1" name="Pointer_DblClick3">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfef2" name="Pointer_DblClick4">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfef3" name="Pointer_DblClick5">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfef4" name="Pointer_Drag_Dflt">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfef5" name="Pointer_Drag1">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfef6" name="Pointer_Drag2">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfef7" name="Pointer_Drag3">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfef8" name="Pointer_Drag4">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfefd" name="Pointer_Drag5">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfef9" name="Pointer_EnableKeys">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfefa" name="Pointer_Accelerate">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfefb" name="Pointer_DfltBtnNext">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfefc" name="Pointer_DfltBtnPrev">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfea0" name="ch">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfea1" name="Ch">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfea2" name="CH">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfea3" name="c_h">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfea4" name="C_h">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfea5" name="C_H">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfd01" name="3270_Duplicate">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfd02" name="3270_FieldMark">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfd03" name="3270_Right2">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfd04" name="3270_Left2">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfd05" name="3270_BackTab">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfd06" name="3270_EraseEOF">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfd07" name="3270_EraseInput">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfd08" name="3270_Reset">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfd09" name="3270_Quit">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfd0a" name="3270_PA1">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfd0b" name="3270_PA2">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfd0c" name="3270_PA3">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfd0d" name="3270_Test">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfd0e" name="3270_Attn">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfd0f" name="3270_CursorBlink">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfd10" name="3270_AltCursor">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfd11" name="3270_KeyClick">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfd12" name="3270_Jump">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfd13" name="3270_Ident">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfd14" name="3270_Rule">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfd15" name="3270_Copy">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfd16" name="3270_Play">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfd17" name="3270_Setup">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfd18" name="3270_Record">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfd19" name="3270_ChangeScreen">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfd1a" name="3270_DeleteWord">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfd1b" name="3270_ExSelect">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfd1c" name="3270_CursorSelect">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfd1d" name="3270_PrintScreen">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0xfd1e" name="3270_Enter">
-    <unicode value="0x39ef3311" name=""/>
   </keysym>
   <keysym value="0x20" name="space">
     <unicode value="0x0020" name="SPACE"/>
@@ -1062,7 +716,6 @@
     <unicode value="0x0027" name="APOSTROPHE"/>
   </keysym>
   <keysym value="0x27" name="quoteright">
-    <unicode value="0x0027" name=""/>
   </keysym>
   <keysym value="0x28" name="parenleft">
     <unicode value="0x0028" name="LEFT PARENTHESIS"/>
@@ -1236,7 +889,6 @@
     <unicode value="0x0060" name="GRAVE ACCENT"/>
   </keysym>
   <keysym value="0x60" name="quoteleft">
-    <unicode value="0x0060" name=""/>
   </keysym>
   <keysym value="0x61" name="a">
     <unicode value="0x0061" name="LATIN SMALL LETTER A"/>
@@ -1476,7 +1128,6 @@
     <unicode value="0x00d0" name="LATIN CAPITAL LETTER ETH"/>
   </keysym>
   <keysym value="0xd0" name="Eth">
-    <unicode value="0x00d0" name=""/>
   </keysym>
   <keysym value="0xd1" name="Ntilde">
     <unicode value="0x00d1" name="LATIN CAPITAL LETTER N WITH TILDE"/>
@@ -1524,7 +1175,6 @@
     <unicode value="0x00de" name="LATIN CAPITAL LETTER THORN"/>
   </keysym>
   <keysym value="0xde" name="Thorn">
-    <unicode value="0x00de" name=""/>
   </keysym>
   <keysym value="0xdf" name="ssharp">
     <unicode value="0x00df" name="LATIN SMALL LETTER SHARP S"/>
@@ -1869,7 +1519,6 @@
     <unicode value="0x0138" name="LATIN SMALL LETTER KRA"/>
   </keysym>
   <keysym value="0x3a2" name="kappa">
-    <unicode value="0x0138" name=""/>
   </keysym>
   <keysym value="0x3a3" name="Rcedilla">
     <unicode value="0x0156" name="LATIN CAPITAL LETTER R WITH CEDILLA"/>
@@ -2079,7 +1728,6 @@
     <unicode value="0x30fb" name="KATAKANA MIDDLE DOT"/>
   </keysym>
   <keysym value="0x4a5" name="kana_middledot">
-    <unicode value="0x30fb" name=""/>
   </keysym>
   <keysym value="0x4a6" name="kana_WO">
     <unicode value="0x30f2" name="KATAKANA LETTER WO"/>
@@ -2112,7 +1760,6 @@
     <unicode value="0x30c3" name="KATAKANA LETTER SMALL TU"/>
   </keysym>
   <keysym value="0x4af" name="kana_tu">
-    <unicode value="0x30c3" name=""/>
   </keysym>
   <keysym value="0x4b0" name="prolongedsound">
     <unicode value="0x30fc" name="KATAKANA-HIRAGANA PROLONGED SOUND MARK"/>
@@ -2169,13 +1816,11 @@
     <unicode value="0x30c1" name="KATAKANA LETTER TI"/>
   </keysym>
   <keysym value="0x4c1" name="kana_TI">
-    <unicode value="0x30c1" name=""/>
   </keysym>
   <keysym value="0x4c2" name="kana_TSU">
     <unicode value="0x30c4" name="KATAKANA LETTER TU"/>
   </keysym>
   <keysym value="0x4c2" name="kana_TU">
-    <unicode value="0x30c4" name=""/>
   </keysym>
   <keysym value="0x4c3" name="kana_TE">
     <unicode value="0x30c6" name="KATAKANA LETTER TE"/>
@@ -2208,7 +1853,6 @@
     <unicode value="0x30d5" name="KATAKANA LETTER HU"/>
   </keysym>
   <keysym value="0x4cc" name="kana_HU">
-    <unicode value="0x30d5" name=""/>
   </keysym>
   <keysym value="0x4cd" name="kana_HE">
     <unicode value="0x30d8" name="KATAKANA LETTER HE"/>
@@ -2268,7 +1912,6 @@
     <unicode value="0x309c" name="KATAKANA-HIRAGANA SEMI-VOICED SOUND MARK"/>
   </keysym>
   <keysym value="0xff7e" name="kana_switch">
-    <unicode value="0x309c" name=""/>
   </keysym>
   <keysym value="0x10006f0" name="Farsi_0">
     <unicode value="0x06f0" name="EXTENDED ARABIC-INDIC DIGIT ZERO"/>
@@ -2466,7 +2109,6 @@
     <unicode value="0x0647" name="ARABIC LETTER HEH"/>
   </keysym>
   <keysym value="0x5e7" name="Arabic_heh">
-    <unicode value="0x0647" name=""/>
   </keysym>
   <keysym value="0x5e8" name="Arabic_waw">
     <unicode value="0x0648" name="ARABIC LETTER WAW"/>
@@ -2541,7 +2183,6 @@
     <unicode value="0x06c1" name="ARABIC LETTER HEH GOAL"/>
   </keysym>
   <keysym value="0xff7e" name="Arabic_switch">
-    <unicode value="0x06c1" name=""/>
   </keysym>
   <keysym value="0x1000492" name="Cyrillic_GHE_bar">
     <unicode value="0x0492" name="CYRILLIC CAPITAL LETTER GHE WITH STROKE"/>
@@ -2646,7 +2287,6 @@
     <unicode value="0x0454" name="CYRILLIC SMALL LETTER UKRAINIAN IE"/>
   </keysym>
   <keysym value="0x6a4" name="Ukranian_je">
-    <unicode value="0x0454" name=""/>
   </keysym>
   <keysym value="0x6a5" name="Macedonia_dse">
     <unicode value="0x0455" name="CYRILLIC SMALL LETTER DZE"/>
@@ -2655,31 +2295,26 @@
     <unicode value="0x0456" name="CYRILLIC SMALL LETTER BYELORUSSIAN-UKRAINIAN I"/>
   </keysym>
   <keysym value="0x6a6" name="Ukranian_i">
-    <unicode value="0x0456" name=""/>
   </keysym>
   <keysym value="0x6a7" name="Ukrainian_yi">
     <unicode value="0x0457" name="CYRILLIC SMALL LETTER YI"/>
   </keysym>
   <keysym value="0x6a7" name="Ukranian_yi">
-    <unicode value="0x0457" name=""/>
   </keysym>
   <keysym value="0x6a8" name="Cyrillic_je">
     <unicode value="0x0458" name="CYRILLIC SMALL LETTER JE"/>
   </keysym>
   <keysym value="0x6a8" name="Serbian_je">
-    <unicode value="0x0458" name=""/>
   </keysym>
   <keysym value="0x6a9" name="Cyrillic_lje">
     <unicode value="0x0459" name="CYRILLIC SMALL LETTER LJE"/>
   </keysym>
   <keysym value="0x6a9" name="Serbian_lje">
-    <unicode value="0x0459" name=""/>
   </keysym>
   <keysym value="0x6aa" name="Cyrillic_nje">
     <unicode value="0x045a" name="CYRILLIC SMALL LETTER NJE"/>
   </keysym>
   <keysym value="0x6aa" name="Serbian_nje">
-    <unicode value="0x045a" name=""/>
   </keysym>
   <keysym value="0x6ab" name="Serbian_tshe">
     <unicode value="0x045b" name="CYRILLIC SMALL LETTER TSHE"/>
@@ -2697,7 +2332,6 @@
     <unicode value="0x045f" name="CYRILLIC SMALL LETTER DZHE"/>
   </keysym>
   <keysym value="0x6af" name="Serbian_dze">
-    <unicode value="0x045f" name=""/>
   </keysym>
   <keysym value="0x6b0" name="numerosign">
     <unicode value="0x2116" name="NUMERO SIGN"/>
@@ -2715,7 +2349,6 @@
     <unicode value="0x0404" name="CYRILLIC CAPITAL LETTER UKRAINIAN IE"/>
   </keysym>
   <keysym value="0x6b4" name="Ukranian_JE">
-    <unicode value="0x0404" name=""/>
   </keysym>
   <keysym value="0x6b5" name="Macedonia_DSE">
     <unicode value="0x0405" name="CYRILLIC CAPITAL LETTER DZE"/>
@@ -2724,31 +2357,26 @@
     <unicode value="0x0406" name="CYRILLIC CAPITAL LETTER BYELORUSSIAN-UKRAINIAN I"/>
   </keysym>
   <keysym value="0x6b6" name="Ukranian_I">
-    <unicode value="0x0406" name=""/>
   </keysym>
   <keysym value="0x6b7" name="Ukrainian_YI">
     <unicode value="0x0407" name="CYRILLIC CAPITAL LETTER YI"/>
   </keysym>
   <keysym value="0x6b7" name="Ukranian_YI">
-    <unicode value="0x0407" name=""/>
   </keysym>
   <keysym value="0x6b8" name="Cyrillic_JE">
     <unicode value="0x0408" name="CYRILLIC CAPITAL LETTER JE"/>
   </keysym>
   <keysym value="0x6b8" name="Serbian_JE">
-    <unicode value="0x0408" name=""/>
   </keysym>
   <keysym value="0x6b9" name="Cyrillic_LJE">
     <unicode value="0x0409" name="CYRILLIC CAPITAL LETTER LJE"/>
   </keysym>
   <keysym value="0x6b9" name="Serbian_LJE">
-    <unicode value="0x0409" name=""/>
   </keysym>
   <keysym value="0x6ba" name="Cyrillic_NJE">
     <unicode value="0x040a" name="CYRILLIC CAPITAL LETTER NJE"/>
   </keysym>
   <keysym value="0x6ba" name="Serbian_NJE">
-    <unicode value="0x040a" name=""/>
   </keysym>
   <keysym value="0x6bb" name="Serbian_TSHE">
     <unicode value="0x040b" name="CYRILLIC CAPITAL LETTER TSHE"/>
@@ -2766,7 +2394,6 @@
     <unicode value="0x040f" name="CYRILLIC CAPITAL LETTER DZHE"/>
   </keysym>
   <keysym value="0x6bf" name="Serbian_DZE">
-    <unicode value="0x040f" name=""/>
   </keysym>
   <keysym value="0x6c0" name="Cyrillic_yu">
     <unicode value="0x044e" name="CYRILLIC SMALL LETTER YU"/>
@@ -2976,7 +2603,6 @@
     <unicode value="0x03aa" name="GREEK CAPITAL LETTER IOTA WITH DIALYTIKA"/>
   </keysym>
   <keysym value="0x7a5" name="Greek_IOTAdiaeresis">
-    <unicode value="0x03aa" name=""/>
   </keysym>
   <keysym value="0x7a7" name="Greek_OMICRONaccent">
     <unicode value="0x038c" name="GREEK CAPITAL LETTER OMICRON WITH TONOS"/>
@@ -3183,16 +2809,13 @@
     <unicode value="0x03c9" name="GREEK SMALL LETTER OMEGA"/>
   </keysym>
   <keysym value="0xff7e" name="Greek_switch">
-    <unicode value="0x03c9" name=""/>
   </keysym>
   <keysym value="0x8a1" name="leftradical">
     <unicode value="0x23b7" name="RADICAL SYMBOL BOTTOM"/>
   </keysym>
   <keysym value="0x8a2" name="topleftradical">
-    <unicode value="0x23b7" name=""/>
   </keysym>
   <keysym value="0x8a3" name="horizconnector">
-    <unicode value="0x23b7" name=""/>
   </keysym>
   <keysym value="0x8a4" name="topintegral">
     <unicode value="0x2320" name="TOP HALF INTEGRAL"/>
@@ -3201,7 +2824,6 @@
     <unicode value="0x2321" name="BOTTOM HALF INTEGRAL"/>
   </keysym>
   <keysym value="0x8a6" name="vertconnector">
-    <unicode value="0x2321" name=""/>
   </keysym>
   <keysym value="0x8a7" name="topleftsqbracket">
     <unicode value="0x23a1" name="LEFT SQUARE BRACKET UPPER CORNER"/>
@@ -3234,25 +2856,18 @@
     <unicode value="0x23ac" name="RIGHT CURLY BRACKET MIDDLE PIECE"/>
   </keysym>
   <keysym value="0x8b1" name="topleftsummation">
-    <unicode value="0x23ac" name=""/>
   </keysym>
   <keysym value="0x8b2" name="botleftsummation">
-    <unicode value="0x23ac" name=""/>
   </keysym>
   <keysym value="0x8b3" name="topvertsummationconnector">
-    <unicode value="0x23ac" name=""/>
   </keysym>
   <keysym value="0x8b4" name="botvertsummationconnector">
-    <unicode value="0x23ac" name=""/>
   </keysym>
   <keysym value="0x8b5" name="toprightsummation">
-    <unicode value="0x23ac" name=""/>
   </keysym>
   <keysym value="0x8b6" name="botrightsummation">
-    <unicode value="0x23ac" name=""/>
   </keysym>
   <keysym value="0x8b7" name="rightmiddlesummation">
-    <unicode value="0x23ac" name=""/>
   </keysym>
   <keysym value="0x8bc" name="lessthanequal">
     <unicode value="0x2264" name="LESS-THAN OR EQUAL TO"/>
@@ -3333,7 +2948,6 @@
     <unicode value="0x2193" name="DOWNWARDS ARROW"/>
   </keysym>
   <keysym value="0x9df" name="blank">
-    <unicode value="0x2193" name=""/>
   </keysym>
   <keysym value="0x9e0" name="soliddiamond">
     <unicode value="0x25c6" name="BLACK DIAMOND"/>
@@ -3435,7 +3049,6 @@
     <unicode value="0x2013" name="EN DASH"/>
   </keysym>
   <keysym value="0xaac" name="signifblank">
-    <unicode value="0x2013" name=""/>
   </keysym>
   <keysym value="0xaae" name="ellipsis">
     <unicode value="0x2026" name="HORIZONTAL ELLIPSIS"/>
@@ -3474,16 +3087,12 @@
     <unicode value="0x2012" name="FIGURE DASH"/>
   </keysym>
   <keysym value="0xabc" name="leftanglebracket">
-    <unicode value="0x2012" name=""/>
   </keysym>
   <keysym value="0xabd" name="decimalpoint">
-    <unicode value="0x2012" name=""/>
   </keysym>
   <keysym value="0xabe" name="rightanglebracket">
-    <unicode value="0x2012" name=""/>
   </keysym>
   <keysym value="0xabf" name="marker">
-    <unicode value="0x2012" name=""/>
   </keysym>
   <keysym value="0xac3" name="oneeighth">
     <unicode value="0x215b" name="VULGAR FRACTION ONE EIGHTH"/>
@@ -3501,22 +3110,16 @@
     <unicode value="0x2122" name="TRADE MARK SIGN"/>
   </keysym>
   <keysym value="0xaca" name="signaturemark">
-    <unicode value="0x2122" name=""/>
   </keysym>
   <keysym value="0xacb" name="trademarkincircle">
-    <unicode value="0x2122" name=""/>
   </keysym>
   <keysym value="0xacc" name="leftopentriangle">
-    <unicode value="0x2122" name=""/>
   </keysym>
   <keysym value="0xacd" name="rightopentriangle">
-    <unicode value="0x2122" name=""/>
   </keysym>
   <keysym value="0xace" name="emopencircle">
-    <unicode value="0x2122" name=""/>
   </keysym>
   <keysym value="0xacf" name="emopenrectangle">
-    <unicode value="0x2122" name=""/>
   </keysym>
   <keysym value="0xad0" name="leftsinglequotemark">
     <unicode value="0x2018" name="LEFT SINGLE QUOTATION MARK"/>
@@ -3546,58 +3149,40 @@
     <unicode value="0x271d" name="LATIN CROSS"/>
   </keysym>
   <keysym value="0xada" name="hexagram">
-    <unicode value="0x271d" name=""/>
   </keysym>
   <keysym value="0xadb" name="filledrectbullet">
-    <unicode value="0x271d" name=""/>
   </keysym>
   <keysym value="0xadc" name="filledlefttribullet">
-    <unicode value="0x271d" name=""/>
   </keysym>
   <keysym value="0xadd" name="filledrighttribullet">
-    <unicode value="0x271d" name=""/>
   </keysym>
   <keysym value="0xade" name="emfilledcircle">
-    <unicode value="0x271d" name=""/>
   </keysym>
   <keysym value="0xadf" name="emfilledrect">
-    <unicode value="0x271d" name=""/>
   </keysym>
   <keysym value="0xae0" name="enopencircbullet">
-    <unicode value="0x271d" name=""/>
   </keysym>
   <keysym value="0xae1" name="enopensquarebullet">
-    <unicode value="0x271d" name=""/>
   </keysym>
   <keysym value="0xae2" name="openrectbullet">
-    <unicode value="0x271d" name=""/>
   </keysym>
   <keysym value="0xae3" name="opentribulletup">
-    <unicode value="0x271d" name=""/>
   </keysym>
   <keysym value="0xae4" name="opentribulletdown">
-    <unicode value="0x271d" name=""/>
   </keysym>
   <keysym value="0xae5" name="openstar">
-    <unicode value="0x271d" name=""/>
   </keysym>
   <keysym value="0xae6" name="enfilledcircbullet">
-    <unicode value="0x271d" name=""/>
   </keysym>
   <keysym value="0xae7" name="enfilledsqbullet">
-    <unicode value="0x271d" name=""/>
   </keysym>
   <keysym value="0xae8" name="filledtribulletup">
-    <unicode value="0x271d" name=""/>
   </keysym>
   <keysym value="0xae9" name="filledtribulletdown">
-    <unicode value="0x271d" name=""/>
   </keysym>
   <keysym value="0xaea" name="leftpointer">
-    <unicode value="0x271d" name=""/>
   </keysym>
   <keysym value="0xaeb" name="rightpointer">
-    <unicode value="0x271d" name=""/>
   </keysym>
   <keysym value="0xaec" name="club">
     <unicode value="0x2663" name="BLACK CLUB SUIT"/>
@@ -3654,34 +3239,26 @@
     <unicode value="0x201e" name="DOUBLE LOW-9 QUOTATION MARK"/>
   </keysym>
   <keysym value="0xaff" name="cursor">
-    <unicode value="0x201e" name=""/>
   </keysym>
   <keysym value="0xba3" name="leftcaret">
-    <unicode value="0x201e" name=""/>
   </keysym>
   <keysym value="0xba6" name="rightcaret">
-    <unicode value="0x201e" name=""/>
   </keysym>
   <keysym value="0xba8" name="downcaret">
-    <unicode value="0x201e" name=""/>
   </keysym>
   <keysym value="0xba9" name="upcaret">
-    <unicode value="0x201e" name=""/>
   </keysym>
   <keysym value="0xbc0" name="overbar">
-    <unicode value="0x201e" name=""/>
   </keysym>
   <keysym value="0xbc2" name="downtack">
     <unicode value="0x22a4" name="DOWN TACK"/>
   </keysym>
   <keysym value="0xbc3" name="upshoe">
-    <unicode value="0x22a4" name=""/>
   </keysym>
   <keysym value="0xbc4" name="downstile">
     <unicode value="0x230a" name="LEFT FLOOR"/>
   </keysym>
   <keysym value="0xbc6" name="underbar">
-    <unicode value="0x230a" name=""/>
   </keysym>
   <keysym value="0xbca" name="jot">
     <unicode value="0x2218" name="RING OPERATOR"/>
@@ -3699,13 +3276,10 @@
     <unicode value="0x2308" name="LEFT CEILING"/>
   </keysym>
   <keysym value="0xbd6" name="downshoe">
-    <unicode value="0x2308" name=""/>
   </keysym>
   <keysym value="0xbd8" name="rightshoe">
-    <unicode value="0x2308" name=""/>
   </keysym>
   <keysym value="0xbda" name="leftshoe">
-    <unicode value="0x2308" name=""/>
   </keysym>
   <keysym value="0xbdc" name="lefttack">
     <unicode value="0x22a3" name="LEFT TACK"/>
@@ -3723,19 +3297,16 @@
     <unicode value="0x05d1" name="HEBREW LETTER BET"/>
   </keysym>
   <keysym value="0xce1" name="hebrew_beth">
-    <unicode value="0x05d1" name=""/>
   </keysym>
   <keysym value="0xce2" name="hebrew_gimel">
     <unicode value="0x05d2" name="HEBREW LETTER GIMEL"/>
   </keysym>
   <keysym value="0xce2" name="hebrew_gimmel">
-    <unicode value="0x05d2" name=""/>
   </keysym>
   <keysym value="0xce3" name="hebrew_dalet">
     <unicode value="0x05d3" name="HEBREW LETTER DALET"/>
   </keysym>
   <keysym value="0xce3" name="hebrew_daleth">
-    <unicode value="0x05d3" name=""/>
   </keysym>
   <keysym value="0xce4" name="hebrew_he">
     <unicode value="0x05d4" name="HEBREW LETTER HE"/>
@@ -3747,19 +3318,16 @@
     <unicode value="0x05d6" name="HEBREW LETTER ZAYIN"/>
   </keysym>
   <keysym value="0xce6" name="hebrew_zayin">
-    <unicode value="0x05d6" name=""/>
   </keysym>
   <keysym value="0xce7" name="hebrew_chet">
     <unicode value="0x05d7" name="HEBREW LETTER HET"/>
   </keysym>
   <keysym value="0xce7" name="hebrew_het">
-    <unicode value="0x05d7" name=""/>
   </keysym>
   <keysym value="0xce8" name="hebrew_tet">
     <unicode value="0x05d8" name="HEBREW LETTER TET"/>
   </keysym>
   <keysym value="0xce8" name="hebrew_teth">
-    <unicode value="0x05d8" name=""/>
   </keysym>
   <keysym value="0xce9" name="hebrew_yod">
     <unicode value="0x05d9" name="HEBREW LETTER YOD"/>
@@ -3789,7 +3357,6 @@
     <unicode value="0x05e1" name="HEBREW LETTER SAMEKH"/>
   </keysym>
   <keysym value="0xcf1" name="hebrew_samekh">
-    <unicode value="0x05e1" name=""/>
   </keysym>
   <keysym value="0xcf2" name="hebrew_ayin">
     <unicode value="0x05e2" name="HEBREW LETTER AYIN"/>
@@ -3804,19 +3371,16 @@
     <unicode value="0x05e5" name="HEBREW LETTER FINAL TSADI"/>
   </keysym>
   <keysym value="0xcf5" name="hebrew_finalzadi">
-    <unicode value="0x05e5" name=""/>
   </keysym>
   <keysym value="0xcf6" name="hebrew_zade">
     <unicode value="0x05e6" name="HEBREW LETTER TSADI"/>
   </keysym>
   <keysym value="0xcf6" name="hebrew_zadi">
-    <unicode value="0x05e6" name=""/>
   </keysym>
   <keysym value="0xcf7" name="hebrew_qoph">
     <unicode value="0x05e7" name="HEBREW LETTER QOF"/>
   </keysym>
   <keysym value="0xcf7" name="hebrew_kuf">
-    <unicode value="0x05e7" name=""/>
   </keysym>
   <keysym value="0xcf8" name="hebrew_resh">
     <unicode value="0x05e8" name="HEBREW LETTER RESH"/>
@@ -3828,10 +3392,8 @@
     <unicode value="0x05ea" name="HEBREW LETTER TAV"/>
   </keysym>
   <keysym value="0xcfa" name="hebrew_taf">
-    <unicode value="0x05ea" name=""/>
   </keysym>
   <keysym value="0xff7e" name="Hebrew_switch">
-    <unicode value="0x05ea" name=""/>
   </keysym>
   <keysym value="0xda1" name="Thai_kokai">
     <unicode value="0x0e01" name="THAI CHARACTER KO KAI"/>
@@ -4008,7 +3570,6 @@
     <unicode value="0x0e3a" name="THAI CHARACTER PHINTHU"/>
   </keysym>
   <keysym value="0xdde" name="Thai_maihanakat_maitho">
-    <unicode value="0x0e3a" name=""/>
   </keysym>
   <keysym value="0xddf" name="Thai_baht">
     <unicode value="0x0e3f" name="THAI CURRENCY SYMBOL BAHT"/>
@@ -4086,325 +3647,218 @@
     <unicode value="0x0e59" name="THAI DIGIT NINE"/>
   </keysym>
   <keysym value="0xff31" name="Hangul">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xff32" name="Hangul_Start">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xff33" name="Hangul_End">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xff34" name="Hangul_Hanja">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xff35" name="Hangul_Jamo">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xff36" name="Hangul_Romaja">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xff37" name="Hangul_Codeinput">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xff38" name="Hangul_Jeonja">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xff39" name="Hangul_Banja">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xff3a" name="Hangul_PreHanja">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xff3b" name="Hangul_PostHanja">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xff3c" name="Hangul_SingleCandidate">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xff3d" name="Hangul_MultipleCandidate">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xff3e" name="Hangul_PreviousCandidate">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xff3f" name="Hangul_Special">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xff7e" name="Hangul_switch">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xea1" name="Hangul_Kiyeog">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xea2" name="Hangul_SsangKiyeog">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xea3" name="Hangul_KiyeogSios">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xea4" name="Hangul_Nieun">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xea5" name="Hangul_NieunJieuj">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xea6" name="Hangul_NieunHieuh">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xea7" name="Hangul_Dikeud">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xea8" name="Hangul_SsangDikeud">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xea9" name="Hangul_Rieul">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xeaa" name="Hangul_RieulKiyeog">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xeab" name="Hangul_RieulMieum">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xeac" name="Hangul_RieulPieub">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xead" name="Hangul_RieulSios">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xeae" name="Hangul_RieulTieut">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xeaf" name="Hangul_RieulPhieuf">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xeb0" name="Hangul_RieulHieuh">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xeb1" name="Hangul_Mieum">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xeb2" name="Hangul_Pieub">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xeb3" name="Hangul_SsangPieub">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xeb4" name="Hangul_PieubSios">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xeb5" name="Hangul_Sios">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xeb6" name="Hangul_SsangSios">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xeb7" name="Hangul_Ieung">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xeb8" name="Hangul_Jieuj">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xeb9" name="Hangul_SsangJieuj">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xeba" name="Hangul_Cieuc">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xebb" name="Hangul_Khieuq">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xebc" name="Hangul_Tieut">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xebd" name="Hangul_Phieuf">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xebe" name="Hangul_Hieuh">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xebf" name="Hangul_A">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xec0" name="Hangul_AE">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xec1" name="Hangul_YA">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xec2" name="Hangul_YAE">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xec3" name="Hangul_EO">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xec4" name="Hangul_E">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xec5" name="Hangul_YEO">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xec6" name="Hangul_YE">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xec7" name="Hangul_O">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xec8" name="Hangul_WA">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xec9" name="Hangul_WAE">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xeca" name="Hangul_OE">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xecb" name="Hangul_YO">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xecc" name="Hangul_U">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xecd" name="Hangul_WEO">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xece" name="Hangul_WE">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xecf" name="Hangul_WI">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xed0" name="Hangul_YU">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xed1" name="Hangul_EU">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xed2" name="Hangul_YI">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xed3" name="Hangul_I">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xed4" name="Hangul_J_Kiyeog">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xed5" name="Hangul_J_SsangKiyeog">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xed6" name="Hangul_J_KiyeogSios">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xed7" name="Hangul_J_Nieun">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xed8" name="Hangul_J_NieunJieuj">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xed9" name="Hangul_J_NieunHieuh">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xeda" name="Hangul_J_Dikeud">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xedb" name="Hangul_J_Rieul">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xedc" name="Hangul_J_RieulKiyeog">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xedd" name="Hangul_J_RieulMieum">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xede" name="Hangul_J_RieulPieub">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xedf" name="Hangul_J_RieulSios">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xee0" name="Hangul_J_RieulTieut">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xee1" name="Hangul_J_RieulPhieuf">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xee2" name="Hangul_J_RieulHieuh">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xee3" name="Hangul_J_Mieum">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xee4" name="Hangul_J_Pieub">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xee5" name="Hangul_J_PieubSios">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xee6" name="Hangul_J_Sios">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xee7" name="Hangul_J_SsangSios">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xee8" name="Hangul_J_Ieung">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xee9" name="Hangul_J_Jieuj">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xeea" name="Hangul_J_Cieuc">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xeeb" name="Hangul_J_Khieuq">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xeec" name="Hangul_J_Tieut">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xeed" name="Hangul_J_Phieuf">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xeee" name="Hangul_J_Hieuh">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xeef" name="Hangul_RieulYeorinHieuh">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xef0" name="Hangul_SunkyeongeumMieum">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xef1" name="Hangul_SunkyeongeumPieub">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xef2" name="Hangul_PanSios">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xef3" name="Hangul_KkogjiDalrinIeung">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xef4" name="Hangul_SunkyeongeumPhieuf">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xef5" name="Hangul_YeorinHieuh">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xef6" name="Hangul_AraeA">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xef7" name="Hangul_AraeAE">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xef8" name="Hangul_J_PanSios">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xef9" name="Hangul_J_KkogjiDalrinIeung">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xefa" name="Hangul_J_YeorinHieuh">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0xeff" name="Korean_Won">
-    <unicode value="0x0e59" name=""/>
   </keysym>
   <keysym value="0x1000587" name="Armenian_ligature_ew">
     <unicode value="0x0587" name="ARMENIAN SMALL LIGATURE ECH YIWN"/>
@@ -5259,34 +4713,24 @@
     <unicode value="0x2263" name="STRICTLY EQUIVALENT TO"/>
   </keysym>
   <keysym value="0xfff1" name="braille_dot_1">
-    <unicode value="0x2263" name=""/>
   </keysym>
   <keysym value="0xfff2" name="braille_dot_2">
-    <unicode value="0x2263" name=""/>
   </keysym>
   <keysym value="0xfff3" name="braille_dot_3">
-    <unicode value="0x2263" name=""/>
   </keysym>
   <keysym value="0xfff4" name="braille_dot_4">
-    <unicode value="0x2263" name=""/>
   </keysym>
   <keysym value="0xfff5" name="braille_dot_5">
-    <unicode value="0x2263" name=""/>
   </keysym>
   <keysym value="0xfff6" name="braille_dot_6">
-    <unicode value="0x2263" name=""/>
   </keysym>
   <keysym value="0xfff7" name="braille_dot_7">
-    <unicode value="0x2263" name=""/>
   </keysym>
   <keysym value="0xfff8" name="braille_dot_8">
-    <unicode value="0x2263" name=""/>
   </keysym>
   <keysym value="0xfff9" name="braille_dot_9">
-    <unicode value="0x2263" name=""/>
   </keysym>
   <keysym value="0xfffa" name="braille_dot_10">
-    <unicode value="0x2263" name=""/>
   </keysym>
   <keysym value="0x1002800" name="braille_blank">
     <unicode value="0x2800" name="BRAILLE PATTERN BLANK"/>
@@ -6296,4 +5740,4 @@
   <keysym value="0x1000df4" name="Sinh_kunddaliya">
     <unicode value="0x0df4" name="SINHALA KUNDDALIYA"/>
   </keysym>
-<keysymRefs>
+<keysyms>

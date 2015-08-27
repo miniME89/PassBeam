@@ -166,7 +166,7 @@ vector<Keysym> getKeysymList() {
 
     vector<Keysym> keysyms;
 
-    regex regex("#define XK_(\\w+)\\s+(0x[0-9a-fA-F]*)(?:\\s*\\/\\*\\s*U\\+([0-9a-fA-F]{4})\\s+(.+?)\\s*\\*\\/)?");
+    regex regex("#define XK_(\\w+)\\s+(0x[0-9a-fA-F]*)(\\s*\\/\\*\\s*U\\+([0-9a-fA-F]{4})\\s+(.+?)\\s*\\*\\/)?");
 
     //iterate over lines
     string line;
@@ -177,19 +177,20 @@ vector<Keysym> getKeysymList() {
 
         smatch match;
         if(regex_search(line, match, regex)) {
-            if (match.size() >= 3) {
-                Keysym keysym;
+            Keysym keysym;
 
-                keysym.name = match[1];
-                sscanf(string(match[2]).c_str(), "%x", &keysym.value);
+            keysym.name = match[1];
+            sscanf(string(match[2]).c_str(), "%x", &keysym.value);
 
-                if (match.size() == 5) {
-                    keysym.unicode.name = match[4];
-                    sscanf(string(match[3]).c_str(), "%x", &keysym.unicode.value);
-                }
-
-                keysyms.push_back(keysym);
+            if (!string(match[4]).empty() && !string(match[5]).empty()) {
+                keysym.unicode.name = match[5];
+                sscanf(string(match[4]).c_str(), "%x", &keysym.unicode.value);
             }
+            else {
+                keysym.unicode.value = -1;
+            }
+
+            keysyms.push_back(keysym);
         }
     }
 
@@ -366,7 +367,7 @@ bool printKeysymList() {
         Keysym keysym = keysyms[i];
         cout <<string(2, ' ') <<"<keysym value=\"0x" <<hex <<keysym.value <<"\" name=\"" <<keysym.name <<"\">\n";
 
-        if (keysym.unicode.value > 0) {
+        if (keysym.unicode.value > -1) {
             cout <<string(4, ' ') <<"<unicode value=\"0x" <<setfill('0') <<setw(4) <<hex <<keysym.unicode.value <<"\" name=\"" <<keysym.unicode.name <<"\"/>\n";
         }
 
