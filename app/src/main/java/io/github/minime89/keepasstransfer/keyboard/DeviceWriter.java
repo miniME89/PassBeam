@@ -4,6 +4,7 @@ import android.app.IntentService;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.util.Log;
 
 import java.io.DataOutputStream;
@@ -72,7 +73,7 @@ public class DeviceWriter extends IntentService {
         Log.v(TAG, "starting superuser keyboard device writer");
 
         //get preference characterTimeout
-        SharedPreferences sharedPreferences = KeePassTransferApplication.getInstance().getSharedPreferences();
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         String characterTimeoutStr = sharedPreferences.getString(getString(R.string.settings_character_timeout_key), "20");
         int characterTimeout = Integer.parseInt(characterTimeoutStr);
 

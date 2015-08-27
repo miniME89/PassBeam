@@ -10,6 +10,7 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 
 import io.github.minime89.keepasstransfer.hooks.ClipboardListener;
+import io.github.minime89.keepasstransfer.hooks.NotificationListener;
 import io.github.minime89.keepasstransfer.hooks.UsbListener;
 import io.github.minime89.keepasstransfer.keyboard.DeviceWriter;
 import io.github.minime89.keepasstransfer.keyboard.Keycodes;
@@ -20,12 +21,22 @@ public class KeePassTransferService extends Service {
     /**
      *
      */
+    private UsbListener usbListener;
+
+    /**
+     *
+     */
     private ClipboardListener clipboardListener;
 
     /**
      *
      */
-    private UsbListener usbListener;
+    private NotificationListener notificationListener;
+
+    /**
+     *
+     */
+    private static KeePassTransferService instance;
 
     /**
      *
@@ -35,6 +46,8 @@ public class KeePassTransferService extends Service {
         public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String s) {
             if (s.equals(getString(R.string.settings_keyboard_layout_key))) {
                 updateKeyboardLayout();
+            } else if (s.equals(getString(R.string.settings_notification_key))) {
+                updateNotification();
             }
         }
     };
@@ -67,6 +80,15 @@ public class KeePassTransferService extends Service {
     }
 
     /**
+     * Get the {@link KeePassTransferService} instance.
+     *
+     * @return Returns the @link KeePassTransferService} instance.
+     */
+    public static KeePassTransferService getInstance() {
+        return instance;
+    }
+
+    /**
      * Start the application service which runs in background to initiate a write request to the
      * keyboard device when the device is connected via USB and something was copied to the
      * clipboard.
@@ -82,10 +104,19 @@ public class KeePassTransferService extends Service {
      *
      */
     private void updateKeyboardLayout() {
-        SharedPreferences sharedPreferences = KeePassTransferApplication.getInstance().getSharedPreferences();
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         String keycodesId = sharedPreferences.getString(getString(R.string.settings_keyboard_layout_key), Keycodes.DEFAULT_ID);
         LoadLayoutTask loadLayoutTask = new LoadLayoutTask();
         loadLayoutTask.execute(keycodesId);
+    }
+
+    /**
+     *
+     */
+    private void updateNotification() {
+        if (usbListener != null) {
+            usbListener.update(this);
+        }
     }
 
     @Override
@@ -94,12 +125,15 @@ public class KeePassTransferService extends Service {
 
         Log.v(TAG, String.format("start %s", getClass().getSimpleName()));
 
+        instance = this;
+
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         sharedPreferences.registerOnSharedPreferenceChangeListener(sharedPreferenceChangeListener);
 
         Context context = getApplicationContext();
         usbListener = UsbListener.start(context);
-        clipboardListener = ClipboardListener.start(context, usbListener);
+        notificationListener = NotificationListener.start(context);
+        clipboardListener = ClipboardListener.start(context);
 
         updateKeyboardLayout();
     }
@@ -115,4 +149,17 @@ public class KeePassTransferService extends Service {
     public IBinder onBind(Intent intent) {
         return null;
     }
+
+    public UsbListener getUsbListener() {
+        return usbListener;
+    }
+
+    public NotificationListener getNotificationListener() {
+        return notificationListener;
+    }
+
+    public ClipboardListener getClipboardListener() {
+        return clipboardListener;
+    }
+
 }

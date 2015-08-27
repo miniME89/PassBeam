@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -12,7 +13,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import io.github.minime89.keepasstransfer.FileManager;
-import io.github.minime89.keepasstransfer.KeePassTransferApplication;
 import io.github.minime89.keepasstransfer.R;
 
 public class SetupActivity extends AppCompatActivity {
@@ -57,7 +57,7 @@ public class SetupActivity extends AppCompatActivity {
             if (result) {
                 progressLabel.setText("finished");
 
-                SharedPreferences sharedPreferences = KeePassTransferApplication.getInstance().getSharedPreferences();
+                SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(SetupActivity.this);
                 sharedPreferences.edit().putBoolean("setup", true).apply();
 
                 Intent intent = new Intent(SetupActivity.this, SettingsActivity.class);

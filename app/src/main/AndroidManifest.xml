@@ -41,8 +41,7 @@
             android:exported="false" />
         <service
             android:name=".KeePassTransferService"
-            android:exported="false">
-        </service>
+            android:exported="false" />
 
         <!-- receiver -->
         <receiver android:name=".hooks.BootListener">

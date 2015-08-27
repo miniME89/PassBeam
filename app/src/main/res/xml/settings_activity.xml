@@ -13,6 +13,12 @@
         android:summary="@string/settings_character_timeout_summary"
         android:title="@string/settings_character_timeout_title" />
 
+    <CheckBoxPreference
+        android:defaultValue="@string/settings_notification_defaultValue"
+        android:key="@string/settings_notification_key"
+        android:summary="@string/settings_notification_summary"
+        android:title="@string/settings_notification_title" />
+
     <Preference
         android:key="@string/settings_keyboard_layout_test_key"
         android:summary="@string/settings_keyboard_layout_test_summary"

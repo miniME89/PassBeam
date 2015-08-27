@@ -6,6 +6,7 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
+import android.preference.PreferenceManager;
 import android.support.annotation.LayoutRes;
 import android.support.v7.app.AppCompatDelegate;
 import android.util.Log;
@@ -15,7 +16,6 @@ import android.view.ViewGroup;
 
 import java.util.Collection;
 
-import io.github.minime89.keepasstransfer.KeePassTransferApplication;
 import io.github.minime89.keepasstransfer.R;
 import io.github.minime89.keepasstransfer.keyboard.Converter;
 import io.github.minime89.keepasstransfer.keyboard.DeviceWriter;
@@ -87,7 +87,7 @@ public class SettingsActivity extends PreferenceActivity {
         getAppCompatDelegate().onCreate(savedInstanceState);
         super.onCreate(savedInstanceState);
 
-        SharedPreferences sharedPreferences = KeePassTransferApplication.getInstance().getSharedPreferences();
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
         //first time startup?
         if (!sharedPreferences.getBoolean("setup", false)) {
