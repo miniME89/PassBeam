@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/KeePassTransfer.iml" filepath="$PROJECT_DIR$/KeePassTransfer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PassBeam.iml" filepath="$PROJECT_DIR$/PassBeam.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

@@ -3,7 +3,7 @@
     android:id="@+id/rootLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="io.github.minime89.keepasstransfer.activities.SetupActivity">
+    tools:context="io.github.minime89.passbeam.activities.SetupActivity">
 
     <ProgressBar
         android:id="@+id/progressBar"

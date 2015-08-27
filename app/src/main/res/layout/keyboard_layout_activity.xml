@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="0dp"
-    tools:context="io.github.minime89.keepasstransfer.activities.KeyboardLayoutActivity">
+    tools:context="io.github.minime89.passbeam.activities.KeyboardLayoutActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

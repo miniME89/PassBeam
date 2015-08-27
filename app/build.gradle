@@ -13,7 +13,7 @@ android {
         unitTests.returnDefaultValues = true
     }
     defaultConfig {
-        applicationId "io.github.minime89.keepasstransfer"
+        applicationId "io.github.minime89.passbeam"
         minSdkVersion 18
         targetSdkVersion 22
         versionCode 1
