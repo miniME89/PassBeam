@@ -1,5 +1,7 @@
 package io.github.minime89.passbeam.keyboard;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Element;
 import org.simpleframework.xml.Root;
@@ -25,6 +27,11 @@ public class Keysym {
      *
      */
     private boolean valid = false;
+
+    /**
+     *
+     */
+    private boolean cycle = false;
 
     /**
      *
@@ -64,12 +71,23 @@ public class Keysym {
         }
 
         public boolean equals(Keysym.Ref keysymRef) {
-            return keysymRef.getValue() == value;
+            return keysymRef.getValue().equals(value);
+        }
+
+        public JSONObject dump() throws JSONException {
+            JSONObject obj = new JSONObject();
+            obj.put("value", value);
+
+            return obj;
         }
 
         @Override
         public String toString() {
-            return String.format("%s%s{value=%d}", Keysym.class.getSimpleName(), getClass().getSimpleName(), value);
+            try {
+                return dump().toString();
+            } catch (JSONException e) {
+                return "ERROR";
+            }
         }
     }
 
@@ -115,15 +133,35 @@ public class Keysym {
     }
 
     public boolean equals(Keysym keysym) {
-        return keysym != null && keysym.getValue() == value;
+        return keysym != null && keysym.getValue().equals(value);
     }
 
     public boolean equals(Keysym.Ref keysymRef) {
-        return keysymRef != null && keysymRef.getValue() == value;
+        return keysymRef != null && keysymRef.getValue().equals(value);
+    }
+
+    public JSONObject dump() throws JSONException {
+        JSONObject obj = new JSONObject();
+        if (!cycle) {
+            cycle = true;
+            try {
+                obj.put("value", value);
+                obj.put("name", name);
+                obj.put("unicode", (unicode != null) ? unicode.dump() : null);
+            } finally {
+                cycle = false;
+            }
+        }
+
+        return obj;
     }
 
     @Override
     public String toString() {
-        return String.format("%s{value: %d, name: %s, unicode: %s}", getClass().getSimpleName(), value, name, unicode);
+        try {
+            return dump().toString();
+        } catch (JSONException e) {
+            return "ERROR";
+        }
     }
 }

@@ -50,7 +50,7 @@ public class SettingsActivity extends PreferenceActivity {
                 if (converter != null) {
                     Keycodes keycodes = converter.getKeycodes();
                     if (keycodes != null) {
-                        Collection<Keycode> keycodesAll = keycodes.all();
+                        Collection<Keycode> keycodesAll = keycodes.getKeycodes();
 
                         StringBuilder strBuilder = new StringBuilder();
                         for (Keycode keycode : keycodesAll) {

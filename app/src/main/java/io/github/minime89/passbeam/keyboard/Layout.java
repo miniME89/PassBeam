@@ -1,5 +1,7 @@
 package io.github.minime89.passbeam.keyboard;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.simpleframework.xml.Element;
 import org.simpleframework.xml.Root;
 
@@ -92,8 +94,22 @@ public class Layout {
         return variantDescription;
     }
 
+    public JSONObject dump() throws JSONException {
+        JSONObject obj = new JSONObject();
+        obj.put("layoutName", layoutName);
+        obj.put("layoutDescription", layoutDescription);
+        obj.put("variantName", variantName);
+        obj.put("variantDescription", variantDescription);
+
+        return obj;
+    }
+
     @Override
     public String toString() {
-        return String.format("%s{layoutName: %s, layoutDescription: %s, variantName: %s, variantDescription: %s}", getClass().getSimpleName(), layoutName, layoutDescription, variantName, variantDescription);
+        try {
+            return dump().toString();
+        } catch (JSONException e) {
+            return "ERROR";
+        }
     }
 }

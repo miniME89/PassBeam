@@ -2,11 +2,14 @@ package io.github.minime89.passbeam.keyboard;
 
 import android.util.Log;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.simpleframework.xml.ElementList;
 import org.simpleframework.xml.Root;
 
-import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 
 import io.github.minime89.passbeam.FileManager;
 
@@ -18,8 +21,7 @@ public class Keysyms {
     /**
      *
      */
-    @ElementList(name = "keysyms", inline = true, required = true)
-    private Collection<Keysym> keysyms;
+    private final Collection<Keysym> keysyms;
 
     /**
      * Load keysyms with the specified keysyms ID.
@@ -34,8 +36,8 @@ public class Keysyms {
         return fileManager.loadKeysyms(keysymsId);
     }
 
-    private Keysyms() {
-
+    private Keysyms(@ElementList(name = "keysyms", inline = true, required = true) Collection<Keysym> keysyms) {
+        this.keysyms = Collections.unmodifiableCollection(keysyms);
     }
 
     public void build(Keycodes keycodes, Scancodes scancodes) {
@@ -48,10 +50,6 @@ public class Keysyms {
         }
     }
 
-    public Collection<Keysym> all() {
-        return keysyms;
-    }
-
     public Keysym find(Keysym.Ref keysymRef) {
         for (Keysym keysym : keysyms) {
             if (keysym.equals(keysymRef)) {
@@ -62,8 +60,29 @@ public class Keysyms {
         return null;
     }
 
+    @ElementList(name = "keysyms", inline = true, required = true)
+    public Collection<Keysym> getKeysyms() {
+        return keysyms;
+    }
+
+    public JSONObject dump() throws JSONException {
+        JSONObject obj = new JSONObject();
+
+        JSONArray keysymsArr = new JSONArray();
+        for (Keysym keysym : keysyms) {
+            keysymsArr.put(keysym.dump());
+        }
+        obj.put("keysyms", keysymsArr);
+
+        return obj;
+    }
+
     @Override
     public String toString() {
-        return String.format("%s{keysyms: %s}", getClass().getSimpleName(), (keysyms != null) ? Arrays.toString(keysyms.toArray()) : "null");
+        try {
+            return dump().toString();
+        } catch (JSONException e) {
+            return "ERROR";
+        }
     }
 }

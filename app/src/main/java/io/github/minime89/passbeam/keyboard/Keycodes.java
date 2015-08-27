@@ -2,13 +2,15 @@ package io.github.minime89.passbeam.keyboard;
 
 import android.util.Log;
 
-import org.simpleframework.xml.Element;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.simpleframework.xml.ElementList;
 import org.simpleframework.xml.Root;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 
 import io.github.minime89.passbeam.FileManager;
 
@@ -20,14 +22,7 @@ public class Keycodes {
     /**
      *
      */
-    @Element(name = "layout", required = true)
-    private Layout layout;
-
-    /**
-     *
-     */
-    @ElementList(name = "keycodes", inline = true, required = true)
-    private Collection<Keycode> keycodes;
+    private final Collection<Keycode> keycodes;
 
     /**
      * Load keycodes with the specified keycodes ID.
@@ -42,8 +37,8 @@ public class Keycodes {
         return fileManager.loadKeycodes(keycodesId);
     }
 
-    private Keycodes() {
-
+    public Keycodes(@ElementList(name = "keycodes", inline = true, required = true) Collection<Keycode> keycodes) {
+        this.keycodes = Collections.unmodifiableCollection(keycodes);
     }
 
     public void build(Keysyms keysyms, Scancodes scancodes) {
@@ -54,10 +49,6 @@ public class Keycodes {
                 Log.w(TAG, e.getMessage());
             }
         }
-    }
-
-    public Collection<Keycode> all() {
-        return keycodes;
     }
 
     public Keycode find(Keycode.Ref keycodeRef) {
@@ -80,12 +71,29 @@ public class Keycodes {
         return found;
     }
 
-    public Layout getLayout() {
-        return layout;
+    @ElementList(name = "keycodes", inline = true, required = true)
+    public Collection<Keycode> getKeycodes() {
+        return keycodes;
+    }
+
+    public JSONObject dump() throws JSONException {
+        JSONObject obj = new JSONObject();
+
+        JSONArray keycodesArr = new JSONArray();
+        for (Keycode keycode : keycodes) {
+            keycodesArr.put(keycode.dump());
+        }
+        obj.put("keycodes", keycodesArr);
+
+        return obj;
     }
 
     @Override
     public String toString() {
-        return String.format("%s{keycodes: %s}", getClass().getSimpleName(), (keycodes != null) ? Arrays.toString(keycodes.toArray()) : "null");
+        try {
+            return dump().toString();
+        } catch (JSONException e) {
+            return "ERROR";
+        }
     }
 }

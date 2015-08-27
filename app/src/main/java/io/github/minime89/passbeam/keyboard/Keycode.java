@@ -1,11 +1,15 @@
 package io.github.minime89.passbeam.keyboard;
 
+import android.util.Log;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.ElementList;
 import org.simpleframework.xml.Root;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 
@@ -35,6 +39,11 @@ public class Keycode {
      *
      */
     private boolean valid = false;
+
+    /**
+     *
+     */
+    private boolean cycle = false;
 
     /**
      *
@@ -74,12 +83,23 @@ public class Keycode {
         }
 
         public boolean equals(Keycode.Ref keycodeRef) {
-            return keycodeRef.getValue() == value;
+            return keycodeRef.getValue().equals(value);
+        }
+
+        public JSONObject dump() throws JSONException {
+            JSONObject obj = new JSONObject();
+            obj.put("value", value);
+
+            return obj;
         }
 
         @Override
         public String toString() {
-            return String.format("%s%s{value=%d}", Keycode.class.getSimpleName(), getClass().getSimpleName(), value);
+            try {
+                return dump().toString();
+            } catch (JSONException e) {
+                return "ERROR";
+            }
         }
     }
 
@@ -107,7 +127,9 @@ public class Keycode {
         for (Keysym.Ref keysymRef : keysymRefs) {
             col++;
             Keysym keysym = keysyms.find(keysymRef);
-            if (keysym != null) {
+            if (keysym == null) {
+                Log.v("keysyms", String.format("couldn't resolve keysym reference [%s] to a keysym", keysymRef)); //TODO remove
+            } else {
                 int modifiers = 0x00;
                 //TODO determine modifier keys from keyboard layout. Hardcoded keys should work for most keyboard layouts for now.
                 if (col == 2) {
@@ -163,15 +185,48 @@ public class Keycode {
     }
 
     public boolean equals(Keycode keycode) {
-        return keycode != null && keycode.getValue() == value;
+        return keycode != null && keycode.getValue().equals(value);
     }
 
     public boolean equals(Keycode.Ref keycodeRef) {
-        return keycodeRef != null && keycodeRef.getValue() == value;
+        return keycodeRef != null && keycodeRef.getValue().equals(value);
+    }
+
+    public JSONObject dump() throws JSONException {
+        JSONObject obj = new JSONObject();
+        if (!cycle) {
+            cycle = true;
+            try {
+                obj.put("value", value);
+                obj.put("scancode", (scancode != null) ? scancode.dump() : null);
+
+                JSONArray scancodesArr = new JSONArray();
+                for (Keysym.Ref keysymRef : keysymRefs) {
+                    scancodesArr.put(keysymRef.dump());
+                }
+                obj.put("keysymRefs", scancodesArr);
+
+                JSONArray symbolsArr = new JSONArray();
+                if (symbols != null) {
+                    for (Symbol symbol : symbols) {
+                        symbolsArr.put(symbol.dump());
+                    }
+                }
+                obj.put("symbols", symbolsArr);
+            } finally {
+                cycle = false;
+            }
+        }
+
+        return obj;
     }
 
     @Override
     public String toString() {
-        return String.format("%s{value: %d, keysymRefs: %s}", getClass().getSimpleName(), value, (keysymRefs != null) ? Arrays.toString(keysymRefs.toArray()) : "null");
+        try {
+            return dump().toString();
+        } catch (JSONException e) {
+            return "ERROR";
+        }
     }
 }

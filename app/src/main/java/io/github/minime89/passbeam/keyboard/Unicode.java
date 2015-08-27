@@ -1,5 +1,7 @@
 package io.github.minime89.passbeam.keyboard;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Root;
 
@@ -14,6 +16,11 @@ public class Unicode {
      *
      */
     private String name;
+
+    /**
+     *
+     */
+    private boolean cycle = false;
 
     public Unicode(@Attribute(name = "value", required = true) Integer value,
                    @Attribute(name = "name", required = false) String name) { //TODO should be required!
@@ -35,8 +42,28 @@ public class Unicode {
         return (char) value.intValue();
     }
 
+    public JSONObject dump() throws JSONException {
+        JSONObject obj = new JSONObject();
+        if (!cycle) {
+            cycle = true;
+            try {
+                obj.put("value", value);
+                obj.put("name", name);
+                obj.put("character", getCharacter());
+            } finally {
+                cycle = false;
+            }
+        }
+
+        return obj;
+    }
+
     @Override
     public String toString() {
-        return String.format("%s{value: %d, name: %s, character: %c}", getClass().getSimpleName(), value, name, getCharacter());
+        try {
+            return dump().toString();
+        } catch (JSONException e) {
+            return "ERROR";
+        }
     }
 }

@@ -15,6 +15,8 @@ import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -87,6 +89,17 @@ public class FileManager {
     }
 
     /**
+     * Resolve a path relative to the application directory to the absolute path.
+     *
+     * @param path The path.
+     * @return Returns the absolute filepath.
+     */
+    public File resolvePath(String path) {
+        Context context = PassBeamApplication.getInstance().getContext();
+        return new File(context.getExternalFilesDir(null), path);
+    }
+
+    /**
      * Install the provided asset path into the files folder of the external storage, available to
      * the application. If the path is a folder, it will recursively try to install the files and
      * directories in that folder. If the path is a file, the file will be copied to the target
@@ -122,7 +135,7 @@ public class FileManager {
                 is = context.getAssets().open(path);
 
                 //output
-                File outputFile = new File(context.getExternalFilesDir(null), targetPath);
+                File outputFile = resolvePath(targetPath);
                 os = new FileOutputStream(outputFile);
 
                 //write data
@@ -157,7 +170,7 @@ public class FileManager {
         else {
             Log.v(TAG, String.format("install directory: %s", path));
 
-            File outputDir = new File(context.getExternalFilesDir(null), targetPath);
+            File outputDir = resolvePath(targetPath);
             if (!outputDir.exists()) {
                 if (!outputDir.mkdir()) {
                     Log.e(TAG, String.format("error installing directory '%s': couldn't load directory", path));
@@ -186,7 +199,67 @@ public class FileManager {
         return install(INSTALL_DIRECTORY);
     }
 
-    private <T> T loadXmlFile(File file, Class<T> c) throws FileManagerException {
+    /**
+     * Read from file.
+     *
+     * @param file The {@link File}.
+     * @return Returns the content of the file.
+     */
+    public byte[] loadFile(File file) throws FileManagerException {
+        InputStream is = null;
+        try {
+            is = new BufferedInputStream(new FileInputStream(file));
+
+            int read;
+            byte[] bytes = new byte[1024];
+            ByteArrayOutputStream data = new ByteArrayOutputStream();
+            while ((read = is.read(bytes)) != -1) {
+                data.write(bytes, 0, read);              //TODO test
+            }
+
+            return data.toByteArray();
+        } catch (IOException e) {
+            Log.e(TAG, String.format("error reading from file '%s': %s", file.getPath(), e.getMessage()));
+
+            throw new FileManagerException(String.format("error reading from file '%s'", file.getPath()), e);
+        } finally {
+            if (is != null) {
+                try {
+                    is.close();
+                } catch (IOException e) {
+                    Log.w(TAG, String.format("error closing file: %s", e.getMessage()));
+                }
+            }
+        }
+    }
+
+    /**
+     * Write to file.
+     *
+     * @param file The {@link File}.
+     * @param data The data to write.
+     */
+    public void storeFile(File file, byte[] data) throws FileManagerException {
+        OutputStream os = null;
+        try {
+            os = new BufferedOutputStream(new FileOutputStream(file));
+            os.write(data);
+        } catch (IOException e) {
+            Log.e(TAG, String.format("error writing to file '%s': %s", file.getPath(), e.getMessage()));
+
+            throw new FileManagerException(String.format("error writing to file '%s'", file.getPath()), e);
+        } finally {
+            if (os != null) {
+                try {
+                    os.close();
+                } catch (IOException e) {
+                    Log.w(TAG, String.format("error closing file: %s", e.getMessage()));
+                }
+            }
+        }
+    }
+
+    public <T> T loadXmlFile(File file, Class<T> c) throws FileManagerException {
         Strategy strategy = new AnnotationStrategy();
         Serializer serializer = new Persister(strategy, new IntegerMatcher());
 
@@ -200,7 +273,7 @@ public class FileManager {
         return instance;
     }
 
-    private <T> T storeXmlFile(File file, T instance) throws FileManagerException {
+    public <T> void storeXmlFile(File file, T instance) throws FileManagerException {
         Strategy strategy = new AnnotationStrategy();
         Serializer serializer = new Persister(strategy, new IntegerMatcher());
 
@@ -209,13 +282,10 @@ public class FileManager {
         } catch (Exception e) {
             throw new FileManagerException(String.format("couldn't encode object into file '%s'", file.getPath()), e);
         }
-
-        return instance;
     }
 
     public Collection<File> getKeycodesFiles() {
-        Context context = PassBeamApplication.getInstance().getContext();
-        File directory = new File(context.getExternalFilesDir(null), KEYCODES_MAPPING_DIRECTORY);
+        File directory = resolvePath(KEYCODES_MAPPING_DIRECTORY);
 
         File[] directoryList = directory.listFiles();
 
@@ -223,8 +293,7 @@ public class FileManager {
     }
 
     public Collection<String> getKeysymsFiles() {
-        Context context = PassBeamApplication.getInstance().getContext();
-        File directory = new File(context.getExternalFilesDir(null), KEYSYMS_MAPPING_DIRECTORY);
+        File directory = resolvePath(KEYSYMS_MAPPING_DIRECTORY);
 
         String[] directoryList = directory.list();
 
@@ -232,8 +301,7 @@ public class FileManager {
     }
 
     public Collection<String> getScancodesFiles() {
-        Context context = PassBeamApplication.getInstance().getContext();
-        File directory = new File(context.getExternalFilesDir(null), SCANCODES_MAPPING_DIRECTORY);
+        File directory = resolvePath(SCANCODES_MAPPING_DIRECTORY);
 
         String[] directoryList = directory.list();
 
@@ -243,8 +311,7 @@ public class FileManager {
     public Keycodes loadKeycodes(String keycodesId) throws FileManagerException {
         Log.v(TAG, String.format("load keycodes with ID '%s'", keycodesId));
 
-        Context context = PassBeamApplication.getInstance().getContext();
-        File file = new File(context.getExternalFilesDir(null), KEYCODES_MAPPING_DIRECTORY + "/" + keycodesId);
+        File file = resolvePath(KEYCODES_MAPPING_DIRECTORY + "/" + keycodesId);
 
         if (!file.exists()) {
             throw new FileManagerException(String.format("couldn't find keycodes file with ID '%s'", keycodesId));
@@ -256,8 +323,7 @@ public class FileManager {
     public Keysyms loadKeysyms(String keysymsId) throws FileManagerException {
         Log.v(TAG, String.format("load keysyms with ID '%s'", keysymsId));
 
-        Context context = PassBeamApplication.getInstance().getContext();
-        File file = new File(context.getExternalFilesDir(null), KEYSYMS_MAPPING_DIRECTORY + "/" + keysymsId);
+        File file = resolvePath(KEYSYMS_MAPPING_DIRECTORY + "/" + keysymsId);
 
         if (!file.exists()) {
             throw new FileManagerException(String.format("couldn't find keysyms file with ID '%s'", keysymsId));
@@ -269,8 +335,7 @@ public class FileManager {
     public Scancodes loadScancodes(String scancodesId) throws FileManagerException {
         Log.v(TAG, String.format("load scancodes with ID '%s'", scancodesId));
 
-        Context context = PassBeamApplication.getInstance().getContext();
-        File file = new File(context.getExternalFilesDir(null), SCANCODES_MAPPING_DIRECTORY + "/" + scancodesId);
+        File file = resolvePath(SCANCODES_MAPPING_DIRECTORY + "/" + scancodesId);
 
         if (!file.exists()) {
             throw new FileManagerException(String.format("couldn't find scancodes file with ID '%s'", scancodesId));

@@ -1,5 +1,7 @@
 package io.github.minime89.passbeam.keyboard;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Element;
 import org.simpleframework.xml.Root;
@@ -30,6 +32,11 @@ public class Scancode {
      *
      */
     private boolean valid = false;
+
+    /**
+     *
+     */
+    private boolean cycle = false;
 
     /**
      *
@@ -69,12 +76,23 @@ public class Scancode {
         }
 
         public boolean equals(Scancode.Ref scancodeRef) {
-            return scancodeRef.getValue() == value;
+            return scancodeRef.getValue().equals(value);
+        }
+
+        public JSONObject dump() throws JSONException {
+            JSONObject obj = new JSONObject();
+            obj.put("value", value);
+
+            return obj;
         }
 
         @Override
         public String toString() {
-            return String.format("%s%s{value=%d}", Scancode.class.getSimpleName(), getClass().getSimpleName(), value);
+            try {
+                return dump().toString();
+            } catch (JSONException e) {
+                return "ERROR";
+            }
         }
     }
 
@@ -120,15 +138,36 @@ public class Scancode {
     }
 
     public boolean equals(Scancode scancode) {
-        return scancode != null && scancode.getValue() == value;
+        return scancode != null && scancode.getValue().equals(value);
     }
 
     public boolean equals(Scancode.Ref scancodeRef) {
-        return scancodeRef != null && scancodeRef.getValue() == value;
+        return scancodeRef != null && scancodeRef.getValue().equals(value);
+    }
+
+    public JSONObject dump() throws JSONException {
+        JSONObject obj = new JSONObject();
+        if (!cycle) {
+            cycle = true;
+            try {
+                obj.put("value", value);
+                obj.put("name", name);
+                obj.put("keycodeRef", (keycodeRef != null) ? keycodeRef.dump() : null);
+                obj.put("keycode", (keycode != null) ? keycode.dump() : null);
+            } finally {
+                cycle = false;
+            }
+        }
+
+        return obj;
     }
 
     @Override
     public String toString() {
-        return String.format("%s{value: %d, name: %s, keycodeRef: %s}", getClass().getSimpleName(), value, name, keycodeRef);
+        try {
+            return dump().toString();
+        } catch (JSONException e) {
+            return "ERROR";
+        }
     }
 }

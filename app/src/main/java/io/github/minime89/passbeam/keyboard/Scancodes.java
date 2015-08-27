@@ -2,11 +2,14 @@ package io.github.minime89.passbeam.keyboard;
 
 import android.util.Log;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.simpleframework.xml.ElementList;
 import org.simpleframework.xml.Root;
 
-import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 
 import io.github.minime89.passbeam.FileManager;
 
@@ -15,8 +18,7 @@ public class Scancodes {
     private static final String TAG = Scancodes.class.getSimpleName();
     public static final String DEFAULT_ID = "default";
 
-    @ElementList(name = "scancodes", inline = true, required = true)
-    private Collection<Scancode> scancodes;
+    private final Collection<Scancode> scancodes;
 
     /**
      * Load scancodes with the specified scancodes ID.
@@ -31,8 +33,8 @@ public class Scancodes {
         return fileManager.loadScancodes(scancodesId);
     }
 
-    private Scancodes() {
-
+    private Scancodes(@ElementList(name = "scancodes", inline = true, required = true) Collection<Scancode> scancodes) {
+        this.scancodes = Collections.unmodifiableCollection(scancodes);
     }
 
     public void build(Keycodes keycodes, Keysyms keysyms) {
@@ -43,10 +45,6 @@ public class Scancodes {
                 Log.w(TAG, e.getMessage());
             }
         }
-    }
-
-    public Collection<Scancode> all() {
-        return scancodes;
     }
 
     public Scancode find(Scancode.Ref scancodeRef) {
@@ -69,8 +67,29 @@ public class Scancodes {
         return null;
     }
 
+    @ElementList(name = "scancodes", inline = true, required = true)
+    public Collection<Scancode> getScancodes() {
+        return scancodes;
+    }
+
+    public JSONObject dump() throws JSONException {
+        JSONObject obj = new JSONObject();
+
+        JSONArray scancodesArr = new JSONArray();
+        for (Scancode scancode : scancodes) {
+            scancodesArr.put(scancode.dump());
+        }
+        obj.put("scancodes", scancodesArr);
+
+        return obj;
+    }
+
     @Override
     public String toString() {
-        return String.format("%s{scancodes: %s}", getClass().getSimpleName(), (scancodes != null) ? Arrays.toString(scancodes.toArray()) : "null");
+        try {
+            return dump().toString();
+        } catch (JSONException e) {
+            return "ERROR";
+        }
     }
 }

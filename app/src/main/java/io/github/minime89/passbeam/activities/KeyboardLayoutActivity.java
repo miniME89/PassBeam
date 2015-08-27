@@ -82,7 +82,7 @@ public class KeyboardLayoutActivity extends AppCompatActivity {
 
             if (result != null) {
                 Collection<LayoutWrapper> layouts = new ArrayList<>();
-                for (Layout layout : result.all()) {
+                for (Layout layout : result.getLayouts()) {
                     layouts.add(new LayoutWrapper(layout));
                 }
 
