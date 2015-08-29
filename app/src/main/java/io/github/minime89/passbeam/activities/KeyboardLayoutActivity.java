@@ -1,6 +1,8 @@
 package io.github.minime89.passbeam.activities;
 
+import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -11,35 +13,60 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.Collections;
 import java.util.Comparator;
+import java.util.List;
 
 import io.github.minime89.passbeam.FileManager;
 import io.github.minime89.passbeam.R;
+import io.github.minime89.passbeam.keyboard.Keycodes;
 import io.github.minime89.passbeam.keyboard.Layout;
 import io.github.minime89.passbeam.keyboard.Layouts;
 
 public class KeyboardLayoutActivity extends AppCompatActivity {
     private static final String TAG = KeyboardLayoutActivity.class.getSimpleName();
-    private ArrayAdapter<LayoutWrapper> keyboardLayoutListAdapter;
+    private KeyboardLayoutAdapter keyboardLayoutAdapter;
     private ListView keyboardLayoutList;
     private EditText keyboardLayoutSearch;
+    private Layouts layouts;
 
-    private class LayoutWrapper {
+    private static abstract class Item {
+        public abstract View createView(LayoutInflater layoutInflater);
+
+        public abstract int getType();
+    }
+
+    private static class LayoutItem extends Item {
         public Layout layout;
 
-        LayoutWrapper(Layout layout) {
+        public LayoutItem(Layout layout) {
             this.layout = layout;
+        }
+
+        @Override
+        public View createView(LayoutInflater layoutInflater) {
+            View view = layoutInflater.inflate(android.R.layout.simple_list_item_1, null);
+            view.setPadding(view.getPaddingLeft() + 10, view.getPaddingTop(), view.getPaddingRight(), view.getPaddingBottom());
+
+            return view;
+        }
+
+        @Override
+        public int getType() {
+            return KeyboardLayoutAdapter.Type.LIST_ITEM.ordinal();
         }
 
         @Override
@@ -54,6 +81,184 @@ public class KeyboardLayoutActivity extends AppCompatActivity {
             }
 
             return string;
+        }
+    }
+
+    private static class HeaderItem extends Item {
+        private String text;
+
+        public HeaderItem(String text) {
+            this.text = text;
+        }
+
+        @Override
+        public View createView(LayoutInflater layoutInflater) {
+            View view = layoutInflater.inflate(android.R.layout.simple_list_item_1, null);
+            TextView textView = (TextView) view;
+            textView.setTypeface(Typeface.DEFAULT_BOLD);
+
+            return view;
+        }
+
+        @Override
+        public int getType() {
+            return KeyboardLayoutAdapter.Type.HEADER_ITEM.ordinal();
+        }
+
+        @Override
+        public String toString() {
+            return text;
+        }
+    }
+
+    private static class KeyboardLayoutAdapter extends BaseAdapter {
+        public enum Type {
+            LIST_ITEM, HEADER_ITEM
+        }
+
+        private Context context;
+
+        private LayoutInflater layoutInflater;
+        private List<Layout> layouts;
+        private Layout currentLayout;
+
+        private List<LayoutItem> wrappedLayoutItems;
+        private List<LayoutItem> wrappedLayoutItemsFiltered;
+        private LayoutItem wrappedCurrentLayout;
+
+        private List<Item> wrappedItems;
+
+        public KeyboardLayoutAdapter(Context context) {
+            this.context = context;
+            layoutInflater = LayoutInflater.from(context);
+
+            update();
+        }
+
+        public void filter(String filter) {
+            if (filter == null || filter.isEmpty()) {
+                wrappedLayoutItemsFiltered = null;
+            } else {
+                filter = filter.toLowerCase();
+
+                wrappedLayoutItemsFiltered = new ArrayList<>();
+
+                for (LayoutItem layoutItem : wrappedLayoutItems) {
+                    if (layoutItem.toString().toLowerCase().contains(filter)) {
+                        wrappedLayoutItemsFiltered.add(layoutItem);
+                    }
+                }
+            }
+
+            update();
+        }
+
+        private void update() {
+            wrappedItems = new ArrayList<>();
+
+            boolean isFiltered = wrappedLayoutItemsFiltered != null;
+
+            //current layout
+            if (!isFiltered) {
+                if (wrappedCurrentLayout != null) {
+                    wrappedItems.add(new HeaderItem(context.getString(R.string.keyboard_layout_header_current)));
+                    wrappedItems.add(wrappedCurrentLayout);
+                }
+            }
+
+            //all layouts
+            if (!isFiltered) {
+                if (wrappedLayoutItems != null) {
+                    wrappedItems.add(new HeaderItem(context.getString(R.string.keyboard_layout_header_layout)));
+                    wrappedItems.addAll(wrappedLayoutItems);
+                }
+            } else {
+                wrappedItems.addAll(wrappedLayoutItemsFiltered);
+            }
+
+            notifyDataSetChanged();
+        }
+
+        public List<Layout> getLayouts() {
+            return layouts;
+        }
+
+        public void setLayouts(List<Layout> layouts) {
+            this.layouts = layouts;
+
+            //wrap Layout in LayoutItem
+            wrappedLayoutItems = new ArrayList<>();
+            for (Layout layout : layouts) {
+                LayoutItem item = new LayoutItem(layout);
+                wrappedLayoutItems.add(item);
+            }
+
+            //sort by name
+            Collections.sort(wrappedLayoutItems, new Comparator<Item>() {
+                @Override
+                public int compare(Item lhs, Item rhs) {
+                    return lhs.toString().compareTo(rhs.toString());
+                }
+            });
+
+            update();
+        }
+
+        public Layout getCurrentLayout() {
+            return currentLayout;
+        }
+
+        public void setCurrentLayout(Layout currentLayout) {
+            this.currentLayout = currentLayout;
+
+            //wrap Layout in LayoutItem
+            wrappedCurrentLayout = new LayoutItem(currentLayout);
+
+            update();
+        }
+
+        @Override
+        public boolean isEnabled(int position) {
+            return !(getItem(position) instanceof HeaderItem);
+        }
+
+        @Override
+        public int getCount() {
+            return wrappedItems.size();
+        }
+
+        @Override
+        public Item getItem(int position) {
+            return wrappedItems.get(position);
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
+
+        @Override
+        public int getViewTypeCount() {
+            return Type.values().length;
+
+        }
+
+        @Override
+        public int getItemViewType(int position) {
+            return getItem(position).getType();
+        }
+
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            if (convertView == null) {
+                convertView = getItem(position).createView(layoutInflater);
+            }
+
+            TextView textView = (TextView) convertView;
+            textView.setText(getItem(position).toString());
+
+            return convertView;
         }
     }
 
@@ -80,22 +285,14 @@ public class KeyboardLayoutActivity extends AppCompatActivity {
         protected void onPostExecute(Layouts result) {
             setSupportProgressBarIndeterminateVisibility(false);
 
-            if (result != null) {
-                Collection<LayoutWrapper> layouts = new ArrayList<>();
-                for (Layout layout : result.getLayouts()) {
-                    layouts.add(new LayoutWrapper(layout));
-                }
+            List<Layout> layouts = new ArrayList<>(result.getLayouts());
+            keyboardLayoutAdapter.setLayouts(layouts);
 
-                keyboardLayoutListAdapter.clear();
-                keyboardLayoutListAdapter.addAll(layouts);
-                keyboardLayoutListAdapter.sort(new Comparator<LayoutWrapper>() {
-                    @Override
-                    public int compare(LayoutWrapper lhs, LayoutWrapper rhs) {
-                        return lhs.toString().compareTo(rhs.toString());
-                    }
-                });
-            } else {
-                //TODO handle
+            SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(KeyboardLayoutActivity.this);
+            String id = sharedPreferences.getString(getString(R.string.settings_keyboard_layout_key), Keycodes.DEFAULT_ID);
+            Layout layout = result.find(id);
+            if (layout != null) {
+                keyboardLayoutAdapter.setCurrentLayout(layout);
             }
         }
     }
@@ -125,7 +322,7 @@ public class KeyboardLayoutActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                KeyboardLayoutActivity.this.keyboardLayoutListAdapter.getFilter().filter(s);
+                keyboardLayoutAdapter.filter(String.valueOf(s));
             }
 
             @Override
@@ -136,22 +333,25 @@ public class KeyboardLayoutActivity extends AppCompatActivity {
     }
 
     private void setupKeyboardLayoutList() {
-        keyboardLayoutListAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
+        keyboardLayoutAdapter = new KeyboardLayoutAdapter(this);
 
         keyboardLayoutList = (ListView) findViewById(R.id.keyboardLayoutList);
-        keyboardLayoutList.setAdapter(keyboardLayoutListAdapter);
+        keyboardLayoutList.setAdapter(keyboardLayoutAdapter);
         keyboardLayoutList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 keyboardLayoutList.setOnItemClickListener(null);
 
-                LayoutWrapper layoutWrapper = keyboardLayoutListAdapter.getItem(position);
-                String layoutId = layoutWrapper.layout.getId();
+                Item item = keyboardLayoutAdapter.getItem(position);
+                if (item instanceof LayoutItem) {
+                    LayoutItem layoutItem = (LayoutItem) item;
+                    String layoutId = layoutItem.layout.getId();
 
-                SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(KeyboardLayoutActivity.this);
-                sharedPreferences.edit().putString(getString(R.string.settings_keyboard_layout_key), layoutId).apply();
+                    SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(KeyboardLayoutActivity.this);
+                    sharedPreferences.edit().putString(getString(R.string.settings_keyboard_layout_key), layoutId).apply();
 
-                NavUtils.navigateUpFromSameTask(KeyboardLayoutActivity.this);
+                    NavUtils.navigateUpFromSameTask(KeyboardLayoutActivity.this);
+                }
             }
         });
 

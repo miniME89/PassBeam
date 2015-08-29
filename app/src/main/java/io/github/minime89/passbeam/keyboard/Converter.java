@@ -103,7 +103,7 @@ public class Converter {
             throw new ConverterException(String.format("couldn't find symbols for character '%c'", character));
         }
 
-        //Log.v(TAG, String.format("found %d symbols", founds.size()));
+        Log.v(TAG, String.format("found %d symbols", founds.size()));
 
         //select one symbol: select one with the least modifier keys
         Iterator<Symbol> iterator = founds.iterator();
@@ -114,7 +114,7 @@ public class Converter {
             Keysym keysym = symbol.getKeysym();
             Keystate keystate = symbol.getKeystate();
 
-            Log.v(TAG, String.format("keysym: %s", keysym));
+            Log.v(TAG, String.format("symbol: %s", symbol));
 
             Keystate selectedKeystate = selected.getKeystate();
             int selectedOneBitCount = Integer.bitCount(selectedKeystate.getModifiers());

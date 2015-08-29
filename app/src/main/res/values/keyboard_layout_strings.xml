@@ -3,5 +3,7 @@
     <string name="keyboard_layout_title">KeyboardLayoutActivity</string>
     <string name="keyboard_layout_search">Search</string>
     <string name="keyboard_layout_refresh">Refresh</string>
+    <string name="keyboard_layout_header_current">Current Layout</string>
+    <string name="keyboard_layout_header_layout">Layouts</string>
 
 </resources>

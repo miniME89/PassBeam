@@ -18,6 +18,10 @@ public class Layouts {
      */
     private final Collection<Layout> layouts;
 
+    private Layouts(Collection<Layout> layouts) {
+        this.layouts = Collections.unmodifiableCollection(layouts);
+    }
+
     /**
      * Load layouts.
      *
@@ -31,8 +35,20 @@ public class Layouts {
         return new Layouts(layouts);
     }
 
-    private Layouts(Collection<Layout> layouts) {
-        this.layouts = Collections.unmodifiableCollection(layouts);
+    /**
+     * Find the layout with the given ID.
+     *
+     * @param id The layout ID.
+     * @return Returns the layout.
+     */
+    public Layout find(String id) {
+        for (Layout layout : layouts) {
+            if (layout.getId().equals(id)) {
+                return layout;
+            }
+        }
+
+        return null;
     }
 
     @ElementList(name = "keycodes", inline = true, required = true)

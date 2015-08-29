@@ -71,10 +71,6 @@ public class PassBeamService extends Service {
                 File file = fileManager.resolvePath("keycodes.dump");
                 byte[] bytes = DeviceWriter.getConverter().getKeycodes().toString().getBytes();
                 fileManager.storeFile(file, bytes);                                             //TODO remove
-
-                file = fileManager.resolvePath("keysyms.dump");
-                bytes = DeviceWriter.getConverter().getKeysyms().toString().getBytes();
-                fileManager.storeFile(file, bytes);                                             //TODO remove
             } catch (FileManager.FileManagerException e) {
                 Log.e(TAG, "couldn't load keyboard layout: " + e.getMessage()); //TODO handle
                 e.printStackTrace();
@@ -173,5 +169,4 @@ public class PassBeamService extends Service {
     public ClipboardListener getClipboardListener() {
         return clipboardListener;
     }
-
 }
