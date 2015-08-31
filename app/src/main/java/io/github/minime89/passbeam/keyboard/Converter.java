@@ -73,8 +73,7 @@ public class Converter {
         Collection<byte[]> collection = new ArrayList<>();
 
         char[] characters = string.toCharArray();
-        for (int i = 0; i < characters.length; i++) {
-            char character = characters[i];
+        for (char character : characters) {
             byte[] bytes = convert(character);
             collection.add(bytes);
         }

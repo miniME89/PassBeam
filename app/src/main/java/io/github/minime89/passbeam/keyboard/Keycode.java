@@ -23,7 +23,7 @@ public class Keycode {
     /**
      *
      */
-    public final Collection<Keysym.Ref> keysymRefs;
+    private final Collection<Keysym.Ref> keysymRefs;
 
     /**
      *
@@ -98,7 +98,7 @@ public class Keycode {
             try {
                 return dump().toString();
             } catch (JSONException e) {
-                return "ERROR";
+                return super.toString();
             }
         }
     }
@@ -226,7 +226,7 @@ public class Keycode {
         try {
             return dump().toString();
         } catch (JSONException e) {
-            return "ERROR";
+            return super.toString();
         }
     }
 }

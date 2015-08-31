@@ -1,8 +1,8 @@
-package io.github.minime89.passbeam.binding;
+package io.github.minime89.passbeam.xml;
 
 import org.simpleframework.xml.transform.Transform;
 
-public class IntegerConverter implements Transform<Integer> {
+public class IntegerTransformer implements Transform<Integer> {
     public Integer read(String value) {
         return Integer.decode(value);
     }

@@ -16,10 +16,10 @@ import io.github.minime89.passbeam.R;
 
 public class NotificationListener extends BroadcastReceiver {
     private static final String TAG = NotificationListener.class.getSimpleName();
-    public static String ACTION_NOTIFICATION = PassBeamApplication.class.getPackage() + ".ACTION_NOTIFICATION";
-    public static int NOTIFICATION_ID = 42;
+    private static final String ACTION_NOTIFICATION = PassBeamApplication.class.getPackage() + ".ACTION_NOTIFICATION";
+    private static final int NOTIFICATION_ID = 42;
 
-    private Context context;
+    private final Context context;
 
     public NotificationListener(Context context) {
         this.context = context;

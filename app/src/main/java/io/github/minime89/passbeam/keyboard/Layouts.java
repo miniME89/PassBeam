@@ -73,7 +73,7 @@ public class Layouts {
         try {
             return dump().toString();
         } catch (JSONException e) {
-            return "ERROR";
+            return super.toString();
         }
     }
 }

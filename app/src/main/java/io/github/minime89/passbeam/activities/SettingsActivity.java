@@ -76,6 +76,14 @@ public class SettingsActivity extends PreferenceActivity {
         });
     }
 
+    private AppCompatDelegate getAppCompatDelegate() {
+        if (appCompatDelegate == null) {
+            appCompatDelegate = AppCompatDelegate.create(this, null);
+        }
+
+        return appCompatDelegate;
+    }
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -166,15 +174,13 @@ public class SettingsActivity extends PreferenceActivity {
         getAppCompatDelegate().onStop();
     }
 
+    @Override
     public void invalidateOptionsMenu() {
         getAppCompatDelegate().invalidateOptionsMenu();
     }
 
-    private AppCompatDelegate getAppCompatDelegate() {
-        if (appCompatDelegate == null) {
-            appCompatDelegate = AppCompatDelegate.create(this, null);
-        }
-
-        return appCompatDelegate;
+    @Override
+    protected boolean isValidFragment(String fragmentName) {
+        return false;
     }
 }

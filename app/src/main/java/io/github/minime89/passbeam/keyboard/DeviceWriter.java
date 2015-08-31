@@ -35,17 +35,17 @@ public class DeviceWriter extends IntentService {
     /**
      * The keyboard symbol converter.
      */
-    private static Converter converter = new Converter();
+    private static final Converter converter = new Converter();
 
     /**
      * The queue which contains the string write requests.
      */
-    private static BlockingQueue<String> stringQueue = new LinkedBlockingQueue<>();
+    private static final BlockingQueue<String> stringQueue = new LinkedBlockingQueue<>();
 
     /**
      * The list of requested intents processed by the service.
      */
-    private static List<Intent> intentsList = new ArrayList<>();
+    private static final List<Intent> intentsList = new ArrayList<>();
 
     /**
      * Constructor.

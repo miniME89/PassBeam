@@ -15,8 +15,8 @@ import io.github.minime89.passbeam.keyboard.DeviceWriter;
 public class ClipboardListener implements ClipboardManager.OnPrimaryClipChangedListener {
     private static final String TAG = ClipboardListener.class.getSimpleName();
 
-    private Context context;
-    private ClipboardManager clipboardManager;
+    private final Context context;
+    private final ClipboardManager clipboardManager;
 
     /**
      * Constructor.

@@ -1,5 +1,4 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="io.github.minime89.passbeam.activities.KeyboardLayoutActivity">
     <item android:id="@+id/keyboard_layout_refresh"

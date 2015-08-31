@@ -29,11 +29,11 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-import io.github.minime89.passbeam.binding.IntegerMatcher;
 import io.github.minime89.passbeam.keyboard.Keycodes;
 import io.github.minime89.passbeam.keyboard.Keysyms;
 import io.github.minime89.passbeam.keyboard.Layout;
 import io.github.minime89.passbeam.keyboard.Scancodes;
+import io.github.minime89.passbeam.xml.TransformMatcher;
 
 public class FileManager {
     private static final String TAG = FileManager.class.getSimpleName();
@@ -261,7 +261,7 @@ public class FileManager {
 
     public <T> T loadXmlFile(File file, Class<T> c) throws FileManagerException {
         Strategy strategy = new AnnotationStrategy();
-        Serializer serializer = new Persister(strategy, new IntegerMatcher());
+        Serializer serializer = new Persister(strategy, new TransformMatcher());
 
         T instance;
         try {
@@ -275,7 +275,7 @@ public class FileManager {
 
     public <T> void storeXmlFile(File file, T instance) throws FileManagerException {
         Strategy strategy = new AnnotationStrategy();
-        Serializer serializer = new Persister(strategy, new IntegerMatcher());
+        Serializer serializer = new Persister(strategy, new TransformMatcher());
 
         try {
             serializer.write(instance, file);

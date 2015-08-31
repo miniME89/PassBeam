@@ -91,7 +91,7 @@ public class Scancode {
             try {
                 return dump().toString();
             } catch (JSONException e) {
-                return "ERROR";
+                return super.toString();
             }
         }
     }
@@ -167,7 +167,7 @@ public class Scancode {
         try {
             return dump().toString();
         } catch (JSONException e) {
-            return "ERROR";
+            return super.toString();
         }
     }
 }

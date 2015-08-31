@@ -50,7 +50,7 @@ public class KeyboardLayoutActivity extends AppCompatActivity {
     }
 
     private static class LayoutItem extends Item {
-        public Layout layout;
+        public final Layout layout;
 
         public LayoutItem(Layout layout) {
             this.layout = layout;
@@ -85,7 +85,7 @@ public class KeyboardLayoutActivity extends AppCompatActivity {
     }
 
     private static class HeaderItem extends Item {
-        private String text;
+        private final String text;
 
         public HeaderItem(String text) {
             this.text = text;
@@ -116,9 +116,9 @@ public class KeyboardLayoutActivity extends AppCompatActivity {
             LIST_ITEM, HEADER_ITEM
         }
 
-        private Context context;
+        private final Context context;
+        private final LayoutInflater layoutInflater;
 
-        private LayoutInflater layoutInflater;
         private List<Layout> layouts;
         private Layout currentLayout;
 

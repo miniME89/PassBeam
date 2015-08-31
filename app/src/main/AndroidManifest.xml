@@ -15,10 +15,12 @@
         <!-- activities -->
         <activity
             android:name="io.github.minime89.passbeam.activities.SetupActivity"
+            android:exported="false"
             android:label="@string/setup_title"
             android:theme="@style/Setup" />
         <activity
             android:name="io.github.minime89.passbeam.activities.SettingsActivity"
+            android:exported="true"
             android:label="@string/settings_title">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,6 +30,7 @@
         </activity>
         <activity
             android:name="io.github.minime89.passbeam.activities.KeyboardLayoutActivity"
+            android:exported="false"
             android:label="@string/keyboard_layout_title"
             android:parentActivityName="io.github.minime89.passbeam.activities.SettingsActivity">
             <meta-data
@@ -44,7 +47,9 @@
             android:exported="false" />
 
         <!-- receiver -->
-        <receiver android:name="io.github.minime89.passbeam.hooks.BootListener">
+        <receiver
+            android:name="io.github.minime89.passbeam.hooks.BootListener"
+            android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>

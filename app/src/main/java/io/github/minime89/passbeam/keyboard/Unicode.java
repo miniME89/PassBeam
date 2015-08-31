@@ -10,12 +10,12 @@ public class Unicode {
     /**
      *
      */
-    private Integer value;
+    private final Integer value;
 
     /**
      *
      */
-    private String name;
+    private final String name;
 
     /**
      *
@@ -63,7 +63,7 @@ public class Unicode {
         try {
             return dump().toString();
         } catch (JSONException e) {
-            return "ERROR";
+            return super.toString();
         }
     }
 }
