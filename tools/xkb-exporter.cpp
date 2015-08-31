@@ -132,8 +132,7 @@ map<string, Layout> getLayoutList() {
             Layout& layout = layouts[layoutName];
             layout.name = layoutName;
             layout.description = layoutDescription;
-        }
-        else if (state == VARIANTS) {
+        } else if (state == VARIANTS) {
             string variantName;
             string layoutName;
             string variantDescription;
@@ -185,8 +184,7 @@ vector<Keysym> getKeysymList() {
             if (!string(match[4]).empty() && !string(match[5]).empty()) {
                 keysym.unicode.name = match[5];
                 sscanf(string(match[4]).c_str(), "%x", &keysym.unicode.value);
-            }
-            else {
+            } else {
                 keysym.unicode.value = -1;
             }
 
@@ -229,8 +227,7 @@ LayoutInfo getLayoutInfo() {
 }
 
 void parseArguments(int argc, char** argv) {
-    static struct option options[] =
-    {
+    static struct option options[] = {
         {"list-keycodes", no_argument, 0, 'k'},
         {"list-layouts", no_argument, 0, 'l'},
         {"list-keysyms", no_argument, 0, 's'},
@@ -243,17 +240,17 @@ void parseArguments(int argc, char** argv) {
     int opt;
     while ((opt = getopt_long(argc, argv, "", options, NULL)) != -1) {
         switch(opt) {
-            case 'k':
-                listKeycodes = true;
+        case 'k':
+            listKeycodes = true;
             break;
-            case 'l':
-                listLayouts = true;
+        case 'l':
+            listLayouts = true;
             break;
-            case 's':
-                listKeysyms = true;
+        case 's':
+            listKeysyms = true;
             break;
-            case 'p':
-                print = true;
+        case 'p':
+            print = true;
             break;
         }
     }
@@ -388,8 +385,7 @@ bool printLayoutInfo() {
     return true;
 }
 
-int main(int argc, char** argv)
-{
+int main(int argc, char** argv) {
     parseArguments(argc, argv);
 
     //open X11 display
@@ -404,23 +400,19 @@ int main(int argc, char** argv)
         if (!printKeycodeList()) {
             exit(1);
         }
-    }
-    else if (listLayouts) {
+    } else if (listLayouts) {
         if (!printLayoutList()) {
             exit(1);
         }
-    }
-    else if (listKeysyms) {
+    } else if (listKeysyms) {
         if (!printKeysymList()) {
             exit(1);
         }
-    }
-    else if (print) {
+    } else if (print) {
         if (!printLayoutInfo()) {
             exit(1);
         }
-    }
-    else {
+    } else {
         printUsage();
     }
 
