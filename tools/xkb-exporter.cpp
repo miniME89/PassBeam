@@ -1,3 +1,6 @@
+/*
+ * compile: g++ -std=c++11 xkb-exporter.cpp -o xkb-exporter -lX11 -lxkbfile
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <getopt.h>
@@ -226,52 +229,13 @@ LayoutInfo getLayoutInfo() {
     return layoutInfo;
 }
 
-void parseArguments(int argc, char** argv) {
-    static struct option options[] = {
-        {"list-keycodes", no_argument, 0, 'k'},
-        {"list-layouts", no_argument, 0, 'l'},
-        {"list-keysyms", no_argument, 0, 's'},
-        {"print", no_argument, 0, 'p'},
-        {0, 0, 0, 0}
-    };
-
-    executableName = argv[0];
-
-    int opt;
-    while ((opt = getopt_long(argc, argv, "", options, NULL)) != -1) {
-        switch(opt) {
-        case 'k':
-            listKeycodes = true;
-            break;
-        case 'l':
-            listLayouts = true;
-            break;
-        case 's':
-            listKeysyms = true;
-            break;
-        case 'p':
-            print = true;
-            break;
-        }
-    }
-}
-
-void printUsage() {
-    cout <<"usage: " <<executableName <<" [options]\n\n";
-    cout <<"options:\n";
-    cout <<"     --list-keycodes         list all keycodes and their keysyms\n";
-    cout <<"     --list-layouts          list all keyboard layouts and their variants\n";
-    cout <<"     --list-keysyms          list all keysyms, their values and unicodes\n";
-    cout <<"     --print                 print current layout\n";
-}
-
 bool printKeycodeList() {
     map<string, Layout> layouts = getLayoutList();
     LayoutInfo layoutInfo = getLayoutInfo();
 
     map<string, Layout>::iterator it = layouts.find(layoutInfo.layout);
     if (it == layouts.end()) {
-        cout <<"current keyboard layout is unknown\n";
+        cerr <<"current keyboard layout is unknown\n";
 
         return false;
     }
@@ -288,7 +252,7 @@ bool printKeycodeList() {
         }
 
         if (variant.name.empty()) {
-            cout <<"current keyboard layout variant is unknown\n";
+            cerr <<"current keyboard layout variant is unknown\n";
 
             return false;
         }
@@ -371,7 +335,7 @@ bool printKeysymList() {
         cout <<string(2, ' ') <<"</keysym>\n";
     }
 
-    cout <<"<keysyms>\n";
+    cout <<"</keysyms>\n";
 
     return true;
 }
@@ -385,13 +349,52 @@ bool printLayoutInfo() {
     return true;
 }
 
+void printUsage() {
+    cout <<"usage: " <<executableName <<" [options]\n\n";
+    cout <<"options:\n";
+    cout <<"     --list-keycodes         list all keycodes and their keysyms\n";
+    cout <<"     --list-layouts          list all keyboard layouts and their variants\n";
+    cout <<"     --list-keysyms          list all keysyms, their values and unicodes\n";
+    cout <<"     --print                 print current layout\n";
+}
+
+void parseArguments(int argc, char** argv) {
+    static struct option options[] = {
+        {"list-keycodes", no_argument, 0, 'k'},
+        {"list-layouts", no_argument, 0, 'l'},
+        {"list-keysyms", no_argument, 0, 's'},
+        {"print", no_argument, 0, 'p'},
+        {0, 0, 0, 0}
+    };
+
+    executableName = argv[0];
+
+    int opt;
+    while ((opt = getopt_long(argc, argv, "", options, NULL)) != -1) {
+        switch(opt) {
+        case 'k':
+            listKeycodes = true;
+            break;
+        case 'l':
+            listLayouts = true;
+            break;
+        case 's':
+            listKeysyms = true;
+            break;
+        case 'p':
+            print = true;
+            break;
+        }
+    }
+}
+
 int main(int argc, char** argv) {
     parseArguments(argc, argv);
 
     //open X11 display
     display = XOpenDisplay(NULL);
     if(display == NULL) {
-        printf("error: could not open display\n");
+        cerr <<"error: could not open display\n";
 
         return 1;
     }
