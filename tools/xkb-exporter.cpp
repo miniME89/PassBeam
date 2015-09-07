@@ -57,14 +57,6 @@ typedef struct LayoutInfo {
     string variant;
 } LayoutInfo;
 
-typedef enum State {
-    NONE,
-    MODELS,
-    LAYOUTS,
-    VARIANTS,
-    OPTIONS
-} State;
-
 static string executableName;
 static int deviceId = XkbUseCoreKbd;
 static string layout;
@@ -96,7 +88,7 @@ static int execProcess(string command, string& out) {
 }
 
 static bool setLayout(const LayoutInfo& layoutInfo) {
-    string cmd = "setxkbmap -layout " + layoutInfo.layout;
+    string cmd = "setxkbmap -device " + to_string(deviceId) + " -layout " + layoutInfo.layout;
 
     if (!layoutInfo.variant.empty()) {
         cmd.append(" -variant " + variant);
@@ -105,7 +97,7 @@ static bool setLayout(const LayoutInfo& layoutInfo) {
     string out;
     int ret = execProcess(cmd, out);
     if (ret != 0) {
-        cerr <<"cannot set keyboard layout (layout: " <<layoutInfo.layout <<", " <<layoutInfo.variant <<")'\n";
+        cerr <<"cannot set keyboard layout (layout: " <<layoutInfo.layout <<", variant: " <<layoutInfo.variant <<")\n";
         return false;
     }
 

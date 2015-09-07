@@ -19,7 +19,6 @@ import java.util.Collection;
 import io.github.minime89.passbeam.R;
 import io.github.minime89.passbeam.keyboard.Converter;
 import io.github.minime89.passbeam.keyboard.DeviceWriter;
-import io.github.minime89.passbeam.keyboard.Keycode;
 import io.github.minime89.passbeam.keyboard.Keycodes;
 import io.github.minime89.passbeam.keyboard.Keysym;
 import io.github.minime89.passbeam.keyboard.Symbol;
@@ -50,19 +49,11 @@ public class SettingsActivity extends PreferenceActivity {
                 if (converter != null) {
                     Keycodes keycodes = converter.getKeycodes();
                     if (keycodes != null) {
-                        Collection<Keycode> keycodesAll = keycodes.getKeycodes();
-
                         StringBuilder strBuilder = new StringBuilder();
-                        for (Keycode keycode : keycodesAll) {
-                            Collection<Symbol> symbols = keycode.getSymbols();
-                            if (symbols != null) {
-                                for (Symbol symbol : symbols) {
-                                    Keysym keysym = symbol.getKeysym();
-                                    if (keysym.isPrintable()) {
-                                        strBuilder.append(keysym.getUnicode().getCharacter());
-                                    }
-                                }
-                            }
+                        Collection<Symbol> symbols = keycodes.findPrintable();
+                        for (Symbol symbol : symbols) {
+                            Keysym keysym = symbol.getKeysym();
+                            strBuilder.append(keysym.getUnicode().getCharacter());
                         }
 
                         String str = strBuilder.toString();

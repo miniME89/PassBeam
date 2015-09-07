@@ -3,9 +3,7 @@ package io.github.minime89.passbeam;
 
 import android.content.Context;
 import android.content.res.AssetManager;
-import android.os.Environment;
 import android.util.Log;
-import android.util.Xml;
 
 import org.simpleframework.xml.Serializer;
 import org.simpleframework.xml.convert.AnnotationStrategy;
@@ -13,6 +11,7 @@ import org.simpleframework.xml.core.Persister;
 import org.simpleframework.xml.strategy.Strategy;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
+import org.xmlpull.v1.XmlPullParserFactory;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -64,28 +63,6 @@ public class FileManager {
      */
     public FileManager() {
 
-    }
-
-    /**
-     * Checks if external storage is available for read and write
-     *
-     * @return Returns true if the external storage is writable.
-     */
-    public boolean isExternalStorageWritable() {
-        String state = Environment.getExternalStorageState();
-
-        return Environment.MEDIA_MOUNTED.equals(state);
-    }
-
-    /**
-     * Checks if external storage is available to at least read
-     *
-     * @return Returns true if the external storage is readable.
-     */
-    public boolean isExternalStorageReadable() {
-        String state = Environment.getExternalStorageState();
-
-        return Environment.MEDIA_MOUNTED.equals(state) || Environment.MEDIA_MOUNTED_READ_ONLY.equals(state);
     }
 
     /**
@@ -344,13 +321,20 @@ public class FileManager {
         return loadXmlFile(file, Scancodes.class);
     }
 
-    public Collection<Layout> loadLayouts() {
+    public Collection<Layout> loadLayouts() throws FileManagerException {
         Log.v(TAG, "load layouts");
 
         Collection<Layout> layouts = new ArrayList<>();
 
         Collection<File> keycodesFiles = getKeycodesFiles();
-        XmlPullParser parser = Xml.newPullParser();
+
+        XmlPullParser parser;
+        try {
+            parser = XmlPullParserFactory.newInstance().newPullParser();
+        } catch (XmlPullParserException e) {
+            throw new FileManagerException("unable to instantiate XML parser");
+        }
+
         for (File keycodesFile : keycodesFiles) {
             InputStream is = null;
             try {
@@ -382,9 +366,17 @@ public class FileManager {
                 }
 
                 Layout layout = new Layout(elements.get("layoutName"), elements.get("layoutDescription"), elements.get("variantName"), elements.get("variantDescription"));
+                if (!layout.getId().equals(keycodesFile.getName())) {
+                    throw new FileManagerException("layout ID doesn't match the filename");
+                }
+
                 layouts.add(layout);
-            } catch (IOException | XmlPullParserException e) {
-                Log.w(TAG, String.format("couldn't decode keycodes file '%s'", keycodesFile));
+            } catch (IOException e) {
+                Log.w(TAG, String.format("couldn't decode keycodes file '%s' (IO error): %s", keycodesFile, e.getMessage()));
+            } catch (XmlPullParserException e) {
+                Log.w(TAG, String.format("couldn't decode keycodes file '%s' (XML error): %s", keycodesFile, e.getMessage()));
+            } catch (FileManagerException e) {
+                Log.w(TAG, String.format("couldn't decode keycodes file '%s' (constraint error): %s", keycodesFile, e.getMessage()));
             } finally {
                 if (is != null) {
                     try {

@@ -71,6 +71,23 @@ public class Keycodes {
         return found;
     }
 
+    public Collection<Symbol> findPrintable() {
+        Collection<Symbol> symbols = new ArrayList<>();
+        for (Keycode keycode : keycodes) {
+            Collection<Symbol> keycodeSymbols = keycode.getSymbols();
+            if (keycodeSymbols != null) {
+                for (Symbol keycodeSymbol : keycodeSymbols) {
+                    Keysym keysym = keycodeSymbol.getKeysym();
+                    if (keysym.isPrintable()) {
+                        symbols.add(keycodeSymbol);
+                    }
+                }
+            }
+        }
+
+        return symbols;
+    }
+
     @ElementList(name = "keycodes", inline = true, required = true)
     public Collection<Keycode> getKeycodes() {
         return keycodes;

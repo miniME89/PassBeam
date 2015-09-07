@@ -59,7 +59,7 @@ public class Converter {
     /**
      * Encode a string into a collection of byte sequences which represent a series of keyboard
      * events, when written to the appropriate device, produce that string. Read <a href="https://github.com/pelya/android-keyboard-gadget#how-it-works">android-keyboard-gadget</a>
-     * for more details on the encoding.
+     * or the USB HID specification for more details on the encoding.
      *
      * @param string The string to encode.
      * @return Returns a collection of encoded keyboard events of the input string. Each byte
@@ -84,7 +84,7 @@ public class Converter {
     /**
      * Encode a character into a byte sequence which represent a keyboard event, when  written to
      * the appropriate device, produce that character. Read <a href="https://github.com/pelya/android-keyboard-gadget#how-it-works">android-keyboard-gadget</a>
-     * for more details on the encoding.
+     * or the USB HID specification for more details on the encoding.
      *
      * @param character The character to encode.
      * @return Returns an encoded keyboard event of the input character.
@@ -135,7 +135,7 @@ public class Converter {
 
     /**
      * Load the keycode, keysym and scancode tables used for encoding characters and strings into
-     * keyboard events using {@link Converter#convert(char)} and {@link Converter#convert(String)}.
+     * keyboard events using {@link #convert(char)} and {@link #convert(String)}.
      * The keycodes represent the specific keyboard layout and should be chosen according to the
      * desired target keyboard layout for encoding. The keysym and scancode tables are usually
      * fixed, but alternatives can be provided and loaded for future extensions.
@@ -166,7 +166,7 @@ public class Converter {
 
     /**
      * Load the keycode, keysym and scancode tables used for encoding characters and strings into
-     * keyboard events using {@link Converter#convert(char)} and {@link Converter#convert(String)}.
+     * keyboard events using {@link #convert(char)} and {@link #convert(String)}.
      * The keycodes represent the specific keyboard layout and should be chosen according to the
      * desired target keyboard layout for encoding. Default tables for keysym and scancode tables
      * will be used.
@@ -178,6 +178,39 @@ public class Converter {
      */
     public void load(String keycodesId) throws FileManager.FileManagerException {
         load(keycodesId, Keysyms.DEFAULT_ID, Scancodes.DEFAULT_ID);
+    }
+
+    /**
+     * Load the keycode, keysym and scancode tables used for encoding characters and strings into
+     * keyboard events using {@link #convert(char)} and {@link #convert(String)}.
+     * The keycodes represent the specific keyboard layout and will be loaded according to the
+     * provided layout parameter. Default tables for keysym and scancode tables will be used.
+     *
+     * @param layout The layout which will be used for loading the associated keycodes file.
+     * @throws FileManager.FileManagerException
+     */
+    public void load(Layout layout) throws FileManager.FileManagerException {
+        load(layout.getId(), Keysyms.DEFAULT_ID, Scancodes.DEFAULT_ID);
+    }
+
+    /**
+     * Load the keycode, keysym and scancode tables used for encoding characters and strings into
+     * keyboard events using {@link #convert(char)} and {@link #convert(String)}.
+     * The keycodes represent the specific keyboard layout and will be loaded according to the
+     * provided layout parameter. The keysym and scancode tables are usually fixed, but alternatives
+     * can be provided and loaded for future extensions.
+     *
+     * @param layout      The layout which will be used for loading the associated keycodes file.
+     * @param keysymsId   The keysyms ID which will be used for loading the associated keysyms
+     *                    file. The ID is directly mapped to the keysyms filename in the keysyms
+     *                    directory.
+     * @param scancodesId The scancodes ID which will be used for loading the associated scancodes
+     *                    file. The ID is directly mapped to the scancodes filename in the scancodes
+     *                    directory.
+     * @throws FileManager.FileManagerException
+     */
+    public void load(Layout layout, String keysymsId, String scancodesId) throws FileManager.FileManagerException {
+        load(layout.getId(), keysymsId, scancodesId);
     }
 
     public synchronized Keycodes getKeycodes() {

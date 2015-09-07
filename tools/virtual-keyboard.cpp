@@ -46,6 +46,7 @@ using namespace std::chrono;
 static string executableFilename;
 static string uhidFilepath = DEFAULT_UHID_FILEPATH;
 static int interfacePort = DEFAULT_INTERFACE_PORT;
+static bool verbose = false;
 
 static Display* display = NULL;
 static int uhidFd = -1;
@@ -107,6 +108,10 @@ static bool uhidCreateKeyboard() {
 }
 
 static void keyboardThreadWorker() {
+    if (verbose) {
+        cout <<"started keyboard thread\n";
+    }
+
     //open uhid device file
     uhidFd = open(uhidFilepath.c_str(), O_RDWR | O_CLOEXEC);
     if (uhidFd < 0) {
@@ -193,10 +198,11 @@ static void keyboardThreadWorker() {
             char str[256+1];
             KeySym keysym;
             int strLen = XLookupString(&keyEvent, str, 256, &keysym, NULL);
-            //string keysymStr = XKeysymToString(keysym);
-            //cout <<"keycode: " <<keyEvent.keycode <<setfill('0') <<setw(2) <<hex <<keyEvent.keycode <<"\n";
-            //cout <<"keysym: " <<keysym <<", " <<setfill('0') <<setw(2) <<hex <<keysym <<", " <<keysymStr <<"\n";
-            //cout <<"XLookupString: " <<str <<" (" <<strLen <<" bytes)\n";
+
+
+            if (verbose) {
+                cout <<"received key press event [keycode: " <<keyEvent.keycode <<", " <<"keysym: " <<keysym <<", " <<"XLookupString: " <<str <<" (" <<strLen <<" bytes)" <<"]\n";
+            }
 
             if (strLen > 0) {
                 lock_guard<std::mutex> lock(inputQueueMutex);
@@ -210,6 +216,10 @@ static void keyboardThreadWorker() {
 }
 
 static void interfaceThreadWorker() {
+    if (verbose) {
+        cout <<"started interface thread\n";
+    }
+
     serverFd = socket (AF_INET, SOCK_STREAM, 0);
     if (serverFd < 0) {
         cerr <<"cannot create socket: " <<strerror(errno) <<"\n";
@@ -239,6 +249,10 @@ static void interfaceThreadWorker() {
             continue;
         }
 
+        if (verbose) {
+            cout <<"accepted connection\n";
+        }
+
         bool run = true;
         while(run) {
             struct uhid_event event;
@@ -247,12 +261,22 @@ static void interfaceThreadWorker() {
 
             //read HID keyboard event from socket
             while(event.u.input.size < 16 && run) {
-                int c;
+                if (verbose) {
+                    cout <<"read...";
+                }
+
+                int c = 0;
                 int num = read(clientFd, &c, 1);
+
+                if (verbose) {
+                    cout <<setfill('0') <<setw(2) <<hex <<c <<" (" <<num <<" " <<" bytes)\n";
+                }
+
                 if (num == 0) {
                     run = false;
                     continue;
                 }
+
                 event.u.input.data[event.u.input.size] = c;
                 event.u.input.size++;
             }
@@ -290,10 +314,28 @@ static void interfaceThreadWorker() {
                     }
                 }
 
+                char data[1024];
+                int size;
+
                 if (str.size() > 0) {
-                    write(clientFd, str.c_str(), str.size());
+                    strcpy(data, str.c_str());
+                    size = str.size();
                 }
+                else {
+                    data[0] = '\0';
+                    size = 1;
+                }
+
+                if (verbose) {
+                    cout <<"write " <<data <<" (" <<size <<" " <<" bytes)\n";
+                }
+
+                write(clientFd, data, size);
             }
+        }
+
+        if (verbose) {
+            cout <<"close connection\n";
         }
 
         close(clientFd);
@@ -304,25 +346,30 @@ static void printUsage() {
     cout <<"usage: " <<executableFilename <<" [options]\n\n";
     cout <<"     --uhid-file, -u         filepath of the uhid device file [Default: " <<DEFAULT_UHID_FILEPATH <<"]\n";
     cout <<"     --port, -p              port of the TCP interface [Default: " <<DEFAULT_INTERFACE_PORT <<"]\n";
+    cout <<"     --verbose, -v           verbose\n";
 }
 
 static void parseArguments(int argc, char** argv) {
     static struct option options[] = {
         {"uhid-file", required_argument, 0, 'u'},
         {"port", required_argument, 0, 'p'},
+        {"verbose", required_argument, 0, 'v'},
         {0, 0, 0, 0}
     };
 
     executableFilename = argv[0];
 
     int opt;
-    while ((opt = getopt_long(argc, argv, "u:p:", options, NULL)) != -1) {
+    while ((opt = getopt_long(argc, argv, "u:p:v", options, NULL)) != -1) {
         switch(opt) {
         case 'u':
             uhidFilepath = optarg;
             break;
         case 'p':
             interfacePort = strtol(optarg, NULL, 10);
+            break;
+        case 'v':
+            verbose = true;
             break;
         default:
             printUsage();
