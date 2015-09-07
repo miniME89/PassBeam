@@ -1,9 +1,11 @@
 /*
- * compile: g++ -std=c++11 xkb-exporter.cpp -o xkb-exporter -lX11 -lxkbfile
+ * compile: g++ -std=c++11 xkb-exporter.cpp -o xkb-exporter -lX11 -lxkbfile -ltinyxml
  */
 #include <stdio.h>
 #include <stdlib.h>
 #include <getopt.h>
+#include <unistd.h>
+#include <sys/stat.h>
 
 #include <string>
 #include <iomanip>
@@ -16,6 +18,10 @@
 
 #include <X11/XKBlib.h>
 #include <X11/extensions/XKBrules.h>
+
+#include <tinyxml.h>
+
+#define DEFAULT_EXPORT_DIR "export"
 
 using namespace std;
 
@@ -59,19 +65,57 @@ typedef enum State {
     OPTIONS
 } State;
 
-string executableName;
+static string executableName;
+static int deviceId = XkbUseCoreKbd;
+static string layout;
+static string variant;
+static string exportDir = DEFAULT_EXPORT_DIR;
+static bool listKeycodes = false;
+static bool listLayouts = false;
+static bool listKeysyms = false;
+static bool exportOne = false;
+static bool exportAll = false;
+static bool print = false;
 
-bool listKeycodes = false;
-bool listLayouts = false;
-bool listKeysyms = false;
-bool print = false;
+static Display* display;
 
-Display* display;
+static int execProcess(string command, string& out) {
+    FILE* outFd;
 
-vector<Keycode> getKeycodeList() {
+    outFd = popen(command.c_str(), "r");
+    if(!outFd) {
+        return -1;
+    }
+
+    char buffer[512];
+    while(fgets(buffer, sizeof(buffer), outFd) != NULL) {
+        out.append(buffer);
+    }
+
+    return pclose(outFd);
+}
+
+static bool setLayout(const LayoutInfo& layoutInfo) {
+    string cmd = "setxkbmap -layout " + layoutInfo.layout;
+
+    if (!layoutInfo.variant.empty()) {
+        cmd.append(" -variant " + variant);
+    }
+
+    string out;
+    int ret = execProcess(cmd, out);
+    if (ret != 0) {
+        cerr <<"cannot set keyboard layout (layout: " <<layoutInfo.layout <<", " <<layoutInfo.variant <<")'\n";
+        return false;
+    }
+
+    return true;
+}
+
+static vector<Keycode> getKeycodeList() {
     vector<Keycode> keycodes;
 
-    XkbDescPtr keyboardMap = XkbGetMap(display, XkbAllClientInfoMask, XkbUseCoreKbd);
+    XkbDescPtr keyboardMap = XkbGetMap(display, XkbAllClientInfoMask, deviceId);
     for(KeyCode k = keyboardMap->min_key_code; k < keyboardMap->max_key_code; k++) {
         Keycode keycode;
         keycode.value = k;
@@ -92,79 +136,70 @@ vector<Keycode> getKeycodeList() {
     return keycodes;
 }
 
-map<string, Layout> getLayoutList() {
-    //open file
-    string filepath = "/usr/share/X11/xkb/rules/base.lst";
-    std::ifstream fs(filepath.c_str());
-
+static map<string, Layout> getLayoutList() {
     map<string, Layout> layouts;
 
-    //iterate over lines
-    State state = NONE;
-    string line;
-    while (getline(fs, line)) {
-        if (line.empty()) {
-            continue;
-        }
+    string filepath = "/usr/share/X11/xkb/rules/xorg.xml";
+    TiXmlDocument document(filepath);
+    if (!document.LoadFile()) {
+        cerr <<"cannot load file '" <<filepath <<"'\n";
+    }
+    else {
+        TiXmlElement* rootNode = document.FirstChildElement("xkbConfigRegistry");
+        if (rootNode) {
+            TiXmlElement* layoutListNode = rootNode->FirstChildElement("layoutList");
+            if (layoutListNode) {
+                for (TiXmlElement* layoutNode = layoutListNode->FirstChildElement("layout"); layoutNode; layoutNode = layoutNode->NextSiblingElement("layout")) {
+                    TiXmlElement* configItemNode = layoutNode->FirstChildElement("configItem");
+                    if (configItemNode) {
+                        Layout layout;
 
-        if (line[0] == '!') {
-            if (line.find("! model") == 0)
-                state = MODELS;
-            else if (line.find("! layout") == 0)
-                state = LAYOUTS;
-            else if (line.find("! variant") == 0)
-                state = VARIANTS;
-            else if (line.find("! option") == 0)
-                state = OPTIONS;
-            else
-                state = NONE;
+                        TiXmlElement* nameNode = configItemNode->FirstChildElement("name");
+                        if (nameNode) {
+                            layout.name = nameNode->GetText();
+                        }
 
-            continue;
-        }
+                        TiXmlElement* descriptionNode = configItemNode->FirstChildElement("description");
+                        if (descriptionNode) {
+                            layout.description = descriptionNode->GetText();
+                        }
 
-        if (state == LAYOUTS) {
-            string layoutName;
-            string layoutDescription;
+                        TiXmlElement* variantListNode = layoutNode->FirstChildElement("variantList");
+                        if (variantListNode) {
+                            for (TiXmlElement* variantNode = variantListNode->FirstChildElement("variant"); variantNode; variantNode = variantNode->NextSiblingElement("variant")) {
+                                TiXmlElement* configItemNode = variantNode->FirstChildElement("configItem");
+                                if (configItemNode) {
+                                    Variant variant;
 
-            std::istringstream ss(line);
-            ss >>layoutName >>skipws;
-            getline(ss, layoutDescription);
+                                    TiXmlElement* nameNode = configItemNode->FirstChildElement("name");
+                                    if (nameNode) {
+                                        variant.name = nameNode->GetText();
+                                    }
 
-            layoutDescription.erase(0, layoutDescription.find_first_not_of(" "));
+                                    TiXmlElement* descriptionNode = configItemNode->FirstChildElement("description");
+                                    if (descriptionNode) {
+                                        variant.description = descriptionNode->GetText();
+                                    }
 
-            Layout& layout = layouts[layoutName];
-            layout.name = layoutName;
-            layout.description = layoutDescription;
-        } else if (state == VARIANTS) {
-            string variantName;
-            string layoutName;
-            string variantDescription;
+                                    layout.variants.push_back(variant);
+                                }
+                            }
+                        }
 
-            std::istringstream ss(line);
-            ss >>variantName >>layoutName;
-            getline(ss, variantDescription);
-
-            layoutName.erase(layoutName.size() - 1);
-            variantDescription.erase(0, variantDescription.find_first_not_of(" "));
-
-            Variant variant;
-            variant.name = variantName;
-            variant.description = variantDescription;
-
-            Layout& layout = layouts[layoutName];
-            layout.variants.push_back(variant);
+                        layouts[layout.name] = layout;
+                    }
+                }
+            }
         }
     }
-
-    fs.close();
 
     return layouts;
 }
 
-vector<Keysym> getKeysymList() {
+static vector<Keysym> getKeysymList() {
     //open file
     string filepath = "/usr/include/X11/keysymdef.h";
-    std::ifstream fs(filepath.c_str());
+    ifstream fs(filepath.c_str());
 
     vector<Keysym> keysyms;
 
@@ -200,7 +235,7 @@ vector<Keysym> getKeysymList() {
     return keysyms;
 }
 
-LayoutInfo getLayoutInfo() {
+static LayoutInfo getCurrentLayoutInfo() {
     LayoutInfo layoutInfo;
     XkbRF_VarDefsRec vd;
     char *tmp;
@@ -229,14 +264,13 @@ LayoutInfo getLayoutInfo() {
     return layoutInfo;
 }
 
-bool printKeycodeList() {
+static bool getKeycodeListXml(TiXmlDocument& document) {
     map<string, Layout> layouts = getLayoutList();
-    LayoutInfo layoutInfo = getLayoutInfo();
+    LayoutInfo layoutInfo = getCurrentLayoutInfo();
 
     map<string, Layout>::iterator it = layouts.find(layoutInfo.layout);
     if (it == layouts.end()) {
-        cerr <<"current keyboard layout is unknown\n";
-
+        cerr <<"cannot find keyboard layout '" <<layoutInfo.layout <<"'\n";
         return false;
     }
 
@@ -252,8 +286,7 @@ bool printKeycodeList() {
         }
 
         if (variant.name.empty()) {
-            cerr <<"current keyboard layout variant is unknown\n";
-
+            cerr <<"cannot find keyboard layout variant '" <<layoutInfo.variant <<"'\n";
             return false;
         }
     }
@@ -261,87 +294,155 @@ bool printKeycodeList() {
     vector<Keycode> keycodes = getKeycodeList();
 
     //keycodes
-    cout <<"<keycodes layoutName=\"" + layout.name + "\" layoutDescription=\"" + layout.description + "\" variantName=\"" + variant.name + "\" variantDescription=\"" + variant.description + "\">\n";
+    TiXmlElement* keycodesNode = new TiXmlElement("keycodes");
+    keycodesNode->SetAttribute("layoutName", layout.name);
+    keycodesNode->SetAttribute("layoutDescription", layout.description);
+    keycodesNode->SetAttribute("variantName", variant.name);
+    keycodesNode->SetAttribute("variantDescription", variant.description);
+    document.LinkEndChild(keycodesNode);
 
     //iterate over keycodes
     for(unsigned int i = 0; i < keycodes.size(); i++) {
         Keycode keycode = keycodes[i];
 
-        cout <<string(2, ' ') <<"<keycode value=\"" <<dec <<(int)keycode.value <<"\">\n";
+        TiXmlElement* keycodeNode = new TiXmlElement("keycodes");
+        keycodeNode->SetAttribute("value", keycode.value);
+        keycodesNode->LinkEndChild(keycodeNode);
 
         //iterate over keysyms
         vector<Keysym> keysyms = keycode.keysyms;
         for(unsigned int j = 0; j < keysyms.size(); j++) {
             Keysym keysym = keysyms[j];
-            cout <<string(4, ' ') <<"<keysym value=\"" <<"0x" <<setfill('0') <<hex <<(int)keysym.value <<"\"/>\n";
+
+            TiXmlElement* keysymNode = new TiXmlElement("keycodes");
+            keysymNode->SetAttribute("value", keysym.value);
+            keycodeNode->LinkEndChild(keysymNode);
         }
-
-        cout <<string(2, ' ') <<"</keycode>\n";
     }
-
-    cout <<"</keycodes>\n";
 
     return true;
 }
 
-bool printLayoutList() {
+static bool getLayoutListXml(TiXmlDocument& document) {
     map<string, Layout> layouts = getLayoutList();
 
-    cout <<"<layouts>\n";
+    //layouts
+    TiXmlElement* layoutsNode = new TiXmlElement("layouts");
+    document.LinkEndChild(layoutsNode);
 
-    for (std::map<string, Layout>::iterator it = layouts.begin(); it != layouts.end(); it++) {
+    //iterate over layouts
+    for (map<string, Layout>::iterator it = layouts.begin(); it != layouts.end(); it++) {
         Layout& layout = it->second;
-        vector<Variant> variants = layout.variants;
 
         //layout
-        cout <<string(2, ' ') <<"<layout>\n";
-        cout <<string(4, ' ') <<"<name>" <<layout.name <<"</name>\n";
-        cout <<string(4, ' ') <<"<description>" <<layout.description <<"</description>\n";
+        TiXmlElement* layoutNode = new TiXmlElement("layout");
+        layoutsNode->LinkEndChild(layoutNode);
 
-        //variants
-        if (!variants.empty()) {
-            cout <<string(4, ' ') <<"<variants>\n";
-            for (unsigned int i = 0; i < variants.size(); i++) {
-                Variant variant = variants[i];
-                cout <<string(6, ' ') <<"<variant>\n";
-                cout <<string(8, ' ') <<"<name>" <<variant.name <<"</name>\n";
-                cout <<string(8, ' ') <<"<description>" <<variant.description <<"</description>\n";
-                cout <<string(6, ' ') <<"</variant>\n";
-            }
-            cout <<string(4, ' ') <<"</variants>\n";
+        TiXmlElement* nameNode = new TiXmlElement("name");
+        nameNode->LinkEndChild(new TiXmlText(layout.name));
+        layoutNode->LinkEndChild(nameNode);
+
+        TiXmlElement* descriptionNode = new TiXmlElement("description");
+        descriptionNode->LinkEndChild(new TiXmlText(layout.description));
+        layoutNode->LinkEndChild(descriptionNode);
+
+        //iterate over variants
+        vector<Variant> variants = layout.variants;
+        TiXmlElement* variantsNode = new TiXmlElement("variants");
+        layoutNode->LinkEndChild(variantsNode);
+        for (unsigned int i = 0; i < variants.size(); i++) {
+            Variant variant = variants[i];
+
+            TiXmlElement* variantNode = new TiXmlElement("variant");
+            variantsNode->LinkEndChild(variantNode);
+
+            TiXmlElement* nameNode = new TiXmlElement("name");
+            nameNode->LinkEndChild(new TiXmlText(variant.name));
+            variantNode->LinkEndChild(nameNode);
+
+            TiXmlElement* descriptionNode = new TiXmlElement("description");
+            descriptionNode->LinkEndChild(new TiXmlText(variant.description));
+            variantNode->LinkEndChild(descriptionNode);
         }
-
-        cout <<string(2, ' ') <<"</layout>\n";
     }
-
-    cout <<"</layouts>\n";
 
     return true;
 }
 
-bool printKeysymList() {
+static bool getKeysymListXml(TiXmlDocument& document) {
     vector<Keysym> keysyms = getKeysymList();
 
-    cout <<"<keysyms>\n";
+    //keysyms
+    TiXmlElement* keysymsNode = new TiXmlElement("keysyms");
+    document.LinkEndChild(keysymsNode);
 
+    //iterate over keysyms
     for (unsigned int i = 0; i < keysyms.size(); i++) {
         Keysym keysym = keysyms[i];
-        cout <<string(2, ' ') <<"<keysym value=\"0x" <<hex <<keysym.value <<"\" name=\"" <<keysym.name <<"\">\n";
+
+        TiXmlElement* keysymNode = new TiXmlElement("keysym");
+        keysymNode->SetAttribute("value", keysym.value);
+        keysymNode->SetAttribute("name", keysym.name);
+        keysymsNode->LinkEndChild(keysymNode);
 
         if (keysym.unicode.value > -1) {
-            cout <<string(4, ' ') <<"<unicode value=\"0x" <<setfill('0') <<setw(4) <<hex <<keysym.unicode.value <<"\" name=\"" <<keysym.unicode.name <<"\"/>\n";
+            TiXmlElement* unicodeNode = new TiXmlElement("unicode");
+            unicodeNode->SetAttribute("value", keysym.unicode.value);
+            unicodeNode->SetAttribute("name", keysym.unicode.name);
+            keysymNode->LinkEndChild(unicodeNode);
         }
-
-        cout <<string(2, ' ') <<"</keysym>\n";
     }
-
-    cout <<"</keysyms>\n";
 
     return true;
 }
 
-bool printLayoutInfo() {
-    LayoutInfo layoutInfo = getLayoutInfo();
+static bool printKeycodeList() {
+    TiXmlDocument document;
+    if (!getKeycodeListXml(document)) {
+        return false;
+    }
+
+    TiXmlPrinter printer;
+    printer.SetIndent("  ");
+    document.Accept(&printer);
+
+    cout <<printer.CStr();
+
+    return true;
+}
+
+static bool printLayoutList() {
+    TiXmlDocument document;
+    if (!getLayoutListXml(document)) {
+        return false;
+    }
+
+    TiXmlPrinter printer;
+    printer.SetIndent("  ");
+    document.Accept(&printer);
+
+    cout <<printer.CStr();
+
+    return true;
+}
+
+static bool printKeysymList() {
+    TiXmlDocument document;
+    if (!getKeysymListXml(document)) {
+        return false;
+    }
+
+    TiXmlPrinter printer;
+    printer.SetIndent("  ");
+    document.Accept(&printer);
+
+    cout <<printer.CStr();
+
+    return true;
+}
+
+static bool printCurrentLayoutInfo() {
+    LayoutInfo layoutInfo = getCurrentLayoutInfo();
 
     cout <<"layout: " <<layoutInfo.layout <<"\n";
     cout <<"variant: " <<layoutInfo.variant <<"\n";
@@ -349,20 +450,32 @@ bool printLayoutInfo() {
     return true;
 }
 
-void printUsage() {
+static void printUsage() {
     cout <<"usage: " <<executableName <<" [options]\n\n";
     cout <<"options:\n";
+    cout <<"     --device <id>           define the input device [Default: core input device]\n";
+    cout <<"     --layout <name>         set the layout\n";
+    cout <<"     --variant <name>        set the layout variant\n";
     cout <<"     --list-keycodes         list all keycodes and their keysyms\n";
     cout <<"     --list-layouts          list all keyboard layouts and their variants\n";
     cout <<"     --list-keysyms          list all keysyms, their values and unicodes\n";
+    cout <<"     --export                export keycodes of the current keyboard layout\n";
+    cout <<"     --export-all            export keycodes of all keyboard layouts\n";
+    cout <<"     --export-dir            define the export directory [Default: " <<DEFAULT_EXPORT_DIR <<"]\n";
     cout <<"     --print                 print current layout\n";
 }
 
-void parseArguments(int argc, char** argv) {
+static void parseArguments(int argc, char** argv) {
     static struct option options[] = {
+        {"device", required_argument, 0, 'c'},
+        {"layout", required_argument, 0, 'l'},
+        {"variant", required_argument, 0, 'v'},
         {"list-keycodes", no_argument, 0, 'k'},
-        {"list-layouts", no_argument, 0, 'l'},
+        {"list-layouts", no_argument, 0, 'i'},
         {"list-keysyms", no_argument, 0, 's'},
+        {"export", no_argument, 0, 'e'},
+        {"export-all", no_argument, 0, 'a'},
+        {"export-dir", required_argument, 0, 'd'},
         {"print", no_argument, 0, 'p'},
         {0, 0, 0, 0}
     };
@@ -372,14 +485,32 @@ void parseArguments(int argc, char** argv) {
     int opt;
     while ((opt = getopt_long(argc, argv, "", options, NULL)) != -1) {
         switch(opt) {
+        case 'c':
+            deviceId = strtol(optarg, NULL, 10);
+            break;
+        case 'l':
+            layout = optarg;
+            break;
+        case 'v':
+            variant = optarg;
+            break;
         case 'k':
             listKeycodes = true;
             break;
-        case 'l':
+        case 'i':
             listLayouts = true;
             break;
         case 's':
             listKeysyms = true;
+            break;
+        case 'e':
+            exportOne = true;
+            break;
+        case 'a':
+            exportAll = true;
+            break;
+        case 'd':
+            exportDir = optarg;
             break;
         case 'p':
             print = true;
@@ -388,15 +519,83 @@ void parseArguments(int argc, char** argv) {
     }
 }
 
+static bool exportLayout(LayoutInfo layoutInfo) {
+    string cmd = "mkdir -p " + exportDir;
+    int ret = system(cmd.c_str());
+    if (ret != 0) {
+        cout <<"cannot create export directory '" <<exportDir <<"'\n";
+        return false;
+    }
+
+    if (!setLayout(layoutInfo)) {
+        return false;
+    }
+
+    TiXmlDocument document;
+    if (!getKeycodeListXml(document)) {
+        return false;
+    }
+
+    string filename = exportDir  + "/" + layoutInfo.layout;
+    if (!layoutInfo.variant.empty()) {
+        filename += "-" + layoutInfo.variant;
+    }
+
+    if (!document.SaveFile(filename)) {
+        cerr <<"cannot export to file '" <<filename <<"'\n";
+        return false;
+    }
+
+    return true;
+}
+
+static bool exportCurrentLayout() {
+    LayoutInfo layoutInfo = getCurrentLayoutInfo();
+    return exportLayout(layoutInfo);
+}
+
+static bool exportAllLayouts() {
+    map<string, Layout> layouts = getLayoutList();
+
+    //iterate over layouts
+    for (map<string, Layout>::iterator it = layouts.begin(); it != layouts.end(); it++) {
+        Layout layout = it->second;
+
+        LayoutInfo layoutInfo;
+        layoutInfo.layout = layout.name;
+        layoutInfo.variant = "";
+
+        exportLayout(layoutInfo);
+
+        //iterate over variants
+        vector<Variant> variants = layout.variants;
+        for (unsigned int i = 0; i < variants.size(); i++) {
+            Variant variant = variants[i];
+
+            layoutInfo.variant = variant.name;
+            exportLayout(layoutInfo);
+        }
+    }
+
+    return true;
+}
+
 int main(int argc, char** argv) {
     parseArguments(argc, argv);
 
-    //open X11 display
     display = XOpenDisplay(NULL);
     if(display == NULL) {
-        cerr <<"error: could not open display\n";
+        cerr <<"cannot open display\n";
+        return EXIT_FAILURE;
+    }
 
-        return 1;
+    if (!layout.empty()) {
+        LayoutInfo layoutInfo;
+        layoutInfo.layout = layout;
+        layoutInfo.variant = variant;
+        if (!setLayout(layoutInfo)) {
+            exit(1);
+        }
     }
 
     if (listKeycodes) {
@@ -411,16 +610,23 @@ int main(int argc, char** argv) {
         if (!printKeysymList()) {
             exit(1);
         }
-    } else if (print) {
-        if (!printLayoutInfo()) {
+    } else if (exportOne) {
+        if (!exportCurrentLayout()) {
             exit(1);
         }
-    } else {
+    } else if (exportAll) {
+        if (!exportAllLayouts()) {
+            exit(1);
+        }
+    } else if (print) {
+        if (!printCurrentLayoutInfo()) {
+            exit(1);
+        }
+    } else if (layout.empty()) {
         printUsage();
     }
 
-    //close X11 display
     XCloseDisplay(display);
 
-    return 0;
+    return EXIT_SUCCESS;
 }
