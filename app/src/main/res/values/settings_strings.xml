@@ -1,5 +1,5 @@
 <resources>
-    <string name="settings_title">SettingsActivity</string>
+    <string name="settings_title">@string/app_name</string>
 
     <!-- keyboard layout -->
     <string name="settings_keyboard_layout_key">settings_keyboard_layout</string>

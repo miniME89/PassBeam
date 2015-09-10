@@ -9,8 +9,6 @@ import android.os.IBinder;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
-import java.io.File;
-
 import io.github.minime89.passbeam.hooks.ClipboardListener;
 import io.github.minime89.passbeam.hooks.NotificationListener;
 import io.github.minime89.passbeam.hooks.UsbListener;
@@ -65,15 +63,8 @@ public class PassBeamService extends Service {
 
             try {
                 DeviceWriter.getConverter().load(keycodesId);
-
-                FileManager fileManager = new FileManager();
-
-                File file = fileManager.resolvePath("keycodes.dump");
-                byte[] bytes = DeviceWriter.getConverter().getKeycodes().toString().getBytes();
-                fileManager.storeFile(file, bytes);                                             //TODO remove
             } catch (FileManager.FileManagerException e) {
                 Log.e(TAG, "couldn't load keyboard layout: " + e.getMessage()); //TODO handle
-                e.printStackTrace();
             }
 
             return null;

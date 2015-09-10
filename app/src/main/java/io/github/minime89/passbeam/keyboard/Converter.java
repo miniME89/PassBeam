@@ -13,7 +13,7 @@ import io.github.minime89.passbeam.Utils;
 /**
  * The Converter is used for converting characters or strings into keyboard events, when written
  * to the appropriate device, produce that character or string.
- * <p/>
+ * <p>
  * In order to encode characters or strings using {@link Converter#convert(char)} or {@link Converter#convert(String)},
  * the keycode, keysym and scancode tables need to be loaded using {@link Converter#load(String)} or {@link Converter#load(String, String, String)}.
  */

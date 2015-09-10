@@ -94,9 +94,4 @@ public class ConverterTest {
         }
     }
 
-    @Test
-    public void testConvert() throws Exception {
-
-    }
-
 }

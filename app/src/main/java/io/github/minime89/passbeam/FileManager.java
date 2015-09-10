@@ -191,7 +191,7 @@ public class FileManager {
             byte[] bytes = new byte[1024];
             ByteArrayOutputStream data = new ByteArrayOutputStream();
             while ((read = is.read(bytes)) != -1) {
-                data.write(bytes, 0, read);              //TODO test
+                data.write(bytes, 0, read);              //TODO not test
             }
 
             return data.toByteArray();
