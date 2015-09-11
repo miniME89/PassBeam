@@ -1,4 +1,19 @@
 /*
+ * Copyright (C) 2015 Marcel Lehwald
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
  * compile: g++ -std=c++11 virtual-keyboard.cpp -o virtual-keyboard -lpthread -lX11 -lXi
  */
 #include <stdio.h>
@@ -199,7 +214,6 @@ static void keyboardThreadWorker() {
             KeySym keysym;
             int strLen = XLookupString(&keyEvent, str, 256, &keysym, NULL);
 
-
             if (verbose) {
                 cout <<"received key press event [keycode: " <<keyEvent.keycode <<", " <<"keysym: " <<keysym <<", " <<"XLookupString: " <<str <<" (" <<strLen <<" bytes)" <<"]\n";
             }
@@ -320,8 +334,7 @@ static void interfaceThreadWorker() {
                 if (str.size() > 0) {
                     strcpy(data, str.c_str());
                     size = str.size();
-                }
-                else {
+                } else {
                     data[0] = '\0';
                     size = 1;
                 }

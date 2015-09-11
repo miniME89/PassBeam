@@ -1,3 +1,19 @@
+/*
+ * Copyright (C) 2015 Marcel Lehwald
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 package io.github.minime89.passbeam.keyboard;
 
 import android.app.IntentService;
@@ -56,14 +72,14 @@ public class DeviceWriter extends IntentService {
 
     /**
      * Process the string write requests triggered by {@link DeviceWriter#write(String)}.
-     * The method will proceed as following:<br><br>
-     * <p>
+     * The method will proceed as following:
+     * <p/>
      * 1. Create new process which switches to super user<br>
      * 2. Process all strings added to {@link DeviceWriter#stringQueue}.<br>
      * &nbsp;&nbsp;2.1 Convert string to encoded keyboard event<br>
      * &nbsp;&nbsp;2.2 Write each event to the device<br>
-     * 3. End the process<br><br>
-     * <p>
+     * 3. End the process
+     * <p/>
      * In step 2 all strings will be processed from {@link DeviceWriter#stringQueue} and
      * some time (determined by {@link DeviceWriter#SERVICE_TIMEOUT} will be waited for new
      * string write requests to arrive. If no new string write requests arrive within this time, the
@@ -163,7 +179,7 @@ public class DeviceWriter extends IntentService {
      * Request the service to write the given string as a HID keyboard. The request will start the
      * service, encode the string into the appropriate output format and write the data to the
      * device using superuser privileges.
-     * <p>
+     * <p/>
      * The method will return immediately and no feedback is returned by the service (for now).
      *
      * @param str The string.

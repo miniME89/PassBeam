@@ -1,5 +1,20 @@
+/*
+ * Copyright (C) 2015 Marcel Lehwald
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 package io.github.minime89.passbeam.keyboard;
-
 
 import android.util.Log;
 
@@ -13,7 +28,7 @@ import io.github.minime89.passbeam.Utils;
 /**
  * The Converter is used for converting characters or strings into keyboard events, when written
  * to the appropriate device, produce that character or string.
- * <p>
+ * <p/>
  * In order to encode characters or strings using {@link Converter#convert(char)} or {@link Converter#convert(String)},
  * the keycode, keysym and scancode tables need to be loaded using {@link Converter#load(String)} or {@link Converter#load(String, String, String)}.
  */
