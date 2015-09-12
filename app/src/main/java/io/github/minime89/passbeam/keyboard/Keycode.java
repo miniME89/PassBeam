@@ -79,7 +79,8 @@ public class Keycode {
     }
 
     /**
-     * Reference to a keycode. The reference contains only the {@link Keycode#value} of a keycode which can be used to resolve the actual reference to the {@link Keycode} instance.
+     * Reference to a keycode. The reference contains only the {@link Keycode#value} of a keycode
+     * which can be used to resolve the actual reference to the {@link Keycode} instance.
      */
     @Root(name = "keycode")
     public static class Ref {
@@ -125,16 +126,33 @@ public class Keycode {
         this.keysymRefs = Collections.unmodifiableCollection(keysymRefs);
     }
 
-    public void build(Keysyms keysyms, Scancodes scancodes) throws KeycodeBuildException {
+    /**
+     * Build the keycode. This will lookup the scancode instance associated with the provided
+     * keycode {@link #value} and lookup all keysyms associated with the provided {@link #keysymRefs}.
+     *
+     * @param converter The converter used for possible keycode, keysym and scancode lookups.
+     * @throws KeycodeBuildException When the keycode couldn't be build.
+     */
+    public void build(Converter converter) throws KeycodeBuildException {
         valid = false;
         scancode = null;
         symbols = null;
+
+        Scancodes scancodes = converter.getScancodes();
+        if (scancodes == null) {
+            throw new KeycodeBuildException("couldn't get scancodes from convert instance");
+        }
 
         //resolve scancode
         Keycode.Ref ref = new Keycode.Ref(this);
         scancode = scancodes.find(ref);
         if (scancode == null) {
             throw new KeycodeBuildException(String.format("couldn't resolve keycode reference [%s] to a scancode", ref));
+        }
+
+        Keysyms keysyms = converter.getKeysyms();
+        if (keysyms == null) {
+            throw new KeycodeBuildException("couldn't get keysyms from convert instance");
         }
 
         //resolve symbols

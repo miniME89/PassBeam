@@ -174,9 +174,9 @@ public class Converter {
         keysyms = Keysyms.load(scancodesId);
         keycodes = Keycodes.load(keycodesId);
 
-        scancodes.build(keycodes, keysyms);
-        keysyms.build(keycodes, scancodes);
-        keycodes.build(keysyms, scancodes);
+        scancodes.build(this);
+        keysyms.build(this);
+        keycodes.build(this);
     }
 
     /**

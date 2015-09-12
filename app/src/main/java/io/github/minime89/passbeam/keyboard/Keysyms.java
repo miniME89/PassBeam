@@ -40,7 +40,7 @@ public class Keysyms {
     private final Collection<Keysym> keysyms;
 
     /**
-     * Load keysyms with the specified keysyms ID.
+     * Load the keysyms with the specified keysyms ID.
      *
      * @param keysymsId The keysyms ID.
      * @return Returns loaded keysyms.
@@ -56,12 +56,18 @@ public class Keysyms {
         this.keysyms = Collections.unmodifiableCollection(keysyms);
     }
 
-    public void build(Keycodes keycodes, Scancodes scancodes) {
+    /**
+     * Build all keysyms. This will call {@link Keysym#build(Converter)} for every keysym in
+     * {@link #keysyms}. Any failed keysym build attempts will be ignored.
+     *
+     * @param converter The converter used for possible keycode, keysym and scancode lookups.
+     */
+    public void build(Converter converter) {
         for (Keysym keysym : keysyms) {
             try {
-                keysym.build(keycodes, scancodes);
+                keysym.build(converter);
             } catch (Keysym.KeysymBuildException e) {
-                Log.w(TAG, e.getMessage());
+                Log.v(TAG, e.getMessage());
             }
         }
     }

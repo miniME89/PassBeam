@@ -41,7 +41,7 @@ public class Keycodes {
     private final Collection<Keycode> keycodes;
 
     /**
-     * Load keycodes with the specified keycodes ID.
+     * Load the keycodes with the specified keycodes ID.
      *
      * @param keycodesId The keycodes ID.
      * @return Returns loaded keycodes.
@@ -57,12 +57,18 @@ public class Keycodes {
         this.keycodes = Collections.unmodifiableCollection(keycodes);
     }
 
-    public void build(Keysyms keysyms, Scancodes scancodes) {
+    /**
+     * Build all keycodes. This will call {@link Keycode#build(Converter)} for every keycode in
+     * {@link #keycodes}. Any failed keycode build attempts will be ignored.
+     *
+     * @param converter The converter used for possible keycode, keysym and scancode lookups.
+     */
+    public void build(Converter converter) {
         for (Keycode keycode : keycodes) {
             try {
-                keycode.build(keysyms, scancodes);
+                keycode.build(converter);
             } catch (Keycode.KeycodeBuildException e) {
-                Log.w(TAG, e.getMessage());
+                Log.v(TAG, e.getMessage());
             }
         }
     }

@@ -18,5 +18,6 @@
 <resources>
 
     <string name="app_name">PassBeam</string>
+    <string name="keyboard_layout_loading_error">Couldn\'t load keyboard layout</string>
 
 </resources>

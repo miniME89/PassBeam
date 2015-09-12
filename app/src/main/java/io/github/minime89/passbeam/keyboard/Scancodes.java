@@ -37,7 +37,7 @@ public class Scancodes {
     private final Collection<Scancode> scancodes;
 
     /**
-     * Load scancodes with the specified scancodes ID.
+     * Load the scancodes with the specified scancodes ID.
      *
      * @param scancodesId The scancodes ID.
      * @return Returns loaded scancodes.
@@ -53,12 +53,18 @@ public class Scancodes {
         this.scancodes = Collections.unmodifiableCollection(scancodes);
     }
 
-    public void build(Keycodes keycodes, Keysyms keysyms) {
+    /**
+     * Build all scancodes. This will call {@link Scancode#build(Converter)} for every scancode in
+     * {@link #scancodes}. Any failed scancode build attempts will be ignored.
+     *
+     * @param converter The converter used for possible keycode, keysym and scancode lookups.
+     */
+    public void build(Converter converter) {
         for (Scancode scancode : scancodes) {
             try {
-                scancode.build(keycodes, keysyms);
+                scancode.build(converter);
             } catch (Scancode.ScancodeBuildException e) {
-                Log.w(TAG, e.getMessage());
+                Log.v(TAG, e.getMessage());
             }
         }
     }

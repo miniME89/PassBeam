@@ -67,7 +67,8 @@ public class Keysym {
     }
 
     /**
-     * Reference to a keysym. The reference contains only the {@link Keysym#value} of a keysym which can be used to resolve the actual reference to the {@link Keysym} instance.
+     * Reference to a keysym. The reference contains only the {@link Keysym#value} of a keysym
+     * which can be used to resolve the actual reference to the {@link Keysym} instance.
      */
     @Root(name = "keysym")
     public static class Ref {
@@ -115,7 +116,13 @@ public class Keysym {
         this.unicode = unicode;
     }
 
-    public void build(Keycodes keycodes, Scancodes scancodes) throws KeysymBuildException {
+    /**
+     * Build the keysym.
+     *
+     * @param converter The converter used for possible keycode, keysym and scancode lookups.
+     * @throws KeysymBuildException When the keysym couldn't be build.
+     */
+    public void build(Converter converter) throws KeysymBuildException {
         //nothing to do
 
         valid = true;

@@ -72,7 +72,8 @@ public class Scancode {
     }
 
     /**
-     * Reference to a scancode. The reference contains only the {@link Scancode#value} of a scancode which can be used to resolve the actual reference to the {@link Scancode} instance.
+     * Reference to a scancode. The reference contains only the {@link Scancode#value} of a scancode
+     * which can be used to resolve the actual reference to the {@link Scancode} instance.
      */
     @Root(name = "scancode")
     public static class Ref {
@@ -120,9 +121,21 @@ public class Scancode {
         this.keycodeRef = keycodeRef;
     }
 
-    public void build(Keycodes keycodes, Keysyms keysyms) throws ScancodeBuildException {
+    /**
+     * Build the scancode. This will lookup the keycode instance associated with the provided
+     * provided {@link #keycodeRef}.
+     *
+     * @param converter The converter used for possible keycode, keysym and scancode lookups.
+     * @throws ScancodeBuildException When the scancode couldn't be build.
+     */
+    public void build(Converter converter) throws ScancodeBuildException {
         valid = false;
         keycode = null;
+
+        Keycodes keycodes = converter.getKeycodes();
+        if (keycodes == null) {
+            throw new ScancodeBuildException("couldn't get keycodes from convert instance");
+        }
 
         //resolve keycode
         keycode = keycodes.find(keycodeRef);

@@ -24,6 +24,7 @@ import android.os.AsyncTask;
 import android.os.IBinder;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.widget.Toast;
 
 import io.github.minime89.passbeam.hooks.ClipboardListener;
 import io.github.minime89.passbeam.hooks.NotificationListener;
@@ -71,19 +72,27 @@ public class PassBeamService extends Service {
     /**
      *
      */
-    private class LoadLayoutTask extends AsyncTask<String, Void, Void> {
+    private class LoadLayoutTask extends AsyncTask<String, Void, Boolean> {
         @Override
-        protected Void doInBackground(String... params) {
+        protected Boolean doInBackground(String... params) {
             String keycodesId = params[0];
             Log.v(TAG, String.format("load keyboard layout '%s'", keycodesId));
 
             try {
                 DeviceWriter.getConverter().load(keycodesId);
             } catch (FileManager.FileManagerException e) {
-                Log.e(TAG, "couldn't load keyboard layout: " + e.getMessage()); //TODO handle
+                Log.e(TAG, String.format("couldn't load keyboard layout '%s': %s", keycodesId, e.getMessage()));
+                return false;
             }
 
-            return null;
+            return true;
+        }
+
+        @Override
+        protected void onPostExecute(Boolean result) {
+            if (!result) {
+                Toast.makeText(PassBeamService.this, getString(R.string.keyboard_layout_loading_error), Toast.LENGTH_LONG).show();
+            }
         }
     }
 
