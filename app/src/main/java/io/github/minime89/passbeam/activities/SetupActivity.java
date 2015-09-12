@@ -59,7 +59,7 @@ public class SetupActivity extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             rootLayout = (RelativeLayout) SetupActivity.this.findViewById(R.id.rootLayout);
-            progressBar = (ProgressBar) SetupActivity.this.findViewById(R.id.progressBar);
+            progressBar = (ProgressBar) SetupActivity.this.findViewById(R.id.verifyRootProgressBar);
             progressLabel = (TextView) SetupActivity.this.findViewById(R.id.progressLabel);
 
             progressBar.setVisibility(View.VISIBLE);

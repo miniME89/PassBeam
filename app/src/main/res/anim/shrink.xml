@@ -1,4 +1,4 @@
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright (C) 2015 Marcel Lehwald
   ~
   ~ This program is free software: you can redistribute it and/or modify
@@ -15,12 +15,16 @@
   ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   -->
 
-<resources>
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fillAfter="true">
 
-    <style name="Application" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="colorPrimary">#27823a</item>
-    </style>
+    <scale
+        android:duration="400"
+        android:fromXScale="1.0"
+        android:fromYScale="1.0"
+        android:pivotX="50%"
+        android:pivotY="50%"
+        android:toXScale="0"
+        android:toYScale="0" />
 
-    <style name="Setup" parent="Theme.AppCompat.Light.NoActionBar" />
-
-</resources>
+</set>

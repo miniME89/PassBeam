@@ -1,15 +1,32 @@
+<!--
+  ~ Copyright (C) 2015 Marcel Lehwald
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
 <resources>
     <string name="settings_title">@string/app_name</string>
 
     <!-- keyboard layout -->
     <string name="settings_keyboard_layout_key">settings_keyboard_layout</string>
     <string name="settings_keyboard_layout_title">Keyboard layout</string>
-    <string name="settings_keyboard_layout_summary">The keyboard layout</string>
+    <string name="settings_keyboard_layout_summary">The keyboard layout of the target computer</string>
 
     <!-- keyboard character timeout -->
     <string name="settings_character_timeout_key">settings_character_timeout</string>
     <string name="settings_character_timeout_title">Character timeout</string>
-    <string name="settings_character_timeout_summary">The timeout between writing characters</string>
+    <string name="settings_character_timeout_summary">The timeout between emitting characters</string>
     <string name="settings_character_timeout_defaultValue">20</string>
     <string-array name="settings_character_timeout_entries">
         <item>20ms</item>
@@ -29,12 +46,17 @@
     <!-- notification -->
     <string name="settings_notification_key">settings_notification_key</string>
     <string name="settings_notification_title">Notification</string>
-    <string name="settings_notification_summary">Use a notification to initiate the keyboard write event</string>
+    <string name="settings_notification_summary">Use notification to manually beam clipboard</string>
     <string name="settings_notification_defaultValue">true</string>
 
     <!-- keyboard layout test -->
     <string name="settings_keyboard_layout_test_key">settings_keyboard_layout_test_key</string>
     <string name="settings_keyboard_layout_test_title">Test keyboard layout</string>
-    <string name="settings_keyboard_layout_test_summary">Test the currently selected keyboard layout</string>
+    <string name="settings_keyboard_layout_test_summary">Test currently selected keyboard layout</string>
+
+    <!-- status -->
+    <string name="settings_status_key">settings_status_key</string>
+    <string name="settings_status_title">Status</string>
+    <string name="settings_status_summary">Check if the device satisfy the application requirements</string>
 
 </resources>

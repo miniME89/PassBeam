@@ -17,10 +17,15 @@
 
 <resources>
 
-    <style name="Application" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="colorPrimary">#27823a</item>
-    </style>
-
-    <style name="Setup" parent="Theme.AppCompat.Light.NoActionBar" />
+    <string name="status_title">Status</string>
+    <string name="status_device_title">Device Info</string>
+    <string name="status_device_name">Device Name</string>
+    <string name="status_device_android">Android</string>
+    <string name="status_device_kernel">Kernel</string>
+    <string name="status_device_unknown">\?\?\?</string>
+    <string name="status_root_title">Root Status</string>
+    <string name="status_root_description">Verify the possibility for acquiring superuser privileges</string>
+    <string name="status_hid_title">Keyboard Status</string>
+    <string name="status_hid_description">Verify the availability of the keyboard device</string>
 
 </resources>
